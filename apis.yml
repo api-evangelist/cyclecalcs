@@ -1,0 +1,94 @@
+name: CycleCalcs
+description: >-
+  Read-only astronomy/ephemeris engine providing positional astronomy computations — sun/moon rise-set, moon phases,
+  planet positions, eclipses, seasons, conjunctions, sidereal time, and more — via REST, a hosted MCP server, and
+  llms.txt. Free keyless basic tier with paid tiers via RapidAPI.
+url: https://cyclecalcs.apievangelist.com/apis.yml
+created: '2026-08-09'
+modified: '2026-08-09'
+specificationVersion: '0.21'
+tags:
+  - Astronomy
+  - Space
+  - Science
+  - Ephemeris
+  - Sun
+  - Moon
+  - Planets
+  - Eclipses
+  - Time
+  - Calendar
+  - Geolocation
+  - MCP
+  - Agent-native
+apis:
+  - name: CycleCalcs Astronomy API v2
+    description: >-
+      JSON-over-HTTPS REST astronomy API (GET only, 29 endpoints) covering sun/moon, phases, positions, rise-set,
+      eclipses, seasons, retrogrades, conjunctions, and more. Free keyless basic tier; paid tiers authenticate via
+      RapidAPI gateway.
+    humanURL: https://www.cyclecalcs.com/api.html
+    baseURL: https://www.cyclecalcs.com/v2
+    tags:
+      - Astronomy
+      - Space
+      - Science
+      - Ephemeris
+      - Sun
+      - Moon
+      - Planets
+      - Eclipses
+      - Time
+      - Calendar
+      - Geolocation
+      - MCP
+      - Agent-native
+    properties:
+      - type: OpenAPI
+        url: https://www.cyclecalcs.com/v2/openapi.json
+      - type: Documentation
+        url: https://www.cyclecalcs.com/api/reference.html
+      - type: Documentation
+        url: https://www.cyclecalcs.com/api/keys.html
+      - type: Documentation
+        url: https://www.cyclecalcs.com/api/errors.html
+      - type: Documentation
+        url: https://www.cyclecalcs.com/api/status.html
+      - type: LLMsTxt
+        url: https://www.cyclecalcs.com/llms.txt
+      - type: LLMsTxt
+        url: https://www.cyclecalcs.com/v2/llms-full.txt
+  - name: CycleCalcs MCP Server
+    description: >-
+      Hosted stateless Streamable HTTP MCP server exposing 11 astronomy tools backed by the v2 REST endpoints. Requires
+      Bearer RapidAPI key on every call; basic plan free. Works with Claude Code, custom connectors, and OpenAI
+      Responses API mcp tool.
+    humanURL: https://www.cyclecalcs.com/api/mcp.html
+    baseURL: https://www.cyclecalcs.com/mcp
+    tags:
+      - Astronomy
+      - Space
+      - Science
+      - Ephemeris
+      - Sun
+      - Moon
+      - Planets
+      - Eclipses
+      - Time
+      - Calendar
+      - Geolocation
+      - MCP
+      - Agent-native
+    properties:
+      - type: MCPServer
+        url: https://www.cyclecalcs.com/mcp
+      - type: Documentation
+        url: https://www.cyclecalcs.com/api/mcp.html
+maintainers:
+  - FN: CycleCalcs
+    url: https://www.cyclecalcs.com
+generated:
+  by: apis.io/add
+  model: claude-opus-4-8
+  confidence: 98
+  at: '2026-08-09T12:19:06.191Z'
