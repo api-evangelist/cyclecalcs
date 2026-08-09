@@ -1,0 +1,627 @@
+{
+  "endpoint": "/v2/cycles",
+  "computed_at": "2026-08-01T00:00:00.000Z",
+  "query": {
+    "at": "2026-07-28T21:30:00.000Z",
+    "mode": "instant",
+    "resolved_from": "at",
+    "is_now": false,
+    "latitude": null,
+    "longitude": null,
+    "elevation_m": 0,
+    "tz": "UTC",
+    "utc_offset_seconds": 0,
+    "utc_offset_iso": "+00:00",
+    "is_dst": false,
+    "timezone_source": "default",
+    "time_format": "iso",
+    "format": "json",
+    "shape": "nested",
+    "precision": 6,
+    "pretty": 1,
+    "verbosity": "full",
+    "keys": null,
+    "kind": null,
+    "family": null,
+    "include": [
+      "fraction",
+      "next_event",
+      "observed"
+    ],
+    "ignored": []
+  },
+  "data": {
+    "note": "Positional astronomy only. A cycle here is a position in a repeating astronomical pattern and nothing else. These figures do not predict events on Earth, in markets, or in anyone's life, and no field in this response should be read that way. Where a cycle is measured from observations rather than computed from orbital mechanics, kind is observed and the position is an estimate. Where a cycle is a repeat interval with no live phase, fraction is null and the reason is stated rather than a number invented.",
+    "instant": "2026-07-28T21:30:00.000Z",
+    "decimal_year": 2026.5723173515983,
+    "count": 21,
+    "summary": "The Moon is full, day 14 of the synodic month. The Sun is 35 percent through the tropical year, in the northern summer quarter. Jupiter is 117.4 deg ahead of Saturn in heliocentric longitude. Solar Cycle 25 is roughly 60 percent through its nominal 11 years, which is an estimate rather than a measurement.",
+    "cycles": [
+      {
+        "key": "synodic_month",
+        "slug": "synodic-month",
+        "name": "The synodic month",
+        "family": "lunar_month",
+        "kind": "computed_phase",
+        "period_days": 29.530589,
+        "period_text": "29.530589 days (29 d 12 h 44 min)",
+        "fraction": 0.477828,
+        "percent_complete": 47.782847,
+        "fraction_method": "MoonPhase(t) divided by 360. MoonPhase returns the Moon's elongation from the Sun in ecliptic longitude, 0 at new moon and 180 at full.",
+        "position_label": "Full Moon, day 14 of 29.53",
+        "position_values": {
+          "phase_angle_deg": 172.01825,
+          "day_of_cycle": 14,
+          "phase_code": "full_moon"
+        },
+        "next_event": {
+          "kind": "full_moon",
+          "label": "Full Moon",
+          "instant": "2026-07-29T14:36:19.011Z",
+          "days_until": 0.71272
+        },
+        "page_url": "https://www.cyclecalcs.com/cycles/synodic-month.html"
+      },
+      {
+        "key": "sidereal_month",
+        "slug": "sidereal-month",
+        "name": "The sidereal month",
+        "family": "lunar_month",
+        "kind": "computed_phase",
+        "period_days": 27.321661,
+        "period_text": "27.321661 days (27 d 7 h 43 min)",
+        "fraction": 0.826309,
+        "percent_complete": 82.630926,
+        "fraction_method": "The Moon's J2000 ecliptic longitude divided by 360. The J2000 ecliptic, not the ecliptic of date, because a sidereal month is measured against the stars and the equinox of date moves.",
+        "position_label": "Moon at 297.4713 deg J2000 ecliptic longitude",
+        "position_values": {
+          "ecliptic_longitude_j2000_deg": 297.471333
+        },
+        "next_event": null,
+        "page_url": "https://www.cyclecalcs.com/cycles/sidereal-month.html"
+      },
+      {
+        "key": "anomalistic_month",
+        "slug": "anomalistic-month",
+        "name": "The anomalistic month",
+        "family": "lunar_month",
+        "kind": "computed_phase",
+        "period_days": 27.55455,
+        "period_text": "27.554550 days (27 d 13 h 19 min)",
+        "fraction": 0.553122,
+        "percent_complete": 55.312154,
+        "fraction_method": "Elapsed time since the previous perigee divided by the interval to the next one, both from the engine's apsis search. The interval for this particular month is 28.1398 days, which is not the mean period and is not meant to be.",
+        "position_label": "15.6 days past perigee, 12.6 days to the next",
+        "position_values": {
+          "previous_perigee": "2026-07-13T07:56:49.301Z",
+          "next_perigee": "2026-08-10T11:18:04.529Z",
+          "previous_perigee_distance_km": 359102.352973,
+          "interval_days": 28.13976
+        },
+        "next_event": {
+          "kind": "perigee",
+          "label": "The Moon reaches perigee",
+          "instant": "2026-08-10T11:18:04.529Z",
+          "days_until": 12.575052
+        },
+        "page_url": "https://www.cyclecalcs.com/cycles/anomalistic-month.html"
+      },
+      {
+        "key": "draconic_month",
+        "slug": "draconic-month",
+        "name": "The draconic month",
+        "family": "lunar_month",
+        "kind": "computed_phase",
+        "period_days": 27.212221,
+        "period_text": "27.212221 days (27 d 5 h 6 min)",
+        "fraction": 0.904327,
+        "percent_complete": 90.432696,
+        "fraction_method": "Elapsed time since the previous ascending-node passage divided by the interval to the next one, both from the engine's true-node search. The interval for this particular month is 27.1685 days, which is not the mean period and is not meant to be.",
+        "position_label": "24.6 days past the ascending node, 2.6 days from the next one",
+        "position_values": {
+          "previous_ascending_node": "2026-07-04T07:50:23.985Z",
+          "next_ascending_node": "2026-07-31T11:52:58.543Z",
+          "interval_days": 27.168456
+        },
+        "next_event": {
+          "kind": "node_ascending",
+          "label": "The Moon crosses the ecliptic going north",
+          "instant": "2026-07-31T11:52:58.543Z",
+          "days_until": 2.599289
+        },
+        "page_url": "https://www.cyclecalcs.com/cycles/draconic-month.html"
+      },
+      {
+        "key": "eclipse_year",
+        "slug": "eclipse-year",
+        "name": "The eclipse year",
+        "family": "node",
+        "kind": "computed_phase",
+        "period_days": 346.62,
+        "period_text": "346.620 days (about 346 d 15 h)",
+        "fraction": 0.43334,
+        "percent_complete": 43.334013,
+        "fraction_method": "The Sun's ecliptic longitude minus the Moon's ascending-node longitude, wrapped to [0, 360), divided by 360. Eclipses happen when this is near 0 or 180.",
+        "position_label": "The Sun is 156.0 deg past the Moon's ascending node",
+        "position_values": {
+          "sun_ecliptic_longitude_deg": 125.821423,
+          "ascending_node_longitude_deg": 329.818978,
+          "sun_past_node_deg": 156.002446
+        },
+        "next_event": null,
+        "page_url": "https://www.cyclecalcs.com/cycles/eclipse-year.html"
+      },
+      {
+        "key": "saros",
+        "slug": "saros",
+        "name": "The Saros",
+        "family": "eclipse",
+        "kind": "interval",
+        "period_days": 6585.3213,
+        "period_text": "about 18 years 11 days (18.03 years)",
+        "fraction": null,
+        "fraction_unavailable_reason": "The saros is a repeat INTERVAL between eclipses of one series, not a continuous phase. Asking how far through a saros we are is not a well-posed question, so no fraction is reported; related_events carries the eclipses that actually bound it.",
+        "position_label": "The next eclipse is the total solar eclipse of 2026-08-12, saros series 126",
+        "related_events": [
+          {
+            "kind": "solar_eclipse",
+            "label": "Total solar eclipse",
+            "saros_series": 126,
+            "instant": "2026-08-12T17:45:46.794Z"
+          },
+          {
+            "kind": "solar_eclipse",
+            "label": "The next eclipse of the same saros series",
+            "saros_series": 126,
+            "note": "One saros later, found by searching for the eclipse nearest peak plus 6585.3211 days rather than by assuming one is there.",
+            "instant": "2044-08-23T01:15:32.565Z"
+          }
+        ],
+        "next_event": null,
+        "page_url": "https://www.cyclecalcs.com/cycles/saros.html"
+      },
+      {
+        "key": "inex",
+        "slug": "inex",
+        "name": "The inex",
+        "family": "eclipse_period",
+        "kind": "interval",
+        "period_days": 10571.95,
+        "period_text": "about 28 years 345 days (28.945 years)",
+        "fraction": null,
+        "fraction_unavailable_reason": "The inex is a repeat interval between eclipses, not a continuous phase, so it has no live position to report.",
+        "position_label": "10571.95 days; pairs with the saros to keep an eclipse series alive",
+        "next_event": null,
+        "page_url": "https://www.cyclecalcs.com/cycles/inex.html"
+      },
+      {
+        "key": "tritos",
+        "slug": "tritos",
+        "name": "The tritos",
+        "family": "eclipse_period",
+        "kind": "interval",
+        "period_days": 3986.63,
+        "period_text": "about 10 years 334 days (10.915 years)",
+        "fraction": null,
+        "fraction_unavailable_reason": "The tritos is a repeat interval between eclipses, not a continuous phase, so it has no live position to report.",
+        "position_label": "3986.63 days",
+        "next_event": null,
+        "page_url": "https://www.cyclecalcs.com/cycles/tritos.html"
+      },
+      {
+        "key": "exeligmos",
+        "slug": "exeligmos",
+        "name": "The exeligmos",
+        "family": "eclipse_period",
+        "kind": "interval",
+        "period_days": 19755.96,
+        "period_text": "about 54 years 33 days (three Saroses)",
+        "fraction": null,
+        "fraction_unavailable_reason": "The exeligmos is three saroses, a repeat interval rather than a continuous phase, so it has no live position to report.",
+        "position_label": "19755.96 days, three saroses, which returns the eclipse to nearly the same longitude",
+        "next_event": null,
+        "page_url": "https://www.cyclecalcs.com/cycles/exeligmos.html"
+      },
+      {
+        "key": "metonic_cycle",
+        "slug": "metonic-cycle",
+        "name": "The Metonic cycle",
+        "family": "node",
+        "kind": "computed_phase",
+        "period_days": 6939.69,
+        "period_text": "6,939.69 days (about 19 years)",
+        "fraction": 0.661701,
+        "percent_complete": 66.170091,
+        "fraction_method": "The decimal year modulo 19, divided by 19. THE ZERO IS THE GOLDEN-NUMBER CALENDAR CONVENTION, not an astronomical event: no engine call is made. The 19-year rhythm itself is real, because 235 synodic months agree with 19 tropical years to within about two hours, but where you start counting is a convention. The Callippic cycle, which is four Metonic cycles, is given no fraction at all because its zero point has no comparable index in use.",
+        "position_label": "Golden number 13 of 19",
+        "position_values": {
+          "golden_number": 13,
+          "decimal_year": 2026.5723173515983
+        },
+        "next_event": null,
+        "page_url": "https://www.cyclecalcs.com/cycles/metonic-cycle.html"
+      },
+      {
+        "key": "callippic",
+        "slug": "callippic",
+        "name": "The Callippic cycle",
+        "family": "node",
+        "kind": "interval",
+        "period_days": 27758.75,
+        "period_text": "27,758.75 days (about 76 years, 940 synodic months)",
+        "fraction": null,
+        "fraction_unavailable_reason": "The Callippic cycle is a 76-year calendar construction, four Metonic cycles, and its zero point is a convention rather than an astronomical event. The live position of the underlying 19-year rhythm is reported on metonic_cycle instead.",
+        "position_label": "27,758.75 days (about 76 years, 940 synodic months), four Metonic cycles; its zero point is a calendar convention, so the Metonic entry carries the live position",
+        "next_event": null,
+        "page_url": "https://www.cyclecalcs.com/cycles/callippic.html"
+      },
+      {
+        "key": "lunar_nodal_cycle",
+        "slug": "lunar-nodal-cycle",
+        "name": "The lunar nodal cycle",
+        "family": "node",
+        "kind": "computed_phase",
+        "period_days": 6798.383,
+        "period_text": "6,798.383 days (18.61 years)",
+        "fraction": 0.080257,
+        "percent_complete": 8.025724,
+        "fraction_method": "The mean ascending node regresses through 360 degrees in 18.6 years, so the fraction is the negated mean node longitude over 360. The mean node is the canonical Meeus polynomial from netlify/lib/v2/nodes.mjs.",
+        "position_label": "Mean ascending node at 331.107 deg, regressing about 19.3 deg per year",
+        "position_values": {
+          "mean_ascending_node_deg": 331.107392
+        },
+        "next_event": null,
+        "page_url": "https://www.cyclecalcs.com/cycles/lunar-nodal-cycle.html"
+      },
+      {
+        "key": "lunar_standstill",
+        "slug": "lunar-standstill",
+        "name": "The lunar standstill",
+        "family": "node",
+        "kind": "computed_phase",
+        "period_days": 6798.38,
+        "period_text": "about 18.6 years (major to major)",
+        "fraction": 0.080257,
+        "percent_complete": 8.025724,
+        "fraction_method": "The mean ascending node regresses through 360 degrees in 18.6 years, so the fraction is the negated mean node longitude over 360. The mean node is the canonical Meeus polynomial from netlify/lib/v2/nodes.mjs. The lunar standstill IS the nodal cycle asked a different way, so it deliberately reports the same fraction: a different-looking number here would be a presentational fiction.",
+        "position_label": "Same 18.61-year swing as the nodal cycle, seen through the standstill question",
+        "position_values": {
+          "mean_ascending_node_deg": 331.107392,
+          "next_minor_standstill": "2034-05-21T11:16:32.046Z",
+          "next_major_standstill": "2043-09-10T15:56:33.176Z"
+        },
+        "next_event": {
+          "kind": "minor_standstill",
+          "label": "Minor lunar standstill, when the Moon's monthly swing in declination is narrowest",
+          "instant": "2034-05-21T11:16:32.046Z",
+          "days_until": 2853.573982
+        },
+        "page_url": "https://www.cyclecalcs.com/cycles/lunar-standstill.html"
+      },
+      {
+        "key": "tropical_year",
+        "slug": "tropical-year",
+        "name": "The tropical year",
+        "family": "year",
+        "kind": "computed_phase",
+        "period_days": 365.2422,
+        "period_text": "365.2422 days (365 d 5 h 49 min)",
+        "fraction": 0.349504,
+        "percent_complete": 34.950395,
+        "fraction_method": "The Sun's apparent ecliptic longitude of date divided by 360, zero at the March equinox.",
+        "position_label": "Sun at 125.8214 deg ecliptic longitude, northern summer quarter",
+        "position_values": {
+          "sun_ecliptic_longitude_deg": 125.821423,
+          "season_quarter": "northern summer"
+        },
+        "next_event": {
+          "kind": "september_equinox",
+          "label": "September equinox",
+          "instant": "2026-09-23T00:05:38.617Z",
+          "days_until": 56.108086
+        },
+        "page_url": "https://www.cyclecalcs.com/cycles/tropical-year.html"
+      },
+      {
+        "key": "anomalistic_year",
+        "slug": "anomalistic-year",
+        "name": "The anomalistic year",
+        "family": "year",
+        "kind": "computed_phase",
+        "period_days": 365.259636,
+        "period_text": "365.259636 days (365 d 6 h 13 min 53 s)",
+        "fraction": 0.565873,
+        "percent_complete": 56.587264,
+        "fraction_method": "Elapsed time since the previous perihelion divided by the interval to the next one, both from the engine's planetary apsis search. This particular year runs 364.3928 days.",
+        "position_label": "206.2 days past perihelion",
+        "position_values": {
+          "previous_perihelion": "2026-01-03T16:42:09.402Z",
+          "next_perihelion": "2027-01-03T02:07:43.356Z",
+          "interval_days": 364.392754
+        },
+        "next_event": {
+          "kind": "perihelion",
+          "label": "Earth reaches perihelion",
+          "instant": "2027-01-03T02:07:43.356Z",
+          "days_until": 158.192863
+        },
+        "page_url": "https://www.cyclecalcs.com/cycles/anomalistic-year.html"
+      },
+      {
+        "key": "sidereal_year",
+        "slug": "sidereal-year",
+        "name": "The sidereal year",
+        "family": "year",
+        "kind": "computed_phase",
+        "period_days": 365.25636,
+        "period_text": "365.25636 days (365 d 6 h 9 min)",
+        "fraction": 0.348465,
+        "percent_complete": 34.846547,
+        "fraction_method": "The Sun's J2000 ecliptic longitude divided by 360. The J2000 ecliptic, not the ecliptic of date, because a sidereal year is measured against the stars.",
+        "position_label": "Sun at 125.4476 deg J2000 ecliptic longitude",
+        "position_values": {
+          "ecliptic_longitude_j2000_deg": 125.44757
+        },
+        "next_event": null,
+        "page_url": "https://www.cyclecalcs.com/cycles/sidereal-year.html"
+      },
+      {
+        "key": "great_conjunction",
+        "slug": "great-conjunction",
+        "name": "The great conjunction",
+        "family": "conjunction",
+        "kind": "computed_phase",
+        "period_days": 7253.45,
+        "period_text": "7,253.45 days (19.86 years)",
+        "fraction": 0.32606,
+        "percent_complete": 32.606025,
+        "fraction_method": "Heliocentric ecliptic longitude of Jupiter minus that of Saturn, wrapped to [0, 360), divided by 360. Zero at the heliocentric conjunction, which is the instant next_event names, so the fraction reaches 1 exactly there and nowhere else. THE FRAME IS HELIOCENTRIC AND THAT IS A CHOICE: the classical great conjunction, the one seen from Earth, is the GEOCENTRIC conjunction in ecliptic longitude and can fall up to about fifteen weeks from this instant. The fraction cannot be geocentric, because seen from Earth the pair meets three times in some cycles (1940-41 and 1980-81 inside the supported range 1700 to 2200), so a geocentric fraction would complete more than once per declared period. The geocentric dates are served by /v2/conjunctions.",
+        "position_label": "Jupiter is 117.4 deg ahead of Saturn in heliocentric longitude",
+        "position_values": {
+          "jupiter_heliocentric_longitude_deg": 126.369231,
+          "saturn_heliocentric_longitude_deg": 8.987539,
+          "separation_in_longitude_deg": 117.381692
+        },
+        "next_event": {
+          "kind": "conjunction",
+          "label": "Jupiter laps Saturn in heliocentric ecliptic longitude, completing this cycle",
+          "note": "This is the HELIOCENTRIC conjunction, the instant the fraction on this row reaches 1. The classical great conjunction, the one visible from Earth, is the geocentric conjunction in ecliptic longitude and falls up to about fifteen weeks from this instant; /v2/conjunctions dates that one. The two frames are not interchangeable here: geocentrically the pair meets three times in some cycles, so only the heliocentric meeting can mark the end of a cycle.",
+          "instant": "2040-12-07T23:34:46.682Z",
+          "days_until": 5246.086651
+        },
+        "page_url": "https://www.cyclecalcs.com/cycles/great-conjunction.html"
+      },
+      {
+        "key": "venus_pentagram",
+        "slug": "venus-pentagram",
+        "name": "The Venus pentagram",
+        "family": "venus",
+        "kind": "computed_phase",
+        "period_days": 2919.6,
+        "period_text": "2,919.6 days (about 8 years)",
+        "fraction": 0.770289,
+        "percent_complete": 77.028858,
+        "fraction_method": "The pentagram is FIVE Venus-Earth synodic cycles, so the fraction is (lobe + synodic phase) / 5. The synodic phase is the heliocentric ecliptic longitude of Venus minus that of Earth, wrapped to [0, 360) and divided by 360; the lobe is which of the five inferior conjunctions of the current figure has most recently passed, counted from the inferior conjunction of 2020-05-03. Reporting the synodic phase alone would complete five times per pentagram.",
+        "position_label": "Lobe 4 of 5, Venus 306.5 deg from Earth in heliocentric longitude",
+        "position_values": {
+          "venus_heliocentric_longitude_deg": 252.346465,
+          "earth_heliocentric_longitude_deg": 305.827026,
+          "pentagram_lobe": 4,
+          "pentagram_lobes_total": 5,
+          "synodic_cycle_fraction": 0.851443
+        },
+        "next_event": null,
+        "page_url": "https://www.cyclecalcs.com/cycles/venus-pentagram.html"
+      },
+      {
+        "key": "sunspot_cycle",
+        "slug": "sunspot-cycle",
+        "name": "The sunspot cycle",
+        "family": "sunspot",
+        "kind": "observed",
+        "period_days": 4015,
+        "period_text": "about 11 years (the Schwabe cycle)",
+        "fraction": 0.60112,
+        "percent_complete": 60.111976,
+        "fraction_method": "Elapsed decimal years since the start of Solar Cycle 25, taken as 2019.96 from the published anchor 2019-12, divided by the nominal 11-year length. This is an ESTIMATE: the length of a solar cycle is only known after it has ended, and recent cycles have run from about 9 to 14 years.",
+        "estimate": true,
+        "estimate_reason": "This cycle is measured from a published record rather than computed from orbital mechanics, so every figure on this row is an observation or an estimate derived from one, never an ephemeris result.",
+        "position_label": "About 60 percent through Solar Cycle 25, by a nominal 11-year length",
+        "position_values": {
+          "cycle_number": 25,
+          "cycle_start_decimal_year": 2019.96,
+          "nominal_length_years": 11
+        },
+        "next_event": null,
+        "observed": {
+          "smoothed_note": "A 13-month smoothed value needs six further months of data, so the most recent months carry null rather than a provisional figure.",
+          "series_resolution": "monthly_since_2008-12",
+          "latest_available_month": "2026-07",
+          "source": {
+            "name": "NOAA Space Weather Prediction Center, observed solar cycle indices",
+            "url": "https://services.swpc.noaa.gov/json/solar-cycle/observed-solar-cycle-indices.json",
+            "licence": "public domain",
+            "licence_note": "A United States Government work. It carries no attribution condition, so /v2/cycles remains rights: unrestricted. The credit here is provenance, not a licence claim.",
+            "retrieved_via": "live fetch from services.swpc.noaa.gov"
+          },
+          "at_query": {
+            "basis": "monthly",
+            "month": "2026-07",
+            "monthly_mean_sunspot_number": 78.1,
+            "smoothed_sunspot_number": null
+          }
+        },
+        "page_url": "https://www.cyclecalcs.com/cycles/sunspot-cycle.html"
+      },
+      {
+        "key": "hale",
+        "slug": "hale",
+        "name": "The Hale cycle",
+        "family": "sunspot",
+        "kind": "observed",
+        "period_days": 8035.5,
+        "period_text": "about 22 years (two sunspot cycles)",
+        "fraction": 0.80056,
+        "percent_complete": 80.055988,
+        "fraction_method": "Elapsed decimal years since the December 2008 sunspot minimum, from the published anchor 2008-12, divided by 22, taking the fractional part. The Hale cycle is two sunspot cycles, because the Sun's magnetic polarity reverses at each sunspot maximum and returns after two. This is an ESTIMATE for the same reason the sunspot cycle is.",
+        "estimate": true,
+        "estimate_reason": "This cycle is measured from a published record rather than computed from orbital mechanics, so every figure on this row is an observation or an estimate derived from one, never an ephemeris result.",
+        "position_label": "About 80 percent through the 22-year magnetic cycle, anchored on the December 2008 minimum",
+        "position_values": {
+          "anchor_decimal_year": 2008.96,
+          "nominal_length_years": 22
+        },
+        "next_event": null,
+        "observed": {
+          "smoothed_note": "A 13-month smoothed value needs six further months of data, so the most recent months carry null rather than a provisional figure.",
+          "series_resolution": "monthly_since_2008-12",
+          "latest_available_month": "2026-07",
+          "source": {
+            "name": "NOAA Space Weather Prediction Center, observed solar cycle indices",
+            "url": "https://services.swpc.noaa.gov/json/solar-cycle/observed-solar-cycle-indices.json",
+            "licence": "public domain",
+            "licence_note": "A United States Government work. It carries no attribution condition, so /v2/cycles remains rights: unrestricted. The credit here is provenance, not a licence claim.",
+            "retrieved_via": "live fetch from services.swpc.noaa.gov"
+          },
+          "at_query": {
+            "basis": "monthly",
+            "month": "2026-07",
+            "monthly_mean_sunspot_number": 78.1,
+            "smoothed_sunspot_number": null
+          }
+        },
+        "page_url": "https://www.cyclecalcs.com/cycles/hale.html"
+      },
+      {
+        "key": "axial_precession",
+        "slug": "axial-precession",
+        "name": "Axial precession (the Great Year)",
+        "family": "secular",
+        "kind": "state",
+        "period_days": 9467280,
+        "period_text": "about 25,920 years (the Great Year)",
+        "fraction": null,
+        "fraction_unavailable_reason": "The phase of axial precession depends entirely on where you choose to put the zero, and no choice is more correct than another. What IS knowable is reported in the state block: which star the pole is near, and which constellation holds the March equinox.",
+        "position_label": "Pole near Polaris; March equinox in Pisces",
+        "state": {
+          "pole_star": "Polaris",
+          "pole_note": "Earth's axis points near Polaris now and reaches Vega in roughly 12,000 years.",
+          "march_equinox_constellation": "Pisces",
+          "march_equinox_j2000_ecliptic_longitude_deg": 359.626147,
+          "march_equinox_j2000_right_ascension_hours": 23.977133,
+          "march_equinox_j2000_declination_deg": -0.148709,
+          "equinox_note": "The March equinox lies in Pisces and is drifting westward along the ecliptic, into the next constellation, at about 50 arcseconds a year. The constellation is looked up from the equinox point's J2000 right ascension and declination, both published here, and not from its ecliptic longitude: those differ by up to 1.7 deg over the supported range.",
+          "rate_arcsec_per_year": 50
+        },
+        "next_event": null,
+        "page_url": "https://www.cyclecalcs.com/cycles/axial-precession.html"
+      }
+    ]
+  },
+  "warnings": [],
+  "links": {
+    "self": "https://www.cyclecalcs.com/v2/cycles?at=2026-07-28T21%3A30%3A00Z",
+    "docs": "https://www.cyclecalcs.com/api/reference.html#cycles",
+    "spec": "https://www.cyclecalcs.com/v2/openapi.json",
+    "page": "https://www.cyclecalcs.com/cycles.html",
+    "explain": "https://www.cyclecalcs.com/cosmic-position.html",
+    "related": [
+      {
+        "rel": "cycle",
+        "title": "The synodic month",
+        "href": "https://www.cyclecalcs.com/cycles/synodic-month.html"
+      },
+      {
+        "rel": "cycle",
+        "title": "The sidereal month",
+        "href": "https://www.cyclecalcs.com/cycles/sidereal-month.html"
+      },
+      {
+        "rel": "cycle",
+        "title": "The anomalistic month",
+        "href": "https://www.cyclecalcs.com/cycles/anomalistic-month.html"
+      },
+      {
+        "rel": "cycle",
+        "title": "The draconic month",
+        "href": "https://www.cyclecalcs.com/cycles/draconic-month.html"
+      }
+    ]
+  },
+  "meta": {
+    "api_version": "2",
+    "contract_version": "2.0.0",
+    "engine": {
+      "name": "Astronomy Engine",
+      "license": "MIT",
+      "author": "Don Cross",
+      "version": "2.1.19",
+      "version_source": "upstream_sha256_match",
+      "sha256": "068f1445ed0c636c94818fe6d20d7d125120e605e0bab9fc4675c3d531be5ad7",
+      "vendored": true,
+      "credit": "astronomy-engine (MIT, Copyright (c) 2019-2023 Don Cross)"
+    },
+    "tzdb": "2026b",
+    "rights": "unrestricted",
+    "attribution": {
+      "required": false,
+      "text": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+      "sources": []
+    },
+    "notice_url": "https://www.cyclecalcs.com/methodology.html#data-sources",
+    "cache": {
+      "class": "fixed_instant",
+      "deterministic": true
+    },
+    "accuracy": {
+      "statement": "Positions are arcminute class for the Sun, Moon and planets across 1700 to 2200, degrading toward the ends of that window.",
+      "residuals_url": "https://www.cyclecalcs.com/api/accuracy.html"
+    },
+    "time": {
+      "scale_of_input": "UTC",
+      "ut1_source": "assumed equal to UTC; no IERS bulletin is loaded, so UT1 minus UTC may differ by up to 0.9 s",
+      "delta_t_seconds": 75.4,
+      "delta_t_model": "Espenak and Meeus"
+    },
+    "conventions": {
+      "precession_years": 25920,
+      "cycle_index": {
+        "count": 21,
+        "evergreen": true,
+        "evergreen_reason": "Period constants, names and families do not change. This index is rebuilt only when tools/cycles-data.mjs changes, never on a schedule.",
+        "source": "tools/cycles-data.mjs, the same table that generates the /cycles/ pages, so the API and the site quote one set of constants."
+      },
+      "sunspot_series": {
+        "resolution": "monthly_since_2008-12",
+        "resolution_note": "Monthly values from 2008-12, the EARLIER of the two anchors, so every month either fraction can refer to is present at full resolution. The Hale fraction is measured from this 2008-12 minimum; the sunspot fraction is measured from the 2019-12 cycle-25 start. Plus yearly means for the whole record back to 1749. SWPC publishes 3331 months in total; the earlier ones are carried here as yearly means so a cold function does not read the full series to answer one fraction.",
+        "latest": {
+          "month": "2026-07",
+          "ssn": 78.1,
+          "smoothed": null
+        },
+        "source": {
+          "name": "NOAA Space Weather Prediction Center, observed solar cycle indices",
+          "url": "https://services.swpc.noaa.gov/json/solar-cycle/observed-solar-cycle-indices.json",
+          "licence": "public domain",
+          "licence_note": "A United States Government work. It carries no attribution condition, so /v2/cycles remains rights: unrestricted. The credit here is provenance, not a licence claim.",
+          "retrieved_via": "live fetch from services.swpc.noaa.gov"
+        },
+        "not_adopted": {
+          "dataset": "SILSO international sunspot number",
+          "status": "not_adopted",
+          "note": "Replaced by the public-domain NOAA SWPC observed solar cycle indices. No SILSO-derived value reaches the API."
+        }
+      }
+    },
+    "method": {
+      "honesty_model": "Every cycle carries a kind. computed_phase is a real angle or elapsed fraction from the ephemeris; observed is measured from a published record and is an estimate; interval is a repeat interval between events and carries no fraction; state is deep time whose phase is convention-dependent and carries no fraction. A cycle never gets a fraction it has not earned.",
+      "no_mean_periods": "Where a cycle has a real bounding pair of events, the fraction is elapsed over THAT interval, not over the mean period. Consecutive anomalistic months differ by up to about four days, from 25.0 to 28.4 over 2026, and the response says so per row."
+    },
+    "scope": "Positional astronomy only. Nothing here bears on any question outside astronomy.",
+    "budget": {
+      "engine_calls": 793
+    }
+  },
+  "attribution": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+  "docs": "https://www.cyclecalcs.com/api/reference.html#cycles"
+}

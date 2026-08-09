@@ -1,0 +1,123 @@
+generated: '2026-08-09'
+method: searched
+status: published
+source: https://www.cyclecalcs.com/api/mcp.html
+description: >-
+  CycleCalcs publishes a hosted, stateless Streamable HTTP MCP server that
+  exposes eleven read-only astronomy tools, each backed by exactly one live
+  /v2 REST endpoint. The server speaks MCP revision 2026-07-28 and the earlier
+  2025 handshake revisions. `initialize` and `tools/list` are answered
+  anonymously — the full eleven-tool manifest, with input AND output JSON
+  Schemas, is readable without a key — and only `tools/call` requires one.
+server:
+  name: cyclecalcs
+  transport: http           # Streamable HTTP, POST only, JSON responses
+  url: https://www.cyclecalcs.com/mcp
+  protocol_revisions:
+    - '2026-07-28'
+    - '2025 handshake revisions (backwards compatible)'
+  stateless: true
+  docs: https://www.cyclecalcs.com/api/mcp.html
+authentication:
+  browsing: none            # initialize + tools/list are anonymous
+  invocation: required
+  headers:
+    - name: Authorization
+      form: Bearer <RapidAPI key>
+    - name: X-Api-Key
+      form: raw key, no Bearer prefix
+  key_source: https://rapidapi.com/info-8KZIhinZ9/api/cyclecalcs-astronomy-api3
+  free_tier: Basic plan is free
+  refusal_behavior: >-
+    A tool call without a key is refused as a normal tool result carrying
+    instructions, not as an HTTP 401 that would drop the connection.
+  notes: >-
+    Cannot currently be added to ChatGPT connectors, which authenticate with
+    OAuth or not at all. The OpenAI Responses API can attach it today by
+    passing the key in the mcp tool's `authorization` field.
+clients:
+  - name: Claude Code
+    install: >-
+      claude mcp add --transport http cyclecalcs https://www.cyclecalcs.com/mcp
+      --header "Authorization: Bearer YOUR_KEY"
+  - name: Claude web/desktop
+    install: Custom connector with the server URL and an Authorization header
+tool_count: 11
+tools:
+  - name: astro_sky_today
+    title: "Sky snapshot for a place and moment"
+    backing_endpoint: /v2/today
+    source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getToday
+    input_schema: present   # live tools/list returns a full JSON Schema per tool
+    output_schema: present
+  - name: astro_sun
+    title: "Sunrise, sunset and twilight"
+    backing_endpoint: /v2/sun
+    source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getSun
+    input_schema: present   # live tools/list returns a full JSON Schema per tool
+    output_schema: present
+  - name: astro_moon
+    title: "Moon state and appearance"
+    backing_endpoint: /v2/moon
+    source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getMoon
+    input_schema: present   # live tools/list returns a full JSON Schema per tool
+    output_schema: present
+  - name: astro_moon_phases
+    title: "Lunar phase calendar"
+    backing_endpoint: /v2/phases
+    source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getPhases
+    input_schema: present   # live tools/list returns a full JSON Schema per tool
+    output_schema: present
+  - name: astro_positions
+    title: "Precise positions of bodies"
+    backing_endpoint: /v2/positions
+    source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getPositions
+    input_schema: present   # live tools/list returns a full JSON Schema per tool
+    output_schema: present
+  - name: astro_rise_set
+    title: "Rise, transit and set times"
+    backing_endpoint: /v2/rise-set
+    source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getRiseSet
+    input_schema: present   # live tools/list returns a full JSON Schema per tool
+    output_schema: present
+  - name: astro_eclipses
+    title: "Solar and lunar eclipses"
+    backing_endpoint: /v2/eclipses
+    source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getEclipses
+    input_schema: present   # live tools/list returns a full JSON Schema per tool
+    output_schema: present
+  - name: astro_dark_window
+    title: "Dark moonless observing window"
+    backing_endpoint: /v2/dark-window
+    source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getDarkWindow
+    input_schema: present   # live tools/list returns a full JSON Schema per tool
+    output_schema: present
+  - name: astro_planet_board
+    title: "All planets at a glance"
+    backing_endpoint: /v2/planet-board
+    source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getPlanetBoard
+    input_schema: present   # live tools/list returns a full JSON Schema per tool
+    output_schema: present
+  - name: astro_planet_events
+    title: "Mercury and Venus apparition events"
+    backing_endpoint: /v2/planet-events
+    source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getPlanetEvents
+    input_schema: present   # live tools/list returns a full JSON Schema per tool
+    output_schema: present
+  - name: astro_find_place
+    title: "Place name to coordinates and timezone"
+    backing_endpoint: /v2/places
+    source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getPlaces
+    input_schema: present   # live tools/list returns a full JSON Schema per tool
+    output_schema: present
+manifest:
+  file: cyclecalcs-mcp-tools-list.json
+  captured_from: 'POST https://www.cyclecalcs.com/mcp {"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+x-evidence:
+  fetched: '2026-08-09'
+  url: https://www.cyclecalcs.com/mcp
+  http_status: 200
+  note: >-
+    tools/list answered anonymously with all 11 tools including full
+    inputSchema and outputSchema. Saved verbatim to
+    mcp/cyclecalcs-mcp-tools-list.json.

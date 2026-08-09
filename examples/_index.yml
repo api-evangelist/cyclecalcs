@@ -1,0 +1,113 @@
+generated: '2026-08-09'
+method: searched
+source: >-
+  The `externalValue` example URLs declared on each 200 response in
+  https://www.cyclecalcs.com/v2/openapi.json, fetched live.
+description: >-
+  CycleCalcs wires executable examples into its OpenAPI rather than
+  hand-writing mocks: every 200 response carries a `live` example whose
+  externalValue is a real, keyless, openable URL against the running API —
+  "a real request to the running API, not a hand-written mock. It needs no key
+  and can be opened directly, so the example is whatever the endpoint actually
+  returns today." These files are those URLs, fetched and saved verbatim on
+  the capture date, so the repo holds a concrete response body per marquee
+  operation without inventing one. Re-fetch the `request` URL to refresh.
+captured: '2026-08-09'
+count: 12
+examples:
+  - operation: getPositions
+    path: /v2/positions
+    file: cyclecalcs-v2-positions-example.json
+    request: https://www.cyclecalcs.com/v2/positions?bodies=sun,moon&at=2026-07-28T21:30:00Z&lat=51.4778&lon=-0.0015&elevation_m=11&tz=Europe/London
+    http_status: 200
+    media_type: application/json
+    summary: >-
+      GET /v2/positions?bodies=sun,moon&at=2026-07-28T21:30:00Z&lat=51.4778&lon=-0.0015&elevation_m=11&tz=Europe/London
+  - operation: getRiseSet
+    path: /v2/rise-set
+    file: cyclecalcs-v2-rise-set-example.json
+    request: https://www.cyclecalcs.com/v2/rise-set?body=moon&at=2026-12-21&lat=69.6492&lon=18.9553&tz=Europe/Oslo
+    http_status: 200
+    media_type: application/json
+    summary: >-
+      GET /v2/rise-set?body=moon&at=2026-12-21&lat=69.6492&lon=18.9553&tz=Europe/Oslo
+  - operation: getSun
+    path: /v2/sun
+    file: cyclecalcs-v2-sun-example.json
+    request: https://www.cyclecalcs.com/v2/sun?lat=51.4778&lon=-0.0015&at=2026-07-27&tz=Europe/London&depressions=17,18
+    http_status: 200
+    media_type: application/json
+    summary: >-
+      GET /v2/sun?lat=51.4778&lon=-0.0015&at=2026-07-27&tz=Europe/London&depressions=17,18
+  - operation: getMoon
+    path: /v2/moon
+    file: cyclecalcs-v2-moon-example.json
+    request: https://www.cyclecalcs.com/v2/moon?at=2026-07-27T21:00:00Z&lat=51.4778&lon=-0.0015&tz=Europe/London
+    http_status: 200
+    media_type: application/json
+    summary: >-
+      GET /v2/moon?at=2026-07-27T21:00:00Z&lat=51.4778&lon=-0.0015&tz=Europe/London
+  - operation: getEclipses
+    path: /v2/eclipses
+    file: cyclecalcs-v2-eclipses-example.json
+    request: https://www.cyclecalcs.com/v2/eclipses?at=2026-07-28T21:30:00Z&lat=51.4778&lon=-0.0015&elevation_m=11&count=2
+    http_status: 200
+    media_type: application/json
+    summary: >-
+      GET /v2/eclipses?at=2026-07-28T21:30:00Z&lat=51.4778&lon=-0.0015&elevation_m=11&count=2
+  - operation: getPlanetBoard
+    path: /v2/planet-board
+    file: cyclecalcs-v2-planet-board-example.json
+    request: https://www.cyclecalcs.com/v2/planet-board?at=2026-07-28T21:30:00Z&lat=51.4778&lon=-0.0015&elevation_m=11&tz=Europe/London
+    http_status: 200
+    media_type: application/json
+    summary: >-
+      GET /v2/planet-board?at=2026-07-28T21:30:00Z&lat=51.4778&lon=-0.0015&elevation_m=11&tz=Europe/London
+  - operation: getCycles
+    path: /v2/cycles
+    file: cyclecalcs-v2-cycles-example.json
+    request: https://www.cyclecalcs.com/v2/cycles?at=2026-07-28T21:30:00Z
+    http_status: 200
+    media_type: application/json
+    summary: >-
+      GET /v2/cycles?at=2026-07-28T21:30:00Z
+  - operation: getDarkWindow
+    path: /v2/dark-window
+    file: cyclecalcs-v2-dark-window-example.json
+    request: https://www.cyclecalcs.com/v2/dark-window?lat=51.509&lon=-0.126&at=2026-11-14&tz=Europe/London&nights=3
+    http_status: 200
+    media_type: application/json
+    summary: >-
+      GET /v2/dark-window?lat=51.509&lon=-0.126&at=2026-11-14&tz=Europe/London&nights=3
+  - operation: getPlaces
+    path: /v2/places
+    file: cyclecalcs-v2-places-example.json
+    request: https://www.cyclecalcs.com/v2/places?q=cambridge&limit=5
+    http_status: 200
+    media_type: application/json
+    summary: >-
+      GET /v2/places?q=cambridge&limit=5
+  - operation: getPhases
+    path: /v2/phases
+    file: cyclecalcs-v2-phases-example.json
+    request: https://www.cyclecalcs.com/v2/phases?start=2026-07-29&end=2026-08-31&tz=Europe/London
+    http_status: 200
+    media_type: application/json
+    summary: >-
+      GET /v2/phases?start=2026-07-29&end=2026-08-31&tz=Europe/London
+  - operation: getPlanetEvents
+    path: /v2/planet-events
+    file: cyclecalcs-v2-planet-events-example.json
+    request: https://www.cyclecalcs.com/v2/planet-events?bodies=venus,mercury&start=2026-01-01&end=2027-01-01&lat=51.4778&lon=-0.0015&tz=Europe/London
+    http_status: 200
+    media_type: application/json
+    summary: >-
+      GET /v2/planet-events?bodies=venus,mercury&start=2026-01-01&end=2027-01-01&lat=51.4778&lon=-0.0015&tz=Europe/London
+  - operation: getToday
+    path: /v2/today
+    file: cyclecalcs-v2-today-example.json
+    request: https://www.cyclecalcs.com/v2/today?at=2026-07-28T21:00:00Z&lat=51.4778&lon=-0.0015&tz=Europe/London
+    http_status: 200
+    media_type: application/json
+    summary: >-
+      GET /v2/today?at=2026-07-28T21:00:00Z&lat=51.4778&lon=-0.0015&tz=Europe/London

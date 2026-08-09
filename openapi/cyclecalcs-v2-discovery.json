@@ -1,0 +1,1006 @@
+{
+  "endpoint": "/v2",
+  "computed_at": "2026-08-01T00:00:00.000Z",
+  "query": {
+    "format": "json",
+    "precision": 6,
+    "pretty": 1,
+    "verbosity": "full",
+    "ignored": []
+  },
+  "data": {
+    "name": "CycleCalcs API",
+    "api_version": "2",
+    "contract_version": "2.0.0",
+    "description": "A read-only astronomy API that returns the named answer and the numbers behind it, with the frame, epoch, time scale and refraction model stated on every response. It reports angles, times and names, and attaches no meaning to any of them. Computed in real time with the MIT-licensed Astronomy Engine.",
+    "base": "https://www.cyclecalcs.com",
+    "openapi": "https://www.cyclecalcs.com/v2/openapi.json",
+    "llms_txt": "https://www.cyclecalcs.com/v2/llms-full.txt",
+    "terms": "https://www.cyclecalcs.com/api.html#terms",
+    "output_rights": "The numbers in a CycleCalcs API response are computed astronomical facts. You may use, store, cache, publish, redistribute and build commercial products on them, without restriction, without a licence and without attribution.",
+    "attribution": "https://www.cyclecalcs.com/v2/attribution",
+    "frozen_versions": [
+      {
+        "version": "1",
+        "base": "https://www.cyclecalcs.com/v1",
+        "status": "frozen",
+        "note": "Version 1 is unchanged and will not change. New work happens on /v2."
+      }
+    ],
+    "conventions": {
+      "time": "Times are UTC (ISO 8601) unless you send tz=, in which case they carry that zone's offset.",
+      "date_range": "Reliable from 1700 to 2200.",
+      "location": "lat and lon in decimal degrees, latitude north positive and longitude east positive, plus optional elevation_m in metres. They are required on /v2/sun and /v2/rise-set and optional elsewhere; each endpoint's params list below marks an optional parameter with a trailing question mark.",
+      "cors": "Open CORS; safe to call from the browser. No key is needed for the free Basic tier, and a direct request is served at the anonymous tier whatever it sends. The paid tiers are sold through the RapidAPI listing and authenticate at that gateway; a key never belongs in a URL.",
+      "ranges": "Most endpoints accept start, end and step for a series in one request. Caps are by endpoint shape and caller tier.",
+      "conventions_document": "https://www.cyclecalcs.com/v2/conventions"
+    },
+    "limits": {
+      "max_rows_global": 10000,
+      "max_bodies_per_request": 20,
+      "max_engine_calls_per_request": 250000,
+      "max_compute_ms": 8000
+    },
+    "capabilities": {
+      "timezone_resolution": true,
+      "place_lookup": true,
+      "api_keys": true
+    },
+    "endpoints": [
+      {
+        "path": "/v2",
+        "summary": "The discovery document: every endpoint, parameter, convention and limit",
+        "params": [
+          "format?",
+          "precision?",
+          "pretty?",
+          "verbosity?"
+        ],
+        "formats": [
+          "json"
+        ]
+      },
+      {
+        "path": "/v2/conventions",
+        "summary": "Every convention, threshold, model and limit the API uses, as data",
+        "params": [
+          "format?",
+          "precision?",
+          "pretty?",
+          "verbosity?"
+        ],
+        "formats": [
+          "json"
+        ]
+      },
+      {
+        "path": "/v2/enums",
+        "summary": "Every enumerated value the API can emit or accept, as data",
+        "params": [
+          "set?",
+          "endpoint?",
+          "format?",
+          "precision?",
+          "pretty?",
+          "verbosity?"
+        ],
+        "formats": [
+          "json"
+        ]
+      },
+      {
+        "path": "/v2/attribution",
+        "summary": "Every source behind every endpoint, with its licence and what it obliges a caller to do",
+        "params": [
+          "endpoint?",
+          "fields?",
+          "format?",
+          "precision?",
+          "pretty?",
+          "verbosity?"
+        ],
+        "formats": [
+          "json"
+        ]
+      },
+      {
+        "path": "/v2/positions",
+        "summary": "Where every body is, in every frame, with refraction stated",
+        "params": [
+          "at?",
+          "start?",
+          "end?",
+          "step?",
+          "count?",
+          "bodies?",
+          "body?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "frames?",
+          "frame?",
+          "refraction?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?",
+          "limit?",
+          "cursor?"
+        ],
+        "formats": [
+          "json",
+          "csv"
+        ]
+      },
+      {
+        "path": "/v2/rise-set",
+        "summary": "Rise, transit, set and lower transit for any named object, with an explicit status at every latitude",
+        "params": [
+          "body",
+          "bodies?",
+          "at?",
+          "start?",
+          "end?",
+          "lat",
+          "lon",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "day_anchor?",
+          "horizon?",
+          "search_horizon_days?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?",
+          "limit?",
+          "cursor?"
+        ],
+        "formats": [
+          "json",
+          "csv"
+        ]
+      },
+      {
+        "path": "/v2/sun",
+        "summary": "The complete solar day: every named boundary, azimuth, day length and polar status",
+        "params": [
+          "lat",
+          "lon",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "at?",
+          "start?",
+          "end?",
+          "step?",
+          "day_anchor?",
+          "depressions?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?",
+          "limit?",
+          "cursor?"
+        ],
+        "formats": [
+          "json",
+          "csv",
+          "txt"
+        ]
+      },
+      {
+        "path": "/v2/moon",
+        "summary": "The Moon in render-ready form: phase, illumination, bright limb, libration",
+        "params": [
+          "at?",
+          "start?",
+          "end?",
+          "step?",
+          "count?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "hemisphere?",
+          "next_phases?",
+          "style?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "day_anchor?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?",
+          "limit?",
+          "cursor?"
+        ],
+        "formats": [
+          "json",
+          "csv",
+          "txt"
+        ]
+      },
+      {
+        "path": "/v2/time",
+        "summary": "Every time scale, sidereal time, solar time, the equation of time and the Julian dates",
+        "params": [
+          "at?",
+          "start?",
+          "end?",
+          "step?",
+          "count?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?",
+          "limit?",
+          "cursor?"
+        ],
+        "formats": [
+          "json",
+          "csv"
+        ]
+      },
+      {
+        "path": "/v2/seasons",
+        "summary": "Every equinox and solstice in a window, with the length of each season they bound",
+        "params": [
+          "at?",
+          "start?",
+          "end?",
+          "count?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "hemisphere?",
+          "include?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?",
+          "limit?",
+          "cursor?"
+        ],
+        "formats": [
+          "json",
+          "csv"
+        ]
+      },
+      {
+        "path": "/v2/apsides",
+        "summary": "Every perigee, apogee, perihelion and aphelion in a window, with its distance",
+        "params": [
+          "at?",
+          "start?",
+          "end?",
+          "count?",
+          "body?",
+          "bodies?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "kind?",
+          "include?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?",
+          "limit?",
+          "cursor?"
+        ],
+        "formats": [
+          "json",
+          "csv"
+        ]
+      },
+      {
+        "path": "/v2/moon-nodes",
+        "summary": "Every crossing of the ecliptic by the Moon, the node longitudes and the eclipse seasons they define",
+        "params": [
+          "at?",
+          "start?",
+          "end?",
+          "count?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "node_model?",
+          "kind?",
+          "include?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?",
+          "limit?",
+          "cursor?"
+        ],
+        "formats": [
+          "json",
+          "csv"
+        ]
+      },
+      {
+        "path": "/v2/eclipses",
+        "summary": "Solar and lunar eclipses with global geometry, local circumstances and an explicit answer to whether you can see it",
+        "params": [
+          "at?",
+          "start?",
+          "end?",
+          "count?",
+          "direction?",
+          "type?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "visible_only?",
+          "include?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?",
+          "limit?",
+          "cursor?"
+        ],
+        "formats": [
+          "json",
+          "csv",
+          "txt"
+        ]
+      },
+      {
+        "path": "/v2/planet-board",
+        "summary": "All eight planets in one request: place, brightness, apparent size, retrograde state, next station and whether it is worth looking tonight",
+        "params": [
+          "at?",
+          "start?",
+          "end?",
+          "step?",
+          "count?",
+          "bodies?",
+          "body?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "day_anchor?",
+          "include?",
+          "sort?",
+          "refraction?",
+          "frames?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?",
+          "limit?",
+          "cursor?"
+        ],
+        "formats": [
+          "json",
+          "csv",
+          "txt"
+        ]
+      },
+      {
+        "path": "/v2/retrogrades",
+        "summary": "Every retrograde and direct station of every planet in a window, with the loop length, its arc, and the interval of triple crossing",
+        "params": [
+          "at?",
+          "start?",
+          "end?",
+          "body?",
+          "bodies?",
+          "motion?",
+          "include?",
+          "step?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?",
+          "limit?",
+          "cursor?"
+        ],
+        "formats": [
+          "json",
+          "csv"
+        ]
+      },
+      {
+        "path": "/v2/conjunctions",
+        "summary": "Close approaches between body pairs in a window, ranked, with the separation and whether the pair is observable or lost in twilight",
+        "params": [
+          "at?",
+          "start?",
+          "end?",
+          "bodies?",
+          "pairs?",
+          "max_separation_deg?",
+          "min_elongation_deg?",
+          "kind?",
+          "frame?",
+          "step?",
+          "sort?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?",
+          "limit?",
+          "cursor?"
+        ],
+        "formats": [
+          "json",
+          "csv"
+        ]
+      },
+      {
+        "path": "/v2/separation",
+        "summary": "The angular separation between any two targets at an instant, and the minima of that separation across a window",
+        "params": [
+          "a",
+          "b",
+          "at?",
+          "start?",
+          "end?",
+          "step?",
+          "max_separation_deg?",
+          "frame?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?",
+          "limit?",
+          "cursor?"
+        ],
+        "formats": [
+          "json",
+          "csv",
+          "txt"
+        ]
+      },
+      {
+        "path": "/v2/cycles",
+        "summary": "Where we are in every astronomical cycle the site tracks, with an explicit statement of whether each number was computed, observed, or is an interval with no live phase",
+        "params": [
+          "at?",
+          "start?",
+          "end?",
+          "step?",
+          "count?",
+          "keys?",
+          "kind?",
+          "family?",
+          "include?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?",
+          "limit?"
+        ],
+        "formats": [
+          "json",
+          "csv",
+          "txt"
+        ]
+      },
+      {
+        "path": "/v2/twilight",
+        "summary": "All three twilights plus day and night as non-overlapping intervals that tile the whole day, each with the reason it starts and ends, and a checksum the caller can assert",
+        "params": [
+          "at?",
+          "start?",
+          "end?",
+          "count?",
+          "step?",
+          "lat",
+          "lon",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "day_anchor?",
+          "depressions?",
+          "refraction?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?",
+          "limit?",
+          "cursor?"
+        ],
+        "formats": [
+          "json",
+          "csv"
+        ]
+      },
+      {
+        "path": "/v2/dark-window",
+        "summary": "The genuinely dark moonless observing window of a night: astronomical night intersected with the Moon being down, ranked across up to 62 nights with a trend",
+        "params": [
+          "at?",
+          "lat",
+          "lon",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "nights?",
+          "sun_depression_deg?",
+          "moon_altitude_max_deg?",
+          "moon_illumination_max?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?"
+        ],
+        "formats": [
+          "json",
+          "csv"
+        ]
+      },
+      {
+        "path": "/v2/sidereal-time",
+        "summary": "Greenwich and local sidereal time, apparent and mean side by side, with the equation of the equinoxes that separates them and the nutation terms it is built from",
+        "params": [
+          "at?",
+          "start?",
+          "end?",
+          "step?",
+          "count?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?"
+        ],
+        "formats": [
+          "json",
+          "csv",
+          "txt"
+        ]
+      },
+      {
+        "path": "/v2/equation-of-time",
+        "summary": "How far a sundial runs ahead of or behind the clock, from the real Sun rather than a day-of-year series, with the Sun place that makes a range query an analemma",
+        "params": [
+          "at?",
+          "start?",
+          "end?",
+          "step?",
+          "count?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "include?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?"
+        ],
+        "formats": [
+          "json",
+          "csv",
+          "txt"
+        ]
+      },
+      {
+        "path": "/v2/libration",
+        "summary": "Lunar libration, the sub-Earth point, the axis and bright-limb position angles, and with the terminator token the sub-solar point and the colongitude that fixes where the terminator falls",
+        "params": [
+          "at?",
+          "start?",
+          "end?",
+          "step?",
+          "count?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "include?",
+          "refraction?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?"
+        ],
+        "formats": [
+          "json",
+          "csv"
+        ]
+      },
+      {
+        "path": "/v2/jupiter-moons",
+        "summary": "Where the four Galilean moons are, and every transit, shadow transit, eclipse and occultation in the window, with both contact instants for each",
+        "params": [
+          "at?",
+          "start?",
+          "end?",
+          "step?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "moons?",
+          "events?",
+          "refraction?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?"
+        ],
+        "formats": [
+          "json",
+          "csv"
+        ]
+      },
+      {
+        "path": "/v2/sky-quality",
+        "summary": "Naked-eye limiting magnitude and aperture reach for a sky class you supply, with an explicit machine-readable statement that the number is a tuned estimate rather than a measurement",
+        "params": [
+          "bortle?",
+          "nelm?",
+          "equipment?",
+          "aperture_mm?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "at?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "include?",
+          "refraction?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?"
+        ],
+        "formats": [
+          "json",
+          "csv",
+          "txt"
+        ]
+      },
+      {
+        "path": "/v2/places",
+        "summary": "Place-name search and reverse lookup against the self-hosted GeoNames index, returning name, region, country, coordinates and IANA timezone with a stable place_id",
+        "params": [
+          "q?",
+          "id?",
+          "lat?",
+          "lon?",
+          "country?",
+          "region?",
+          "limit?",
+          "min_population?",
+          "radius_km?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?",
+          "time_format?"
+        ],
+        "formats": [
+          "json",
+          "csv"
+        ],
+        "status": "conditional",
+        "rights": "Every response is GeoNames data under CC BY 4.0, so every response carries rights: attribution_required and the credit in meta.attribution.text. The rest of the API is unrestricted."
+      },
+      {
+        "path": "/v2/phases",
+        "summary": "The lunar phase calendar: every quarter with its distance, apparent size, supermoon classification under BOTH competing rules, traditional name and any eclipse",
+        "params": [
+          "at?",
+          "start?",
+          "end?",
+          "count?",
+          "phases?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "day_anchor?",
+          "include?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?",
+          "limit?",
+          "cursor?"
+        ],
+        "formats": [
+          "json",
+          "csv",
+          "txt"
+        ]
+      },
+      {
+        "path": "/v2/planet-events",
+        "summary": "The apparition cycle of Mercury and Venus as events: conjunctions, greatest elongations, peak brightness and transits, with the current cycle state",
+        "params": [
+          "at?",
+          "start?",
+          "end?",
+          "body?",
+          "bodies?",
+          "kinds?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?",
+          "limit?",
+          "cursor?"
+        ],
+        "formats": [
+          "json",
+          "csv"
+        ]
+      },
+      {
+        "path": "/v2/today",
+        "summary": "The whole sky for a place right now, in one request",
+        "params": [
+          "at?",
+          "lat?",
+          "lon?",
+          "elevation_m?",
+          "place?",
+          "place_strategy?",
+          "tz?",
+          "ambiguous?",
+          "nonexistent?",
+          "day_anchor?",
+          "include?",
+          "time_format?",
+          "format?",
+          "fields?",
+          "shape?",
+          "precision?",
+          "pretty?",
+          "verbosity?"
+        ],
+        "formats": [
+          "json",
+          "txt"
+        ]
+      }
+    ]
+  },
+  "warnings": [],
+  "links": {
+    "self": "https://www.cyclecalcs.com/v2",
+    "docs": "https://www.cyclecalcs.com/api/reference.html#discovery",
+    "spec": "https://www.cyclecalcs.com/v2/openapi.json",
+    "page": "https://www.cyclecalcs.com/api.html"
+  },
+  "meta": {
+    "api_version": "2",
+    "contract_version": "2.0.0",
+    "engine": {
+      "name": "Astronomy Engine",
+      "license": "MIT",
+      "author": "Don Cross",
+      "version": "2.1.19",
+      "version_source": "upstream_sha256_match",
+      "sha256": "068f1445ed0c636c94818fe6d20d7d125120e605e0bab9fc4675c3d531be5ad7",
+      "vendored": true,
+      "credit": "astronomy-engine (MIT, Copyright (c) 2019-2023 Don Cross)"
+    },
+    "tzdb": "2026b",
+    "rights": "unrestricted",
+    "attribution": {
+      "required": false,
+      "text": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+      "sources": []
+    },
+    "notice_url": "https://www.cyclecalcs.com/methodology.html#data-sources",
+    "cache": {
+      "class": "reference",
+      "deterministic": true
+    },
+    "accuracy": {
+      "statement": "Positions are arcminute class for the Sun, Moon and planets across 1700 to 2200, degrading toward the ends of that window.",
+      "residuals_url": "https://www.cyclecalcs.com/api/accuracy.html"
+    },
+    "not_computed": [
+      {
+        "name": "/v2/enums",
+        "reason": "The meteor_showers set is withheld until the meteor catalogue reduction clears its licence review."
+      },
+      {
+        "name": "/v2/eclipses",
+        "reason": "The Saros MEMBER number is withheld: it needs a 223-row table of series-start epochs, which is catalogue data, and the obvious source has not cleared a provenance check. The series number is closed-form and is published."
+      },
+      {
+        "name": "/v2/today",
+        "reason": "Meteor-shower events are withheld from next_events until the meteor catalogue reduction clears its licence review."
+      }
+    ],
+    "budget": {
+      "engine_calls": 0
+    }
+  },
+  "attribution": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+  "docs": "https://www.cyclecalcs.com/api/reference.html#discovery"
+}

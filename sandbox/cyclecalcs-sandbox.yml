@@ -1,0 +1,48 @@
+generated: '2026-08-09'
+method: searched
+source: https://www.cyclecalcs.com/api.html
+description: >-
+  CycleCalcs has no test/live split and no test credentials, because it has no
+  write surface and no account to isolate. The production API IS the sandbox:
+  every one of the 29 endpoints is callable anonymously against live data with
+  no key, no signup and no card. What it does publish instead is an in-browser
+  request runner on the API landing page and live, executable examples wired
+  into the OpenAPI itself.
+docs:
+  - https://www.cyclecalcs.com/api.html
+  - https://www.cyclecalcs.com/api/keys.html
+modes:
+  - name: live
+    keyless: true
+    tier: Basic
+    note: >-
+      Every request sent directly to /v2 is served at the free Basic tier,
+      whoever sends it. There is no separate test mode — there is nothing to
+      mutate, so a test mode would return the same numbers.
+console:
+  type: in-browser request runner
+  url: https://www.cyclecalcs.com/api.html#try
+  label: "Try it live"
+  description: >-
+    Pick an endpoint (/v2/today, /v2/moon, /v2/sun, /v2/planet-board,
+    /v2/eclipses, /v2/cycles), optionally set a date and a place, and run it
+    against the live API from the page. Includes a "Use my location" control.
+  auth_required: false
+executable_examples:
+  mechanism: OpenAPI `externalValue` examples
+  note: >-
+    Every 200 response in the spec carries a `live` example whose
+    externalValue is a real, keyless, openable URL against the running API —
+    "a real request to the running API, not a hand-written mock". JSON, CSV
+    and TXT variants where the endpoint supports them.
+  captured: examples/
+first_request: |
+  curl "https://www.cyclecalcs.com/v2/moon?lat=51.5074&lon=-0.1278"
+test_values:
+  note: >-
+    No magic test identifiers, no test cards, no fixture tooling and no test
+    clocks — none apply to a read-only ephemeris API. Time simulation is a
+    first-class query parameter instead: `at=` accepts any ISO 8601 instant
+    from 1700 to 2200, so "simulating" a moment is a normal request.
+  time_travel_parameter: at
+  supported_range: 1700-01-01 to 2200-12-31

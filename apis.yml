@@ -1,8 +1,16 @@
 name: CycleCalcs
 description: >-
-  Read-only astronomy/ephemeris engine providing positional astronomy computations — sun/moon rise-set, moon phases,
-  planet positions, eclipses, seasons, conjunctions, sidereal time, and more — via REST, a hosted MCP server, and
-  llms.txt. Free keyless basic tier with paid tiers via RapidAPI.
+  CycleCalcs publishes a read-only positional-astronomy engine as both a REST API and a hosted MCP server over the
+  same core: sun and moon rise/set and twilight, moon phases and libration, planet positions and a visibility board,
+  eclipses with per-observer local circumstances, seasons, apsides, lunar nodes, retrograde stations, conjunctions and
+  angular separation, sidereal time, the equation of time, Jupiter's Galilean moons, sky quality and dark-sky windows,
+  place lookup, and a one-call whole-sky snapshot. It returns the named answer and the numbers behind it rather than
+  raw ephemeris, and every response states its frame, epoch, time scale and refraction model. Computed live with the
+  MIT-licensed Astronomy Engine, arcminute class for the Sun, Moon and planets from 1700 to 2200. Twenty-nine GET
+  endpoints, JSON/CSV/TXT, RFC 9457 problem documents, open CORS, and a free tier that needs no key, no signup and no
+  card; paid volume tiers sell through RapidAPI. Pure astronomy — no astrology and no claims that sky events affect
+  people or Earth.
+image: https://www.cyclecalcs.com/assets/og-card.png?v=2
 url: https://cyclecalcs.apievangelist.com/apis.yml
 created: '2026-08-09'
 modified: '2026-08-09'
@@ -46,6 +54,12 @@ apis:
     properties:
       - type: OpenAPI
         url: https://www.cyclecalcs.com/v2/openapi.json
+      - type: OpenAPI
+        name: Harvested OpenAPI 3.1.0 (verbatim, 29 operations)
+        url: openapi/cyclecalcs-astronomy-openapi-original.json
+      - type: Overlay
+        name: API Evangelist enhancements overlay
+        url: overlays/cyclecalcs-astronomy-overlay.yaml
       - type: Documentation
         url: https://www.cyclecalcs.com/api/reference.html
       - type: Documentation
@@ -54,6 +68,9 @@ apis:
         url: https://www.cyclecalcs.com/api/errors.html
       - type: Documentation
         url: https://www.cyclecalcs.com/api/status.html
+      - type: Documentation
+        name: Accuracy statement and residuals
+        url: https://www.cyclecalcs.com/api/accuracy.html
       - type: LLMsTxt
         url: https://www.cyclecalcs.com/llms.txt
       - type: LLMsTxt
@@ -82,13 +99,116 @@ apis:
     properties:
       - type: MCPServer
         url: https://www.cyclecalcs.com/mcp
+      - type: MCPServer
+        name: MCP server manifest (11 tools, captured from tools/list)
+        url: mcp/cyclecalcs-mcp.yml
+      - type: ToolCrosswalk
+        name: MCP tool to OpenAPI operation crosswalk
+        url: mcp/cyclecalcs-tool-crosswalk.yml
       - type: Documentation
         url: https://www.cyclecalcs.com/api/mcp.html
 maintainers:
   - FN: CycleCalcs
+    email: info@cyclecalcs.com
     url: https://www.cyclecalcs.com
 generated:
   by: apis.io/add
   model: claude-opus-4-8
   confidence: 98
   at: '2026-08-09T12:19:06.191Z'
+common:
+- type: AgenticAccess
+  url: agentic-access/cyclecalcs-agentic-access.yml
+- type: DomainSecurity
+  url: security/cyclecalcs-domain-security.yml
+- type: Authentication
+  url: authentication/cyclecalcs-authentication.yml
+- type: DeveloperPortal
+  name: Build with CycleCalcs
+  url: https://www.cyclecalcs.com/api.html
+- type: Documentation
+  name: Endpoint reference
+  url: https://www.cyclecalcs.com/api/reference.html
+- type: APIReference
+  name: Endpoint reference
+  url: https://www.cyclecalcs.com/api/reference.html
+- type: GettingStarted
+  name: Start here — a first request you can paste into a terminal
+  url: https://www.cyclecalcs.com/api.html
+- type: Support
+  name: About and contact
+  url: https://www.cyclecalcs.com/about.html
+- type: Pricing
+  name: Plans on RapidAPI
+  url: https://rapidapi.com/info-8KZIhinZ9/api/cyclecalcs-astronomy-api3
+- type: SignUp
+  name: RapidAPI subscription (the only signup that exists; Basic needs none)
+  url: https://rapidapi.com/info-8KZIhinZ9/api/cyclecalcs-astronomy-api3
+- type: TermsOfService
+  url: https://www.cyclecalcs.com/api/terms.html
+- type: PrivacyPolicy
+  url: https://www.cyclecalcs.com/privacy.html
+- type: StatusPage
+  name: Live status board (UptimeRobot, off the provider's own infrastructure)
+  url: https://stats.uptimerobot.com/b2ue50rVZI
+- type: Deprecation
+  name: Versioning and deprecation policy
+  url: https://www.cyclecalcs.com/api/versioning.html
+- type: Lifecycle
+  url: lifecycle/cyclecalcs-lifecycle.yml
+- type: Conventions
+  url: conventions/cyclecalcs-conventions.yml
+- type: Idempotency
+  name: Retry and determinism contract (all 29 operations are safe GETs, byte-deterministic, ETag/304)
+  url: conventions/cyclecalcs-conventions.yml
+- type: ErrorCatalog
+  name: RFC 9457 problem types (117 registered codes)
+  url: errors/cyclecalcs-problem-types.yml
+- type: Conformance
+  url: conformance/cyclecalcs-conformance.yml
+- type: WellKnown
+  url: well-known/cyclecalcs-well-known.yml
+- type: APICatalog
+  name: RFC 9727 api-catalog linkset
+  url: https://www.cyclecalcs.com/.well-known/api-catalog
+- type: Packages
+  name: Client-library survey (no first-party SDKs published)
+  url: packages/cyclecalcs-packages.yml
+- type: Vocabulary
+  name: Published controlled vocabulary (40 enumerated sets, live at /v2/enums)
+  url: vocabulary/cyclecalcs-vocabulary.yml
+- type: DataModel
+  url: data-model/cyclecalcs-data-model.yml
+- type: Sandbox
+  name: Keyless production tier and the in-browser request runner
+  url: sandbox/cyclecalcs-sandbox.yml
+- type: Components
+  name: Embeddable sky widgets
+  url: components/cyclecalcs-components.yml
+- type: RateLimits
+  url: rate-limits/cyclecalcs-rate-limits.yml
+- type: Plans
+  url: plans/cyclecalcs-plans.yml
+- type: Examples
+  name: Live response captures from the spec's executable examples
+  url: examples/_index.yml
+- type: LLMsTxt
+  name: Site llms.txt (harvested verbatim)
+  url: llms/cyclecalcs-llms.txt
+- type: AgentSkill
+  name: Packaged Agent Skills for the CycleCalcs API
+  url: skills/_index.yml
+- type: Arazzo
+  name: Tonight's sky for a place
+  url: arazzo/cyclecalcs-tonights-sky.yml
+- type: Arazzo
+  name: Is the next eclipse visible from here
+  url: arazzo/cyclecalcs-eclipse-visibility.yml
+- type: Arazzo
+  name: Build a sun and moon calendar for a location
+  url: arazzo/cyclecalcs-sun-moon-calendar.yml
+x-enrichment:
+  date: '2026-08-09'
+  status: enriched
+  artifacts_added: 50
+  pass: local-v1

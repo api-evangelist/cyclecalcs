@@ -1,0 +1,525 @@
+{
+  "endpoint": "/v2/attribution",
+  "computed_at": "2026-08-01T00:00:00.000Z",
+  "query": {
+    "endpoint": null,
+    "format": "json",
+    "precision": 6,
+    "pretty": 1,
+    "verbosity": "full",
+    "ignored": []
+  },
+  "data": {
+    "rights": "conditional",
+    "rights_statement": "The numbers in a CycleCalcs API response are computed astronomical facts. You may use, store, cache, publish, redistribute and build commercial products on them, without restriction, without a licence and without attribution.",
+    "rights_note": "Unrestricted for every response that did not resolve a place name. Each response states its own position in meta.rights, which is the authority for that response.",
+    "per_response_authority": "meta.rights and meta.attribution on the response itself are authoritative for that response. This document describes what each endpoint CAN draw on.",
+    "source_key_note": "Each source carries both license and licence with identical values. spec-00 fixes meta.engine.license and the GeoNames register entry is specified with licence, so the API genuinely contains both spellings; publishing both here means neither is a dead key.",
+    "sources": [
+      {
+        "dataset": "Astronomy Engine",
+        "holder": "Don Cross",
+        "version": "2.1.19",
+        "role": "ephemeris",
+        "licence": "MIT",
+        "licence_url": "https://github.com/cosinekitty/astronomy/blob/master/LICENSE",
+        "credit": "astronomy-engine (MIT, Copyright (c) 2019-2023 Don Cross)",
+        "url": "https://github.com/cosinekitty/astronomy",
+        "obligation": "None on API output. The MIT notice binds this repository, which carries it with the vendored source, and imposes nothing on a caller who uses the numbers.",
+        "conditional": false,
+        "license": "MIT",
+        "license_url": "https://github.com/cosinekitty/astronomy/blob/master/LICENSE"
+      },
+      {
+        "dataset": "IANA Time Zone Database",
+        "holder": "IANA",
+        "version": null,
+        "role": "time zone offsets and DST transitions",
+        "licence": "Public domain",
+        "licence_url": "https://www.iana.org/time-zones",
+        "credit": "Time zone data from the IANA Time Zone Database (public domain).",
+        "url": "https://www.iana.org/time-zones",
+        "obligation": "None. The database is dedicated to the public domain. The release that produced a given response is reported in meta.tzdb.",
+        "conditional": false,
+        "license": "Public domain",
+        "license_url": "https://www.iana.org/time-zones"
+      },
+      {
+        "dataset": "GeoNames place index",
+        "holder": "GeoNames",
+        "licence": "CC BY 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+        "credit": "Place names and coordinates from GeoNames (geonames.org), CC BY 4.0.",
+        "url": "https://www.geonames.org/",
+        "version": null,
+        "role": "place-name lookup",
+        "obligation": "Attribution required. A response that resolved a place name carries rights attribution_required and the ready-to-paste credit line in meta.attribution.text; reproduce that line wherever you publish the result.",
+        "conditional": true,
+        "available": true,
+        "unavailable_reason": null,
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "endpoints": {
+      "/v2": {
+        "rights": "unrestricted",
+        "rights_note": "Every source behind this endpoint is computed or public domain, so every response is unrestricted.",
+        "sources": [],
+        "conditional_sources": []
+      },
+      "/v2/conventions": {
+        "rights": "unrestricted",
+        "rights_note": "Every source behind this endpoint is computed or public domain, so every response is unrestricted.",
+        "sources": [],
+        "conditional_sources": []
+      },
+      "/v2/enums": {
+        "rights": "unrestricted",
+        "rights_note": "Every source behind this endpoint is computed or public domain, so every response is unrestricted.",
+        "sources": [],
+        "conditional_sources": []
+      },
+      "/v2/attribution": {
+        "rights": "unrestricted",
+        "rights_note": "Every source behind this endpoint is computed or public domain, so every response is unrestricted.",
+        "sources": [],
+        "conditional_sources": []
+      },
+      "/v2/positions": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/rise-set": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/sun": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/moon": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/time": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/seasons": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/apsides": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/moon-nodes": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/eclipses": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/planet-board": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/retrogrades": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/conjunctions": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/separation": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/cycles": {
+        "rights": "unrestricted",
+        "rights_note": "Every source behind this endpoint is computed or public domain, so every response is unrestricted.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database"
+        ],
+        "conditional_sources": []
+      },
+      "/v2/twilight": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/dark-window": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/sidereal-time": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/equation-of-time": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/libration": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/jupiter-moons": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/sky-quality": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/places": {
+        "rights": "attribution_required",
+        "rights_note": "Every response from this endpoint is CC BY 4.0 GeoNames place index data, so every response carries meta.rights attribution_required and the credit in meta.attribution.text.",
+        "sources": [
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/phases": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/planet-events": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      },
+      "/v2/today": {
+        "rights": "conditional",
+        "rights_note": "Unrestricted unless this response resolved a place name, in which case meta.rights on that response reads attribution_required.",
+        "sources": [
+          "Astronomy Engine",
+          "IANA Time Zone Database",
+          "GeoNames place index"
+        ],
+        "conditional_sources": [
+          {
+            "dataset": "GeoNames place index",
+            "available": true,
+            "reason": null
+          }
+        ]
+      }
+    },
+    "generated_from": "netlify/lib/v2/attribution.mjs, derived from the route table in netlify/lib/v2/registry.mjs"
+  },
+  "warnings": [],
+  "links": {
+    "self": "https://www.cyclecalcs.com/v2/attribution",
+    "docs": "https://www.cyclecalcs.com/api/reference.html#attribution",
+    "spec": "https://www.cyclecalcs.com/v2/openapi.json",
+    "notice": "https://www.cyclecalcs.com/methodology.html#data-sources"
+  },
+  "meta": {
+    "api_version": "2",
+    "contract_version": "2.0.0",
+    "engine": {
+      "name": "Astronomy Engine",
+      "license": "MIT",
+      "author": "Don Cross",
+      "version": "2.1.19",
+      "version_source": "upstream_sha256_match",
+      "sha256": "068f1445ed0c636c94818fe6d20d7d125120e605e0bab9fc4675c3d531be5ad7",
+      "vendored": true,
+      "credit": "astronomy-engine (MIT, Copyright (c) 2019-2023 Don Cross)"
+    },
+    "tzdb": "2026b",
+    "rights": "unrestricted",
+    "attribution": {
+      "required": false,
+      "text": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+      "sources": []
+    },
+    "notice_url": "https://www.cyclecalcs.com/methodology.html#data-sources",
+    "cache": {
+      "class": "reference",
+      "deterministic": true
+    },
+    "accuracy": {
+      "statement": "Positions are arcminute class for the Sun, Moon and planets across 1700 to 2200, degrading toward the ends of that window.",
+      "residuals_url": "https://www.cyclecalcs.com/api/accuracy.html"
+    },
+    "budget": {
+      "engine_calls": 0
+    }
+  },
+  "attribution": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+  "docs": "https://www.cyclecalcs.com/api/reference.html#attribution"
+}

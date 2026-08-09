@@ -1,0 +1,352 @@
+{
+  "endpoint": "/v2/phases",
+  "computed_at": "2026-08-01T00:00:00.000Z",
+  "query": {
+    "start": "2026-07-28T23:00:00.000Z",
+    "end": "2026-08-30T23:00:00.000Z",
+    "mode": "range",
+    "resolved_from": "start",
+    "latitude": null,
+    "longitude": null,
+    "elevation_m": 0,
+    "tz": "Europe/London",
+    "utc_offset_seconds": 3600,
+    "utc_offset_iso": "+01:00",
+    "is_dst": true,
+    "timezone_source": "parameter",
+    "day_anchor": "civil",
+    "time_format": "iso",
+    "format": "json",
+    "shape": "nested",
+    "precision": 6,
+    "pretty": 1,
+    "verbosity": "full",
+    "phases": [
+      "new_moon",
+      "first_quarter",
+      "full_moon",
+      "last_quarter"
+    ],
+    "include": [
+      "distance",
+      "classification",
+      "names",
+      "eclipse"
+    ],
+    "rows": 5,
+    "ignored": []
+  },
+  "data": {
+    "window": {
+      "start": "2026-07-29T00:00:00.000+01:00",
+      "end": "2026-08-31T00:00:00.000+01:00",
+      "length_days": 33
+    },
+    "phase_count": 5,
+    "phases": [
+      {
+        "kind": "full_moon",
+        "label": "Full Moon",
+        "instant": "2026-07-29T15:36:19.011+01:00",
+        "instant_precision_seconds": 1,
+        "local_date": "2026-07-29",
+        "days_from_query": 0.65022,
+        "lunation_number": 1281,
+        "distance_km": 399605.484864,
+        "angular_diameter_arcsec": 1793.59702,
+        "fraction_of_mean_distance": 1.039556,
+        "apparent_size_vs_mean_percent": -3.805124,
+        "apparent_brightness_vs_mean_percent": -7.465459,
+        "illuminated_fraction": 0.999673,
+        "apparent_magnitude": -12.54,
+        "illumination_note": "At an exact quarter the illuminated fraction is about 0.5013 rather than 0.5000. The quarters are defined by the difference in ecliptic longitude, not by half illumination, and the two differ by a few hours of geometry. It is not rounded to look tidy.",
+        "classification": {
+          "applicable": true,
+          "rule": "site",
+          "rule_definition": "A supermoon is a phase occurring closer than 360,000 km and a micromoon further than 405,000 km, measured at the instant of the phase.",
+          "is_supermoon": false,
+          "is_micromoon": false,
+          "supermoon_threshold_km": 360000,
+          "micromoon_threshold_km": 405000,
+          "espenak": {
+            "rule_definition": "Espenak's rule, following Nolle: a new or full Moon qualifies when it is closer than ten percent of the way from the closest perigee to the farthest apogee of that CALENDAR YEAR. One threshold applies to the whole year, and it shifts by a few hundred kilometres from year to year as the extreme apsides move.",
+            "qualifies": false,
+            "threshold_km": 361617.591879,
+            "threshold_year": 2026,
+            "closest_perigee_of_year_km": 356641.002581,
+            "farthest_apogee_of_year_km": 406406.895565
+          },
+          "criteria_disagree": false,
+          "disagreement_note": null
+        },
+        "name": {
+          "traditional_name": "Buck Moon",
+          "traditional_name_if_not_blue": "Buck Moon",
+          "month_table_name": null,
+          "harvest_moon_note": null,
+          "is_blue_moon_monthly": false,
+          "is_blue_moon_seasonal": false,
+          "blue_moon_basis_timezone": "Europe/London",
+          "blue_moon_note": "Two senses, both computed. MONTHLY is the second full moon in one calendar month, and whether two full moons share a month genuinely depends on the timezone, which is why the zone is echoed here. SEASONAL is the third full moon in an astronomical season containing four, the Sky and Telescope 1999 reconstruction of Maine Farmers' Almanac practice.",
+          "names_note": "Folklore labels, not astronomical terms. They were popularised by the Old Farmer's Almanac, drawing on Native American (notably Algonquian), colonial American and European traditions, and the month a name attaches to is the calendar month in the effective timezone."
+        },
+        "eclipse": null,
+        "href": "https://www.cyclecalcs.com/full-moon-calendar.html"
+      },
+      {
+        "kind": "last_quarter",
+        "label": "Last Quarter",
+        "instant": "2026-08-06T03:21:58.672+01:00",
+        "instant_precision_seconds": 1,
+        "local_date": "2026-08-06",
+        "days_from_query": 8.140262,
+        "lunation_number": 1281,
+        "distance_km": 373334.993094,
+        "angular_diameter_arcsec": 1919.808079,
+        "fraction_of_mean_distance": 0.971215,
+        "apparent_size_vs_mean_percent": 2.963828,
+        "apparent_brightness_vs_mean_percent": 6.015499,
+        "illuminated_fraction": 0.50123,
+        "apparent_magnitude": -10.16,
+        "illumination_note": "At an exact quarter the illuminated fraction is about 0.5013 rather than 0.5000. The quarters are defined by the difference in ecliptic longitude, not by half illumination, and the two differ by a few hours of geometry. It is not rounded to look tidy.",
+        "classification": {
+          "applicable": false,
+          "not_applicable_reason": "A supermoon or micromoon is by definition a new or full Moon. This is a last quarter, so neither rule applies to it. The distance is reported above either way.",
+          "rule": null,
+          "is_supermoon": null,
+          "is_micromoon": null,
+          "espenak": null,
+          "criteria_disagree": null,
+          "disagreement_note": null
+        },
+        "href": "https://www.cyclecalcs.com/full-moon-calendar.html"
+      },
+      {
+        "kind": "new_moon",
+        "label": "New Moon",
+        "instant": "2026-08-12T18:37:11.343+01:00",
+        "instant_precision_seconds": 1,
+        "local_date": "2026-08-12",
+        "days_from_query": 14.775826,
+        "lunation_number": 1282,
+        "distance_km": 366945.4005,
+        "angular_diameter_arcsec": 1953.2378,
+        "fraction_of_mean_distance": 0.954593,
+        "apparent_size_vs_mean_percent": 4.756729,
+        "apparent_brightness_vs_mean_percent": 9.739723,
+        "illuminated_fraction": 0.000061,
+        "apparent_magnitude": -4.03,
+        "illumination_note": "At an exact quarter the illuminated fraction is about 0.5013 rather than 0.5000. The quarters are defined by the difference in ecliptic longitude, not by half illumination, and the two differ by a few hours of geometry. It is not rounded to look tidy.",
+        "classification": {
+          "applicable": true,
+          "rule": "site",
+          "rule_definition": "A supermoon is a phase occurring closer than 360,000 km and a micromoon further than 405,000 km, measured at the instant of the phase.",
+          "is_supermoon": false,
+          "is_micromoon": false,
+          "supermoon_threshold_km": 360000,
+          "micromoon_threshold_km": 405000,
+          "espenak": {
+            "rule_definition": "Espenak's rule, following Nolle: a new or full Moon qualifies when it is closer than ten percent of the way from the closest perigee to the farthest apogee of that CALENDAR YEAR. One threshold applies to the whole year, and it shifts by a few hundred kilometres from year to year as the extreme apsides move.",
+            "qualifies": false,
+            "threshold_km": 361617.591879,
+            "threshold_year": 2026,
+            "closest_perigee_of_year_km": 356641.002581,
+            "farthest_apogee_of_year_km": 406406.895565
+          },
+          "criteria_disagree": false,
+          "disagreement_note": null
+        },
+        "eclipse": {
+          "type": "solar",
+          "kind": "total",
+          "peak": "2026-08-12T18:45:46.794+01:00",
+          "minutes_from_phase_instant": 8.59085,
+          "minutes_from_phase_instant_sign": "Positive means the eclipse peak FOLLOWS the phase instant; negative means it precedes it.",
+          "note": "A new moon is a candidate for a solar eclipse and most are not one. The small offset between the two instants is the visible trace of how near the syzygy fell to a node."
+        },
+        "href": "https://www.cyclecalcs.com/full-moon-calendar.html"
+      },
+      {
+        "kind": "first_quarter",
+        "label": "First Quarter",
+        "instant": "2026-08-20T03:46:58.247+01:00",
+        "instant_precision_seconds": 1,
+        "local_date": "2026-08-20",
+        "days_from_query": 22.157619,
+        "lunation_number": 1282,
+        "distance_km": 401561.449948,
+        "angular_diameter_arcsec": 1784.860536,
+        "fraction_of_mean_distance": 1.044645,
+        "apparent_size_vs_mean_percent": -4.27368,
+        "apparent_brightness_vs_mean_percent": -8.364716,
+        "illuminated_fraction": 0.501326,
+        "apparent_magnitude": -10,
+        "illumination_note": "At an exact quarter the illuminated fraction is about 0.5013 rather than 0.5000. The quarters are defined by the difference in ecliptic longitude, not by half illumination, and the two differ by a few hours of geometry. It is not rounded to look tidy.",
+        "classification": {
+          "applicable": false,
+          "not_applicable_reason": "A supermoon or micromoon is by definition a new or full Moon. This is a first quarter, so neither rule applies to it. The distance is reported above either way.",
+          "rule": null,
+          "is_supermoon": null,
+          "is_micromoon": null,
+          "espenak": null,
+          "criteria_disagree": null,
+          "disagreement_note": null
+        },
+        "href": "https://www.cyclecalcs.com/full-moon-calendar.html"
+      },
+      {
+        "kind": "full_moon",
+        "label": "Full Moon",
+        "instant": "2026-08-28T05:19:06.085+01:00",
+        "instant_precision_seconds": 1,
+        "local_date": "2026-08-28",
+        "days_from_query": 30.221598,
+        "lunation_number": 1282,
+        "distance_km": 390384.753145,
+        "angular_diameter_arcsec": 1835.961341,
+        "fraction_of_mean_distance": 1.015569,
+        "apparent_size_vs_mean_percent": -1.53304,
+        "apparent_brightness_vs_mean_percent": -3.042577,
+        "illuminated_fraction": 0.999983,
+        "apparent_magnitude": -12.65,
+        "illumination_note": "At an exact quarter the illuminated fraction is about 0.5013 rather than 0.5000. The quarters are defined by the difference in ecliptic longitude, not by half illumination, and the two differ by a few hours of geometry. It is not rounded to look tidy.",
+        "classification": {
+          "applicable": true,
+          "rule": "site",
+          "rule_definition": "A supermoon is a phase occurring closer than 360,000 km and a micromoon further than 405,000 km, measured at the instant of the phase.",
+          "is_supermoon": false,
+          "is_micromoon": false,
+          "supermoon_threshold_km": 360000,
+          "micromoon_threshold_km": 405000,
+          "espenak": {
+            "rule_definition": "Espenak's rule, following Nolle: a new or full Moon qualifies when it is closer than ten percent of the way from the closest perigee to the farthest apogee of that CALENDAR YEAR. One threshold applies to the whole year, and it shifts by a few hundred kilometres from year to year as the extreme apsides move.",
+            "qualifies": false,
+            "threshold_km": 361617.591879,
+            "threshold_year": 2026,
+            "closest_perigee_of_year_km": 356641.002581,
+            "farthest_apogee_of_year_km": 406406.895565
+          },
+          "criteria_disagree": false,
+          "disagreement_note": null
+        },
+        "name": {
+          "traditional_name": "Sturgeon Moon",
+          "traditional_name_if_not_blue": "Sturgeon Moon",
+          "month_table_name": null,
+          "harvest_moon_note": null,
+          "is_blue_moon_monthly": false,
+          "is_blue_moon_seasonal": false,
+          "blue_moon_basis_timezone": "Europe/London",
+          "blue_moon_note": "Two senses, both computed. MONTHLY is the second full moon in one calendar month, and whether two full moons share a month genuinely depends on the timezone, which is why the zone is echoed here. SEASONAL is the third full moon in an astronomical season containing four, the Sky and Telescope 1999 reconstruction of Maine Farmers' Almanac practice.",
+          "names_note": "Folklore labels, not astronomical terms. They were popularised by the Old Farmer's Almanac, drawing on Native American (notably Algonquian), colonial American and European traditions, and the month a name attaches to is the calendar month in the effective timezone."
+        },
+        "eclipse": {
+          "type": "lunar",
+          "kind": "partial",
+          "peak": "2026-08-28T05:12:49.076+01:00",
+          "minutes_from_phase_instant": -6.283483,
+          "minutes_from_phase_instant_sign": "Positive means the eclipse peak FOLLOWS the phase instant; negative means it precedes it.",
+          "note": "A full moon is a candidate for a lunar eclipse and most are not one. The small offset between the two instants is the visible trace of how near the syzygy fell to a node."
+        },
+        "href": "https://www.cyclecalcs.com/full-moon-calendar.html"
+      }
+    ],
+    "summary": "The next full moon is on 2026-07-29, the Buck Moon. 5 phases fall in this window."
+  },
+  "warnings": [],
+  "links": {
+    "self": "https://www.cyclecalcs.com/v2/phases?end=2026-08-31&start=2026-07-29&tz=Europe%2FLondon",
+    "docs": "https://www.cyclecalcs.com/api/reference.html#phases",
+    "spec": "https://www.cyclecalcs.com/v2/openapi.json",
+    "page": "https://www.cyclecalcs.com/full-moon-calendar.html",
+    "explain": "https://www.cyclecalcs.com/learn/moon-phases.html",
+    "related": [
+      {
+        "rel": "endpoint",
+        "title": "The Moon right now",
+        "href": "https://www.cyclecalcs.com/v2/moon"
+      },
+      {
+        "rel": "endpoint",
+        "title": "Perigee and apogee",
+        "href": "https://www.cyclecalcs.com/v2/apsides"
+      },
+      {
+        "rel": "page",
+        "title": "Supermoons",
+        "href": "https://www.cyclecalcs.com/supermoons.html"
+      }
+    ]
+  },
+  "meta": {
+    "api_version": "2",
+    "contract_version": "2.0.0",
+    "engine": {
+      "name": "Astronomy Engine",
+      "license": "MIT",
+      "author": "Don Cross",
+      "version": "2.1.19",
+      "version_source": "upstream_sha256_match",
+      "sha256": "068f1445ed0c636c94818fe6d20d7d125120e605e0bab9fc4675c3d531be5ad7",
+      "vendored": true,
+      "credit": "astronomy-engine (MIT, Copyright (c) 2019-2023 Don Cross)"
+    },
+    "tzdb": "2026b",
+    "rights": "unrestricted",
+    "attribution": {
+      "required": false,
+      "text": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+      "sources": []
+    },
+    "notice_url": "https://www.cyclecalcs.com/methodology.html#data-sources",
+    "cache": {
+      "class": "fixed_instant",
+      "deterministic": true
+    },
+    "accuracy": {
+      "statement": "Positions are arcminute class for the Sun, Moon and planets across 1700 to 2200, degrading toward the ends of that window.",
+      "residuals_url": "https://www.cyclecalcs.com/api/accuracy.html"
+    },
+    "time": {
+      "scale_of_input": "UTC",
+      "ut1_source": "assumed equal to UTC; no IERS bulletin is loaded, so UT1 minus UTC may differ by up to 0.9 s",
+      "delta_t_seconds": 75.4,
+      "delta_t_model": "Espenak and Meeus"
+    },
+    "frames": {
+      "equatorial_j2000": "ICRF-aligned mean equator and equinox of J2000.0 (EQJ)",
+      "equatorial_of_date": "true equator and equinox of date (EQD), nutation applied",
+      "ecliptic": "true ecliptic and equinox of date (ECT)",
+      "ecliptic_j2000": "mean ecliptic and equinox of J2000.0 (ECL)",
+      "galactic": "IAU 1958 galactic coordinates (GAL)",
+      "horizontal": "topocentric, azimuth measured clockwise from true north"
+    },
+    "corrections": {
+      "aberration": true,
+      "light_travel_time": true,
+      "nutation": true,
+      "topocentric_parallax": false,
+      "proper_motion": false,
+      "polar_motion": false
+    },
+    "conventions": {
+      "supermoon_max_km": 360000,
+      "micromoon_min_km": 405000,
+      "moon_mean_distance_km": 384400,
+      "synodic_month_days": 29.530588853,
+      "eclipse_association_hours": 24,
+      "full_moon_names_note": "Folklore labels, not astronomical terms. They were popularised by the Old Farmer's Almanac, drawing on Native American (notably Algonquian), colonial American and European traditions, and the month a name attaches to is the calendar month in the effective timezone."
+    },
+    "method": {
+      "events": "SearchMoonQuarter then NextMoonQuarter, one engine call per event rather than four SearchMoonPhase calls per lunation. The phases filter is applied after the walk, never by skipping it, because the walker needs the previous quarter to step from.",
+      "distance": "Libration(t).dist_km, the geocentric centre-to-centre distance, which is the same call tools/generate-supermoons.mjs uses, so the API and the site cannot drift.",
+      "two_supermoon_rules": "The site rule is the headline because it is the one the website already uses. Espenak's per-lunation rule is computed beside it and criteria_disagree says when the two part company.",
+      "brightness": "Brightness goes as the inverse square of distance, so it is emitted as its own field. Quoting the size percentage as the brightness percentage is the commonest error in supermoon coverage."
+    },
+    "budget": {
+      "engine_calls": 1075
+    }
+  },
+  "attribution": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+  "docs": "https://www.cyclecalcs.com/api/reference.html#phases"
+}

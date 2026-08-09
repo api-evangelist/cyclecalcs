@@ -1,0 +1,2786 @@
+{
+  "endpoint": "/v2/enums",
+  "computed_at": "2026-08-01T00:00:00.000Z",
+  "query": {
+    "format": "json",
+    "precision": 6,
+    "pretty": 1,
+    "verbosity": "full",
+    "set": null,
+    "endpoint": null,
+    "ignored": []
+  },
+  "data": {
+    "sets": {
+      "bodies": [
+        {
+          "code": "sun",
+          "name": "Sun"
+        },
+        {
+          "code": "moon",
+          "name": "Moon"
+        },
+        {
+          "code": "mercury",
+          "name": "Mercury"
+        },
+        {
+          "code": "venus",
+          "name": "Venus"
+        },
+        {
+          "code": "earth",
+          "name": "Earth"
+        },
+        {
+          "code": "mars",
+          "name": "Mars"
+        },
+        {
+          "code": "jupiter",
+          "name": "Jupiter"
+        },
+        {
+          "code": "saturn",
+          "name": "Saturn"
+        },
+        {
+          "code": "uranus",
+          "name": "Uranus"
+        },
+        {
+          "code": "neptune",
+          "name": "Neptune"
+        },
+        {
+          "code": "pluto",
+          "name": "Pluto"
+        }
+      ],
+      "body_aliases_refused": [
+        {
+          "code": "chiron",
+          "reason": "The MIT-licensed Astronomy Engine has no minor-planet ephemeris."
+        },
+        {
+          "code": "ceres",
+          "reason": "The MIT-licensed Astronomy Engine has no minor-planet ephemeris."
+        },
+        {
+          "code": "pallas",
+          "reason": "The MIT-licensed Astronomy Engine has no minor-planet ephemeris."
+        },
+        {
+          "code": "juno",
+          "reason": "The MIT-licensed Astronomy Engine has no minor-planet ephemeris."
+        },
+        {
+          "code": "vesta",
+          "reason": "The MIT-licensed Astronomy Engine has no minor-planet ephemeris."
+        },
+        {
+          "code": "eris",
+          "reason": "The MIT-licensed Astronomy Engine has no minor-planet ephemeris."
+        },
+        {
+          "code": "sedna",
+          "reason": "The MIT-licensed Astronomy Engine has no minor-planet ephemeris."
+        },
+        {
+          "code": "haumea",
+          "reason": "The MIT-licensed Astronomy Engine has no minor-planet ephemeris."
+        },
+        {
+          "code": "makemake",
+          "reason": "The MIT-licensed Astronomy Engine has no minor-planet ephemeris."
+        },
+        {
+          "code": "quaoar",
+          "reason": "The MIT-licensed Astronomy Engine has no minor-planet ephemeris."
+        },
+        {
+          "code": "black_moon_lilith",
+          "reason": "The MIT-licensed Astronomy Engine has no minor-planet ephemeris."
+        }
+      ],
+      "moon_phase_names": [
+        {
+          "code": "new_moon",
+          "label": "New Moon",
+          "emoji": "🌑",
+          "phase_angle_from_deg": 348.75,
+          "phase_angle_to_deg": 11.25
+        },
+        {
+          "code": "waxing_crescent",
+          "label": "Waxing Crescent",
+          "emoji": "🌒",
+          "phase_angle_from_deg": 11.25,
+          "phase_angle_to_deg": 78.75
+        },
+        {
+          "code": "first_quarter",
+          "label": "First Quarter",
+          "emoji": "🌓",
+          "phase_angle_from_deg": 78.75,
+          "phase_angle_to_deg": 101.25
+        },
+        {
+          "code": "waxing_gibbous",
+          "label": "Waxing Gibbous",
+          "emoji": "🌔",
+          "phase_angle_from_deg": 101.25,
+          "phase_angle_to_deg": 168.75
+        },
+        {
+          "code": "full_moon",
+          "label": "Full Moon",
+          "emoji": "🌕",
+          "phase_angle_from_deg": 168.75,
+          "phase_angle_to_deg": 191.25
+        },
+        {
+          "code": "waning_gibbous",
+          "label": "Waning Gibbous",
+          "emoji": "🌖",
+          "phase_angle_from_deg": 191.25,
+          "phase_angle_to_deg": 258.75
+        },
+        {
+          "code": "last_quarter",
+          "label": "Last Quarter",
+          "emoji": "🌗",
+          "phase_angle_from_deg": 258.75,
+          "phase_angle_to_deg": 281.25
+        },
+        {
+          "code": "waning_crescent",
+          "label": "Waning Crescent",
+          "emoji": "🌘",
+          "phase_angle_from_deg": 281.25,
+          "phase_angle_to_deg": 348.75
+        }
+      ],
+      "moon_phase_names_south": [
+        {
+          "code": "new_moon",
+          "label": "New Moon",
+          "emoji": "🌑",
+          "phase_angle_from_deg": 348.75,
+          "phase_angle_to_deg": 11.25
+        },
+        {
+          "code": "waxing_crescent",
+          "label": "Waxing Crescent",
+          "emoji": "🌘",
+          "phase_angle_from_deg": 11.25,
+          "phase_angle_to_deg": 78.75
+        },
+        {
+          "code": "first_quarter",
+          "label": "First Quarter",
+          "emoji": "🌗",
+          "phase_angle_from_deg": 78.75,
+          "phase_angle_to_deg": 101.25
+        },
+        {
+          "code": "waxing_gibbous",
+          "label": "Waxing Gibbous",
+          "emoji": "🌖",
+          "phase_angle_from_deg": 101.25,
+          "phase_angle_to_deg": 168.75
+        },
+        {
+          "code": "full_moon",
+          "label": "Full Moon",
+          "emoji": "🌕",
+          "phase_angle_from_deg": 168.75,
+          "phase_angle_to_deg": 191.25
+        },
+        {
+          "code": "waning_gibbous",
+          "label": "Waning Gibbous",
+          "emoji": "🌔",
+          "phase_angle_from_deg": 191.25,
+          "phase_angle_to_deg": 258.75
+        },
+        {
+          "code": "last_quarter",
+          "label": "Last Quarter",
+          "emoji": "🌓",
+          "phase_angle_from_deg": 258.75,
+          "phase_angle_to_deg": 281.25
+        },
+        {
+          "code": "waning_crescent",
+          "label": "Waning Crescent",
+          "emoji": "🌒",
+          "phase_angle_from_deg": 281.25,
+          "phase_angle_to_deg": 348.75
+        }
+      ],
+      "rise_set_statuses": [
+        {
+          "code": "normal",
+          "label": "Rises and sets",
+          "definition": "Exactly one rise and exactly one set inside the window."
+        },
+        {
+          "code": "rise_only",
+          "label": "Rises, does not set",
+          "definition": "One or more rises, no set, inside the window."
+        },
+        {
+          "code": "set_only",
+          "label": "Sets, does not rise",
+          "definition": "One or more sets, no rise, inside the window."
+        },
+        {
+          "code": "always_up",
+          "label": "Above the horizon throughout",
+          "definition": "Altitude at or above the event altitude for the whole window, determined by sampling the upper and lower transit."
+        },
+        {
+          "code": "always_down",
+          "label": "Below the horizon throughout",
+          "definition": "Altitude below the event altitude for the whole window, determined the same way."
+        },
+        {
+          "code": "multiple",
+          "label": "More than one rise or set",
+          "definition": "Two or more rises, or two or more sets, inside the window. It happens when a body's daily slip carries one event past the window edge, most often with the Moon, whose rise moves about 50 minutes later each day."
+        }
+      ],
+      "day_anchors": [
+        {
+          "code": "civil",
+          "definition": "Local midnight in the effective IANA zone, with the historical offset for that date."
+        },
+        {
+          "code": "solar",
+          "definition": "Local mean solar midnight implied by longitude alone. No timezone, no DST."
+        },
+        {
+          "code": "utc",
+          "definition": "UTC midnight of the resolved UTC calendar date."
+        }
+      ],
+      "rise_set_event_kinds": [
+        {
+          "code": "rise"
+        },
+        {
+          "code": "set"
+        },
+        {
+          "code": "upper_transit"
+        },
+        {
+          "code": "lower_transit"
+        }
+      ],
+      "event_kinds": [
+        {
+          "code": "equinox_march",
+          "label_template": "March equinox",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": 0,
+          "known_unreachable": false,
+          "surface": "/v2/seasons"
+        },
+        {
+          "code": "solstice_june",
+          "label_template": "June solstice",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": 90,
+          "known_unreachable": false,
+          "surface": "/v2/seasons"
+        },
+        {
+          "code": "equinox_september",
+          "label_template": "September equinox",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": 180,
+          "known_unreachable": false,
+          "surface": "/v2/seasons"
+        },
+        {
+          "code": "solstice_december",
+          "label_template": "December solstice",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": 270,
+          "known_unreachable": false,
+          "surface": "/v2/seasons"
+        },
+        {
+          "code": "cross_quarter_february",
+          "label_template": "February cross-quarter",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": 315,
+          "known_unreachable": false,
+          "surface": "/v2/seasons"
+        },
+        {
+          "code": "cross_quarter_may",
+          "label_template": "May cross-quarter",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": 45,
+          "known_unreachable": false,
+          "surface": "/v2/seasons"
+        },
+        {
+          "code": "cross_quarter_august",
+          "label_template": "August cross-quarter",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": 135,
+          "known_unreachable": false,
+          "surface": "/v2/seasons"
+        },
+        {
+          "code": "cross_quarter_november",
+          "label_template": "November cross-quarter",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": 225,
+          "known_unreachable": false,
+          "surface": "/v2/seasons"
+        },
+        {
+          "code": "perigee",
+          "label_template": "{body} at perigee, {value}",
+          "value_field": "value_km",
+          "value_unit": "km",
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/apsides"
+        },
+        {
+          "code": "apogee",
+          "label_template": "{body} at apogee, {value}",
+          "value_field": "value_km",
+          "value_unit": "km",
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/apsides"
+        },
+        {
+          "code": "perihelion",
+          "label_template": "{body} at perihelion, {value}",
+          "value_field": "value_au",
+          "value_unit": "au",
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/apsides"
+        },
+        {
+          "code": "aphelion",
+          "label_template": "{body} at aphelion, {value}",
+          "value_field": "value_au",
+          "value_unit": "au",
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/apsides"
+        },
+        {
+          "code": "node_ascending",
+          "label_template": "Moon crosses the ecliptic northward, ascending node",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/moon-nodes"
+        },
+        {
+          "code": "node_descending",
+          "label_template": "Moon crosses the ecliptic southward, descending node",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/moon-nodes"
+        },
+        {
+          "code": "new_moon",
+          "label_template": "New Moon",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/moon"
+        },
+        {
+          "code": "first_quarter",
+          "label_template": "First Quarter Moon",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/moon"
+        },
+        {
+          "code": "full_moon",
+          "label_template": "Full Moon",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/moon"
+        },
+        {
+          "code": "last_quarter",
+          "label_template": "Last Quarter Moon",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/moon"
+        },
+        {
+          "code": "solar_eclipse",
+          "label_template": "Solar eclipse",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/today"
+        },
+        {
+          "code": "lunar_eclipse",
+          "label_template": "Lunar eclipse",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/today"
+        },
+        {
+          "code": "station_retrograde",
+          "label_template": "{body} stationary, beginning retrograde motion",
+          "value_field": "value_deg",
+          "value_unit": "deg",
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/retrogrades"
+        },
+        {
+          "code": "station_direct",
+          "label_template": "{body} stationary, resuming direct motion",
+          "value_field": "value_deg",
+          "value_unit": "deg",
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/retrogrades"
+        },
+        {
+          "code": "conjunction",
+          "label_template": "{body} at conjunction",
+          "value_field": "value_deg",
+          "value_unit": "deg",
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/conjunctions"
+        },
+        {
+          "code": "opposition",
+          "label_template": "{body} at opposition",
+          "value_field": "value_deg",
+          "value_unit": "deg",
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/conjunctions"
+        },
+        {
+          "code": "close_approach",
+          "label_template": "{body} at closest approach, {value}",
+          "value_field": "value_deg",
+          "value_unit": "deg",
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/conjunctions"
+        },
+        {
+          "code": "separation_minimum",
+          "label_template": "{body} at least separation, {value}",
+          "value_field": "value_deg",
+          "value_unit": "deg",
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/separation"
+        },
+        {
+          "code": "inferior_conjunction",
+          "label_template": "{body} at inferior conjunction, {value} from the Sun",
+          "value_field": "value_deg",
+          "value_unit": "deg",
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/planet-events"
+        },
+        {
+          "code": "superior_conjunction",
+          "label_template": "{body} at superior conjunction, {value} from the Sun",
+          "value_field": "value_deg",
+          "value_unit": "deg",
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/planet-events"
+        },
+        {
+          "code": "greatest_elongation_east",
+          "label_template": "{body} at greatest eastern elongation, {value}",
+          "value_field": "value_deg",
+          "value_unit": "deg",
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/planet-events"
+        },
+        {
+          "code": "greatest_elongation_west",
+          "label_template": "{body} at greatest western elongation, {value}",
+          "value_field": "value_deg",
+          "value_unit": "deg",
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/planet-events"
+        },
+        {
+          "code": "peak_magnitude",
+          "label_template": "{body} at peak brightness, {value}",
+          "value_field": "value_mag",
+          "value_unit": "mag",
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/planet-events"
+        },
+        {
+          "code": "transit_of_mercury",
+          "label_template": "Transit of Mercury across the Sun",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/planet-events"
+        },
+        {
+          "code": "transit_of_venus",
+          "label_template": "Transit of Venus across the Sun",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/planet-events"
+        },
+        {
+          "code": "eclipse_season_start",
+          "label_template": "Eclipse season begins",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/moon-nodes"
+        },
+        {
+          "code": "eclipse_season_end",
+          "label_template": "Eclipse season ends",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/moon-nodes"
+        },
+        {
+          "code": "node_passage_solar_ascending",
+          "label_template": "Sun crosses the lunar ascending node",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/moon-nodes"
+        },
+        {
+          "code": "node_passage_solar_descending",
+          "label_template": "Sun crosses the lunar descending node",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/moon-nodes"
+        },
+        {
+          "code": "moon_shadow_ingress",
+          "label_template": "{body} shadow begins crossing Jupiter",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/jupiter-moons"
+        },
+        {
+          "code": "moon_shadow_egress",
+          "label_template": "{body} shadow leaves Jupiter",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/jupiter-moons"
+        },
+        {
+          "code": "moon_transit_ingress",
+          "label_template": "{body} begins transiting Jupiter",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/jupiter-moons"
+        },
+        {
+          "code": "moon_transit_egress",
+          "label_template": "{body} finishes transiting Jupiter",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/jupiter-moons"
+        },
+        {
+          "code": "moon_eclipse_ingress",
+          "label_template": "{body} enters Jupiter shadow",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/jupiter-moons"
+        },
+        {
+          "code": "moon_eclipse_egress",
+          "label_template": "{body} leaves Jupiter shadow",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/jupiter-moons"
+        },
+        {
+          "code": "moon_occultation_ingress",
+          "label_template": "{body} passes behind Jupiter",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/jupiter-moons"
+        },
+        {
+          "code": "moon_occultation_egress",
+          "label_template": "{body} emerges from behind Jupiter",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": false,
+          "surface": "/v2/jupiter-moons"
+        },
+        {
+          "code": "meteor_shower_peak",
+          "label_template": "{body} meteor shower at peak",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": true,
+          "surface": "/v2/meteor-showers",
+          "reason": "The /v2/meteor-showers endpoint is specified and not built, so no shipped route can emit this kind."
+        },
+        {
+          "code": "meteor_shower_activity_start",
+          "label_template": "{body} meteor shower becomes active",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": true,
+          "surface": "/v2/meteor-showers",
+          "reason": "The /v2/meteor-showers endpoint is specified and not built, so no shipped route can emit this kind."
+        },
+        {
+          "code": "meteor_shower_activity_end",
+          "label_template": "{body} meteor shower activity ends",
+          "value_field": null,
+          "value_unit": null,
+          "defining_solar_longitude_deg": null,
+          "known_unreachable": true,
+          "surface": "/v2/meteor-showers",
+          "reason": "The /v2/meteor-showers endpoint is specified and not built, so no shipped route can emit this kind."
+        }
+      ],
+      "zodiac_signs": [
+        {
+          "code": "aries",
+          "name": "Aries",
+          "sign_index": 0
+        },
+        {
+          "code": "taurus",
+          "name": "Taurus",
+          "sign_index": 1
+        },
+        {
+          "code": "gemini",
+          "name": "Gemini",
+          "sign_index": 2
+        },
+        {
+          "code": "cancer",
+          "name": "Cancer",
+          "sign_index": 3
+        },
+        {
+          "code": "leo",
+          "name": "Leo",
+          "sign_index": 4
+        },
+        {
+          "code": "virgo",
+          "name": "Virgo",
+          "sign_index": 5
+        },
+        {
+          "code": "libra",
+          "name": "Libra",
+          "sign_index": 6
+        },
+        {
+          "code": "scorpio",
+          "name": "Scorpio",
+          "sign_index": 7
+        },
+        {
+          "code": "sagittarius",
+          "name": "Sagittarius",
+          "sign_index": 8
+        },
+        {
+          "code": "capricorn",
+          "name": "Capricorn",
+          "sign_index": 9
+        },
+        {
+          "code": "aquarius",
+          "name": "Aquarius",
+          "sign_index": 10
+        },
+        {
+          "code": "pisces",
+          "name": "Pisces",
+          "sign_index": 11
+        }
+      ],
+      "compass_points": [
+        {
+          "code": "N",
+          "azimuth_deg": 0
+        },
+        {
+          "code": "NNE",
+          "azimuth_deg": 22.5
+        },
+        {
+          "code": "NE",
+          "azimuth_deg": 45
+        },
+        {
+          "code": "ENE",
+          "azimuth_deg": 67.5
+        },
+        {
+          "code": "E",
+          "azimuth_deg": 90
+        },
+        {
+          "code": "ESE",
+          "azimuth_deg": 112.5
+        },
+        {
+          "code": "SE",
+          "azimuth_deg": 135
+        },
+        {
+          "code": "SSE",
+          "azimuth_deg": 157.5
+        },
+        {
+          "code": "S",
+          "azimuth_deg": 180
+        },
+        {
+          "code": "SSW",
+          "azimuth_deg": 202.5
+        },
+        {
+          "code": "SW",
+          "azimuth_deg": 225
+        },
+        {
+          "code": "WSW",
+          "azimuth_deg": 247.5
+        },
+        {
+          "code": "W",
+          "azimuth_deg": 270
+        },
+        {
+          "code": "WNW",
+          "azimuth_deg": 292.5
+        },
+        {
+          "code": "NW",
+          "azimuth_deg": 315
+        },
+        {
+          "code": "NNW",
+          "azimuth_deg": 337.5
+        }
+      ],
+      "visibility_phrases": [
+        {
+          "code": "glare",
+          "phrase": "Lost in the Sun's glare"
+        },
+        {
+          "code": "most_of_night",
+          "phrase": "Up most of the night"
+        },
+        {
+          "code": "morning_sky",
+          "phrase": "Morning sky, before dawn"
+        },
+        {
+          "code": "evening_sky",
+          "phrase": "Evening sky, after dusk"
+        }
+      ],
+      "warning_codes": [
+        {
+          "code": "polar_day",
+          "known_unreachable": false
+        },
+        {
+          "code": "polar_night",
+          "known_unreachable": false
+        },
+        {
+          "code": "assumed_utc",
+          "known_unreachable": false
+        },
+        {
+          "code": "unknown_parameter",
+          "known_unreachable": false
+        },
+        {
+          "code": "duplicate_parameter",
+          "known_unreachable": false
+        },
+        {
+          "code": "duplicate_body",
+          "known_unreachable": false
+        },
+        {
+          "code": "duplicate_house_system",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "duplicate_point",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "duplicate_aspect",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "duplicate_derived",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "extrapolated_epoch",
+          "known_unreachable": false
+        },
+        {
+          "code": "time_scale_undefined",
+          "known_unreachable": false
+        },
+        {
+          "code": "elevation_ignored",
+          "known_unreachable": false
+        },
+        {
+          "code": "refraction_below_cutoff",
+          "known_unreachable": false
+        },
+        {
+          "code": "low_altitude_precision",
+          "known_unreachable": false
+        },
+        {
+          "code": "dataset_stale",
+          "known_unreachable": false
+        },
+        {
+          "code": "shape_ignored",
+          "known_unreachable": false
+        },
+        {
+          "code": "no_location_orientation",
+          "known_unreachable": false
+        },
+        {
+          "code": "ambiguous_local_time",
+          "known_unreachable": false
+        },
+        {
+          "code": "nonexistent_local_time_shifted",
+          "known_unreachable": false
+        },
+        {
+          "code": "tzdb_lmt_interval",
+          "known_unreachable": false
+        },
+        {
+          "code": "tz_source_boundary_1970",
+          "known_unreachable": false
+        },
+        {
+          "code": "polar_region",
+          "known_unreachable": false
+        },
+        {
+          "code": "polar_angles_flipped",
+          "known_unreachable": false
+        },
+        {
+          "code": "cusps_not_monotonic",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "house_system_substituted",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "approximates_undefined_placidus",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "vertex_undefined_at_equator",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "placement_within_error_of_boundary",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "birth_time_unknown",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "sect_tests_disagree",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "dms_rounds_to_next_sign",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "harmonic_orb_mode_has_no_effect",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "antipodal_pair_not_aspected",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "perfection_search_truncated",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "no_search_result",
+          "known_unreachable": false
+        },
+        {
+          "code": "place_ambiguous",
+          "known_unreachable": false
+        },
+        {
+          "code": "place_index_tier_2",
+          "known_unreachable": false
+        },
+        {
+          "code": "place_matched_by_substring",
+          "known_unreachable": false
+        },
+        {
+          "code": "timezone_from_place",
+          "known_unreachable": false
+        },
+        {
+          "code": "field_blocked",
+          "known_unreachable": false
+        },
+        {
+          "code": "fields_ignored",
+          "known_unreachable": false
+        },
+        {
+          "code": "duplicate_shower",
+          "known_unreachable": true,
+          "surface": "meteors",
+          "reason": "Meteor-shower data is withheld pending its licence review."
+        },
+        {
+          "code": "duplicate_include",
+          "known_unreachable": false
+        },
+        {
+          "code": "duplicate_source",
+          "known_unreachable": true,
+          "surface": "calendar",
+          "reason": "The calendar surface (format=ics) is specified and not built."
+        },
+        {
+          "code": "duplicate_alarm",
+          "known_unreachable": true,
+          "surface": "calendar",
+          "reason": "The calendar surface (format=ics) is specified and not built."
+        },
+        {
+          "code": "parameter_ignored",
+          "known_unreachable": false
+        },
+        {
+          "code": "source_window_clipped",
+          "known_unreachable": true,
+          "surface": "calendar",
+          "reason": "The calendar surface (format=ics) is specified and not built."
+        },
+        {
+          "code": "truncated_results",
+          "known_unreachable": false
+        },
+        {
+          "code": "rounded_parameter",
+          "known_unreachable": false
+        },
+        {
+          "code": "duplicate_depression",
+          "known_unreachable": false
+        },
+        {
+          "code": "model_disagreement",
+          "known_unreachable": false
+        },
+        {
+          "code": "unusual_navigational_body",
+          "known_unreachable": true,
+          "surface": "observer",
+          "reason": "The celestial-navigation surface (sight reduction, sextant corrections) is specified and not built."
+        },
+        {
+          "code": "large_intercept",
+          "known_unreachable": true,
+          "surface": "observer",
+          "reason": "The celestial-navigation surface (sight reduction, sextant corrections) is specified and not built."
+        },
+        {
+          "code": "prose_window_differs",
+          "known_unreachable": true,
+          "surface": "calendar",
+          "reason": "The calendar surface (format=ics) is specified and not built."
+        },
+        {
+          "code": "blocked_layer_omitted",
+          "known_unreachable": true,
+          "surface": "render",
+          "reason": "The rendering surface (format=svg) is specified and not built."
+        },
+        {
+          "code": "mean_node_model",
+          "known_unreachable": false
+        },
+        {
+          "code": "moon_dominates",
+          "known_unreachable": false
+        },
+        {
+          "code": "time_format_not_applicable",
+          "known_unreachable": false
+        },
+        {
+          "code": "render_degenerate",
+          "known_unreachable": true,
+          "surface": "render",
+          "reason": "The rendering surface (format=svg) is specified and not built."
+        },
+        {
+          "code": "decorative_starfield",
+          "known_unreachable": true,
+          "surface": "render",
+          "reason": "The rendering surface (format=svg) is specified and not built."
+        },
+        {
+          "code": "dst_discontinuity",
+          "known_unreachable": false
+        },
+        {
+          "code": "orbit_arc_truncated",
+          "known_unreachable": true,
+          "surface": "render",
+          "reason": "The rendering surface (format=svg) is specified and not built."
+        },
+        {
+          "code": "not_visible_from_location",
+          "known_unreachable": false
+        },
+        {
+          "code": "duplicate_pair",
+          "known_unreachable": false
+        },
+        {
+          "code": "lot_term_null",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "station_search_truncated",
+          "known_unreachable": true,
+          "surface": "retrograde_scan_limits",
+          "reason": "/v2/retrogrades is built, but its window cap and per-body search horizon make these two scan conditions unreachable: no request it accepts can truncate a station scan or land a station on a window edge in the sense these codes describe."
+        },
+        {
+          "code": "horizon_overridden",
+          "known_unreachable": false
+        },
+        {
+          "code": "no_astronomical_darkness",
+          "known_unreachable": false
+        },
+        {
+          "code": "station_near_window_edge",
+          "known_unreachable": true,
+          "surface": "retrograde_scan_limits",
+          "reason": "/v2/retrogrades is built, but its window cap and per-body search horizon make these two scan conditions unreachable: no request it accepts can truncate a station scan or land a station on a window edge in the sense these codes describe."
+        },
+        {
+          "code": "high_latitude_caution",
+          "known_unreachable": false
+        },
+        {
+          "code": "estimate_only",
+          "known_unreachable": false
+        },
+        {
+          "code": "model_epoch_only",
+          "known_unreachable": false
+        },
+        {
+          "code": "oblateness_simplified",
+          "known_unreachable": false
+        }
+      ],
+      "error_codes": [
+        {
+          "code": "BAD_DATE",
+          "status": 400,
+          "title": "The date could not be parsed",
+          "known_unreachable": false
+        },
+        {
+          "code": "DATE_OUT_OF_RANGE",
+          "status": 400,
+          "title": "The date is outside the supported range",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_TIMEZONE",
+          "status": 400,
+          "title": "The time zone was not recognised",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_TIME_FORMAT",
+          "status": 400,
+          "title": "The time format was not recognised",
+          "known_unreachable": false
+        },
+        {
+          "code": "TIMEZONE_AUTO_UNSUPPORTED",
+          "status": 400,
+          "title": "The time zone cannot be inferred",
+          "known_unreachable": false
+        },
+        {
+          "code": "NONEXISTENT_LOCAL_TIME",
+          "status": 400,
+          "title": "That local time did not exist",
+          "known_unreachable": false
+        },
+        {
+          "code": "AMBIGUOUS_LOCAL_TIME",
+          "status": 409,
+          "title": "That local time occurred twice",
+          "known_unreachable": false
+        },
+        {
+          "code": "INCOMPLETE_RANGE",
+          "status": 400,
+          "title": "The range is incomplete",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_RANGE",
+          "status": 400,
+          "title": "The range is invalid",
+          "known_unreachable": false
+        },
+        {
+          "code": "RANGE_TOO_LARGE",
+          "status": 400,
+          "title": "The range exceeds the limit for this endpoint",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_STEP",
+          "status": 400,
+          "title": "The step could not be parsed",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_COUNT",
+          "status": 400,
+          "title": "Count is out of range",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_SEARCH_HORIZON",
+          "status": 400,
+          "title": "The search horizon is out of range",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_LIMIT",
+          "status": 400,
+          "title": "Limit is out of range",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_CURSOR",
+          "status": 400,
+          "title": "The cursor is not valid",
+          "known_unreachable": false
+        },
+        {
+          "code": "INCOMPLETE_LOCATION",
+          "status": 400,
+          "title": "Latitude and longitude must be given together",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_LATITUDE",
+          "status": 400,
+          "title": "Latitude is not a number from -90 to 90",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_LONGITUDE",
+          "status": 400,
+          "title": "Longitude is not a number from -180 to 180",
+          "known_unreachable": false
+        },
+        {
+          "code": "AMBIGUOUS_LONGITUDE_FORMAT",
+          "status": 400,
+          "title": "The longitude form is ambiguous",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_ELEVATION",
+          "status": 400,
+          "title": "Elevation is not a number from -500 to 9000",
+          "known_unreachable": false
+        },
+        {
+          "code": "LOCATION_REQUIRED",
+          "status": 400,
+          "title": "This endpoint needs a location",
+          "known_unreachable": false
+        },
+        {
+          "code": "LATITUDE_AT_POLE",
+          "status": 400,
+          "title": "The latitude is exactly at a pole",
+          "known_unreachable": false
+        },
+        {
+          "code": "LATITUDE_TOO_EXTREME",
+          "status": 400,
+          "title": "The latitude is too close to a pole",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_PLACE",
+          "status": 400,
+          "title": "Place name not understood",
+          "known_unreachable": false
+        },
+        {
+          "code": "PLACE_NOT_FOUND",
+          "status": 404,
+          "title": "No matching place",
+          "known_unreachable": false
+        },
+        {
+          "code": "AMBIGUOUS_PLACE",
+          "status": 400,
+          "title": "Place name is ambiguous",
+          "known_unreachable": false
+        },
+        {
+          "code": "PLACE_INDEX_UNAVAILABLE",
+          "status": 503,
+          "title": "Place index unavailable",
+          "known_unreachable": true,
+          "surface": "place_index_read",
+          "reason": "The place index is a statically imported module, not a file read at request time, so it cannot be unreadable while a handler is running."
+        },
+        {
+          "code": "CONFLICTING_PARAMETERS",
+          "status": 400,
+          "title": "Two parameters conflict",
+          "known_unreachable": false
+        },
+        {
+          "code": "UNKNOWN_BODY",
+          "status": 400,
+          "title": "That body is not recognised",
+          "known_unreachable": false
+        },
+        {
+          "code": "BODY_REQUIRED",
+          "status": 400,
+          "title": "This endpoint needs a body",
+          "known_unreachable": false
+        },
+        {
+          "code": "BODY_UNAVAILABLE",
+          "status": 400,
+          "title": "That body cannot be computed",
+          "known_unreachable": false
+        },
+        {
+          "code": "BODY_NOT_SUPPORTED_HERE",
+          "status": 400,
+          "title": "Body not supported by this endpoint",
+          "known_unreachable": false
+        },
+        {
+          "code": "TOO_MANY_BODIES",
+          "status": 400,
+          "title": "Too many bodies requested",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_RADEC",
+          "status": 400,
+          "title": "The radec target could not be parsed",
+          "known_unreachable": false
+        },
+        {
+          "code": "STAR_SLOT_FAILED",
+          "status": 400,
+          "title": "The star slot could not be defined",
+          "known_unreachable": false
+        },
+        {
+          "code": "STAR_POOL_TIMEOUT",
+          "status": 503,
+          "title": "The catalogue-object computation queue is busy",
+          "known_unreachable": false
+        },
+        {
+          "code": "OBJECT_NOT_FOUND",
+          "status": 404,
+          "title": "No such catalogue object",
+          "known_unreachable": true,
+          "surface": "catalogue",
+          "reason": "The catalogue-object routes need a reduced index that no generator has produced."
+        },
+        {
+          "code": "BAD_PARAMETER_VALUE",
+          "status": 400,
+          "title": "A parameter value was not accepted",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_RANGE_VALUE",
+          "status": 400,
+          "title": "A numeric parameter is out of range",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_FORMAT",
+          "status": 400,
+          "title": "That output format is not available here",
+          "known_unreachable": false
+        },
+        {
+          "code": "NOT_ACCEPTABLE",
+          "status": 406,
+          "title": "No acceptable representation",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_FIELDS",
+          "status": 400,
+          "title": "A requested field does not exist",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_INCLUDE",
+          "status": 400,
+          "title": "An include token was not recognised",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_SIZE",
+          "status": 400,
+          "title": "The image size is out of range",
+          "known_unreachable": true,
+          "surface": "render",
+          "reason": "The rendering surface (format=svg) is specified and not built."
+        },
+        {
+          "code": "BAD_REFRACTION",
+          "status": 400,
+          "title": "The refraction mode was not recognised",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_BOOLEAN",
+          "status": 400,
+          "title": "A boolean parameter was not recognised",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_CLIENT",
+          "status": 400,
+          "title": "The client identifier is invalid",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_DEPRESSION",
+          "status": 400,
+          "title": "A depression angle is out of range",
+          "known_unreachable": false
+        },
+        {
+          "code": "TOO_MANY_DEPRESSIONS",
+          "status": 400,
+          "title": "Too many depression angles",
+          "known_unreachable": false
+        },
+        {
+          "code": "BUDGET_EXCEEDED",
+          "status": 400,
+          "title": "The request exceeds the computation budget",
+          "known_unreachable": false
+        },
+        {
+          "code": "TIME_REQUIRED",
+          "status": 400,
+          "title": "This endpoint needs a time",
+          "known_unreachable": false
+        },
+        {
+          "code": "CONFLICTING_TIME_INPUTS",
+          "status": 400,
+          "title": "Two time expressions conflict",
+          "known_unreachable": false
+        },
+        {
+          "code": "TIMEZONE_REQUIRED",
+          "status": 400,
+          "title": "This request needs a time zone",
+          "known_unreachable": false
+        },
+        {
+          "code": "LONGITUDE_REQUIRED",
+          "status": 400,
+          "title": "This request needs a longitude",
+          "known_unreachable": false
+        },
+        {
+          "code": "BODY_NOT_GEOCENTRIC",
+          "status": 400,
+          "title": "That body has no geocentric position here",
+          "known_unreachable": false
+        },
+        {
+          "code": "UNKNOWN_POINT",
+          "status": 400,
+          "title": "That point is not recognised",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "UNKNOWN_DERIVED",
+          "status": 400,
+          "title": "That derived quantity is not recognised",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "UNKNOWN_AYANAMSA",
+          "status": 400,
+          "title": "That ayanamsa is not recognised",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "CONFLICTING_AYANAMSA_INPUTS",
+          "status": 400,
+          "title": "Ayanamsa inputs conflict",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "INVALID_ORB_TABLE",
+          "status": 400,
+          "title": "An orb value is invalid",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "INVALID_LOT_EXPRESSION",
+          "status": 400,
+          "title": "A lot expression could not be parsed",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "UNKNOWN_LOT_TERM",
+          "status": 400,
+          "title": "A lot term is not recognised",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "PERFECTION_BUDGET_EXCEEDED",
+          "status": 400,
+          "title": "The perfection search exceeds its budget",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "PERFECTION_WINDOW_TOO_LARGE",
+          "status": 400,
+          "title": "The perfection window is too large",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "PERFECTION_WINDOW_UNSUPPORTED_COMBINATION",
+          "status": 400,
+          "title": "That perfection combination is unsupported",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "FIELD_NOT_COMPUTED",
+          "status": 400,
+          "title": "That field is refused by policy",
+          "known_unreachable": false
+        },
+        {
+          "code": "CLUSTER_PARAMETERS_REQUIRED",
+          "status": 400,
+          "title": "Cluster parameters are incomplete",
+          "known_unreachable": true,
+          "surface": "phase_2_events",
+          "reason": "The alignment cluster is Phase 2 and is not built yet."
+        },
+        {
+          "code": "TIME_REQUIRED_FOR_HOUSES",
+          "status": 400,
+          "title": "Houses need a time",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "HOUSE_SYSTEM_UNDEFINED",
+          "status": 422,
+          "title": "That house system is undefined at this latitude",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "UNKNOWN_HOUSE_SYSTEM",
+          "status": 400,
+          "title": "That house system is not implemented",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "UNKNOWN_ASPECT",
+          "status": 400,
+          "title": "That aspect is not recognised",
+          "known_unreachable": true,
+          "surface": "natal",
+          "reason": "The natal chart module is specified and not built; no shipped route can return this."
+        },
+        {
+          "code": "TIMEZONE_DATABASE_UNAVAILABLE",
+          "status": 503,
+          "title": "The time zone database is unavailable",
+          "known_unreachable": false
+        },
+        {
+          "code": "PARAMETER_TOO_LONG",
+          "status": 400,
+          "title": "A parameter value is too long",
+          "known_unreachable": false
+        },
+        {
+          "code": "TOO_MANY_PARAMETERS",
+          "status": 400,
+          "title": "Too many distinct parameters",
+          "known_unreachable": false
+        },
+        {
+          "code": "URI_TOO_LONG",
+          "status": 414,
+          "title": "The request URI is too long",
+          "known_unreachable": false
+        },
+        {
+          "code": "INVALID_CHARACTER",
+          "status": 400,
+          "title": "A value contains a control character",
+          "known_unreachable": false
+        },
+        {
+          "code": "COMPUTE_BUDGET_EXCEEDED",
+          "status": 503,
+          "title": "The computation budget was exhausted",
+          "known_unreachable": false
+        },
+        {
+          "code": "RESPONSE_TOO_LARGE",
+          "status": 413,
+          "title": "The response exceeds the hard size cap",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_ECLIPSE_TYPE",
+          "status": 400,
+          "title": "Unknown eclipse type",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_ECLIPSE_DIRECTION",
+          "status": 400,
+          "title": "Unknown eclipse direction",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_CYCLE_KEY",
+          "status": 400,
+          "title": "Unknown cycle key",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_PHASE_SELECTOR",
+          "status": 400,
+          "title": "Unknown phase selector",
+          "known_unreachable": false
+        },
+        {
+          "code": "UNKNOWN_SHOWER",
+          "status": 400,
+          "title": "Unknown meteor shower",
+          "known_unreachable": true,
+          "surface": "meteors",
+          "reason": "Meteor-shower data is withheld pending its licence review."
+        },
+        {
+          "code": "TOO_MANY_SHOWERS",
+          "status": 400,
+          "title": "Too many showers",
+          "known_unreachable": true,
+          "surface": "meteors",
+          "reason": "Meteor-shower data is withheld pending its licence review."
+        },
+        {
+          "code": "BAD_PAIR",
+          "status": 400,
+          "title": "The pair names one target twice",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_PAIRS",
+          "status": 400,
+          "title": "Malformed pair list",
+          "known_unreachable": false
+        },
+        {
+          "code": "TOO_MANY_PAIRS",
+          "status": 400,
+          "title": "Too many pairs",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_MOTION",
+          "status": 400,
+          "title": "Unknown motion filter",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_HEMISPHERE",
+          "status": 400,
+          "title": "Unknown hemisphere",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_NODE_MODEL",
+          "status": 400,
+          "title": "Unknown node model",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_LIMITING_MAGNITUDE",
+          "status": 400,
+          "title": "Limiting magnitude out of range",
+          "known_unreachable": true,
+          "surface": "observer",
+          "reason": "The celestial-navigation surface (sight reduction, sextant corrections) is specified and not built."
+        },
+        {
+          "code": "BAD_CALENDAR_SOURCE",
+          "status": 400,
+          "title": "Unknown calendar source",
+          "known_unreachable": true,
+          "surface": "calendar",
+          "reason": "The calendar surface (format=ics) is specified and not built."
+        },
+        {
+          "code": "TOO_MANY_CALENDAR_SOURCES",
+          "status": 400,
+          "title": "Too many calendar sources",
+          "known_unreachable": true,
+          "surface": "calendar",
+          "reason": "The calendar surface (format=ics) is specified and not built."
+        },
+        {
+          "code": "BAD_ALARM",
+          "status": 400,
+          "title": "Malformed alarm",
+          "known_unreachable": true,
+          "surface": "calendar",
+          "reason": "The calendar surface (format=ics) is specified and not built."
+        },
+        {
+          "code": "QUERY_TOO_SHORT",
+          "status": 400,
+          "title": "Search text too short",
+          "known_unreachable": false
+        },
+        {
+          "code": "SKY_CLASS_REQUIRED",
+          "status": 400,
+          "title": "Sky darkness not stated",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_BORTLE",
+          "status": 400,
+          "title": "Bad Bortle class",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_NELM",
+          "status": 400,
+          "title": "Bad limiting magnitude",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_APERTURE",
+          "status": 400,
+          "title": "Bad aperture",
+          "known_unreachable": false
+        },
+        {
+          "code": "BAD_SEXTANT_ALTITUDE",
+          "status": 400,
+          "title": "Bad sextant altitude",
+          "known_unreachable": true,
+          "surface": "observer",
+          "reason": "The celestial-navigation surface (sight reduction, sextant corrections) is specified and not built."
+        },
+        {
+          "code": "BAD_INDEX_ERROR",
+          "status": 400,
+          "title": "Bad index error",
+          "known_unreachable": true,
+          "surface": "observer",
+          "reason": "The celestial-navigation surface (sight reduction, sextant corrections) is specified and not built."
+        },
+        {
+          "code": "BAD_HEIGHT_OF_EYE",
+          "status": 400,
+          "title": "Bad height of eye",
+          "known_unreachable": true,
+          "surface": "observer",
+          "reason": "The celestial-navigation surface (sight reduction, sextant corrections) is specified and not built."
+        },
+        {
+          "code": "BAD_MOON_ALTITUDE",
+          "status": 400,
+          "title": "Bad Moon altitude threshold",
+          "known_unreachable": false
+        },
+        {
+          "code": "OUTSIDE_MODEL_RANGE",
+          "status": 400,
+          "title": "Outside the model's range",
+          "known_unreachable": false
+        },
+        {
+          "code": "DATASET_UNAVAILABLE",
+          "status": 503,
+          "title": "A required dataset is unavailable",
+          "known_unreachable": false
+        },
+        {
+          "code": "INVALID_KEY",
+          "status": 401,
+          "title": "The API key is not valid",
+          "known_unreachable": true,
+          "surface": "api_keys",
+          "reason": "Keyed access runs through the RapidAPI gateway, which verifies the subscription before the request reaches us, so these codes never fire. There is no direct key store; a key sent as ?key= is accepted, ignored and warned about."
+        },
+        {
+          "code": "REVOKED_KEY",
+          "status": 401,
+          "title": "This API key has been revoked",
+          "known_unreachable": true,
+          "surface": "api_keys",
+          "reason": "Keyed access runs through the RapidAPI gateway, which verifies the subscription before the request reaches us, so these codes never fire. There is no direct key store; a key sent as ?key= is accepted, ignored and warned about."
+        },
+        {
+          "code": "EXPIRED_KEY",
+          "status": 401,
+          "title": "This API key has expired",
+          "known_unreachable": true,
+          "surface": "api_keys",
+          "reason": "Keyed access runs through the RapidAPI gateway, which verifies the subscription before the request reaches us, so these codes never fire. There is no direct key store; a key sent as ?key= is accepted, ignored and warned about."
+        },
+        {
+          "code": "UNKNOWN_ENDPOINT",
+          "status": 404,
+          "title": "No such endpoint",
+          "known_unreachable": false
+        },
+        {
+          "code": "METHOD_NOT_ALLOWED",
+          "status": 405,
+          "title": "This endpoint accepts GET, HEAD and OPTIONS only",
+          "known_unreachable": false
+        },
+        {
+          "code": "ENDPOINT_RETIRED",
+          "status": 410,
+          "title": "This endpoint has been retired",
+          "known_unreachable": false
+        },
+        {
+          "code": "ENDPOINT_BLOCKED",
+          "status": 503,
+          "title": "This endpoint is not available yet",
+          "known_unreachable": false
+        },
+        {
+          "code": "ENDPOINT_WITHDRAWN",
+          "status": 410,
+          "title": "Endpoint withdrawn",
+          "known_unreachable": false
+        },
+        {
+          "code": "RATE_LIMITED",
+          "status": 429,
+          "title": "Too many requests",
+          "known_unreachable": false
+        },
+        {
+          "code": "INTERNAL_ERROR",
+          "status": 500,
+          "title": "Something went wrong computing this answer",
+          "known_unreachable": false
+        },
+        {
+          "code": "COMPUTATION_FAILED",
+          "status": 500,
+          "title": "The computation did not converge",
+          "known_unreachable": false
+        },
+        {
+          "code": "SERVICE_UNAVAILABLE",
+          "status": 503,
+          "title": "The service is temporarily unavailable",
+          "known_unreachable": false
+        }
+      ],
+      "formats": [
+        {
+          "code": "json",
+          "available": true
+        },
+        {
+          "code": "csv",
+          "available": true
+        },
+        {
+          "code": "txt",
+          "available": true
+        },
+        {
+          "code": "ics",
+          "available": false,
+          "reason": "Specified for the calendar surface; no route serves it yet."
+        },
+        {
+          "code": "svg",
+          "available": false,
+          "reason": "Specified for the rendering surface; no route serves it yet."
+        }
+      ],
+      "frames_parameter": [
+        {
+          "code": "minimal",
+          "definition": "Of-date equatorial and horizontal only."
+        },
+        {
+          "code": "standard",
+          "definition": "Equatorial J2000 and of-date, ecliptic true-of-date, horizontal and distance."
+        },
+        {
+          "code": "all",
+          "definition": "Standard plus ecliptic J2000 and galactic."
+        }
+      ],
+      "shape": [
+        {
+          "code": "nested",
+          "definition": "Objects nested as documented. The default."
+        },
+        {
+          "code": "flat",
+          "definition": "One flat object with dotted keys. format=json only."
+        }
+      ],
+      "verbosity": [
+        {
+          "code": "full",
+          "definition": "Every field, including prose notes and definitions. The default."
+        },
+        {
+          "code": "compact",
+          "definition": "Prose notes, frame definitions and withheld-field reasons dropped; every value and every machine-readable name kept."
+        }
+      ],
+      "ambiguous": [
+        {
+          "code": "first",
+          "definition": "Take the earlier of two readings of a repeated local hour. The default."
+        },
+        {
+          "code": "last",
+          "definition": "Take the later reading."
+        },
+        {
+          "code": "error",
+          "definition": "Refuse with 409 AMBIGUOUS_LOCAL_TIME."
+        }
+      ],
+      "nonexistent": [
+        {
+          "code": "error",
+          "definition": "Refuse a local time inside a spring-forward gap with 400 NONEXISTENT_LOCAL_TIME. The default."
+        },
+        {
+          "code": "shift_forward",
+          "definition": "Move the instant forward past the gap."
+        },
+        {
+          "code": "shift_back",
+          "definition": "Move the instant back to before the gap."
+        }
+      ],
+      "time_format": [
+        {
+          "code": "iso",
+          "definition": "ISO 8601 strings carrying the effective offset. The default."
+        },
+        {
+          "code": "unix",
+          "definition": "Integer seconds since the Unix epoch."
+        }
+      ],
+      "frame_origin": [
+        {
+          "code": "geocentric",
+          "definition": "Earth-centred. The default."
+        },
+        {
+          "code": "heliocentric",
+          "definition": "Sun-centred. Accepted by the frame parameter on /v2/positions."
+        }
+      ],
+      "refraction": [
+        {
+          "code": "normal",
+          "definition": "Saemundsson refraction applied to apparent altitude. The default."
+        },
+        {
+          "code": "none",
+          "definition": "No refraction term."
+        }
+      ],
+      "hemisphere": [
+        {
+          "code": "north",
+          "definition": "Northern-hemisphere phase emoji. The default when lat is absent or is zero or greater."
+        },
+        {
+          "code": "south",
+          "definition": "Southern-hemisphere phase emoji. The default when lat is negative."
+        }
+      ],
+      "style": [
+        {
+          "code": "name",
+          "definition": "The phase name alone. The format=txt default on /v2/moon."
+        },
+        {
+          "code": "emoji",
+          "definition": "The phase emoji alone."
+        },
+        {
+          "code": "sentence",
+          "definition": "The one-line summary sentence."
+        }
+      ],
+      "rise_set_special": [
+        {
+          "code": "polar_day",
+          "definition": "The Sun stays above the event altitude for the whole local day."
+        },
+        {
+          "code": "polar_night",
+          "definition": "The Sun stays below the event altitude for the whole local day."
+        }
+      ],
+      "sun_position_bases": [
+        {
+          "code": "requested_instant",
+          "definition": "Evaluated at the instant the caller asked for."
+        },
+        {
+          "code": "upper_transit",
+          "definition": "The requested instant falls outside this day, so the position is taken at this day's upper transit."
+        },
+        {
+          "code": "window_start",
+          "definition": "The requested instant falls outside this day and the day has no upper transit, so the position is taken at the window start."
+        }
+      ],
+      "cache_classes": [
+        {
+          "code": "fixed_instant",
+          "deterministic": true
+        },
+        {
+          "code": "now_relative",
+          "deterministic": false
+        },
+        {
+          "code": "aggregate",
+          "deterministic": false
+        },
+        {
+          "code": "reference",
+          "deterministic": true
+        },
+        {
+          "code": "validation_error",
+          "deterministic": true
+        },
+        {
+          "code": "no_store",
+          "deterministic": false
+        },
+        {
+          "code": "diagnostic",
+          "deterministic": false
+        }
+      ],
+      "rights": [
+        {
+          "code": "unrestricted",
+          "definition": "Computed facts. Use, store, redistribute and sell without attribution."
+        },
+        {
+          "code": "attribution_required",
+          "definition": "This response included a conditional dataset; see meta.attribution."
+        }
+      ],
+      "query_modes": [
+        {
+          "code": "instant",
+          "definition": "One instant."
+        },
+        {
+          "code": "range",
+          "definition": "A series over start, end and step or count."
+        }
+      ],
+      "timezone_sources": [
+        {
+          "code": "parameter",
+          "definition": "The caller sent tz."
+        },
+        {
+          "code": "place",
+          "definition": "A resolved place supplied its stored zone."
+        },
+        {
+          "code": "default",
+          "definition": "Neither was sent, so UTC."
+        }
+      ],
+      "position_origins": [
+        {
+          "code": "geocentric",
+          "definition": "Measured from the centre of the Earth."
+        },
+        {
+          "code": "topocentric",
+          "definition": "Measured from the observer, so it includes parallax."
+        },
+        {
+          "code": "heliocentric",
+          "definition": "Measured from the centre of the Sun."
+        }
+      ],
+      "libration_favoured_limbs": [
+        {
+          "code": "east",
+          "definition": "The eastern selenographic limb is turned toward Earth."
+        },
+        {
+          "code": "west",
+          "definition": "The western selenographic limb is turned toward Earth."
+        },
+        {
+          "code": "none",
+          "definition": "Within 0.5 deg of zero, so no limb is meaningfully favoured."
+        }
+      ],
+      "include_tokens": [
+        {
+          "code": "sun"
+        },
+        {
+          "code": "moon"
+        },
+        {
+          "code": "planets"
+        },
+        {
+          "code": "events"
+        },
+        {
+          "code": "night"
+        }
+      ],
+      "eclipse_kinds": [
+        {
+          "code": "total",
+          "applies_to": [
+            "solar",
+            "lunar"
+          ]
+        },
+        {
+          "code": "annular",
+          "applies_to": [
+            "solar"
+          ]
+        },
+        {
+          "code": "partial",
+          "applies_to": [
+            "solar",
+            "lunar"
+          ]
+        },
+        {
+          "code": "penumbral",
+          "applies_to": [
+            "lunar"
+          ]
+        }
+      ],
+      "cycle_keys": [
+        {
+          "code": "synodic_month",
+          "name": "The synodic month",
+          "kind": "computed_phase",
+          "family": "lunar_month",
+          "slug": "synodic-month",
+          "has_fraction": true
+        },
+        {
+          "code": "sidereal_month",
+          "name": "The sidereal month",
+          "kind": "computed_phase",
+          "family": "lunar_month",
+          "slug": "sidereal-month",
+          "has_fraction": true
+        },
+        {
+          "code": "anomalistic_month",
+          "name": "The anomalistic month",
+          "kind": "computed_phase",
+          "family": "lunar_month",
+          "slug": "anomalistic-month",
+          "has_fraction": true
+        },
+        {
+          "code": "draconic_month",
+          "name": "The draconic month",
+          "kind": "computed_phase",
+          "family": "lunar_month",
+          "slug": "draconic-month",
+          "has_fraction": true
+        },
+        {
+          "code": "eclipse_year",
+          "name": "The eclipse year",
+          "kind": "computed_phase",
+          "family": "node",
+          "slug": "eclipse-year",
+          "has_fraction": true
+        },
+        {
+          "code": "saros",
+          "name": "The Saros",
+          "kind": "interval",
+          "family": "eclipse",
+          "slug": "saros",
+          "has_fraction": false
+        },
+        {
+          "code": "inex",
+          "name": "The inex",
+          "kind": "interval",
+          "family": "eclipse_period",
+          "slug": "inex",
+          "has_fraction": false
+        },
+        {
+          "code": "tritos",
+          "name": "The tritos",
+          "kind": "interval",
+          "family": "eclipse_period",
+          "slug": "tritos",
+          "has_fraction": false
+        },
+        {
+          "code": "exeligmos",
+          "name": "The exeligmos",
+          "kind": "interval",
+          "family": "eclipse_period",
+          "slug": "exeligmos",
+          "has_fraction": false
+        },
+        {
+          "code": "metonic_cycle",
+          "name": "The Metonic cycle",
+          "kind": "computed_phase",
+          "family": "node",
+          "slug": "metonic-cycle",
+          "has_fraction": true
+        },
+        {
+          "code": "callippic",
+          "name": "The Callippic cycle",
+          "kind": "interval",
+          "family": "node",
+          "slug": "callippic",
+          "has_fraction": false
+        },
+        {
+          "code": "lunar_nodal_cycle",
+          "name": "The lunar nodal cycle",
+          "kind": "computed_phase",
+          "family": "node",
+          "slug": "lunar-nodal-cycle",
+          "has_fraction": true
+        },
+        {
+          "code": "lunar_standstill",
+          "name": "The lunar standstill",
+          "kind": "computed_phase",
+          "family": "node",
+          "slug": "lunar-standstill",
+          "has_fraction": true
+        },
+        {
+          "code": "tropical_year",
+          "name": "The tropical year",
+          "kind": "computed_phase",
+          "family": "year",
+          "slug": "tropical-year",
+          "has_fraction": true
+        },
+        {
+          "code": "anomalistic_year",
+          "name": "The anomalistic year",
+          "kind": "computed_phase",
+          "family": "year",
+          "slug": "anomalistic-year",
+          "has_fraction": true
+        },
+        {
+          "code": "sidereal_year",
+          "name": "The sidereal year",
+          "kind": "computed_phase",
+          "family": "year",
+          "slug": "sidereal-year",
+          "has_fraction": true
+        },
+        {
+          "code": "great_conjunction",
+          "name": "The great conjunction",
+          "kind": "computed_phase",
+          "family": "conjunction",
+          "slug": "great-conjunction",
+          "has_fraction": true
+        },
+        {
+          "code": "venus_pentagram",
+          "name": "The Venus pentagram",
+          "kind": "computed_phase",
+          "family": "venus",
+          "slug": "venus-pentagram",
+          "has_fraction": true
+        },
+        {
+          "code": "sunspot_cycle",
+          "name": "The sunspot cycle",
+          "kind": "observed",
+          "family": "sunspot",
+          "slug": "sunspot-cycle",
+          "has_fraction": true
+        },
+        {
+          "code": "hale",
+          "name": "The Hale cycle",
+          "kind": "observed",
+          "family": "sunspot",
+          "slug": "hale",
+          "has_fraction": true
+        },
+        {
+          "code": "axial_precession",
+          "name": "Axial precession (the Great Year)",
+          "kind": "state",
+          "family": "secular",
+          "slug": "axial-precession",
+          "has_fraction": false
+        }
+      ],
+      "cycle_kinds": [
+        {
+          "code": "computed_phase",
+          "definition": "A real angle or elapsed fraction from the ephemeris.",
+          "carries_fraction": true
+        },
+        {
+          "code": "observed",
+          "definition": "Measured from a published record, so the fraction is an estimate.",
+          "carries_fraction": true
+        },
+        {
+          "code": "interval",
+          "definition": "A repeat interval between events, not a continuous phase, so no fraction.",
+          "carries_fraction": false
+        },
+        {
+          "code": "state",
+          "definition": "Deep time, where the phase zero is a convention rather than an event, so no fraction.",
+          "carries_fraction": false
+        }
+      ],
+      "cycle_families": [
+        {
+          "code": "conjunction",
+          "count": 1
+        },
+        {
+          "code": "eclipse",
+          "count": 1
+        },
+        {
+          "code": "eclipse_period",
+          "count": 3
+        },
+        {
+          "code": "lunar_month",
+          "count": 4
+        },
+        {
+          "code": "node",
+          "count": 5
+        },
+        {
+          "code": "secular",
+          "count": 1
+        },
+        {
+          "code": "sunspot",
+          "count": 2
+        },
+        {
+          "code": "venus",
+          "count": 1
+        },
+        {
+          "code": "year",
+          "count": 3
+        }
+      ],
+      "interval_kinds": [
+        {
+          "code": "night"
+        },
+        {
+          "code": "astronomical_twilight"
+        },
+        {
+          "code": "nautical_twilight"
+        },
+        {
+          "code": "civil_twilight"
+        },
+        {
+          "code": "day"
+        },
+        {
+          "code": "custom_twilight"
+        }
+      ],
+      "interval_reasons": [
+        {
+          "code": "sun_reached_depression"
+        },
+        {
+          "code": "sun_left_depression"
+        },
+        {
+          "code": "moon_set"
+        },
+        {
+          "code": "moon_rise"
+        },
+        {
+          "code": "window_start"
+        },
+        {
+          "code": "window_end"
+        },
+        {
+          "code": "target_rose"
+        },
+        {
+          "code": "target_set"
+        }
+      ],
+      "non_goals": [
+        {
+          "code": "satellites",
+          "reason": "Satellite passes need TLEs that decay within days. Serving them is a permanent data-operations commitment and a stale answer is worse than no answer."
+        },
+        {
+          "code": "minor_planets",
+          "reason": "The MIT-licensed Astronomy Engine has no minor-planet ephemeris, and CycleCalcs will not add a copyleft or paid ephemeris to provide one."
+        },
+        {
+          "code": "polar_motion",
+          "reason": "Milliarcsecond-class corrections are beyond the accuracy this API claims."
+        },
+        {
+          "code": "interpretation",
+          "reason": "This API returns angles, times and names. It attaches no meaning to any of them."
+        }
+      ]
+    },
+    "notes": {
+      "frame_identifiers": "The frame IDENTIFIERS eqj, eqd, ect, ecl, hor and gal are defined at /v2/conventions under frames. They are not accepted values of the frames parameter, which takes the frames_parameter set.",
+      "rise_set_special": "rise_set.special is nullable: the two codes in the rise_set_special set are the only non-null values, and null means neither polar condition applies.",
+      "known_unreachable": "On warning_codes and error_codes, known_unreachable true means this version cannot produce the code and names the surface it belongs to. False means it is not known to be unreachable, which is weaker than a promise that you can reach it.",
+      "hemisphere": "The hemisphere parameter selects the phase EMOJI only. It does not affect limb orientation: that comes from bright_limb.orientation_angle_deg, which is derived from the observer position and is already correct in either hemisphere."
+    },
+    "set_scope": {
+      "bodies": [
+        "/v2/positions",
+        "/v2/rise-set"
+      ],
+      "body_aliases_refused": [
+        "/v2/positions",
+        "/v2/rise-set"
+      ],
+      "moon_phase_names": [
+        "/v2/moon",
+        "/v2/today"
+      ],
+      "moon_phase_names_south": [
+        "/v2/moon",
+        "/v2/today"
+      ],
+      "rise_set_statuses": [
+        "/v2/rise-set",
+        "/v2/sun",
+        "/v2/moon",
+        "/v2/today"
+      ],
+      "day_anchors": [
+        "/v2/rise-set",
+        "/v2/sun",
+        "/v2/moon",
+        "/v2/today"
+      ],
+      "rise_set_event_kinds": [
+        "/v2/rise-set",
+        "/v2/sun",
+        "/v2/moon",
+        "/v2/today"
+      ],
+      "event_kinds": "all",
+      "zodiac_signs": [
+        "/v2/positions",
+        "/v2/sun",
+        "/v2/moon"
+      ],
+      "compass_points": [
+        "/v2/positions",
+        "/v2/sun",
+        "/v2/rise-set"
+      ],
+      "visibility_phrases": [
+        "/v2/today"
+      ],
+      "warning_codes": "all",
+      "error_codes": "all",
+      "formats": "all",
+      "frames_parameter": [
+        "/v2/positions"
+      ],
+      "shape": "all",
+      "verbosity": "all",
+      "ambiguous": [
+        "/v2/positions",
+        "/v2/rise-set",
+        "/v2/sun",
+        "/v2/moon",
+        "/v2/time",
+        "/v2/today"
+      ],
+      "nonexistent": [
+        "/v2/positions",
+        "/v2/rise-set",
+        "/v2/sun",
+        "/v2/moon",
+        "/v2/time",
+        "/v2/today"
+      ],
+      "time_format": "all",
+      "frame_origin": [
+        "/v2/positions"
+      ],
+      "refraction": [
+        "/v2/positions"
+      ],
+      "hemisphere": [
+        "/v2/moon"
+      ],
+      "style": [
+        "/v2/moon"
+      ],
+      "rise_set_special": [
+        "/v2/rise-set",
+        "/v2/sun",
+        "/v2/today"
+      ],
+      "sun_position_bases": [
+        "/v2/sun"
+      ],
+      "cache_classes": "all",
+      "rights": "all",
+      "query_modes": [
+        "/v2/positions",
+        "/v2/rise-set",
+        "/v2/sun",
+        "/v2/moon",
+        "/v2/time"
+      ],
+      "timezone_sources": [
+        "/v2/positions",
+        "/v2/rise-set",
+        "/v2/sun",
+        "/v2/moon",
+        "/v2/time",
+        "/v2/today"
+      ],
+      "position_origins": [
+        "/v2/positions",
+        "/v2/moon",
+        "/v2/sun"
+      ],
+      "libration_favoured_limbs": [
+        "/v2/moon"
+      ],
+      "include_tokens": [
+        "/v2/today"
+      ],
+      "eclipse_kinds": [
+        "/v2/today"
+      ],
+      "cycle_keys": [
+        "/v2/cycles"
+      ],
+      "cycle_kinds": [
+        "/v2/cycles"
+      ],
+      "cycle_families": [
+        "/v2/cycles"
+      ],
+      "interval_kinds": [
+        "/v2/twilight"
+      ],
+      "interval_reasons": [
+        "/v2/twilight"
+      ],
+      "non_goals": "all"
+    }
+  },
+  "warnings": [],
+  "links": {
+    "self": "https://www.cyclecalcs.com/v2/enums",
+    "docs": "https://www.cyclecalcs.com/api/reference.html#enums",
+    "spec": "https://www.cyclecalcs.com/v2/openapi.json"
+  },
+  "meta": {
+    "api_version": "2",
+    "contract_version": "2.0.0",
+    "engine": {
+      "name": "Astronomy Engine",
+      "license": "MIT",
+      "author": "Don Cross",
+      "version": "2.1.19",
+      "version_source": "upstream_sha256_match",
+      "sha256": "068f1445ed0c636c94818fe6d20d7d125120e605e0bab9fc4675c3d531be5ad7",
+      "vendored": true,
+      "credit": "astronomy-engine (MIT, Copyright (c) 2019-2023 Don Cross)"
+    },
+    "tzdb": "2026b",
+    "rights": "unrestricted",
+    "attribution": {
+      "required": false,
+      "text": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+      "sources": []
+    },
+    "notice_url": "https://www.cyclecalcs.com/methodology.html#data-sources",
+    "cache": {
+      "class": "reference",
+      "deterministic": true
+    },
+    "accuracy": {
+      "statement": "Positions are arcminute class for the Sun, Moon and planets across 1700 to 2200, degrading toward the ends of that window.",
+      "residuals_url": "https://www.cyclecalcs.com/api/accuracy.html"
+    },
+    "not_computed": [
+      {
+        "name": "meteor_showers",
+        "reason": "Withheld until the meteor catalogue reduction clears its licence review."
+      },
+      {
+        "name": "constellations",
+        "reason": "Needs the reduced constellation index; the generator has not run yet."
+      },
+      {
+        "name": "catalogues",
+        "reason": "Needs the reduced catalogue indexes; star and deep-sky sources are blocked on their licence re-source."
+      }
+    ],
+    "budget": {
+      "engine_calls": 0
+    }
+  },
+  "attribution": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+  "docs": "https://www.cyclecalcs.com/api/reference.html#enums"
+}

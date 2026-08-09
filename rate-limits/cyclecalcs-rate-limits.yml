@@ -1,0 +1,171 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+provider: CycleCalcs
+providerId: cyclecalcs
+generated: '2026-08-09'
+method: searched
+created: '2026-08-09'
+modified: '2026-08-09'
+tags:
+  - Rate Limiting
+  - Astronomy
+description: >-
+  Per-caller rate limits on the CycleCalcs v2 API, enforced in three
+  simultaneous windows; whichever window is closest to exhausted governs a
+  given request. Only a request that reaches the origin function counts — a
+  CDN cache hit costs no quota. The published limits are a floor, not a
+  ceiling: tightening one is defined as a breaking change that cannot happen
+  inside /v2.
+sources:
+  - https://www.cyclecalcs.com/api/status.html
+  - https://www.cyclecalcs.com/api.html
+headers:
+  rateLimit: RateLimit                 # r= remaining, t= seconds to reset
+  rateLimitPolicy: RateLimit-Policy    # q= quota, w= window seconds
+  legacyLimit: X-RateLimit-Limit
+  legacyRemaining: X-RateLimit-Remaining
+  legacyReset: X-RateLimit-Reset       # absolute Unix timestamp, not a countdown
+  cacheStatus: Cache-Status            # fwd=miss means the origin ran
+  retryAfter: Retry-After              # integer seconds, on 429 and 503
+  standard: draft-ietf-httpapi-ratelimit-headers
+responseCodes:
+  throttled: 429                       # code RATE_LIMITED
+  rangeTooLarge: 400                   # code RANGE_TOO_LARGE — never silently truncated
+  responseTooLarge: 413                # code RESPONSE_TOO_LARGE, past 2 MB
+  serviceUnavailable: 503              # carries Retry-After
+scope: per caller (not global)
+limits:
+  - name: Basic (free, keyless) — per minute
+    tier: Basic
+    scope: caller
+    metric: requests_per_minute
+    limit: 300
+    timeFrame: minute
+  - name: Basic (free, keyless) — per hour
+    tier: Basic
+    scope: caller
+    metric: requests_per_hour
+    limit: 2000
+    timeFrame: hour
+  - name: Basic (free, keyless) — per day
+    tier: Basic
+    scope: caller
+    metric: requests_per_day
+    limit: 5000
+    timeFrame: day
+  - name: Pro — per minute
+    tier: Pro
+    scope: caller
+    metric: requests_per_minute
+    limit: 600
+    timeFrame: minute
+  - name: Pro — per hour
+    tier: Pro
+    scope: caller
+    metric: requests_per_hour
+    limit: 10000
+    timeFrame: hour
+  - name: Pro — per day
+    tier: Pro
+    scope: caller
+    metric: requests_per_day
+    limit: 50000
+    timeFrame: day
+  - name: Pro — per month (metered by RapidAPI)
+    tier: Pro
+    scope: subscription
+    metric: requests_per_month
+    limit: 500000
+    timeFrame: month
+  - name: Ultra — per minute
+    tier: Ultra
+    scope: caller
+    metric: requests_per_minute
+    limit: 1200
+    timeFrame: minute
+  - name: Ultra — per hour
+    tier: Ultra
+    scope: caller
+    metric: requests_per_hour
+    limit: 25000
+    timeFrame: hour
+  - name: Ultra — per day
+    tier: Ultra
+    scope: caller
+    metric: requests_per_day
+    limit: 100000
+    timeFrame: day
+  - name: Ultra — per month (metered by RapidAPI)
+    tier: Ultra
+    scope: subscription
+    metric: requests_per_month
+    limit: 800000
+    timeFrame: month
+  - name: Mega — per minute
+    tier: Mega
+    scope: caller
+    metric: requests_per_minute
+    limit: 2000
+    timeFrame: minute
+  - name: Mega — per hour
+    tier: Mega
+    scope: caller
+    metric: requests_per_hour
+    limit: 50000
+    timeFrame: hour
+  - name: Mega — per day
+    tier: Mega
+    scope: caller
+    metric: requests_per_day
+    limit: 200000
+    timeFrame: day
+  - name: Mega — per month (metered by RapidAPI)
+    tier: Mega
+    scope: subscription
+    metric: requests_per_month
+    limit: 1000000
+    timeFrame: month
+rangeCaps:
+  note: >-
+    Independent of the rate limit, every endpoint bounds how much a single
+    request may ask for. Over the cap is refused outright with 400
+    RANGE_TOO_LARGE, never truncated to a shorter 200.
+  byShape:
+    - shape: Daily rows, one body
+      applies_to: [/v2/sun, /v2/moon, /v2/rise-set, /v2/twilight, /v2/dark-window, /v2/equation-of-time, /v2/libration]
+      basic: 366
+      pro: 1830
+      ultra: 3660
+      mega: 3660
+    - shape: Daily rows, all bodies
+      applies_to: [/v2/planet-board, /v2/cycles]
+      basic: 93
+      pro: 366
+      ultra: 366
+      mega: 366
+    - shape: Sub-daily grid (days)
+      applies_to: [/v2/positions, /v2/time, /v2/sidereal-time]
+      basic: 31
+      pro: 93
+      ultra: 186
+      mega: 186
+    - shape: Event search (events in one list)
+      applies_to: [/v2/seasons, /v2/apsides, /v2/moon-nodes, /v2/eclipses, /v2/retrogrades, /v2/conjunctions, /v2/separation, /v2/phases, /v2/jupiter-moons]
+      basic: 100
+      pro: 400
+      ultra: 500
+      mega: 500
+  globalCeilings:
+    max_rows_any_request: 10000
+    max_bodies_per_request: 20
+    max_engine_calls_per_request: 250000
+    max_compute_ms: 8000
+    max_response_bytes: 2097152
+cacheExemption: >-
+  The limiter only counts requests that reach the origin. A response served
+  from the Netlify CDN cache consumes no quota, and because a given instant
+  and place always return the same answer, aggressive caching is the intended
+  design.
+v1: >-
+  Version 1 has no hard limit but is meant for fair, cached use of a few
+  requests a second.

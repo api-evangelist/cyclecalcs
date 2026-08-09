@@ -1,0 +1,422 @@
+{
+  "endpoint": "/v2/planet-events",
+  "computed_at": "2026-08-01T00:00:00.000Z",
+  "query": {
+    "start": "2026-01-01T00:00:00.000Z",
+    "end": "2027-01-01T00:00:00.000Z",
+    "mode": "range",
+    "resolved_from": "start",
+    "latitude": 51.4778,
+    "longitude": -0.0015,
+    "elevation_m": 0,
+    "tz": "Europe/London",
+    "utc_offset_seconds": 0,
+    "utc_offset_iso": "+00:00",
+    "is_dst": false,
+    "timezone_source": "parameter",
+    "time_format": "iso",
+    "format": "json",
+    "shape": "nested",
+    "precision": 6,
+    "pretty": 1,
+    "verbosity": "full",
+    "bodies": [
+      "venus",
+      "mercury"
+    ],
+    "kinds": [
+      "inferior_conjunction",
+      "superior_conjunction",
+      "greatest_elongation_east",
+      "greatest_elongation_west",
+      "peak_magnitude",
+      "transit_of_mercury",
+      "transit_of_venus"
+    ],
+    "ignored": []
+  },
+  "data": {
+    "window": {
+      "start": "2026-01-01T00:00:00.000+00:00",
+      "end": "2027-01-01T00:00:00.000+00:00",
+      "measured_from": "start",
+      "length_days": 365
+    },
+    "definition": "An apparition is one synodic cycle of an inferior planet read as a sequence of instants: inferior conjunction begins the morning apparition, superior conjunction begins the evening one, and the greatest elongations and brightness peaks fall between. These are apparent geometry; no meaning is attached to any of them.",
+    "kinds_selected": [
+      "inferior_conjunction",
+      "superior_conjunction",
+      "greatest_elongation_east",
+      "greatest_elongation_west",
+      "peak_magnitude",
+      "transit_of_mercury",
+      "transit_of_venus"
+    ],
+    "body_count": 2,
+    "event_count": 17,
+    "bodies": [
+      {
+        "name": "Venus",
+        "code": "venus",
+        "synodic_period_days_mean": 583.92,
+        "synodic_note": "The synodic period is a mean. Individual intervals vary by weeks with orbital eccentricity; use the event instants, not the mean.",
+        "events": [
+          {
+            "kind": "superior_conjunction",
+            "label": "Venus at superior conjunction, 0.7 deg from the Sun",
+            "instant": "2026-01-06T15:53:31.044+00:00",
+            "instant_precision_seconds": 60,
+            "body": "Venus",
+            "value_deg": 0.709994,
+            "value_unit": "deg",
+            "days_from_query": 5.7,
+            "visible_from_location": true,
+            "altitude_deg": 0.775588,
+            "azimuth_deg": 230.31592,
+            "href": "https://www.cyclecalcs.com/planets/venus.html",
+            "longitude_convention": "heliocentric_relative_longitude",
+            "convention_note": "This instant is the classical heliocentric definition, when the body and the Earth reach the stated relative longitude as seen from the Sun. Apparent geocentric instants for the same event differ by minutes up to more than an hour."
+          },
+          {
+            "kind": "greatest_elongation_east",
+            "label": "Venus at greatest eastern elongation, 45.9 deg",
+            "instant": "2026-08-15T07:23:03.225+01:00",
+            "instant_precision_seconds": 3600,
+            "body": "Venus",
+            "value_deg": 45.891471,
+            "value_unit": "deg",
+            "days_from_query": 226.3,
+            "visible_from_location": false,
+            "altitude_deg": -25.773837,
+            "azimuth_deg": 61.606822,
+            "href": "https://www.cyclecalcs.com/planets/venus.html"
+          },
+          {
+            "kind": "peak_magnitude",
+            "label": "Venus at peak brightness, magnitude -4.8",
+            "instant": "2026-09-22T14:33:42.180+01:00",
+            "instant_precision_seconds": 3600,
+            "body": "Venus",
+            "value_mag": -4.77529,
+            "value_unit": "mag",
+            "days_from_query": 264.6,
+            "visible_from_location": true,
+            "altitude_deg": 18.83024,
+            "azimuth_deg": 172.948668,
+            "href": "https://www.cyclecalcs.com/planets/venus.html",
+            "definition_note": "The instant the Astronomy Engine magnitude model reaches its maximum. Published \"greatest brilliancy\" dates using other definitions, such as greatest illuminated extent, can differ by several days."
+          },
+          {
+            "kind": "inferior_conjunction",
+            "label": "Venus at inferior conjunction, 6.5 deg from the Sun",
+            "instant": "2026-10-24T04:33:23.331+01:00",
+            "instant_precision_seconds": 60,
+            "body": "Venus",
+            "value_deg": 6.516795,
+            "value_unit": "deg",
+            "days_from_query": 296.1,
+            "visible_from_location": false,
+            "altitude_deg": -32.206649,
+            "azimuth_deg": 77.279282,
+            "href": "https://www.cyclecalcs.com/planets/venus.html",
+            "longitude_convention": "heliocentric_relative_longitude",
+            "convention_note": "This instant is the classical heliocentric definition, when the body and the Earth reach the stated relative longitude as seen from the Sun. Apparent geocentric instants for the same event differ by minutes up to more than an hour."
+          },
+          {
+            "kind": "peak_magnitude",
+            "label": "Venus at peak brightness, magnitude -4.9",
+            "instant": "2026-11-27T01:47:33.356+00:00",
+            "instant_precision_seconds": 3600,
+            "body": "Venus",
+            "value_mag": -4.86592,
+            "value_unit": "mag",
+            "days_from_query": 330.1,
+            "visible_from_location": false,
+            "altitude_deg": -20.057673,
+            "azimuth_deg": 78.67642,
+            "href": "https://www.cyclecalcs.com/planets/venus.html",
+            "definition_note": "The instant the Astronomy Engine magnitude model reaches its maximum. Published \"greatest brilliancy\" dates using other definitions, such as greatest illuminated extent, can differ by several days."
+          }
+        ]
+      },
+      {
+        "name": "Mercury",
+        "code": "mercury",
+        "synodic_period_days_mean": 115.88,
+        "synodic_note": "The synodic period is a mean. Individual intervals vary by weeks with orbital eccentricity; use the event instants, not the mean.",
+        "events": [
+          {
+            "kind": "superior_conjunction",
+            "label": "Mercury at superior conjunction, 2.1 deg from the Sun",
+            "instant": "2026-01-21T15:32:28.441+00:00",
+            "instant_precision_seconds": 60,
+            "body": "Mercury",
+            "value_deg": 2.053099,
+            "value_unit": "deg",
+            "days_from_query": 20.6,
+            "visible_from_location": true,
+            "altitude_deg": 4.904556,
+            "azimuth_deg": 225.366162,
+            "href": "https://www.cyclecalcs.com/planets/mercury.html",
+            "longitude_convention": "heliocentric_relative_longitude",
+            "convention_note": "This instant is the classical heliocentric definition, when the body and the Earth reach the stated relative longitude as seen from the Sun. Apparent geocentric instants for the same event differ by minutes up to more than an hour."
+          },
+          {
+            "kind": "greatest_elongation_east",
+            "label": "Mercury at greatest eastern elongation, 18.1 deg",
+            "instant": "2026-02-19T17:41:36.578+00:00",
+            "instant_precision_seconds": 3600,
+            "body": "Mercury",
+            "value_deg": 18.123216,
+            "value_unit": "deg",
+            "days_from_query": 49.7,
+            "visible_from_location": true,
+            "altitude_deg": 12.439225,
+            "azimuth_deg": 248.45915,
+            "href": "https://www.cyclecalcs.com/planets/mercury.html"
+          },
+          {
+            "kind": "inferior_conjunction",
+            "label": "Mercury at inferior conjunction, 3.6 deg from the Sun",
+            "instant": "2026-03-07T10:55:42.882+00:00",
+            "instant_precision_seconds": 60,
+            "body": "Mercury",
+            "value_deg": 3.635781,
+            "value_unit": "deg",
+            "days_from_query": 65.5,
+            "visible_from_location": true,
+            "altitude_deg": 34.702806,
+            "azimuth_deg": 158.670059,
+            "href": "https://www.cyclecalcs.com/planets/mercury.html",
+            "longitude_convention": "heliocentric_relative_longitude",
+            "convention_note": "This instant is the classical heliocentric definition, when the body and the Earth reach the stated relative longitude as seen from the Sun. Apparent geocentric instants for the same event differ by minutes up to more than an hour."
+          },
+          {
+            "kind": "greatest_elongation_west",
+            "label": "Mercury at greatest western elongation, 27.8 deg",
+            "instant": "2026-04-03T23:34:31.466+01:00",
+            "instant_precision_seconds": 3600,
+            "body": "Mercury",
+            "value_deg": 27.819776,
+            "value_unit": "deg",
+            "days_from_query": 92.9,
+            "visible_from_location": false,
+            "altitude_deg": -45.094939,
+            "azimuth_deg": 3.869107,
+            "href": "https://www.cyclecalcs.com/planets/mercury.html"
+          },
+          {
+            "kind": "superior_conjunction",
+            "label": "Mercury at superior conjunction, 0.1 deg from the Sun",
+            "instant": "2026-05-14T15:11:08.698+01:00",
+            "instant_precision_seconds": 60,
+            "body": "Mercury",
+            "value_deg": 0.148861,
+            "value_unit": "deg",
+            "days_from_query": 133.6,
+            "visible_from_location": true,
+            "altitude_deg": 47.998231,
+            "azimuth_deg": 231.769604,
+            "href": "https://www.cyclecalcs.com/planets/mercury.html",
+            "longitude_convention": "heliocentric_relative_longitude",
+            "convention_note": "This instant is the classical heliocentric definition, when the body and the Earth reach the stated relative longitude as seen from the Sun. Apparent geocentric instants for the same event differ by minutes up to more than an hour."
+          },
+          {
+            "kind": "greatest_elongation_east",
+            "label": "Mercury at greatest eastern elongation, 24.5 deg",
+            "instant": "2026-06-15T21:02:43.026+01:00",
+            "instant_precision_seconds": 3600,
+            "body": "Mercury",
+            "value_deg": 24.517532,
+            "value_unit": "deg",
+            "days_from_query": 165.8,
+            "visible_from_location": true,
+            "altitude_deg": 15.612232,
+            "azimuth_deg": 287.639124,
+            "href": "https://www.cyclecalcs.com/planets/mercury.html"
+          },
+          {
+            "kind": "inferior_conjunction",
+            "label": "Mercury at inferior conjunction, 4.8 deg from the Sun",
+            "instant": "2026-07-13T02:19:31.131+01:00",
+            "instant_precision_seconds": 60,
+            "body": "Mercury",
+            "value_deg": 4.837754,
+            "value_unit": "deg",
+            "days_from_query": 193.1,
+            "visible_from_location": false,
+            "altitude_deg": -18.928579,
+            "azimuth_deg": 19.476452,
+            "href": "https://www.cyclecalcs.com/planets/mercury.html",
+            "longitude_convention": "heliocentric_relative_longitude",
+            "convention_note": "This instant is the classical heliocentric definition, when the body and the Earth reach the stated relative longitude as seen from the Sun. Apparent geocentric instants for the same event differ by minutes up to more than an hour."
+          },
+          {
+            "kind": "greatest_elongation_west",
+            "label": "Mercury at greatest western elongation, 19.5 deg",
+            "instant": "2026-08-02T09:02:28.152+01:00",
+            "instant_precision_seconds": 3600,
+            "body": "Mercury",
+            "value_deg": 19.468226,
+            "value_unit": "deg",
+            "days_from_query": 213.3,
+            "visible_from_location": true,
+            "altitude_deg": 45.502718,
+            "azimuth_deg": 119.483384,
+            "href": "https://www.cyclecalcs.com/planets/mercury.html"
+          },
+          {
+            "kind": "superior_conjunction",
+            "label": "Mercury at superior conjunction, 1.7 deg from the Sun",
+            "instant": "2026-08-27T17:49:54.336+01:00",
+            "instant_precision_seconds": 60,
+            "body": "Mercury",
+            "value_deg": 1.747076,
+            "value_unit": "deg",
+            "days_from_query": 238.7,
+            "visible_from_location": true,
+            "altitude_deg": 20.538369,
+            "azimuth_deg": 262.676586,
+            "href": "https://www.cyclecalcs.com/planets/mercury.html",
+            "longitude_convention": "heliocentric_relative_longitude",
+            "convention_note": "This instant is the classical heliocentric definition, when the body and the Earth reach the stated relative longitude as seen from the Sun. Apparent geocentric instants for the same event differ by minutes up to more than an hour."
+          },
+          {
+            "kind": "greatest_elongation_east",
+            "label": "Mercury at greatest eastern elongation, 25.2 deg",
+            "instant": "2026-10-12T11:06:20.884+01:00",
+            "instant_precision_seconds": 3600,
+            "body": "Mercury",
+            "value_deg": 25.161227,
+            "value_unit": "deg",
+            "days_from_query": 284.4,
+            "visible_from_location": true,
+            "altitude_deg": 8.192128,
+            "azimuth_deg": 134.59646,
+            "href": "https://www.cyclecalcs.com/planets/mercury.html"
+          },
+          {
+            "kind": "inferior_conjunction",
+            "label": "Mercury at inferior conjunction, 0.4 deg from the Sun",
+            "instant": "2026-11-04T14:18:36.902+00:00",
+            "instant_precision_seconds": 60,
+            "body": "Mercury",
+            "value_deg": 0.374704,
+            "value_unit": "deg",
+            "days_from_query": 307.6,
+            "visible_from_location": true,
+            "altitude_deg": 14.702758,
+            "azimuth_deg": 218.606247,
+            "href": "https://www.cyclecalcs.com/planets/mercury.html",
+            "longitude_convention": "heliocentric_relative_longitude",
+            "convention_note": "This instant is the classical heliocentric definition, when the body and the Earth reach the stated relative longitude as seen from the Sun. Apparent geocentric instants for the same event differ by minutes up to more than an hour."
+          },
+          {
+            "kind": "greatest_elongation_west",
+            "label": "Mercury at greatest western elongation, 19.6 deg",
+            "instant": "2026-11-20T23:35:39.724+00:00",
+            "instant_precision_seconds": 3600,
+            "body": "Mercury",
+            "value_deg": 19.621805,
+            "value_unit": "deg",
+            "days_from_query": 324,
+            "visible_from_location": false,
+            "altitude_deg": -48.348875,
+            "azimuth_deg": 24.604035,
+            "href": "https://www.cyclecalcs.com/planets/mercury.html"
+          }
+        ]
+      }
+    ]
+  },
+  "warnings": [],
+  "links": {
+    "self": "https://www.cyclecalcs.com/v2/planet-events?bodies=venus%2Cmercury&end=2027-01-01&lat=51.4778&lon=-0.0015&start=2026-01-01&tz=Europe%2FLondon",
+    "docs": "https://www.cyclecalcs.com/api/reference.html#planet-events",
+    "spec": "https://www.cyclecalcs.com/v2/openapi.json",
+    "page": "https://www.cyclecalcs.com/venus-morning-star.html",
+    "stations": "https://www.cyclecalcs.com/v2/retrogrades",
+    "related": [
+      {
+        "rel": "body",
+        "title": "Venus",
+        "href": "https://www.cyclecalcs.com/planets/venus.html"
+      },
+      {
+        "rel": "body",
+        "title": "Mercury",
+        "href": "https://www.cyclecalcs.com/planets/mercury.html"
+      }
+    ]
+  },
+  "meta": {
+    "api_version": "2",
+    "contract_version": "2.0.0",
+    "engine": {
+      "name": "Astronomy Engine",
+      "license": "MIT",
+      "author": "Don Cross",
+      "version": "2.1.19",
+      "version_source": "upstream_sha256_match",
+      "sha256": "068f1445ed0c636c94818fe6d20d7d125120e605e0bab9fc4675c3d531be5ad7",
+      "vendored": true,
+      "credit": "astronomy-engine (MIT, Copyright (c) 2019-2023 Don Cross)"
+    },
+    "tzdb": "2026b",
+    "rights": "unrestricted",
+    "attribution": {
+      "required": false,
+      "text": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+      "sources": []
+    },
+    "notice_url": "https://www.cyclecalcs.com/methodology.html#data-sources",
+    "cache": {
+      "class": "fixed_instant",
+      "deterministic": true
+    },
+    "accuracy": {
+      "statement": "Positions are arcminute class for the Sun, Moon and planets across 1700 to 2200, degrading toward the ends of that window.",
+      "residuals_url": "https://www.cyclecalcs.com/api/accuracy.html"
+    },
+    "time": {
+      "scale_of_input": "UTC",
+      "ut1_source": "assumed equal to UTC; no IERS bulletin is loaded, so UT1 minus UTC may differ by up to 0.9 s",
+      "delta_t_seconds": 75.1,
+      "delta_t_model": "Espenak and Meeus"
+    },
+    "frames": {
+      "equatorial_j2000": "ICRF-aligned mean equator and equinox of J2000.0 (EQJ)",
+      "equatorial_of_date": "true equator and equinox of date (EQD), nutation applied",
+      "ecliptic": "true ecliptic and equinox of date (ECT)",
+      "ecliptic_j2000": "mean ecliptic and equinox of J2000.0 (ECL)",
+      "galactic": "IAU 1958 galactic coordinates (GAL)",
+      "horizontal": "topocentric, azimuth measured clockwise from true north"
+    },
+    "corrections": {
+      "aberration": true,
+      "light_travel_time": true,
+      "nutation": true,
+      "topocentric_parallax": true,
+      "proper_motion": false,
+      "polar_motion": false
+    },
+    "conventions": {
+      "conjunction_convention": "heliocentric_relative_longitude",
+      "conjunction_convention_note": "This instant is the classical heliocentric definition, when the body and the Earth reach the stated relative longitude as seen from the Sun. Apparent geocentric instants for the same event differ by minutes up to more than an hour.",
+      "conjunction_precision_seconds": 60,
+      "extremum_precision_seconds": 3600,
+      "peak_magnitude_note": "The instant the Astronomy Engine magnitude model reaches its maximum. Published \"greatest brilliancy\" dates using other definitions, such as greatest illuminated extent, can differ by several days.",
+      "east_is_evening_note": "A body east of the Sun sets after it and belongs to the evening sky; west of the Sun rises before it and belongs to the morning sky."
+    },
+    "method": {
+      "events": "Conjunction instants come from the engine's relative-longitude search under the heliocentric convention named on each event. Greatest elongations, peak brightness and transits come from the engine's own extremum and series searches. All of them run through the one shared apparition walk that also generates the site's tracker pages, so the API and the pages agree by construction.",
+      "stations": "Retrograde stations belong to /v2/retrogrades and are not duplicated here; links.stations points there."
+    },
+    "scope": "This endpoint reports apparent geometry and nothing else. It attaches no meaning, effect or consequence to any event.",
+    "budget": {
+      "engine_calls": 923
+    }
+  },
+  "attribution": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+  "docs": "https://www.cyclecalcs.com/api/reference.html#planet-events"
+}

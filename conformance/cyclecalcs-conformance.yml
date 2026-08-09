@@ -1,0 +1,94 @@
+generated: '2026-08-09'
+method: searched
+source: >-
+  Derived from openapi/cyclecalcs-astronomy-openapi-original.json and
+  errors/cyclecalcs-errors.json, corroborated against the provider's own
+  statements on /api/errors.html, /api/status.html and /api/mcp.html.
+description: >-
+  Which cross-cutting standards the CycleCalcs v2 API actually conforms to.
+  This is a technical-standards profile only — CycleCalcs publishes no
+  security certifications, no trust centre and no regulatory compliance
+  programme, so no Compliance pointer is claimed.
+standards:
+  - id: openapi-3.1
+    conforms: true
+    evidence: >-
+      https://www.cyclecalcs.com/v2/openapi.json declares openapi 3.1.0 with 29
+      paths, generated from the shipped route table (tools/generate-openapi.mjs
+      over netlify/lib/v2/registry.mjs), so it cannot describe a route the API
+      does not serve.
+  - id: rfc9457-problem-details
+    conforms: true
+    evidence: >-
+      Every non-2xx response is application/problem+json with a dereferenceable
+      type URI (never about:blank); 117 codes registered and published as data
+      at /api/errors.json.
+  - id: rfc9727-api-catalog
+    conforms: true
+    evidence: >-
+      GET /.well-known/api-catalog returns 200 application/linkset+json naming
+      the API, the MCP server, service-desc, service-doc, service-meta, status,
+      terms-of-service, privacy-policy and license.
+  - id: rfc8615-well-known
+    conforms: true
+    evidence: /.well-known/api-catalog is served at the registered path.
+  - id: apisjson-0.21
+    conforms: true
+    evidence: >-
+      The provider publishes its own APIs.json 0.21 descriptor at
+      https://www.cyclecalcs.com/apis.json.
+  - id: ietf-ratelimit-headers
+    conforms: true
+    partial: true
+    evidence: >-
+      RateLimit and RateLimit-Policy are sent on every response per
+      draft-ietf-httpapi-ratelimit-headers, with the legacy X-RateLimit-*
+      trio alongside. The provider notes this is a draft, not a published RFC.
+  - id: rfc7232-conditional-requests
+    conforms: true
+    evidence: ETag on cacheable classes; If-None-Match returns 304.
+  - id: rfc6585-429
+    conforms: true
+    evidence: 429 RATE_LIMITED always carries an integer Retry-After.
+  - id: llmstxt
+    conforms: true
+    evidence: >-
+      /llms.txt (site) and /v2/llms-full.txt (full API contract) both 200 as
+      text/plain.
+  - id: model-context-protocol
+    conforms: true
+    evidence: >-
+      Hosted Streamable HTTP MCP server at https://www.cyclecalcs.com/mcp
+      speaking revision 2026-07-28 plus the 2025 handshake revisions;
+      tools/list answers anonymously with 11 tools carrying input and output
+      JSON Schemas.
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: >-
+      Explicitly not implemented — "/v2 does not send Deprecation or Sunset
+      response headers." Retirement surfaces as 410 ENDPOINT_RETIRED instead.
+  - id: oauth2
+    conforms: false
+    evidence: >-
+      No OAuth surface. The direct API is keyless; paid tiers authenticate with
+      an API key at the RapidAPI gateway.
+  - id: openid-connect
+    conforms: false
+    evidence: /.well-known/openid-configuration returns 404.
+  - id: asyncapi
+    conforms: false
+    evidence: >-
+      No event, streaming or webhook surface exists — this is a read-only
+      request/response compute API. Not applicable rather than missing.
+  - id: json-api
+    conforms: false
+    evidence: >-
+      Uses its own published nine-key envelope (spec-00 1.1), not JSON:API.
+  - id: geonames-ccby4
+    conforms: true
+    evidence: >-
+      /v2/places serves GeoNames data under CC BY 4.0 and returns the required
+      credit in meta.attribution.text; /v2/attribution publishes the full
+      source register with each licence and obligation.
+certifications: []            # none published
+compliance_programme: null    # none published

@@ -1,0 +1,178 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the CycleCalcs Astronomy API
+  version: 1.0.0
+x-generated: '2026-08-09'
+x-method: generated
+x-source: >-
+  Derived from openapi/cyclecalcs-astronomy-openapi-original.json (harvested
+  verbatim from https://www.cyclecalcs.com/v2/openapi.json) plus the
+  tool-to-endpoint table the provider publishes at
+  https://www.cyclecalcs.com/api/mcp.html.
+x-note: >-
+  These are API Evangelist's enhancements, not provider claims. The harvested
+  spec is already unusually complete — 29 operations, every one with a unique
+  operationId, a summary, a description, a full 200/304/400/404/405/413/429
+  response set, RFC 9457 problem schemas and live executable examples. The one
+  material gap is tagging: the document declares no `tags` at all, so every
+  operation is untagged. This overlay supplies the eight families the
+  provider's own docs already group by, binds each MCP tool to its backing
+  operation, and cross-links the artifacts in this repo. It never mutates the
+  original.
+extends: openapi/cyclecalcs-astronomy-openapi-original.json
+actions:
+  - target: $.info
+    description: API Evangelist provenance and catalog cross-links.
+    update:
+      x-apievangelist-slug: cyclecalcs
+      x-apievangelist-profile: https://apis.io/provider/cyclecalcs/
+      x-apievangelist-enriched: '2026-08-09'
+      x-artifact-conventions: conventions/cyclecalcs-conventions.yml
+      x-artifact-errors: errors/cyclecalcs-problem-types.yml
+      x-artifact-lifecycle: lifecycle/cyclecalcs-lifecycle.yml
+      x-artifact-rate-limits: rate-limits/cyclecalcs-rate-limits.yml
+      x-artifact-vocabulary: vocabulary/cyclecalcs-vocabulary.yml
+      x-artifact-mcp: mcp/cyclecalcs-mcp.yml
+  - target: $
+    description: >-
+      The published spec declares no top-level tags, so every operation is
+      untagged and the reference renders as one flat list of 29 GETs. Declare
+      the eight endpoint families the provider's own documentation already
+      groups by.
+    update:
+      tags:
+        - {name: Discovery, description: The API describing itself as data — routes, conventions, enums and the source register.}
+        - {name: Sun, description: Solar day boundaries, twilight, the equation of time, and the seasons.}
+        - {name: Moon, description: Phase, illumination, libration, nodes and apsides.}
+        - {name: Planets, description: The visibility board, apparition events, retrograde stations and the Galilean moons.}
+        - {name: Geometry, description: Positions, rise/transit/set, separations and conjunctions.}
+        - {name: Time, description: Time scales, sidereal time and Julian dates.}
+        - {name: Observing, description: Dark windows, sky quality, eclipses and the whole-sky snapshot.}
+        - {name: Places, description: Place-name search and reverse lookup over the self-hosted GeoNames index.}
+  - target: $.paths['/v2'].get
+    description: Tag getDiscovery into the Discovery family.
+    update:
+      tags: [Discovery]
+  - target: $.paths['/v2/conventions'].get
+    description: Tag getConventions into the Discovery family.
+    update:
+      tags: [Discovery]
+  - target: $.paths['/v2/enums'].get
+    description: Tag getEnums into the Discovery family.
+    update:
+      tags: [Discovery]
+  - target: $.paths['/v2/attribution'].get
+    description: Tag getAttribution into the Discovery family.
+    update:
+      tags: [Discovery]
+  - target: $.paths['/v2/positions'].get
+    description: Tag getPositions into the Geometry family and bind its MCP tool.
+    update:
+      tags: [Geometry]
+      x-mcp-tool: astro_positions
+  - target: $.paths['/v2/rise-set'].get
+    description: Tag getRiseSet into the Geometry family and bind its MCP tool.
+    update:
+      tags: [Geometry]
+      x-mcp-tool: astro_rise_set
+  - target: $.paths['/v2/sun'].get
+    description: Tag getSun into the Sun family and bind its MCP tool.
+    update:
+      tags: [Sun]
+      x-mcp-tool: astro_sun
+  - target: $.paths['/v2/moon'].get
+    description: Tag getMoon into the Moon family and bind its MCP tool.
+    update:
+      tags: [Moon]
+      x-mcp-tool: astro_moon
+  - target: $.paths['/v2/time'].get
+    description: Tag getTime into the Time family.
+    update:
+      tags: [Time]
+  - target: $.paths['/v2/seasons'].get
+    description: Tag getSeasons into the Sun family.
+    update:
+      tags: [Sun]
+  - target: $.paths['/v2/apsides'].get
+    description: Tag getApsides into the Moon family.
+    update:
+      tags: [Moon]
+  - target: $.paths['/v2/moon-nodes'].get
+    description: Tag getMoonNodes into the Moon family.
+    update:
+      tags: [Moon]
+  - target: $.paths['/v2/eclipses'].get
+    description: Tag getEclipses into the Observing family and bind its MCP tool.
+    update:
+      tags: [Observing]
+      x-mcp-tool: astro_eclipses
+  - target: $.paths['/v2/planet-board'].get
+    description: Tag getPlanetBoard into the Planets family and bind its MCP tool.
+    update:
+      tags: [Planets]
+      x-mcp-tool: astro_planet_board
+  - target: $.paths['/v2/retrogrades'].get
+    description: Tag getRetrogrades into the Planets family.
+    update:
+      tags: [Planets]
+  - target: $.paths['/v2/conjunctions'].get
+    description: Tag getConjunctions into the Geometry family.
+    update:
+      tags: [Geometry]
+  - target: $.paths['/v2/separation'].get
+    description: Tag getSeparation into the Geometry family.
+    update:
+      tags: [Geometry]
+  - target: $.paths['/v2/cycles'].get
+    description: Tag getCycles into the Observing family.
+    update:
+      tags: [Observing]
+  - target: $.paths['/v2/twilight'].get
+    description: Tag getTwilight into the Sun family.
+    update:
+      tags: [Sun]
+  - target: $.paths['/v2/dark-window'].get
+    description: Tag getDarkWindow into the Observing family and bind its MCP tool.
+    update:
+      tags: [Observing]
+      x-mcp-tool: astro_dark_window
+  - target: $.paths['/v2/sidereal-time'].get
+    description: Tag getSiderealTime into the Time family.
+    update:
+      tags: [Time]
+  - target: $.paths['/v2/equation-of-time'].get
+    description: Tag getEquationOfTime into the Sun family.
+    update:
+      tags: [Sun]
+  - target: $.paths['/v2/libration'].get
+    description: Tag getLibration into the Moon family.
+    update:
+      tags: [Moon]
+  - target: $.paths['/v2/jupiter-moons'].get
+    description: Tag getJupiterMoons into the Planets family.
+    update:
+      tags: [Planets]
+  - target: $.paths['/v2/sky-quality'].get
+    description: Tag getSkyQuality into the Observing family.
+    update:
+      tags: [Observing]
+  - target: $.paths['/v2/places'].get
+    description: Tag getPlaces into the Places family and bind its MCP tool.
+    update:
+      tags: [Places]
+      x-mcp-tool: astro_find_place
+  - target: $.paths['/v2/phases'].get
+    description: Tag getPhases into the Moon family and bind its MCP tool.
+    update:
+      tags: [Moon]
+      x-mcp-tool: astro_moon_phases
+  - target: $.paths['/v2/planet-events'].get
+    description: Tag getPlanetEvents into the Planets family and bind its MCP tool.
+    update:
+      tags: [Planets]
+      x-mcp-tool: astro_planet_events
+  - target: $.paths['/v2/today'].get
+    description: Tag getToday into the Observing family and bind its MCP tool.
+    update:
+      tags: [Observing]
+      x-mcp-tool: astro_sky_today

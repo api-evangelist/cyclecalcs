@@ -1,0 +1,134 @@
+generated: '2026-08-09'
+method: searched
+source: >-
+  https://www.cyclecalcs.com/v2/conventions (the provider publishes its own
+  conventions as data), plus /api/status.html, /api/keys.html,
+  /api/versioning.html, /api/errors.html and the harvested OpenAPI.
+description: >-
+  The cross-cutting request/response semantics that apply to all 29 /v2
+  operations. CycleCalcs is unusual in publishing most of this as a live JSON
+  document at /v2/conventions rather than only as prose — the verbatim capture
+  is at conventions/cyclecalcs-conventions-published.json.
+base_url: https://www.cyclecalcs.com/v2
+api_style: >-
+  REST over HTTPS. GET only — all 29 operations are safe, read-only reads.
+  JSON by default; CSV and TXT renderings on most endpoints via format=.
+authentication:
+  scheme: none on the direct API
+  detail: authentication/cyclecalcs-authentication.yml
+  docs: https://www.cyclecalcs.com/api/keys.html
+  note: >-
+    No key, no signup, no header. A key= query parameter is recognised and
+    ignored with a disclosed parameter_ignored warning, because a credential
+    never belongs in a URL. Paid tiers authenticate at the RapidAPI gateway,
+    never at the origin.
+idempotency:
+  supported: true
+  model: safe-methods
+  mechanism: >-
+    Every operation is a GET, so every request is safe and idempotent by HTTP
+    method — retrying costs nothing and changes nothing. The provider goes
+    further and makes responses byte-deterministic: computed_at is "a revision
+    stamp, never a wall clock: identical requests return identical bytes", so
+    the same query returns the same body indefinitely and can be cached for a
+    year.
+  idempotency_key_header: null
+  why_no_key: >-
+    An Idempotency-Key header exists to make unsafe writes replay-safe. This
+    API has no write surface, so there is nothing for one to protect.
+  conditional_requests:
+    etag: true
+    if_none_match: true
+    not_modified: 304
+    cache_control: per cache class, sent on every 200
+  retry_guidance: >-
+    429 and 503 carry an integer Retry-After; honour it. Repeating any request
+    is always safe.
+  docs: https://www.cyclecalcs.com/api/status.html
+pagination:
+  style: cursor
+  request_params:
+    limit: whole number, 1 to the documented per-endpoint maximum
+    cursor: opaque; restart from the first page or follow links.next unchanged
+  response_fields:
+    links.next: the next page URL
+    links.first: the first page URL
+  range_alternative: >-
+    Most endpoints take start, end and step instead of paging, returning a
+    whole series in one request. Preferred: it costs one rate-limit unit
+    rather than N.
+  errors: [BAD_LIMIT, BAD_CURSOR, RANGE_TOO_LARGE, INCOMPLETE_RANGE, BAD_RANGE, BAD_STEP]
+field_projection:
+  supported: true
+  mechanism: fields= query parameter (sparse fieldsets)
+  never_projected: meta   # "Never subject to `fields` projection."
+  verbosity: verbosity= (compact | full) alongside fields
+  precision: precision= controls decimal places
+  formats: format=json | csv | txt (per-endpoint; see the route table)
+request_tracing:
+  field: request_id
+  location: the problem document body, not a response header
+  format: 16 lowercase hex characters
+  present_on: [429, 500, 503]
+  absent_on: >-
+    every cacheable class, including 400 validation failures — a cached body
+    cannot carry one caller's identifier to every later caller.
+versioning:
+  scheme: uri-path
+  current: v2
+  detail: lifecycle/cyclecalcs-lifecycle.yml
+error_envelope:
+  media_type: application/problem+json
+  standard: RFC 9457
+  switch_on: code
+  type_urls: dereferenceable, never about:blank
+  detail: errors/cyclecalcs-problem-types.yml
+rate_limit_signaling:
+  headers:
+    RateLimit-Policy: every policy and its quota; q= quota, w= window seconds
+    RateLimit: the binding policy right now; r= remaining, t= seconds to reset
+    X-RateLimit-Limit: legacy alias, quota of the binding policy
+    X-RateLimit-Remaining: legacy alias, requests left
+    X-RateLimit-Reset: legacy alias, absolute Unix timestamp (not a countdown)
+    Cache-Status: fwd=miss means the origin ran and the numbers are current
+  standard: draft-ietf-httpapi-ratelimit-headers (a draft, not a published RFC)
+  sent_on: every response, success or failure
+  detail: rate-limits/cyclecalcs-rate-limits.yml
+caching:
+  cdn: Netlify CDN; a cache hit costs no quota and consumes no computation
+  determinism: >-
+    A given instant and place always return the same answer, so aggressive
+    client or shared-CDN caching is the intended design, not a loophole.
+  stale_while_error: >-
+    The cache is told to keep serving the last good answer if the origin
+    starts failing.
+cors:
+  open: true
+  note: Safe to call from the browser; no key needed for the free Basic tier.
+response_envelope:
+  standard: spec-00 1.1 — the nine-key v2 envelope, in this order, on every 200
+  keys: [endpoint, computed_at, query, data, warnings, links, meta, attribution, docs]
+  warnings: >-
+    Machine-readable notices. Empty when none apply and NEVER change the HTTP
+    status. New warning codes are an additive change.
+  meta: >-
+    Provenance on every response: engine version, rights, cache class,
+    accuracy statement, tzdb version, contract_version, and the endpoint's
+    frame/epoch/time-scale/refraction conventions.
+  attribution: >-
+    The credit line, byte-identical to meta.attribution.text. Unrestricted for
+    every response that did not resolve a place name; a resolved place carries
+    a required GeoNames CC BY 4.0 credit that must be preserved when shown.
+domain_conventions:
+  time_scales: UTC in, UTC out unless tz= is sent; UT1 treated as equal to UTC
+  date_range: 1700 to 2200 (DATE_OUT_OF_RANGE outside it)
+  frames: [eqj, eqd, ect, ecl, hor, gal]
+  refraction: Saemundsson (Astronomy Engine normal mode); refraction=none disables
+  published_as_data: https://www.cyclecalcs.com/v2/conventions
+  verbatim: conventions/cyclecalcs-conventions-published.json
+limits:
+  max_rows_global: 10000
+  max_bodies_per_request: 20
+  max_engine_calls_per_request: 250000
+  max_compute_ms: 8000
+  max_response_bytes: 2097152     # 413 RESPONSE_TOO_LARGE past 2 MB

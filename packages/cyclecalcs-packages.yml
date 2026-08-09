@@ -1,0 +1,31 @@
+generated: '2026-08-09'
+method: searched
+source: >-
+  Registry searches on npm, PyPI, RubyGems, crates.io, Packagist and GitHub,
+  plus the provider's own developer pages.
+description: >-
+  CycleCalcs publishes no client SDKs in any language. This is consistent with
+  the API's design: 29 keyless GET endpoints with open CORS, documented as
+  callable with a bare curl or a browser fetch, so there is nothing for an SDK
+  to wrap. The only shipped client-side code is the embeddable widget loaders
+  (widget.js / embed.js), catalogued in components/cyclecalcs-components.yml —
+  those are UI embeds, not API client libraries, and are not distributed
+  through a package registry.
+packages: []
+registries_probed:
+  - {registry: npm, query: cyclecalcs, results: 0}
+  - {registry: pypi, path: /pypi/cyclecalcs/json, status: 404}
+  - {registry: rubygems, path: /api/v1/gems/cyclecalcs.json, status: 404}
+  - {registry: crates.io, query: cyclecalcs, results: 0}
+  - {registry: packagist, query: cyclecalcs, results: 0}
+  - {registry: github, query: cyclecalcs, first_party_repos: 0}
+notes:
+  github_user: >-
+    A github.com/cyclecalcs account exists (created 2026-06-14) but has zero
+    public repositories and no profile link back to the site, so it is not
+    recorded as a first-party GitHub organization.
+  upstream_dependency: >-
+    The engine behind every answer is the MIT-licensed Astronomy Engine
+    (github.com/cosinekitty/astronomy, v2.1.19 at capture) by Don Cross. That
+    is CycleCalcs's dependency, not a CycleCalcs package — it is credited here
+    because /v2/attribution names it as the ephemeris source.

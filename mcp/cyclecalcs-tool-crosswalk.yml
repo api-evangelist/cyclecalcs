@@ -1,0 +1,205 @@
+generated: '2026-08-09'
+method: derived
+source: >-
+  mcp/cyclecalcs-mcp-tools-list.json (live tools/list) bound to
+  openapi/cyclecalcs-astronomy-openapi-original.json operationIds, using the
+  tool-to-endpoint table the provider publishes at
+  https://www.cyclecalcs.com/api/mcp.html
+description: >-
+  Every MCP tool CycleCalcs exposes is a thin protocol adapter over exactly one
+  /v2 REST operation — the provider states this explicitly ("The MCP server
+  adds no endpoints and changes no contracts; it is a protocol adapter in front
+  of the same 29 routes"). There are no MCP-only capabilities. The divergence
+  runs the other way: 18 of the 29 REST operations have no MCP tool.
+surfaces:
+  openapi:
+    file: openapi/cyclecalcs-astronomy-openapi-original.json
+    url: https://www.cyclecalcs.com/v2/openapi.json
+    gated: false
+    operations: 29
+  mcp:
+    url: https://www.cyclecalcs.com/mcp
+    gated: false             # tools/list is anonymous; only tools/call needs a key
+    tools: 11
+  graphql: null              # CycleCalcs publishes no GraphQL surface
+crosswalk:
+  - tool: astro_sky_today
+    category: astronomy
+    rest: [getToday]
+    path: /v2/today
+    binding: rest
+    confidence: high
+    note: >-
+      One-to-one. The provider publishes this exact mapping at
+      /api/mcp.html; the tool inherits getToday's parameters as its inputSchema.
+  - tool: astro_sun
+    category: astronomy
+    rest: [getSun]
+    path: /v2/sun
+    binding: rest
+    confidence: high
+    note: >-
+      One-to-one. The provider publishes this exact mapping at
+      /api/mcp.html; the tool inherits getSun's parameters as its inputSchema.
+  - tool: astro_moon
+    category: astronomy
+    rest: [getMoon]
+    path: /v2/moon
+    binding: rest
+    confidence: high
+    note: >-
+      One-to-one. The provider publishes this exact mapping at
+      /api/mcp.html; the tool inherits getMoon's parameters as its inputSchema.
+  - tool: astro_moon_phases
+    category: astronomy
+    rest: [getPhases]
+    path: /v2/phases
+    binding: rest
+    confidence: high
+    note: >-
+      One-to-one. The provider publishes this exact mapping at
+      /api/mcp.html; the tool inherits getPhases's parameters as its inputSchema.
+  - tool: astro_positions
+    category: astronomy
+    rest: [getPositions]
+    path: /v2/positions
+    binding: rest
+    confidence: high
+    note: >-
+      One-to-one. The provider publishes this exact mapping at
+      /api/mcp.html; the tool inherits getPositions's parameters as its inputSchema.
+  - tool: astro_rise_set
+    category: astronomy
+    rest: [getRiseSet]
+    path: /v2/rise-set
+    binding: rest
+    confidence: high
+    note: >-
+      One-to-one. The provider publishes this exact mapping at
+      /api/mcp.html; the tool inherits getRiseSet's parameters as its inputSchema.
+  - tool: astro_eclipses
+    category: astronomy
+    rest: [getEclipses]
+    path: /v2/eclipses
+    binding: rest
+    confidence: high
+    note: >-
+      One-to-one. The provider publishes this exact mapping at
+      /api/mcp.html; the tool inherits getEclipses's parameters as its inputSchema.
+  - tool: astro_dark_window
+    category: astronomy
+    rest: [getDarkWindow]
+    path: /v2/dark-window
+    binding: rest
+    confidence: high
+    note: >-
+      One-to-one. The provider publishes this exact mapping at
+      /api/mcp.html; the tool inherits getDarkWindow's parameters as its inputSchema.
+  - tool: astro_planet_board
+    category: astronomy
+    rest: [getPlanetBoard]
+    path: /v2/planet-board
+    binding: rest
+    confidence: high
+    note: >-
+      One-to-one. The provider publishes this exact mapping at
+      /api/mcp.html; the tool inherits getPlanetBoard's parameters as its inputSchema.
+  - tool: astro_planet_events
+    category: astronomy
+    rest: [getPlanetEvents]
+    path: /v2/planet-events
+    binding: rest
+    confidence: high
+    note: >-
+      One-to-one. The provider publishes this exact mapping at
+      /api/mcp.html; the tool inherits getPlanetEvents's parameters as its inputSchema.
+  - tool: astro_find_place
+    category: discovery
+    rest: [getPlaces]
+    path: /v2/places
+    binding: rest
+    confidence: high
+    note: >-
+      One-to-one. The provider publishes this exact mapping at
+      /api/mcp.html; the tool inherits getPlaces's parameters as its inputSchema.
+mcp_only: []                 # no tool exists without a public REST operation
+rest_only:
+  - operation: getDiscovery
+    path: /v2
+    summary: >-
+      The discovery document: every endpoint, parameter, convention and limit
+  - operation: getConventions
+    path: /v2/conventions
+    summary: >-
+      Every convention, threshold, model and limit the API uses, as data
+  - operation: getEnums
+    path: /v2/enums
+    summary: >-
+      Every enumerated value the API can emit or accept, as data
+  - operation: getAttribution
+    path: /v2/attribution
+    summary: >-
+      Every source behind every endpoint, with its licence and what it obliges a caller to do
+  - operation: getTime
+    path: /v2/time
+    summary: >-
+      Every time scale, sidereal time, solar time, the equation of time and the Julian dates
+  - operation: getSeasons
+    path: /v2/seasons
+    summary: >-
+      Every equinox and solstice in a window, with the length of each season they bound
+  - operation: getApsides
+    path: /v2/apsides
+    summary: >-
+      Every perigee, apogee, perihelion and aphelion in a window, with its distance
+  - operation: getMoonNodes
+    path: /v2/moon-nodes
+    summary: >-
+      Every crossing of the ecliptic by the Moon, the node longitudes and the eclipse seasons they define
+  - operation: getRetrogrades
+    path: /v2/retrogrades
+    summary: >-
+      Every retrograde and direct station of every planet in a window, with the loop length, its arc, and the interval of triple crossing
+  - operation: getConjunctions
+    path: /v2/conjunctions
+    summary: >-
+      Close approaches between body pairs in a window, ranked, with the separation and whether the pair is observable or lost in twilight
+  - operation: getSeparation
+    path: /v2/separation
+    summary: >-
+      The angular separation between any two targets at an instant, and the minima of that separation across a window
+  - operation: getCycles
+    path: /v2/cycles
+    summary: >-
+      Where we are in every astronomical cycle the site tracks, with an explicit statement of whether each number was computed, observed, or is an interval with no live phase
+  - operation: getTwilight
+    path: /v2/twilight
+    summary: >-
+      All three twilights plus day and night as non-overlapping intervals that tile the whole day, each with the reason it starts and ends, and a checksum the caller can assert
+  - operation: getSiderealTime
+    path: /v2/sidereal-time
+    summary: >-
+      Greenwich and local sidereal time, apparent and mean side by side, with the equation of the equinoxes that separates them and the nutation terms it is built from
+  - operation: getEquationOfTime
+    path: /v2/equation-of-time
+    summary: >-
+      How far a sundial runs ahead of or behind the clock, from the real Sun rather than a day-of-year series, with the Sun place that makes a range query an analemma
+  - operation: getLibration
+    path: /v2/libration
+    summary: >-
+      Lunar libration, the sub-Earth point, the axis and bright-limb position angles, and with the terminator token the sub-solar point and the colongitude that fixes where the terminator falls
+  - operation: getJupiterMoons
+    path: /v2/jupiter-moons
+    summary: >-
+      Where the four Galilean moons are, and every transit, shadow transit, eclipse and occultation in the window, with both contact instants for each
+  - operation: getSkyQuality
+    path: /v2/sky-quality
+    summary: >-
+      Naked-eye limiting magnitude and aperture reach for a sky class you supply, with an explicit machine-readable statement that the number is a tuned estimate rather than a measurement
+coverage:
+  tools_named: 11
+  tools_bound: 11
+  mcp_only: 0
+  rest_operations_total: 29
+  rest_operations_with_tool: 11
+  rest_operations_without_tool: 18

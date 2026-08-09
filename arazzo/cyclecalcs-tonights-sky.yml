@@ -1,0 +1,90 @@
+arazzo: 1.0.1
+info:
+  title: Tonight's sky for a place
+  version: 1.0.0
+  summary: >-
+    Resolve a place name, take the whole-sky snapshot, then find the dark
+    moonless observing window for the next week.
+sourceDescriptions:
+  - name: cyclecalcs
+    url: ../openapi/cyclecalcs-astronomy-openapi-original.json
+    type: openapi
+workflows:
+  - workflowId: tonightsSkyForAPlace
+    summary: Place name to a usable observing plan in three keyless GETs.
+    inputs:
+      type: object
+      required: [place]
+      properties:
+        place:
+          type: string
+          description: 'City or "City,CC" with an ISO country code, e.g. "Lisbon,PT".'
+        nights:
+          type: integer
+          description: How many nights of dark window to rank (1-62).
+    steps:
+      - stepId: resolvePlace
+        description: Resolve the place name to coordinates and an IANA timezone.
+        operationId: getPlaces
+        parameters:
+          - name: q
+            in: query
+            value: $inputs.place
+          - name: limit
+            in: query
+            value: 1
+        successCriteria:
+          - condition: $statusCode == 200
+        outputs:
+          lat: $response.body#/data/results/0/latitude
+          lon: $response.body#/data/results/0/longitude
+          tz: $response.body#/data/results/0/timezone
+          attribution: $response.body#/attribution
+      - stepId: skyToday
+        description: One-call whole-sky snapshot for that place, right now.
+        operationId: getToday
+        parameters:
+          - name: lat
+            in: query
+            value: $steps.resolvePlace.outputs.lat
+          - name: lon
+            in: query
+            value: $steps.resolvePlace.outputs.lon
+          - name: tz
+            in: query
+            value: $steps.resolvePlace.outputs.tz
+        successCriteria:
+          - condition: $statusCode == 200
+        outputs:
+          summary: $response.body#/data/summary
+      - stepId: darkWindow
+        description: The genuinely dark, moonless window per night, ranked.
+        operationId: getDarkWindow
+        parameters:
+          - name: lat
+            in: query
+            value: $steps.resolvePlace.outputs.lat
+          - name: lon
+            in: query
+            value: $steps.resolvePlace.outputs.lon
+          - name: tz
+            in: query
+            value: $steps.resolvePlace.outputs.tz
+          - name: nights
+            in: query
+            value: $inputs.nights
+        successCriteria:
+          - condition: $statusCode == 200
+        outputs:
+          nights: $response.body#/data
+    outputs:
+      summary: $steps.skyToday.outputs.summary
+      darkNights: $steps.darkWindow.outputs.nights
+      attribution: $steps.resolvePlace.outputs.attribution
+x-generated: '2026-08-09'
+x-method: generated
+x-note: >-
+  Every operationId is verbatim from the harvested OpenAPI. No key is required
+  for any step; the free Basic tier serves all three. The `attribution` output
+  is carried through deliberately — resolving a place puts a GeoNames CC BY 4.0
+  credit obligation on the response.

@@ -1,0 +1,294 @@
+{
+  "endpoint": "/v2/today",
+  "computed_at": "2026-08-01T00:00:00.000Z",
+  "query": {
+    "at": "2026-07-28T21:00:00.000Z",
+    "mode": "instant",
+    "resolved_from": "at",
+    "is_now": false,
+    "latitude": 51.4778,
+    "longitude": -0.0015,
+    "elevation_m": 0,
+    "tz": "Europe/London",
+    "utc_offset_seconds": 3600,
+    "utc_offset_iso": "+01:00",
+    "is_dst": true,
+    "timezone_source": "parameter",
+    "day_anchor": "civil",
+    "time_format": "iso",
+    "format": "json",
+    "shape": "nested",
+    "precision": 6,
+    "pretty": 1,
+    "verbosity": "full",
+    "include": [
+      "sun",
+      "moon",
+      "planets",
+      "events",
+      "night"
+    ],
+    "ignored": []
+  },
+  "data": {
+    "local_date": "2026-07-28",
+    "sun": {
+      "rise_set": {
+        "status": "normal",
+        "status_label": "Rises and sets",
+        "special": null,
+        "events": [
+          {
+            "kind": "lower_transit",
+            "instant": "2026-07-28T01:06:33.121+01:00",
+            "azimuth_deg": 359.999874,
+            "altitude_deg": -18.989536
+          },
+          {
+            "kind": "rise",
+            "instant": "2026-07-28T05:17:50.647+01:00",
+            "azimuth_deg": 57.279351,
+            "altitude_deg": -0.833325
+          },
+          {
+            "kind": "upper_transit",
+            "instant": "2026-07-28T13:06:32.489+01:00",
+            "azimuth_deg": 179.999991,
+            "altitude_deg": 57.438623
+          },
+          {
+            "kind": "set",
+            "instant": "2026-07-28T20:54:16.609+01:00",
+            "azimuth_deg": 302.447462,
+            "altitude_deg": -0.833301
+          }
+        ],
+        "rise": [
+          "2026-07-28T05:17:50.647+01:00"
+        ],
+        "set": [
+          "2026-07-28T20:54:16.609+01:00"
+        ],
+        "transit": [
+          "2026-07-28T13:06:32.489+01:00"
+        ],
+        "above_horizon_minutes": 936.4
+      },
+      "day_length": "15h 36m",
+      "day_length_minutes": 936.4,
+      "civil_dusk": "2026-07-28T21:35:35.050+01:00",
+      "astronomical_dusk": "2026-07-28T23:55:02.016+01:00",
+      "is_up": false,
+      "altitude_refracted_deg": -8.179033,
+      "azimuth_deg": 315.874181
+    },
+    "moon": {
+      "phase": {
+        "name": "Full Moon",
+        "code": "full_moon",
+        "emoji": "🌕",
+        "illumination_percent": 99.4,
+        "waxing": true,
+        "age_days": 14.47
+      },
+      "constellation": {
+        "name": "Sagittarius",
+        "abbreviation": "Sgr"
+      },
+      "rise_set": {
+        "status": "normal",
+        "status_label": "Rises and sets",
+        "events": [
+          {
+            "kind": "set",
+            "instant": "2026-07-28T03:29:09.202+01:00",
+            "azimuth_deg": 225.853012,
+            "altitude_deg": -0.813717
+          },
+          {
+            "kind": "lower_transit",
+            "instant": "2026-07-28T12:15:44.746+01:00",
+            "azimuth_deg": 359.999941,
+            "altitude_deg": -63.380034
+          },
+          {
+            "kind": "rise",
+            "instant": "2026-07-28T20:46:05.756+01:00",
+            "azimuth_deg": 130.062322,
+            "altitude_deg": -0.814653
+          }
+        ],
+        "rise": [
+          "2026-07-28T20:46:05.756+01:00"
+        ],
+        "set": [
+          "2026-07-28T03:29:09.202+01:00"
+        ],
+        "transit": [],
+        "above_horizon_minutes": 403.1
+      },
+      "is_up": true,
+      "altitude_refracted_deg": 7.008975,
+      "azimuth_deg": 144.576649,
+      "next_full_moon": "2026-07-29T15:36:19.011+01:00",
+      "next_new_moon": "2026-08-12T18:37:11.343+01:00"
+    },
+    "planets_up": [
+      {
+        "name": "Venus",
+        "code": "venus",
+        "constellation": {
+          "name": "Leo",
+          "abbreviation": "Leo"
+        },
+        "magnitude": -4.29,
+        "altitude_refracted_deg": 3.308573,
+        "azimuth_deg": 272.336423,
+        "elongation_from_sun_deg": 44.992303,
+        "visibility": "Evening sky, after dusk",
+        "visibility_code": "evening_sky",
+        "naked_eye": true
+      },
+      {
+        "name": "Pluto",
+        "code": "pluto",
+        "constellation": {
+          "name": "Capricornus",
+          "abbreviation": "Cap"
+        },
+        "magnitude": 14.45,
+        "altitude_refracted_deg": 5.107099,
+        "azimuth_deg": 138.356412,
+        "elongation_from_sun_deg": 175.452394,
+        "visibility": "Up most of the night",
+        "visibility_code": "most_of_night",
+        "naked_eye": false
+      }
+    ],
+    "planets_down": [
+      "Mercury",
+      "Mars",
+      "Jupiter",
+      "Saturn",
+      "Uranus",
+      "Neptune"
+    ],
+    "night": {
+      "dark_start": "2026-07-28T23:55:02.016+01:00",
+      "dark_end": "2026-07-29T02:18:30.220+01:00",
+      "dark_minutes": 143.5,
+      "moonless_dark_minutes": 0,
+      "verdict": "Bright. The Moon is up through the whole dark window."
+    },
+    "next_events": [
+      {
+        "kind": "full_moon",
+        "label": "Full Moon",
+        "instant": "2026-07-29T15:36:19.011+01:00",
+        "days_until": 0.73,
+        "scope": "global",
+        "href": "https://www.cyclecalcs.com/full-moon-calendar.html"
+      },
+      {
+        "kind": "new_moon",
+        "label": "New Moon",
+        "instant": "2026-08-12T18:37:11.343+01:00",
+        "days_until": 14.86,
+        "scope": "global",
+        "href": "https://www.cyclecalcs.com/moon-phase-calendar.html"
+      },
+      {
+        "kind": "solar_eclipse",
+        "label": "Total solar eclipse somewhere on Earth",
+        "instant": "2026-08-12T18:45:46.794+01:00",
+        "days_until": 14.9,
+        "scope": "global",
+        "href": "https://www.cyclecalcs.com/eclipses/",
+        "global_kind": "total"
+      },
+      {
+        "kind": "lunar_eclipse",
+        "label": "Partial lunar eclipse",
+        "instant": "2026-08-28T05:12:49.076+01:00",
+        "days_until": 30.3,
+        "scope": "global",
+        "href": "https://www.cyclecalcs.com/eclipses/",
+        "global_kind": "partial"
+      }
+    ],
+    "summary": "The Moon is full, 99 percent lit. Venus and Pluto are up. The Sun sets at 20:54 and full dark begins at 23:55 local time."
+  },
+  "warnings": [],
+  "links": {
+    "self": "https://www.cyclecalcs.com/v2/today?at=2026-07-28T21%3A00%3A00Z&lat=51.4778&lon=-0.0015&tz=Europe%2FLondon",
+    "docs": "https://www.cyclecalcs.com/api/reference.html#today",
+    "spec": "https://www.cyclecalcs.com/v2/openapi.json",
+    "page": "https://www.cyclecalcs.com/today.html"
+  },
+  "meta": {
+    "api_version": "2",
+    "contract_version": "2.0.0",
+    "engine": {
+      "name": "Astronomy Engine",
+      "license": "MIT",
+      "author": "Don Cross",
+      "version": "2.1.19",
+      "version_source": "upstream_sha256_match",
+      "sha256": "068f1445ed0c636c94818fe6d20d7d125120e605e0bab9fc4675c3d531be5ad7",
+      "vendored": true,
+      "credit": "astronomy-engine (MIT, Copyright (c) 2019-2023 Don Cross)"
+    },
+    "tzdb": "2026b",
+    "rights": "unrestricted",
+    "attribution": {
+      "required": false,
+      "text": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+      "sources": []
+    },
+    "notice_url": "https://www.cyclecalcs.com/methodology.html#data-sources",
+    "cache": {
+      "class": "fixed_instant",
+      "deterministic": true
+    },
+    "accuracy": {
+      "statement": "Positions are arcminute class for the Sun, Moon and planets across 1700 to 2200, degrading toward the ends of that window.",
+      "residuals_url": "https://www.cyclecalcs.com/api/accuracy.html"
+    },
+    "time": {
+      "scale_of_input": "UTC",
+      "ut1_source": "assumed equal to UTC; no IERS bulletin is loaded, so UT1 minus UTC may differ by up to 0.9 s",
+      "delta_t_seconds": 75.4,
+      "delta_t_model": "Espenak and Meeus"
+    },
+    "horizon": {
+      "sunrise_sunset_altitude_deg": -0.8333,
+      "sunrise_sunset_definition": "centre of the Sun 50 arcminutes below the true horizon, being about 16 arcminutes of solar semidiameter plus about 34 arcminutes of horizon refraction",
+      "civil_twilight_altitude_deg": -6,
+      "astronomical_twilight_altitude_deg": -18,
+      "moon_rise_set_definition": "upper limb at the horizon, with topocentric parallax and refraction applied by the engine's own rise and set search",
+      "horizon_dip_modelled": false
+    },
+    "refraction": {
+      "model": "Saemundsson (Astronomy Engine normal mode)",
+      "verified": true,
+      "assumed_temperature_c": null,
+      "assumed_pressure_mbar": null,
+      "applied_below_horizon_down_to_deg": -1
+    },
+    "not_computed": [
+      {
+        "name": "next_events.meteor_peak",
+        "reason": "Withheld until the meteor catalogue reduction clears its licence review."
+      },
+      {
+        "name": "constellation.genitive",
+        "reason": "Needs the reduced constellation index; the generator has not run yet."
+      }
+    ],
+    "budget": {
+      "engine_calls": 129
+    }
+  },
+  "attribution": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+  "docs": "https://www.cyclecalcs.com/api/reference.html#today"
+}

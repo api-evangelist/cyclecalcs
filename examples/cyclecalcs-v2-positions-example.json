@@ -1,0 +1,269 @@
+{
+  "endpoint": "/v2/positions",
+  "computed_at": "2026-08-01T00:00:00.000Z",
+  "query": {
+    "at": "2026-07-28T21:30:00.000Z",
+    "mode": "instant",
+    "resolved_from": "at",
+    "is_now": false,
+    "latitude": 51.4778,
+    "longitude": -0.0015,
+    "elevation_m": 11,
+    "tz": "Europe/London",
+    "utc_offset_seconds": 3600,
+    "utc_offset_iso": "+01:00",
+    "is_dst": true,
+    "timezone_source": "parameter",
+    "time_format": "iso",
+    "format": "json",
+    "shape": "nested",
+    "precision": 6,
+    "pretty": 1,
+    "verbosity": "full",
+    "refraction": "normal",
+    "frames": "standard",
+    "frame": "geocentric",
+    "bodies": [
+      "Sun",
+      "Moon"
+    ],
+    "ignored": []
+  },
+  "data": {
+    "instant": "2026-07-28T22:30:00.000+01:00",
+    "bodies": [
+      {
+        "name": "Sun",
+        "code": "sun",
+        "constellation": {
+          "name": "Cancer",
+          "abbreviation": "Cnc"
+        },
+        "tropical_sign": {
+          "name": "Leo",
+          "code": "leo",
+          "sign_index": 4,
+          "degree_in_sign": 5.821423,
+          "degree_in_sign_whole": 5
+        },
+        "magnitude": -26.71,
+        "position": {
+          "equatorial": {
+            "j2000": {
+              "ra_hours": 8.520516,
+              "ra_string": "08h 31m 13.9s",
+              "dec_deg": 18.903228,
+              "dec_string": "+18 54 11.6"
+            },
+            "of_date": {
+              "ra_hours": 8.546079,
+              "ra_string": "08h 32m 45.9s",
+              "dec_deg": 18.81321,
+              "dec_string": "+18 48 47.6"
+            }
+          },
+          "ecliptic": {
+            "true_of_date": {
+              "longitude_deg": 125.821033,
+              "latitude_deg": -0.00227
+            }
+          },
+          "horizontal": {
+            "azimuth_deg": 322.384989,
+            "compass": "NW",
+            "altitude_refracted_deg": -11.261963,
+            "altitude_unrefracted_deg": -11.829866,
+            "refraction_deg": 0.567902,
+            "hour_angle_hours": 9.391215,
+            "parallactic_angle_deg": 23.677847
+          },
+          "distance_au": 1.015332,
+          "distance_km": 151891532.623159,
+          "distance_light_minutes": 8.44426,
+          "origin": "topocentric",
+          "observer_height_m": 11
+        },
+        "angular_diameter_arcsec": 1890.306919,
+        "angular_diameter_basis": "topocentric",
+        "elongation_from_sun_deg": 0,
+        "ecliptic_separation_from_sun_deg": 0,
+        "is_up": false
+      },
+      {
+        "name": "Moon",
+        "code": "moon",
+        "constellation": {
+          "name": "Sagittarius",
+          "abbreviation": "Sgr"
+        },
+        "tropical_sign": {
+          "name": "Capricorn",
+          "code": "capricorn",
+          "sign_index": 9,
+          "degree_in_sign": 27.845277,
+          "degree_in_sign_whole": 27
+        },
+        "magnitude": -12.37,
+        "position": {
+          "equatorial": {
+            "j2000": {
+              "ra_hours": 20.030443,
+              "ra_string": "20h 01m 49.6s",
+              "dec_deg": -24.232252,
+              "dec_string": "-24 13 56.1"
+            },
+            "of_date": {
+              "ra_hours": 20.057174,
+              "ra_string": "20h 03m 25.8s",
+              "dec_deg": -24.158146,
+              "dec_string": "-24 09 29.3"
+            }
+          },
+          "ecliptic": {
+            "true_of_date": {
+              "longitude_deg": 297.965852,
+              "latitude_deg": -3.666118
+            }
+          },
+          "horizontal": {
+            "azimuth_deg": 150.838018,
+            "compass": "SSE",
+            "altitude_refracted_deg": 9.464498,
+            "altitude_unrefracted_deg": 9.36887,
+            "refraction_deg": 0.095628,
+            "hour_angle_hours": 21.88012,
+            "parallactic_angle_deg": -19.427741
+          },
+          "distance_au": 0.002676,
+          "distance_km": 400282.1046,
+          "distance_light_minutes": 0.022253,
+          "origin": "topocentric",
+          "observer_height_m": 11
+        },
+        "position_geocentric": {
+          "equatorial": {
+            "j2000": {
+              "ra_hours": 20.008848,
+              "ra_string": "20h 00m 31.9s",
+              "dec_deg": -23.386601,
+              "dec_string": "-23 23 11.8"
+            },
+            "of_date": {
+              "ra_hours": 20.035439,
+              "ra_string": "20h 02m 07.6s",
+              "dec_deg": -23.313229,
+              "dec_string": "-23 18 47.6"
+            }
+          },
+          "ecliptic": {
+            "true_of_date": {
+              "longitude_deg": 297.845277,
+              "latitude_deg": -2.778164
+            }
+          },
+          "distance_au": 0.002683,
+          "distance_km": 401385.323143,
+          "distance_light_minutes": 0.022315,
+          "origin": "geocentric"
+        },
+        "parallax_deg": 0.896077,
+        "angular_diameter_arcsec": 1790.565181,
+        "angular_diameter_basis": "topocentric",
+        "elongation_from_sun_deg": 171.556842,
+        "ecliptic_separation_from_sun_deg": 172.01825,
+        "is_up": true
+      }
+    ]
+  },
+  "warnings": [],
+  "links": {
+    "self": "https://www.cyclecalcs.com/v2/positions?at=2026-07-28T21%3A30%3A00Z&bodies=sun%2Cmoon&elevation_m=11&lat=51.4778&lon=-0.0015&tz=Europe%2FLondon",
+    "docs": "https://www.cyclecalcs.com/api/reference.html#positions",
+    "spec": "https://www.cyclecalcs.com/v2/openapi.json",
+    "page": "https://www.cyclecalcs.com/today.html"
+  },
+  "meta": {
+    "api_version": "2",
+    "contract_version": "2.0.0",
+    "engine": {
+      "name": "Astronomy Engine",
+      "license": "MIT",
+      "author": "Don Cross",
+      "version": "2.1.19",
+      "version_source": "upstream_sha256_match",
+      "sha256": "068f1445ed0c636c94818fe6d20d7d125120e605e0bab9fc4675c3d531be5ad7",
+      "vendored": true,
+      "credit": "astronomy-engine (MIT, Copyright (c) 2019-2023 Don Cross)"
+    },
+    "tzdb": "2026b",
+    "rights": "unrestricted",
+    "attribution": {
+      "required": false,
+      "text": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+      "sources": []
+    },
+    "notice_url": "https://www.cyclecalcs.com/methodology.html#data-sources",
+    "cache": {
+      "class": "fixed_instant",
+      "deterministic": true
+    },
+    "accuracy": {
+      "statement": "Positions are arcminute class for the Sun, Moon and planets across 1700 to 2200, degrading toward the ends of that window.",
+      "residuals_url": "https://www.cyclecalcs.com/api/accuracy.html"
+    },
+    "time": {
+      "scale_of_input": "UTC",
+      "ut1_source": "assumed equal to UTC; no IERS bulletin is loaded, so UT1 minus UTC may differ by up to 0.9 s",
+      "delta_t_seconds": 75.4,
+      "delta_t_model": "Espenak and Meeus"
+    },
+    "frames": {
+      "equatorial_of_date": "true equator and equinox of date (EQD), nutation applied",
+      "equatorial_j2000": "ICRF-aligned mean equator and equinox of J2000.0 (EQJ)",
+      "ecliptic": "true ecliptic and equinox of date (ECT)",
+      "horizontal": "topocentric, azimuth measured clockwise from true north"
+    },
+    "corrections": {
+      "aberration": true,
+      "light_travel_time": true,
+      "nutation": true,
+      "topocentric_parallax": true,
+      "proper_motion": false,
+      "polar_motion": false
+    },
+    "refraction": {
+      "model": "Saemundsson (Astronomy Engine normal mode)",
+      "formula": "1.02 / tan(h + 10.3 / (h + 5.11)) arcminutes, h in degrees, standard atmosphere",
+      "verified": true,
+      "assumed_temperature_c": null,
+      "assumed_pressure_mbar": null,
+      "applied_below_horizon_down_to_deg": -1,
+      "note": "Both refracted and unrefracted altitudes are returned so you never have to guess which one you have. Below the cutoff the refraction term is tapered linearly to zero at the nadir rather than extrapolated, so an apparent altitude below the horizon is a stated convention and never a runaway value. The cutoff is read from the vendored implementation, never guessed."
+    },
+    "conventions": {
+      "body_radius_km": {
+        "Sun": 696000,
+        "Moon": 1737.4,
+        "Mercury": 2439.7,
+        "Venus": 6051.8,
+        "Mars": 3396.2,
+        "Jupiter": 71492,
+        "Saturn": 60268,
+        "Uranus": 25559,
+        "Neptune": 24764,
+        "Pluto": 1188.3
+      }
+    },
+    "not_computed": [
+      {
+        "name": "constellation.genitive",
+        "reason": "Needs the reduced constellation index; the generator has not run yet."
+      }
+    ],
+    "budget": {
+      "engine_calls": 23
+    }
+  },
+  "attribution": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+  "docs": "https://www.cyclecalcs.com/api/reference.html#positions"
+}

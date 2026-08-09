@@ -1,0 +1,302 @@
+{
+  "endpoint": "/v2/moon",
+  "computed_at": "2026-08-01T00:00:00.000Z",
+  "query": {
+    "at": "2026-07-27T21:00:00.000Z",
+    "mode": "instant",
+    "resolved_from": "at",
+    "is_now": false,
+    "latitude": 51.4778,
+    "longitude": -0.0015,
+    "elevation_m": 0,
+    "tz": "Europe/London",
+    "utc_offset_seconds": 3600,
+    "utc_offset_iso": "+01:00",
+    "is_dst": true,
+    "timezone_source": "parameter",
+    "day_anchor": "civil",
+    "time_format": "iso",
+    "format": "json",
+    "shape": "nested",
+    "precision": 6,
+    "pretty": 1,
+    "verbosity": "full",
+    "hemisphere": "north",
+    "next_phases": 4,
+    "ignored": []
+  },
+  "data": {
+    "phase": {
+      "name": "Waxing Gibbous",
+      "code": "waxing_gibbous",
+      "emoji": "🌔",
+      "waxing": true,
+      "phase_angle_deg": 160.696581,
+      "phase_angle_convention": "MoonPhase: 0 to 360 degrees of elongation of the Moon from the Sun in ecliptic longitude, increasing from 0 at new moon through 180 at full moon.",
+      "illumination_phase_angle_deg": 19.582767,
+      "illumination_phase_angle_convention": "Illumination().phase_angle: 0 to 180 degrees of Sun-Moon-Earth angle, 0 at full moon and 180 at new moon. This is a different quantity from phase_angle_deg and the two are intentionally both returned.",
+      "illuminated_fraction": 0.971079,
+      "illumination_percent": 97.1,
+      "age_days": 13.47,
+      "age_definition": "Elapsed days since the PREVIOUS new moon, found by the same phase search that produces next_phases. next_phases lists only future phases, so it does not contain this instant.",
+      "age_days_mean_rate_proxy": 13.18,
+      "day_of_cycle": 14,
+      "cycle_length_days": 29.53,
+      "lunation_number": 1281
+    },
+    "bright_limb": {
+      "position_angle_deg": 250.212861,
+      "definition": "Position angle of the midpoint of the bright limb, measured from the celestial north pole eastward, at the topocentric place.",
+      "parallactic_angle_deg": -16.632185,
+      "orientation_angle_deg": 266.845046,
+      "orientation_definition": "position_angle_deg minus parallactic_angle_deg, normalised to [0, 360). It is the angle from the observer zenith direction to the midpoint of the bright limb, measured in the same sense as position_angle_deg, which runs counterclockwise in the observer direct view. The zenith sits at position angle parallactic_angle_deg from the body, so to turn a graphic drawn with celestial north up into the observer view, rotate the graphic CLOCKWISE by parallactic_angle_deg (equivalently, counterclockwise by minus parallactic_angle_deg); that brings the zenith to the top, and the bright limb then sits at orientation_angle_deg from vertical in that view. parallactic_angle_deg is positive when the body is west of the meridian."
+    },
+    "magnitude": -12.07,
+    "distance_km": 402537.664653,
+    "distance_au": 0.002691,
+    "distance_basis": "topocentric",
+    "angular_diameter_arcsec": 1780.531953,
+    "fraction_of_mean_distance": 1.049656,
+    "fraction_of_mean_distance_definition": "The geocentric Earth-Moon centre distance divided by the mean distance of 384400 km. Geocentric by construction, so it is a property of the orbit and does not change with the observer.",
+    "libration": {
+      "longitude_deg": -1.393572,
+      "latitude_deg": 4.814328,
+      "favoured_limb": "west",
+      "note": "The value is the sub-Earth selenographic longitude, positive east under the IAU convention. Positive favours the eastern limb, the Mare Crisium side; negative favours the western limb, toward Grimaldi and Mare Orientale. Selenographic east is the opposite side of the disc from sky east. A value within 0.5 deg of zero is reported as none, because no limb is meaningfully favoured there."
+    },
+    "tropical_sign": {
+      "name": "Capricorn",
+      "code": "capricorn",
+      "sign_index": 9,
+      "degree_in_sign": 15.548204,
+      "degree_in_sign_whole": 15
+    },
+    "constellation": {
+      "name": "Sagittarius",
+      "abbreviation": "Sgr"
+    },
+    "position_geocentric": {
+      "equatorial": {
+        "j2000": {
+          "ra_hours": 19.128459,
+          "ra_string": "19h 07m 42.5s",
+          "dec_deg": -26.205724,
+          "dec_string": "-26 12 20.6"
+        },
+        "of_date": {
+          "ra_hours": 19.156001,
+          "ra_string": "19h 09m 21.6s",
+          "dec_deg": -26.163895,
+          "dec_string": "-26 09 50.0"
+        }
+      },
+      "ecliptic": {
+        "true_of_date": {
+          "longitude_deg": 285.548204,
+          "latitude_deg": -3.656979
+        }
+      },
+      "distance_au": 0.002697,
+      "distance_km": 403487.831539,
+      "distance_light_minutes": 0.022432,
+      "origin": "geocentric"
+    },
+    "position_topocentric": {
+      "equatorial": {
+        "j2000": {
+          "ra_hours": 19.147396,
+          "ra_string": "19h 08m 50.6s",
+          "dec_deg": -27.063727,
+          "dec_string": "-27 03 49.4"
+        },
+        "of_date": {
+          "ra_hours": 19.17511,
+          "ra_string": "19h 10m 30.4s",
+          "dec_deg": -27.021187,
+          "dec_string": "-27 01 16.3"
+        }
+      },
+      "ecliptic": {
+        "true_of_date": {
+          "longitude_deg": 285.700348,
+          "latitude_deg": -4.538803
+        }
+      },
+      "horizontal": {
+        "azimuth_deg": 155.832838,
+        "compass": "SSE",
+        "altitude_refracted_deg": 8.076611,
+        "altitude_unrefracted_deg": 7.966211,
+        "refraction_deg": 0.110401,
+        "hour_angle_hours": 22.195103,
+        "parallactic_angle_deg": -16.632185
+      },
+      "distance_au": 0.002691,
+      "distance_km": 402537.664653,
+      "distance_light_minutes": 0.022379,
+      "origin": "topocentric",
+      "observer_height_m": 0
+    },
+    "parallax_deg": 0.894787,
+    "window": {
+      "start": "2026-07-27T00:00:00.000+01:00",
+      "end": "2026-07-28T00:00:00.000+01:00",
+      "anchor": "civil",
+      "length_minutes": 1440,
+      "local_date": "2026-07-27"
+    },
+    "rise_set": {
+      "status": "normal",
+      "status_label": "Rises and sets",
+      "events": [
+        {
+          "kind": "set",
+          "instant": "2026-07-27T02:22:25.658+01:00",
+          "azimuth_deg": 221.893959,
+          "altitude_deg": -0.812725
+        },
+        {
+          "kind": "lower_transit",
+          "instant": "2026-07-27T11:25:36.503+01:00",
+          "azimuth_deg": 359.999926,
+          "altitude_deg": -65.724457
+        },
+        {
+          "kind": "rise",
+          "instant": "2026-07-27T20:18:10.269+01:00",
+          "azimuth_deg": 135.541217,
+          "altitude_deg": -0.81339
+        },
+        {
+          "kind": "upper_transit",
+          "instant": "2026-07-27T23:50:53.040+01:00",
+          "azimuth_deg": 179.999799,
+          "altitude_deg": 11.72421
+        }
+      ],
+      "rise": [
+        "2026-07-27T20:18:10.269+01:00"
+      ],
+      "set": [
+        "2026-07-27T02:22:25.658+01:00"
+      ],
+      "transit": [
+        "2026-07-27T23:50:53.040+01:00"
+      ],
+      "above_horizon_minutes": 364.3
+    },
+    "event_definition": "upper limb at the horizon, with topocentric parallax and refraction applied by the engine's own rise and set search",
+    "next_phases": [
+      {
+        "code": "full_moon",
+        "name": "Full Moon",
+        "instant": "2026-07-29T15:36:19.011+01:00",
+        "days_until": 1.73
+      },
+      {
+        "code": "last_quarter",
+        "name": "Last Quarter",
+        "instant": "2026-08-06T03:21:58.672+01:00",
+        "days_until": 9.22
+      },
+      {
+        "code": "new_moon",
+        "name": "New Moon",
+        "instant": "2026-08-12T18:37:11.343+01:00",
+        "days_until": 15.86
+      },
+      {
+        "code": "first_quarter",
+        "name": "First Quarter",
+        "instant": "2026-08-20T03:46:58.247+01:00",
+        "days_until": 23.24
+      }
+    ],
+    "summary": "The Moon is a waxing gibbous, 97.1 percent lit, 13.5 days into its cycle. It sets at 02:22 and rises at 20:18 local time."
+  },
+  "warnings": [],
+  "links": {
+    "self": "https://www.cyclecalcs.com/v2/moon?at=2026-07-27T21%3A00%3A00Z&lat=51.4778&lon=-0.0015&tz=Europe%2FLondon",
+    "docs": "https://www.cyclecalcs.com/api/reference.html#moon",
+    "spec": "https://www.cyclecalcs.com/v2/openapi.json",
+    "page": "https://www.cyclecalcs.com/moon-phase-calendar.html",
+    "explain": "https://www.cyclecalcs.com/learn/moon-phases.html",
+    "related": [
+      {
+        "rel": "cycle",
+        "title": "The synodic month",
+        "href": "https://www.cyclecalcs.com/cycles/synodic-month.html"
+      },
+      {
+        "rel": "cycle",
+        "title": "The anomalistic month",
+        "href": "https://www.cyclecalcs.com/cycles/anomalistic-month.html"
+      }
+    ]
+  },
+  "meta": {
+    "api_version": "2",
+    "contract_version": "2.0.0",
+    "engine": {
+      "name": "Astronomy Engine",
+      "license": "MIT",
+      "author": "Don Cross",
+      "version": "2.1.19",
+      "version_source": "upstream_sha256_match",
+      "sha256": "068f1445ed0c636c94818fe6d20d7d125120e605e0bab9fc4675c3d531be5ad7",
+      "vendored": true,
+      "credit": "astronomy-engine (MIT, Copyright (c) 2019-2023 Don Cross)"
+    },
+    "tzdb": "2026b",
+    "rights": "unrestricted",
+    "attribution": {
+      "required": false,
+      "text": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+      "sources": []
+    },
+    "notice_url": "https://www.cyclecalcs.com/methodology.html#data-sources",
+    "cache": {
+      "class": "fixed_instant",
+      "deterministic": true
+    },
+    "accuracy": {
+      "statement": "Positions are arcminute class for the Sun, Moon and planets across 1700 to 2200, degrading toward the ends of that window.",
+      "residuals_url": "https://www.cyclecalcs.com/api/accuracy.html"
+    },
+    "time": {
+      "scale_of_input": "UTC",
+      "ut1_source": "assumed equal to UTC; no IERS bulletin is loaded, so UT1 minus UTC may differ by up to 0.9 s",
+      "delta_t_seconds": 75.4,
+      "delta_t_model": "Espenak and Meeus"
+    },
+    "corrections": {
+      "aberration": true,
+      "light_travel_time": true,
+      "nutation": true,
+      "topocentric_parallax": true,
+      "proper_motion": false,
+      "polar_motion": false
+    },
+    "conventions": {
+      "synodic_month_days": 29.530588853,
+      "mean_distance_km": 384400
+    },
+    "not_computed": [
+      {
+        "name": "constellation.genitive",
+        "reason": "Needs the reduced constellation index; the generator has not run yet."
+      }
+    ],
+    "refraction": {
+      "model": "Saemundsson (Astronomy Engine normal mode)",
+      "verified": true,
+      "applied_below_horizon_down_to_deg": -1,
+      "note": "Applied to the refracted altitude in every horizontal block. The unrefracted altitude and the difference are published beside it, so this endpoint has no refraction parameter to switch off."
+    },
+    "budget": {
+      "engine_calls": 37
+    }
+  },
+  "attribution": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+  "docs": "https://www.cyclecalcs.com/api/reference.html#moon"
+}

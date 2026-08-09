@@ -1,0 +1,897 @@
+{
+  "endpoint": "/v2/conventions",
+  "computed_at": "2026-08-01T00:00:00.000Z",
+  "query": {
+    "format": "json",
+    "precision": 6,
+    "pretty": 1,
+    "verbosity": "full",
+    "ignored": []
+  },
+  "data": {
+    "time_scales": {
+      "input": "The instant you send is interpreted as UTC, or as local civil time in the zone you send in tz=.",
+      "ut1": "Treated as equal to UTC. No IERS bulletin is loaded, so UT1 minus UTC may differ by up to 0.9 s. For dates before about 1960 this is the dominant uncertainty in any rise or set time.",
+      "tt": "Terrestrial Time, from the engine's delta-T model.",
+      "tai": "From the leap-second table (1972 onward): UTC plus the accumulated leap-second count, published as tai_minus_utc_seconds on /v2/time. Undefined before 1972-01-01 and reported as null there, with a time_scale_undefined warning. This is NOT tt minus the definitional 32.184 s: TT minus TAI is 32.184 s exactly by definition, but tt on this API comes from the engine delta-T model, which can run several seconds away from that figure at the present date. /v2/time discloses the live gap as tt_minus_tai_seconds and delta_t_model_residual_seconds rather than leaving a caller to assume the definitional constant applies to the modelled tt reading.",
+      "delta_t_model": "Espenak and Meeus",
+      "julian_day_epoch": "JD 0.0 is -4712-01-01T12:00:00 in the proleptic Julian calendar. This is the astronomical Julian Day Number, not the ordinal day-of-year that ERP systems also call a Julian date."
+    },
+    "frames": {
+      "eqj": "Mean equator and equinox of J2000.0, aligned with the ICRF to within milliarcseconds.",
+      "eqd": "True equator and equinox of date. Precession and nutation applied.",
+      "ect": "True ecliptic and equinox of date. This is the frame tropical sign sectors are measured in.",
+      "ecl": "Mean ecliptic and equinox of J2000.0.",
+      "hor": "Topocentric horizontal. Azimuth clockwise from true north, 0 to 360. Altitude positive above the horizon.",
+      "gal": "IAU 1958 galactic coordinates."
+    },
+    "corrections": {
+      "aberration": {
+        "applied": true,
+        "note": "Applied to every apparent place."
+      },
+      "light_travel_time": {
+        "applied": true,
+        "note": "Applied to every apparent place."
+      },
+      "nutation": {
+        "applied": true,
+        "note": "Applied in every of-date frame."
+      },
+      "topocentric_parallax": {
+        "applied": true,
+        "note": "Applied whenever lat and lon are supplied. For the Moon this reaches about 1 degree, roughly two lunar diameters."
+      },
+      "proper_motion": {
+        "applied": false,
+        "note": "Catalogue positions are the epoch stated in the catalogue index."
+      },
+      "polar_motion": {
+        "applied": false,
+        "note": "The effect is milliarcsecond class and is an explicit non-goal."
+      }
+    },
+    "refraction": {
+      "model": "Saemundsson (Astronomy Engine normal mode)",
+      "formula": "1.02 / tan(h + 10.3 / (h + 5.11)) arcminutes, h in degrees, standard atmosphere",
+      "verified": true,
+      "assumed_temperature_c": null,
+      "assumed_pressure_mbar": null,
+      "applied_below_horizon_down_to_deg": -1,
+      "behaviour_below_cutoff": "Below the cutoff the refraction term is tapered linearly to zero at the nadir rather than extrapolated, so an apparent altitude below the horizon is a stated convention and never a runaway value. Apparent altitude below the horizon is a convention, not a physical quantity.",
+      "atmosphere_model": "U.S. Standard Atmosphere (1976), engine Atmosphere(), used only to scale the horizon refraction allowance by relative air density at the observer elevation",
+      "near_horizon_refraction_arcmin": 34,
+      "how_to_disable": "refraction=none",
+      "always_returned": "Every position block returns altitude_refracted_deg, altitude_unrefracted_deg and refraction_deg side by side. An EVENT altitude is a different quantity and is reported once: a rise or set carries the unrefracted value, because that is what the search solved for, and a transit carries the refracted value, because that is what an observer measures. See event_altitude_convention."
+    },
+    "event_definitions": [
+      {
+        "code": "sunrise",
+        "body": "Sun",
+        "altitude_deg": -0.8333,
+        "definition": "centre of the Sun 50 arcminutes below the true horizon, being about 16 arcminutes of solar semidiameter plus about 34 arcminutes of horizon refraction"
+      },
+      {
+        "code": "sunset",
+        "body": "Sun",
+        "altitude_deg": -0.8333,
+        "definition": "As sunrise, on the descending crossing."
+      },
+      {
+        "code": "civil_dawn",
+        "body": "Sun",
+        "altitude_deg": -6,
+        "definition": "Centre of the Sun 6 degrees below the horizon, ascending."
+      },
+      {
+        "code": "civil_dusk",
+        "body": "Sun",
+        "altitude_deg": -6,
+        "definition": "Centre of the Sun 6 degrees below the horizon, descending."
+      },
+      {
+        "code": "nautical_dawn",
+        "body": "Sun",
+        "altitude_deg": -12,
+        "definition": "Centre of the Sun 12 degrees below the horizon, ascending."
+      },
+      {
+        "code": "nautical_dusk",
+        "body": "Sun",
+        "altitude_deg": -12,
+        "definition": "Centre of the Sun 12 degrees below the horizon, descending."
+      },
+      {
+        "code": "astronomical_dawn",
+        "body": "Sun",
+        "altitude_deg": -18,
+        "definition": "Centre of the Sun 18 degrees below the horizon, ascending."
+      },
+      {
+        "code": "astronomical_dusk",
+        "body": "Sun",
+        "altitude_deg": -18,
+        "definition": "Centre of the Sun 18 degrees below the horizon, descending."
+      },
+      {
+        "code": "golden_hour_start_morning",
+        "body": "Sun",
+        "altitude_deg": -4,
+        "definition": "Centre of the Sun 4 degrees below the horizon, ascending. Golden hour runs from here to +6 degrees."
+      },
+      {
+        "code": "golden_hour_end_morning",
+        "body": "Sun",
+        "altitude_deg": 6,
+        "definition": "Centre of the Sun 6 degrees above the horizon, ascending."
+      },
+      {
+        "code": "blue_hour_start_morning",
+        "body": "Sun",
+        "altitude_deg": -6,
+        "definition": "Centre of the Sun 6 degrees below the horizon, ascending. Blue hour runs from here to -4 degrees."
+      },
+      {
+        "code": "blue_hour_end_morning",
+        "body": "Sun",
+        "altitude_deg": -4,
+        "definition": "Centre of the Sun 4 degrees below the horizon, ascending."
+      },
+      {
+        "code": "moonrise",
+        "body": "Moon",
+        "altitude_deg": null,
+        "definition": "upper limb at the horizon, with topocentric parallax and refraction applied by the engine's own rise and set search"
+      },
+      {
+        "code": "transit",
+        "body": "any",
+        "altitude_deg": null,
+        "definition": "Upper culmination: the instant the body's hour angle is zero."
+      },
+      {
+        "code": "lower_transit",
+        "body": "any",
+        "altitude_deg": null,
+        "definition": "Lower culmination, also called anti-transit or underfoot: the instant the body's hour angle is 12 hours."
+      }
+    ],
+    "event_scopes": [
+      {
+        "code": "global",
+        "definition": "The kind describes the event's greatest character anywhere on Earth, not what an observer at the requested location would see. A solar eclipse that is total somewhere is partial or invisible for almost everyone; local circumstances are a separate computation."
+      },
+      {
+        "code": "local",
+        "definition": "The kind and the times are computed for the requested location."
+      }
+    ],
+    "photometry": {
+      "magnitude": "Apparent visual magnitude. The scale is logarithmic and INVERTED: a smaller number is brighter, and a step of 1 is a factor of about 2.512 in received light. The Sun is about -26.7, the full Moon about -12.7, the faintest naked-eye stars about 6.5, Pluto about 14.4.",
+      "model": "Astronomy Engine Illumination(), which includes Saturn's ring contribution",
+      "origin": "geocentric, even when lat and lon are supplied: the topocentric correction to brightness is far below the model uncertainty",
+      "naked_eye_threshold_magnitude": 6.5
+    },
+    "event_altitude_convention": "In a rise_set events array, a rise or a set reports the UNREFRACTED altitude that its event_definition names, which is the value the search solved for. A transit reports the REFRACTED altitude, which is what an observer would measure. Position blocks always return both altitudes side by side.",
+    "refraction_parameter_scope": "The refraction parameter is accepted by: /v2/positions, /v2/planet-board, /v2/twilight, /v2/libration, /v2/jupiter-moons, /v2/sky-quality. Elsewhere it is an unknown parameter and is warned, not applied. /v2/rise-set in particular cannot switch it: its search crosses a GEOMETRIC altitude rather than evaluating a refraction model, which is why the event altitude it reports is the unrefracted one.",
+    "moon_age_convention": "age_days is the elapsed time in days since the real previous new moon, found by the same search that produces next_phases, so the two always agree. It is NOT phase_angle_deg divided by 360 times the mean synodic month: elongation does not advance uniformly, and that mean-rate figure, which some almanacs print, differs by up to about half a day. Where the mean-rate figure is also returned it is named age_days_mean_rate_proxy.",
+    "rise_set_statuses": [
+      {
+        "code": "normal",
+        "label": "Rises and sets",
+        "definition": "Exactly one rise and exactly one set inside the window."
+      },
+      {
+        "code": "rise_only",
+        "label": "Rises, does not set",
+        "definition": "One or more rises, no set, inside the window."
+      },
+      {
+        "code": "set_only",
+        "label": "Sets, does not rise",
+        "definition": "One or more sets, no rise, inside the window."
+      },
+      {
+        "code": "always_up",
+        "label": "Above the horizon throughout",
+        "definition": "Altitude at or above the event altitude for the whole window, determined by sampling the upper and lower transit."
+      },
+      {
+        "code": "always_down",
+        "label": "Below the horizon throughout",
+        "definition": "Altitude below the event altitude for the whole window, determined the same way."
+      },
+      {
+        "code": "multiple",
+        "label": "More than one rise or set",
+        "definition": "Two or more rises, or two or more sets, inside the window. It happens when a body's daily slip carries one event past the window edge, most often with the Moon, whose rise moves about 50 minutes later each day."
+      }
+    ],
+    "day_anchors": [
+      {
+        "code": "civil",
+        "definition": "Local midnight in the effective IANA zone, with the historical offset for that date."
+      },
+      {
+        "code": "solar",
+        "definition": "Local mean solar midnight implied by longitude alone. No timezone, no DST."
+      },
+      {
+        "code": "utc",
+        "definition": "UTC midnight of the resolved UTC calendar date."
+      }
+    ],
+    "date_range": {
+      "min_year": 1700,
+      "max_year": 2200,
+      "note": "Accuracy degrades toward both ends. On /v2/positions, a request within 20 years of either boundary carries an extrapolated_epoch warning. The other date-taking endpoints do not yet emit it, so treat the boundary as your own responsibility there.",
+      "time_scale_note": "A time scale that did not exist at the requested instant is reported as null with a time_scale_undefined warning, which is a different fact from being near a range boundary: TAI, for example, is undefined before 1972."
+    },
+    "limits": {
+      "max_rows_global": 10000,
+      "max_bodies_per_request": 20,
+      "max_engine_calls_per_request": 250000,
+      "max_compute_ms": 8000,
+      "caller_tier": "anonymous",
+      "keyed_tier_reachable": true,
+      "keyed_tier_note": "The pro, ultra and mega tiers are sold through the RapidAPI listing, and a subscriber's requests arriving through that gateway are served at their plan's caps: Basic maps to anonymous, Pro, Ultra and Mega to their columns. Sending \"key\" as a query parameter is accepted, ignored and disclosed with a parameter_ignored warning; no query parameter changes a tier. A stronger tier buys a higher rate limit and a larger range cap, never a different answer, and on the largest endpoints the range a response can carry is bounded by size before it is bounded by tier; the refusal names which bound applied.",
+      "range_caps_by_shape": [
+        {
+          "shape": "daily_one_body",
+          "unit": "rows",
+          "anonymous": 366,
+          "pro": 1830,
+          "ultra": 3660,
+          "mega": 3660,
+          "endpoints": [
+            "/v2/sun",
+            "/v2/moon",
+            "/v2/rise-set",
+            "/v2/twilight",
+            "/v2/dark-window",
+            "/v2/equation-of-time",
+            "/v2/libration"
+          ]
+        },
+        {
+          "shape": "daily_all_bodies",
+          "unit": "rows",
+          "anonymous": 93,
+          "pro": 366,
+          "ultra": 366,
+          "mega": 366,
+          "endpoints": [
+            "/v2/planet-board",
+            "/v2/cycles"
+          ]
+        },
+        {
+          "shape": "subdaily_grid",
+          "unit": "days",
+          "anonymous": 31,
+          "pro": 93,
+          "ultra": 186,
+          "mega": 186,
+          "endpoints": [
+            "/v2/positions",
+            "/v2/time",
+            "/v2/sidereal-time"
+          ]
+        },
+        {
+          "shape": "event_list",
+          "unit": "events",
+          "anonymous": 100,
+          "pro": 400,
+          "ultra": 500,
+          "mega": 500,
+          "endpoints": [
+            "/v2/seasons",
+            "/v2/apsides",
+            "/v2/moon-nodes",
+            "/v2/eclipses",
+            "/v2/retrogrades",
+            "/v2/planet-events",
+            "/v2/conjunctions",
+            "/v2/separation",
+            "/v2/phases",
+            "/v2/jupiter-moons"
+          ]
+        }
+      ],
+      "over_cap_behaviour": "A request over a cap is refused with 400 RANGE_TOO_LARGE carrying the cap extension. It is never silently truncated to a shorter 200.",
+      "search_windows": [
+        {
+          "key": "/v2/seasons",
+          "max_window_days": 36600,
+          "unit": "days",
+          "built": true
+        },
+        {
+          "key": "/v2/apsides.moon",
+          "max_window_days": 3660,
+          "unit": "days",
+          "built": true
+        },
+        {
+          "key": "/v2/apsides.planet",
+          "max_window_days": 36600,
+          "unit": "days",
+          "built": true
+        },
+        {
+          "key": "/v2/moon-nodes",
+          "max_window_days": 36600,
+          "unit": "days",
+          "built": true
+        },
+        {
+          "key": "/v2/eclipses",
+          "max_window_days": 36600,
+          "unit": "days",
+          "built": true
+        },
+        {
+          "key": "/v2/eclipses.local",
+          "max_window_days": 3660,
+          "unit": "days",
+          "built": true
+        },
+        {
+          "key": "/v2/cycles",
+          "max_window_days": 3660,
+          "unit": "days",
+          "built": true
+        },
+        {
+          "key": "/v2/phases",
+          "max_window_days": 3660,
+          "unit": "days",
+          "built": true
+        },
+        {
+          "key": "/v2/retrogrades",
+          "max_window_days": 3660,
+          "unit": "days",
+          "built": true
+        },
+        {
+          "key": "/v2/planet-events",
+          "max_window_days": 3660,
+          "unit": "days",
+          "built": true
+        },
+        {
+          "key": "/v2/conjunctions",
+          "max_window_days": 3660,
+          "unit": "days",
+          "built": true
+        },
+        {
+          "key": "/v2/separation",
+          "max_window_days": 3660,
+          "unit": "days",
+          "built": true
+        },
+        {
+          "key": "/v2/track",
+          "max_window_days": 366,
+          "unit": "days",
+          "built": false
+        },
+        {
+          "key": "/v2/jupiter-moons",
+          "max_window_days": 366,
+          "unit": "days",
+          "built": true
+        },
+        {
+          "key": "/v2/meteor-showers",
+          "max_window_days": 3660,
+          "unit": "days",
+          "built": false
+        },
+        {
+          "key": "/v2/meteor-showers.located",
+          "max_window_days": 732,
+          "unit": "days",
+          "built": false
+        },
+        {
+          "key": "/v2/calendar",
+          "max_window_days": 1830,
+          "unit": "days",
+          "built": false
+        },
+        {
+          "key": "/v2/visible",
+          "max_window_days": 1,
+          "unit": "days",
+          "built": false
+        }
+      ],
+      "search_window_note": "A search endpoint is bounded twice and independently: search_windows caps the SPAN SEARCHED and range_caps_by_shape caps the ROWS RETURNED. A request can be inside one and outside the other. Both refuse with 400 RANGE_TOO_LARGE and the cap extension names the unit.",
+      "range_boundaries": {
+        "rule": "The `end` of a range query does not mean the same thing on every endpoint. /v2 shipped three behaviours, each internally consistent, and keeps them: api/versioning.html promises /v2 keeps its present behaviour for life, and changing any of them would delete or add a row for a caller who did not change their request.",
+        "meanings": {
+          "inclusive": "A row landing exactly on `end` is returned. The window is [start, end].",
+          "exclusive": "A row landing exactly on `end` is not returned. The window is [start, end).",
+          "day_start_before_end": "`end` bounds the start of a day rather than a row. Every local day that begins before `end` is returned, so the last row can begin before `end` and finish after it."
+        },
+        "endpoints": [
+          {
+            "path": "/v2/positions",
+            "end_boundary": "inclusive"
+          },
+          {
+            "path": "/v2/rise-set",
+            "end_boundary": "day_start_before_end"
+          },
+          {
+            "path": "/v2/sun",
+            "end_boundary": "day_start_before_end"
+          },
+          {
+            "path": "/v2/moon",
+            "end_boundary": "inclusive"
+          },
+          {
+            "path": "/v2/time",
+            "end_boundary": "inclusive"
+          },
+          {
+            "path": "/v2/seasons",
+            "end_boundary": "exclusive"
+          },
+          {
+            "path": "/v2/apsides",
+            "end_boundary": "exclusive"
+          },
+          {
+            "path": "/v2/moon-nodes",
+            "end_boundary": "exclusive"
+          },
+          {
+            "path": "/v2/eclipses",
+            "end_boundary": "exclusive"
+          },
+          {
+            "path": "/v2/planet-board",
+            "end_boundary": "inclusive"
+          },
+          {
+            "path": "/v2/retrogrades",
+            "end_boundary": "inclusive"
+          },
+          {
+            "path": "/v2/conjunctions",
+            "end_boundary": "inclusive"
+          },
+          {
+            "path": "/v2/separation",
+            "end_boundary": "inclusive"
+          },
+          {
+            "path": "/v2/cycles",
+            "end_boundary": "inclusive"
+          },
+          {
+            "path": "/v2/twilight",
+            "end_boundary": "day_start_before_end"
+          },
+          {
+            "path": "/v2/sidereal-time",
+            "end_boundary": "inclusive"
+          },
+          {
+            "path": "/v2/equation-of-time",
+            "end_boundary": "inclusive"
+          },
+          {
+            "path": "/v2/libration",
+            "end_boundary": "inclusive"
+          },
+          {
+            "path": "/v2/jupiter-moons",
+            "end_boundary": "inclusive"
+          },
+          {
+            "path": "/v2/phases",
+            "end_boundary": "inclusive"
+          },
+          {
+            "path": "/v2/planet-events",
+            "end_boundary": "exclusive"
+          }
+        ]
+      },
+      "forward_search_exemption": {
+        "rule": "spec-00 6.4 check 4 normally refuses count without start, because count sizes a range and a range needs a beginning.",
+        "exemption": "An endpoint that SEARCHES FORWARD from a reference instant rather than sampling a grid accepts count with at, or with no time parameter at all, because \"the next three eclipses\" names no range. Such a request reports query.mode as \"range\".",
+        "endpoints": [
+          "/v2/eclipses"
+        ]
+      },
+      "request_limits": {
+        "max_parameter_value_length_chars": 512,
+        "max_distinct_parameter_names": 64,
+        "max_uri_bytes": 4096,
+        "note": "Enforced in params.mjs readQuery(), before any parameter is parsed: PARAMETER_TOO_LONG, TOO_MANY_PARAMETERS and URI_TOO_LONG respectively.",
+        "max_place_length_chars": 128,
+        "max_place_length_note": "A place value longer than this is refused as PARAMETER_TOO_LONG before place lookup runs. Enforced in places.mjs resolvePlace(), read through params.mjs resolvePlaceParam().",
+        "max_client_id_length_chars": 64,
+        "client_id_note": "Up to 64 characters from A-Z, a-z, 0-9, dot, underscore and hyphen; anything else is BAD_CLIENT. Enforced in params.mjs parsePresentation().",
+        "pagination_limit_max_rows": 10000,
+        "pagination_limit_note": "The `limit` page-size parameter accepts 1 up to this maximum; BAD_LIMIT otherwise. This is the page size, independent of the range_caps_by_shape row cap that bounds the underlying query. Enforced in params.mjs parsePagination(), shared by every paginated endpoint."
+      },
+      "step_grammar": {
+        "grammar": "A decimal number immediately followed by one unit token, with no space: for example 15min, 6h, 1d, 2w, 1mo, 1y.",
+        "tokens": [
+          {
+            "token": "min",
+            "minutes": 1
+          },
+          {
+            "token": "m",
+            "minutes": 1
+          },
+          {
+            "token": "h",
+            "minutes": 60
+          },
+          {
+            "token": "d",
+            "minutes": 1440
+          },
+          {
+            "token": "w",
+            "minutes": 10080
+          },
+          {
+            "token": "mo",
+            "minutes": 43800
+          },
+          {
+            "token": "y",
+            "minutes": 525600
+          }
+        ],
+        "minimum_minutes": 1,
+        "maximum_minutes": 525600,
+        "note": "The resolved span in minutes must be at least minimum_minutes and at most maximum_minutes; BAD_STEP otherwise. Enforced in params.mjs parseStep(). Endpoints may narrow it further and several do; every narrowing is in endpoint_policies, and a BAD_STEP from an endpoint names durations that endpoint accepts.",
+        "endpoint_policies": [
+          {
+            "endpoint": "/v2/sun",
+            "minimum_minutes": 1,
+            "maximum_minutes": 525600,
+            "whole_days_only": true,
+            "accepted_values": null,
+            "accepted_examples": [
+              "1d",
+              "2d",
+              "7d",
+              "30d",
+              "1y"
+            ],
+            "note": "This endpoint returns one row per local day, so the stride has to be a whole number of days; for a monthly cadence send 30d."
+          },
+          {
+            "endpoint": "/v2/twilight",
+            "minimum_minutes": null,
+            "maximum_minutes": null,
+            "whole_days_only": false,
+            "accepted_values": [
+              "1d"
+            ],
+            "accepted_examples": [
+              "1d"
+            ],
+            "note": "It answers a per-day question and takes no other stride."
+          },
+          {
+            "endpoint": "/v2/conjunctions",
+            "minimum_minutes": 60,
+            "maximum_minutes": 10080,
+            "whole_days_only": false,
+            "accepted_values": null,
+            "accepted_examples": [
+              "1h",
+              "6h",
+              "1d",
+              "2d",
+              "7d"
+            ],
+            "note": null
+          },
+          {
+            "endpoint": "/v2/separation",
+            "minimum_minutes": 1,
+            "maximum_minutes": 10080,
+            "whole_days_only": false,
+            "accepted_values": null,
+            "accepted_examples": [
+              "1min",
+              "15min",
+              "6h",
+              "1d",
+              "7d"
+            ],
+            "note": null
+          },
+          {
+            "endpoint": "/v2/retrogrades",
+            "minimum_minutes": 60,
+            "maximum_minutes": 43200,
+            "whole_days_only": false,
+            "accepted_values": null,
+            "accepted_examples": [
+              "1h",
+              "12h",
+              "1d",
+              "7d",
+              "30d"
+            ],
+            "note": "step sizes rate_curve only. The station scan stride is fixed per body and is not caller-tunable."
+          },
+          {
+            "endpoint": "/v2/jupiter-moons",
+            "minimum_minutes": null,
+            "maximum_minutes": null,
+            "whole_days_only": false,
+            "accepted_values": null,
+            "accepted_examples": [
+              "10s",
+              "30s",
+              "1m",
+              "5m",
+              "10m"
+            ],
+            "note": "A Galilean contact takes a few minutes, so a stride coarser than 10 minutes would step over events and one finer than 10 seconds buys nothing the refinement does not already give."
+          }
+        ],
+        "endpoint_policies_note": "Every step-accepting endpoint not listed here takes the generic grammar unchanged. A row with accepted_values names the complete set; a row with only accepted_examples names a sample of a continuum bounded by minimum_minutes and maximum_minutes, or by endpoint_override where those are null.",
+        "endpoint_override": {
+          "endpoint": "/v2/jupiter-moons",
+          "minimum_seconds": 10,
+          "maximum_seconds": 600,
+          "note": "A Galilean contact needs finer resolution than the generic grammar allows and can never need coarser, so this endpoint replaces the generic bound rather than adding to it."
+        }
+      },
+      "parameter_value_limits": [
+        {
+          "endpoint": "/v2/rise-set",
+          "parameter": "horizon",
+          "min": -20,
+          "max": 20,
+          "unit": "deg",
+          "note": "Overrides the event altitude this request searches for, in place of the body's own event_definition altitude_deg. Enforced in v2-rise-set.mjs."
+        },
+        {
+          "endpoint": "/v2/rise-set",
+          "parameter": "search_horizon_days",
+          "min": 1,
+          "max": 400,
+          "unit": "days",
+          "note": "How far past the requested window the search may run to find a real next rise or set. Default 400. Enforced in v2-rise-set.mjs."
+        },
+        {
+          "endpoint": "/v2/moon",
+          "parameter": "next_phases",
+          "min": 0,
+          "max": 24,
+          "unit": "phases",
+          "note": "How many upcoming phase events accompany the digest. Enforced in v2-moon.mjs."
+        },
+        {
+          "endpoint": "/v2/sun, /v2/twilight",
+          "parameter": "depressions (each entry)",
+          "min": 0,
+          "max": 30,
+          "unit": "deg",
+          "note": "The depression angle itself, independent of the entry-count cap in PARAMETER_LIST_LIMITS. Enforced identically in v2-sun.mjs and v2-twilight.mjs."
+        },
+        {
+          "endpoint": "/v2/eclipses",
+          "parameter": "count",
+          "min": 1,
+          "max": 50,
+          "unit": "per type",
+          "note": "Counts this many of EACH eclipse type when `type` is not narrowed to one, so up to twice as many rows can return. Enforced in v2-eclipses.mjs."
+        },
+        {
+          "endpoint": "/v2/dark-window",
+          "parameter": "nights",
+          "min": 1,
+          "max": 62,
+          "unit": "nights",
+          "note": "Enforced in v2-dark-window.mjs."
+        },
+        {
+          "endpoint": "/v2/dark-window",
+          "parameter": "sun_depression_deg",
+          "min": 6,
+          "max": 30,
+          "unit": "deg",
+          "note": "Default 18. Below 6 deg the sky is still in civil twilight, where \"dark window\" has no meaning. Enforced in v2-dark-window.mjs."
+        },
+        {
+          "endpoint": "/v2/dark-window",
+          "parameter": "moon_altitude_max_deg",
+          "min": -90,
+          "max": 90,
+          "unit": "deg",
+          "note": "Default 0. Enforced in v2-dark-window.mjs."
+        },
+        {
+          "endpoint": "/v2/dark-window",
+          "parameter": "moon_illumination_max",
+          "min": 0,
+          "max": 1,
+          "unit": "fraction",
+          "note": "Default 1, meaning no illumination filter. Enforced in v2-dark-window.mjs."
+        },
+        {
+          "endpoint": "/v2/sky-quality",
+          "parameter": "bortle",
+          "min": 1,
+          "max": 9,
+          "unit": "class",
+          "note": "Whole numbers only. Enforced in v2-sky-quality.mjs."
+        },
+        {
+          "endpoint": "/v2/sky-quality",
+          "parameter": "nelm",
+          "min": 2,
+          "max": 8.5,
+          "unit": "magnitude",
+          "note": "Naked-eye limiting magnitude. Enforced in v2-sky-quality.mjs."
+        },
+        {
+          "endpoint": "/v2/sky-quality",
+          "parameter": "aperture_mm",
+          "min": 5,
+          "max": 5000,
+          "unit": "mm",
+          "note": "Enforced in v2-sky-quality.mjs."
+        },
+        {
+          "endpoint": "/v2/places",
+          "parameter": "min_population",
+          "min": 0,
+          "max": 40000000,
+          "unit": "people",
+          "note": "Enforced in v2-places.mjs."
+        },
+        {
+          "endpoint": "every endpoint that accepts a location",
+          "parameter": "elevation_m",
+          "min": -500,
+          "max": 9000,
+          "unit": "m",
+          "note": "Enforced centrally in params.mjs parseLocation(), shared by every endpoint that takes lat and lon."
+        },
+        {
+          "endpoint": "every paginated endpoint",
+          "parameter": "limit",
+          "min": 1,
+          "max": 10000,
+          "unit": "rows",
+          "note": "See pagination_limit_max_rows under request_limits on /v2/conventions; repeated here so a caller scanning this one table finds every value bound in one place."
+        }
+      ],
+      "parameter_list_limits": [
+        {
+          "endpoint": "/v2/sun, /v2/twilight",
+          "parameter": "depressions",
+          "max_count": 8,
+          "unit": "entries",
+          "note": "At most 8 custom depression angles per request. Enforced identically in v2-sun.mjs and v2-twilight.mjs."
+        },
+        {
+          "endpoint": "/v2/conjunctions",
+          "parameter": "pairs",
+          "max_count": 28,
+          "unit": "pairs",
+          "note": "An explicit pair list. Enforced in v2-conjunctions.mjs."
+        },
+        {
+          "endpoint": "/v2/conjunctions",
+          "parameter": "bodies",
+          "max_count": 8,
+          "unit": "bodies",
+          "note": "Capped so the all-pairs expansion of `bodies` cannot exceed the 28-pair limit above: 8 choose 2 is 28. Enforced in v2-conjunctions.mjs."
+        }
+      ],
+      "engine_budget_overrides": [
+        {
+          "endpoint": "/v2/retrogrades",
+          "max_engine_calls": 60000,
+          "note": "Enforced in v2-retrogrades.mjs, pre-flight before any astronomy runs."
+        },
+        {
+          "endpoint": "/v2/separation",
+          "max_engine_calls": 200000,
+          "note": "Enforced in v2-separation.mjs, pre-flight before any astronomy runs. This endpoint also caps its own row count at 500 minima, independent of range_caps_by_shape."
+        }
+      ]
+    },
+    "adopted_constants": {
+      "body_radius_km": {
+        "Sun": 696000,
+        "Moon": 1737.4,
+        "Mercury": 2439.7,
+        "Venus": 6051.8,
+        "Mars": 3396.2,
+        "Jupiter": 71492,
+        "Saturn": 60268,
+        "Uranus": 25559,
+        "Neptune": 24764,
+        "Pluto": 1188.3
+      },
+      "synodic_month_days": 29.530588853,
+      "mean_earth_radius_km": 6371,
+      "mean_earth_radius_note": "The scale for distance_earth_radii on /v2/apsides. It is the MEAN radius; body_radius_km holds equatorial radii, which is the right constant for angular size and the wrong one for a distance ratio.",
+      "stationary_band_deg_per_day": 0.0005,
+      "stationary_band_note": "A planet whose apparent geocentric ecliptic longitude is changing more slowly than this is reported as apparent_motion \"stationary\". It is deliberately narrow: Saturn 18 days before a station moves at -0.0035 deg per day, which is a real motion and not noise, so the band covers only the hours either side of a true station. is_retrograde stays a strict test on the sign of the rate, so the two-state answer is always available beside the three-state one."
+    },
+    "non_goals": [
+      {
+        "code": "satellites",
+        "reason": "Satellite passes need TLEs that decay within days. Serving them is a permanent data-operations commitment and a stale answer is worse than no answer."
+      },
+      {
+        "code": "minor_planets",
+        "reason": "The MIT-licensed Astronomy Engine has no minor-planet ephemeris, and CycleCalcs will not add a copyleft or paid ephemeris to provide one."
+      },
+      {
+        "code": "polar_motion",
+        "reason": "Milliarcsecond-class corrections are beyond the accuracy this API claims."
+      },
+      {
+        "code": "interpretation",
+        "reason": "This API returns angles, times and names. It attaches no meaning to any of them."
+      }
+    ]
+  },
+  "warnings": [],
+  "links": {
+    "self": "https://www.cyclecalcs.com/v2/conventions",
+    "docs": "https://www.cyclecalcs.com/api/reference.html#conventions",
+    "spec": "https://www.cyclecalcs.com/v2/openapi.json"
+  },
+  "meta": {
+    "api_version": "2",
+    "contract_version": "2.0.0",
+    "engine": {
+      "name": "Astronomy Engine",
+      "license": "MIT",
+      "author": "Don Cross",
+      "version": "2.1.19",
+      "version_source": "upstream_sha256_match",
+      "sha256": "068f1445ed0c636c94818fe6d20d7d125120e605e0bab9fc4675c3d531be5ad7",
+      "vendored": true,
+      "credit": "astronomy-engine (MIT, Copyright (c) 2019-2023 Don Cross)"
+    },
+    "tzdb": "2026b",
+    "rights": "unrestricted",
+    "attribution": {
+      "required": false,
+      "text": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+      "sources": []
+    },
+    "notice_url": "https://www.cyclecalcs.com/methodology.html#data-sources",
+    "cache": {
+      "class": "reference",
+      "deterministic": true
+    },
+    "accuracy": {
+      "statement": "Positions are arcminute class for the Sun, Moon and planets across 1700 to 2200, degrading toward the ends of that window.",
+      "residuals_url": "https://www.cyclecalcs.com/api/accuracy.html"
+    },
+    "budget": {
+      "engine_calls": 0
+    }
+  },
+  "attribution": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+  "docs": "https://www.cyclecalcs.com/api/reference.html#conventions"
+}

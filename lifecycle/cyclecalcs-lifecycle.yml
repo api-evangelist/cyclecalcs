@@ -1,0 +1,63 @@
+generated: '2026-08-09'
+method: searched
+source: https://www.cyclecalcs.com/api/versioning.html
+description: >-
+  CycleCalcs runs two version paths. /v1 is frozen and will not change again;
+  /v2 is the current contract. Breaking changes never land inside /v2 — they
+  ship at a new major path (/v3) — so a caller pinned to /v2 keeps its
+  behaviour for the life of the path. Every 2xx response carries
+  meta.contract_version, a semantic version a client can watch for additive
+  change without polling a separate document.
+versioning:
+  scheme: uri-path
+  current: v2
+  contract_version: 2.0.0
+  contract_version_field: meta.contract_version    # on every 2xx from every endpoint
+  also_at: data.contract_version on GET /v2
+  docs: https://www.cyclecalcs.com/api/versioning.html
+  additive_without_notice:
+    - a new field appended to a response
+    - a new warning code appended to the warnings array
+    - a new endpoint added under /v2
+  breaking_ships_as_new_path:
+    - removing a field
+    - renaming a field
+    - changing a field's type
+    - changing the error code returned for an existing condition
+    - tightening a published cap (rate limit, row cap, search window)
+frozen_versions:
+  - version: '1'
+    base: https://www.cyclecalcs.com/v1
+    status: frozen
+    docs: https://www.cyclecalcs.com/api/v1.html
+    note: >-
+      Unchanged and will not change. The v1 page carries the field-by-field
+      migration map to v2.
+deprecation:
+  policy_url: https://www.cyclecalcs.com/api/versioning.html
+  sunset_header: false
+  deprecation_header: false
+  mechanism: >-
+    A retired endpoint returns 410 Gone with code ENDPOINT_RETIRED, and the
+    problem document's `hint` names the replacement endpoint directly. There
+    is no Deprecation or Sunset response header to poll — the provider states
+    this explicitly.
+  retired_to_date: none since /v2 launch
+  reserved_codes: [ENDPOINT_RETIRED, ENDPOINT_WITHDRAWN, ENDPOINT_BLOCKED]
+sla:
+  published: false
+  note: >-
+    "This is a free API on shared, serverless infrastructure with no dedicated
+    capacity and no service level agreement. We do not publish or promise a
+    specific uptime percentage on the anonymous tier." — /api/status.html
+status_page: https://stats.uptimerobot.com/b2ue50rVZI
+status_page_details:
+  host: UptimeRobot (deliberately off the provider's own infrastructure)
+  interval: every 5 minutes, from outside their network
+  checks: >-
+    One watches the site; the rest call real /v2 endpoints and assert a value
+    only a correct answer contains, so a check fails on a wrong answer, not
+    only on an unreachable server. Coverage: the discovery document, live
+    computation, an observer-dependent calculation, and the place index.
+  docs: https://www.cyclecalcs.com/api/status.html
+deprecated_operations: []      # no operation in the harvested OpenAPI is marked deprecated

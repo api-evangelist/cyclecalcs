@@ -1,0 +1,81 @@
+generated: '2026-08-09'
+method: searched
+source: https://www.cyclecalcs.com/embed.html
+description: >-
+  CycleCalcs ships free embeddable sky widgets for third-party sites — six
+  iframe widgets that compute in the visitor's browser, plus a
+  second-generation host-DOM moon widget that renders directly into the host
+  page and reads one cached answer from the public API. No account, no API key
+  and no usage limit; the only condition is a visible caption link back to the
+  matching CycleCalcs tool.
+docs: https://www.cyclecalcs.com/embed.html
+loaders:
+  - name: widget.js
+    url: https://www.cyclecalcs.com/widget.js
+    family: host-DOM moon widget (2nd generation)
+    async: true
+    renders: into the host page inside an isolated style scope, no iframe
+    weight: ~10 KB once
+    layout_shift: none — the box is reserved before anything loads
+  - name: embed.js
+    url: https://www.cyclecalcs.com/embed.js
+    family: auto-resizing iframe widgets
+    async: true
+    renders: an iframe that grows and shrinks with its content
+families:
+  - name: Host-DOM moon widget
+    loader: widget.js
+    selector: a.cyclecalcs-moon
+    shapes: [card, row]
+    attributes:
+      data-size: card | row
+      data-theme: auto | light | dark
+      data-lat: optional latitude; omit for a location-free geocentric card
+      data-lon: optional longitude
+      data-place: display label for the location
+      data-key: reserved for the planned per-domain licence (white-labelling)
+      data-accent: reserved for the planned per-domain licence
+    shows: tonight's phase, illumination, and with coordinates moonrise/moonset
+    data_source: the same public /v2 API behind every tool on the site
+  - name: Iframe widgets
+    loader: embed.js (or a plain <iframe>, no JS required)
+    selector: a.cyclecalcs-widget[data-widget]
+    base: https://www.cyclecalcs.com/embed/<widget>.html
+    options:
+      theme: auto | light | dark
+      size: card (360px) | compact (300px) | wide (600px)
+    widgets:
+      - id: moon
+        name: Moon Phase Today
+        location_required: false
+      - id: eclipse
+        name: Next Eclipse
+        location_required: false
+      - id: parade
+        name: Planet Parade
+        location_required: true
+      - id: tonight
+        name: What's Up Tonight
+        location_required: true
+      - id: sun
+        name: Sunrise & Sunset
+        location_required: true
+      - id: clock
+        name: Cosmic Clock
+        location_required: false
+    note: >-
+      Widget ids above are inferred from the published moon example
+      (/embed/moon.html) and the six named widgets on the page; only the moon
+      id is confirmed verbatim in a published snippet.
+licensing:
+  price: free for any site, personal or commercial
+  condition: keep the visible caption link under the widget
+  tracking: none
+  ads: none
+  planned: >-
+    A per-domain licence ($29/yr) is announced but not yet live; it would add
+    white-labelling (dropping the caption) and a custom accent colour.
+    Everything currently free stays free.
+csp_requirements:
+  iframe_widgets: frame-src https://www.cyclecalcs.com (+ script-src for the JS version)
+  host_dom_moon_widget: script-src https://www.cyclecalcs.com and connect-src https://www.cyclecalcs.com

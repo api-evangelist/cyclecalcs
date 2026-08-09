@@ -1,0 +1,1245 @@
+{
+  "endpoint": "/v2/planet-board",
+  "computed_at": "2026-08-01T00:00:00.000Z",
+  "query": {
+    "at": "2026-07-28T21:30:00.000Z",
+    "mode": "instant",
+    "resolved_from": "at",
+    "is_now": false,
+    "latitude": 51.4778,
+    "longitude": -0.0015,
+    "elevation_m": 11,
+    "tz": "Europe/London",
+    "utc_offset_seconds": 3600,
+    "utc_offset_iso": "+01:00",
+    "is_dst": true,
+    "timezone_source": "parameter",
+    "day_anchor": "civil",
+    "time_format": "iso",
+    "format": "json",
+    "shape": "nested",
+    "precision": 6,
+    "pretty": 1,
+    "verbosity": "full",
+    "bodies": [
+      "mercury",
+      "venus",
+      "mars",
+      "jupiter",
+      "saturn",
+      "uranus",
+      "neptune",
+      "pluto"
+    ],
+    "include": [
+      "position",
+      "visibility",
+      "motion",
+      "rise_set"
+    ],
+    "sort": "distance_from_sun",
+    "frames": "standard",
+    "refraction": "normal",
+    "ignored": []
+  },
+  "data": {
+    "instant": "2026-07-28T22:30:00.000+01:00",
+    "count": 8,
+    "summary": "Venus is in the evening sky after dusk. Mercury, Mars, Saturn and Uranus are in the morning sky before dawn. Jupiter is too close to the Sun to be seen. Saturn, Neptune and Pluto are moving retrograde.",
+    "retrograde_now": [
+      "Saturn",
+      "Neptune",
+      "Pluto"
+    ],
+    "observable_now": [],
+    "above_horizon_now": [
+      "Pluto"
+    ],
+    "bodies": [
+      {
+        "name": "Mercury",
+        "code": "mercury",
+        "kind": "planet",
+        "constellation": {
+          "name": "Gemini",
+          "abbreviation": "Gem"
+        },
+        "tropical_sign": {
+          "name": "Cancer",
+          "code": "cancer",
+          "sign_index": 3,
+          "degree_in_sign": 17.512669,
+          "degree_in_sign_whole": 17
+        },
+        "position": {
+          "equatorial": {
+            "j2000": {
+              "ra_hours": 7.212124,
+              "ra_string": "07h 12m 43.6s",
+              "dec_deg": 19.413271,
+              "dec_string": "+19 24 47.8"
+            },
+            "of_date": {
+              "ra_hours": 7.238316,
+              "ra_string": "07h 14m 17.9s",
+              "dec_deg": 19.36835,
+              "dec_string": "+19 22 06.1"
+            }
+          },
+          "ecliptic": {
+            "true_of_date": {
+              "longitude_deg": 107.512669,
+              "latitude_deg": -2.944578
+            }
+          },
+          "horizontal": {
+            "azimuth_deg": 340.74562,
+            "compass": "NNW",
+            "altitude_refracted_deg": -16.589157,
+            "altitude_unrefracted_deg": -17.118637,
+            "refraction_deg": 0.52948,
+            "hour_angle_hours": 10.698977,
+            "parallactic_angle_deg": 12.574145
+          },
+          "distance_au": 0.777742,
+          "distance_km": 116348495.965749,
+          "distance_light_minutes": 6.46828,
+          "origin": "topocentric",
+          "observer_height_m": 11,
+          "distance_origin": "geocentric",
+          "ecliptic_origin": "geocentric",
+          "origin_note": "Directions here are topocentric, measured from your coordinates. The ecliptic longitude and the distance are geocentric, measured from the centre of the Earth, because that is the frame tropical sign sectors are defined in and the frame planetary distances are published in. Do not combine the topocentric direction with the geocentric distance as one vector."
+        },
+        "physical": {
+          "apparent_magnitude": 0.86,
+          "angular_diameter_arcsec": 8.650292,
+          "phase_angle_deg": 119.788195,
+          "illuminated_fraction": 0.251602,
+          "illuminated_percent": 25.160242,
+          "ring_tilt_deg": null
+        },
+        "visibility": {
+          "elongation_deg": 18.536022,
+          "sun_side": "morning",
+          "ecliptic_separation_deg": 18.309042,
+          "code": "morning_sky",
+          "phrase": "Morning sky, before dawn",
+          "naked_eye": true,
+          "is_up": false,
+          "verdict": "Mercury is 18.5 deg west of the Sun and rises about 77 minutes before it, in the morning sky.",
+          "sun_is_up": false,
+          "observable_now": false
+        },
+        "motion": {
+          "apparent_motion": "direct",
+          "longitude_rate_deg_per_day": 0.489668,
+          "is_retrograde": false,
+          "stationary_band_deg_per_day": 0.0005,
+          "search_horizon_days": 400,
+          "method": "central difference of apparent geocentric ecliptic longitude over plus and minus 0.02 days, refined to 1 second",
+          "next_station": {
+            "kind": "station_retrograde",
+            "label": "Mercury stationary, beginning retrograde motion",
+            "instant": "2026-10-24T08:15:20.973+01:00",
+            "instant_precision_seconds": 2,
+            "days_from_query": 87.406493
+          }
+        },
+        "rise_set": {
+          "status": "normal",
+          "status_label": "Rises and sets",
+          "special": null,
+          "events": [
+            {
+              "kind": "rise",
+              "instant": "2026-07-28T04:01:19.564+01:00",
+              "azimuth_deg": 57.239414,
+              "altitude_deg": -0.566069
+            },
+            {
+              "kind": "upper_transit",
+              "instant": "2026-07-28T11:48:53.181+01:00",
+              "azimuth_deg": 179.999443,
+              "altitude_deg": 57.819927
+            },
+            {
+              "kind": "set",
+              "instant": "2026-07-28T19:37:16.059+01:00",
+              "azimuth_deg": 302.979898,
+              "altitude_deg": -0.566066
+            },
+            {
+              "kind": "lower_transit",
+              "instant": "2026-07-28T23:47:58.191+01:00",
+              "azimuth_deg": 359.999998,
+              "altitude_deg": -18.629193
+            }
+          ],
+          "rise": [
+            "2026-07-28T04:01:19.564+01:00"
+          ],
+          "set": [
+            "2026-07-28T19:37:16.059+01:00"
+          ],
+          "transit": [
+            "2026-07-28T11:48:53.181+01:00"
+          ],
+          "above_horizon_minutes": 935.9,
+          "window": {
+            "start": "2026-07-28T00:00:00.000+01:00",
+            "end": "2026-07-29T00:00:00.000+01:00",
+            "anchor": "civil",
+            "length_minutes": 1440
+          }
+        },
+        "href": "https://www.cyclecalcs.com/planets/mercury.html"
+      },
+      {
+        "name": "Venus",
+        "code": "venus",
+        "kind": "planet",
+        "constellation": {
+          "name": "Leo",
+          "abbreviation": "Leo"
+        },
+        "tropical_sign": {
+          "name": "Virgo",
+          "code": "virgo",
+          "sign_index": 5,
+          "degree_in_sign": 20.815222,
+          "degree_in_sign_whole": 20
+        },
+        "position": {
+          "equatorial": {
+            "j2000": {
+              "ra_hours": 11.420636,
+              "ra_string": "11h 25m 14.3s",
+              "dec_deg": 4.0046,
+              "dec_string": "+04 00 16.6"
+            },
+            "of_date": {
+              "ra_hours": 11.443606,
+              "ra_string": "11h 26m 37.0s",
+              "dec_deg": 3.85758,
+              "dec_string": "+03 51 27.3"
+            }
+          },
+          "ecliptic": {
+            "true_of_date": {
+              "longitude_deg": 170.815222,
+              "latitude_deg": 0.239058
+            }
+          },
+          "horizontal": {
+            "azimuth_deg": 278.196223,
+            "compass": "W",
+            "altitude_refracted_deg": -0.930928,
+            "altitude_unrefracted_deg": -1.573343,
+            "refraction_deg": 0.642415,
+            "hour_angle_hours": 6.493687,
+            "parallactic_angle_deg": 38.159734
+          },
+          "distance_au": 0.82502,
+          "distance_km": 123421285.418597,
+          "distance_light_minutes": 6.861485,
+          "origin": "topocentric",
+          "observer_height_m": 11,
+          "distance_origin": "geocentric",
+          "ecliptic_origin": "geocentric",
+          "origin_note": "Directions here are topocentric, measured from your coordinates. The ecliptic longitude and the distance are geocentric, measured from the centre of the Earth, because that is the frame tropical sign sectors are defined in and the frame planetary distances are published in. Do not combine the topocentric direction with the geocentric distance as one vector."
+        },
+        "physical": {
+          "apparent_magnitude": -4.29,
+          "angular_diameter_arcsec": 20.227846,
+          "phase_angle_deg": 81.52526,
+          "illuminated_fraction": 0.573687,
+          "illuminated_percent": 57.368669,
+          "ring_tilt_deg": null
+        },
+        "visibility": {
+          "elongation_deg": 44.994297,
+          "sun_side": "evening",
+          "ecliptic_separation_deg": 44.992183,
+          "code": "evening_sky",
+          "phrase": "Evening sky, after dusk",
+          "naked_eye": true,
+          "is_up": false,
+          "verdict": "Venus is 45.0 deg east of the Sun and sets about 89 minutes after it, in the evening sky.",
+          "sun_is_up": false,
+          "observable_now": false
+        },
+        "motion": {
+          "apparent_motion": "direct",
+          "longitude_rate_deg_per_day": 1.05161,
+          "is_retrograde": false,
+          "stationary_band_deg_per_day": 0.0005,
+          "search_horizon_days": 643,
+          "method": "central difference of apparent geocentric ecliptic longitude over plus and minus 0.02 days, refined to 1 second",
+          "next_station": {
+            "kind": "station_retrograde",
+            "label": "Venus stationary, beginning retrograde motion",
+            "instant": "2026-10-03T08:10:06.584+01:00",
+            "instant_precision_seconds": 2,
+            "days_from_query": 66.402854
+          }
+        },
+        "rise_set": {
+          "status": "normal",
+          "status_label": "Rises and sets",
+          "special": null,
+          "events": [
+            {
+              "kind": "lower_transit",
+              "instant": "2026-07-28T04:00:31.718+01:00",
+              "azimuth_deg": 359.999997,
+              "altitude_deg": -33.884511
+            },
+            {
+              "kind": "rise",
+              "instant": "2026-07-28T09:36:04.069+01:00",
+              "azimuth_deg": 82.659795,
+              "altitude_deg": -0.56607
+            },
+            {
+              "kind": "upper_transit",
+              "instant": "2026-07-28T16:00:26.259+01:00",
+              "azimuth_deg": 179.999993,
+              "altitude_deg": 42.530239
+            },
+            {
+              "kind": "set",
+              "instant": "2026-07-28T22:23:29.167+01:00",
+              "azimuth_deg": 276.920838,
+              "altitude_deg": -0.566068
+            }
+          ],
+          "rise": [
+            "2026-07-28T09:36:04.069+01:00"
+          ],
+          "set": [
+            "2026-07-28T22:23:29.167+01:00"
+          ],
+          "transit": [
+            "2026-07-28T16:00:26.259+01:00"
+          ],
+          "above_horizon_minutes": 767.4,
+          "window": {
+            "start": "2026-07-28T00:00:00.000+01:00",
+            "end": "2026-07-29T00:00:00.000+01:00",
+            "anchor": "civil",
+            "length_minutes": 1440
+          }
+        },
+        "href": "https://www.cyclecalcs.com/planets/venus.html"
+      },
+      {
+        "name": "Mars",
+        "code": "mars",
+        "kind": "planet",
+        "constellation": {
+          "name": "Taurus",
+          "abbreviation": "Tau"
+        },
+        "tropical_sign": {
+          "name": "Gemini",
+          "code": "gemini",
+          "sign_index": 2,
+          "degree_in_sign": 20.965181,
+          "degree_in_sign_whole": 20
+        },
+        "position": {
+          "equatorial": {
+            "j2000": {
+              "ra_hours": 5.317252,
+              "ra_string": "05h 19m 02.1s",
+              "dec_deg": 23.151784,
+              "dec_string": "+23 09 06.4"
+            },
+            "of_date": {
+              "ra_hours": 5.344285,
+              "ra_string": "05h 20m 39.4s",
+              "dec_deg": 23.179882,
+              "dec_string": "+23 10 47.6"
+            }
+          },
+          "ecliptic": {
+            "true_of_date": {
+              "longitude_deg": 80.965181,
+              "latitude_deg": 0.050999
+            }
+          },
+          "horizontal": {
+            "azimuth_deg": 8.459641,
+            "compass": "N",
+            "altitude_refracted_deg": -14.388246,
+            "altitude_unrefracted_deg": -14.933599,
+            "refraction_deg": 0.545354,
+            "hour_angle_hours": 12.593009,
+            "parallactic_angle_deg": -5.720195
+          },
+          "distance_au": 2.010168,
+          "distance_km": 300716879.816871,
+          "distance_light_minutes": 16.718059,
+          "origin": "topocentric",
+          "observer_height_m": 11,
+          "distance_origin": "geocentric",
+          "ecliptic_origin": "geocentric",
+          "origin_note": "Directions here are topocentric, measured from your coordinates. The ecliptic longitude and the distance are geocentric, measured from the centre of the Earth, because that is the frame tropical sign sectors are defined in and the frame planetary distances are published in. Do not combine the topocentric direction with the geocentric distance as one vector."
+        },
+        "physical": {
+          "apparent_magnitude": 1.31,
+          "angular_diameter_arcsec": 4.658977,
+          "phase_angle_deg": 29.029036,
+          "illuminated_fraction": 0.937187,
+          "illuminated_percent": 93.718695,
+          "ring_tilt_deg": null
+        },
+        "visibility": {
+          "elongation_deg": 44.856264,
+          "sun_side": "morning",
+          "ecliptic_separation_deg": 44.857898,
+          "code": "morning_sky",
+          "phrase": "Morning sky, before dawn",
+          "naked_eye": true,
+          "is_up": false,
+          "verdict": "Mars is 44.9 deg west of the Sun and rises about 217 minutes before it, in the morning sky.",
+          "sun_is_up": false,
+          "observable_now": false
+        },
+        "motion": {
+          "apparent_motion": "direct",
+          "longitude_rate_deg_per_day": 0.679367,
+          "is_retrograde": false,
+          "stationary_band_deg_per_day": 0.0005,
+          "search_horizon_days": 858,
+          "method": "central difference of apparent geocentric ecliptic longitude over plus and minus 0.02 days, refined to 1 second",
+          "next_station": {
+            "kind": "station_retrograde",
+            "label": "Mars stationary, beginning retrograde motion",
+            "instant": "2027-01-10T13:01:12.064+00:00",
+            "instant_precision_seconds": 2,
+            "days_from_query": 165.646667
+          }
+        },
+        "rise_set": {
+          "status": "normal",
+          "status_label": "Rises and sets",
+          "special": null,
+          "events": [
+            {
+              "kind": "rise",
+              "instant": "2026-07-28T01:40:47.150+01:00",
+              "azimuth_deg": 49.978131,
+              "altitude_deg": -0.566069
+            },
+            {
+              "kind": "upper_transit",
+              "instant": "2026-07-28T09:54:56.492+01:00",
+              "azimuth_deg": 179.999991,
+              "altitude_deg": 61.680128
+            },
+            {
+              "kind": "set",
+              "instant": "2026-07-28T18:09:23.916+01:00",
+              "azimuth_deg": 310.10301,
+              "altitude_deg": -0.566067
+            },
+            {
+              "kind": "lower_transit",
+              "instant": "2026-07-28T21:54:26.614+01:00",
+              "azimuth_deg": 359.999995,
+              "altitude_deg": -14.801417
+            }
+          ],
+          "rise": [
+            "2026-07-28T01:40:47.150+01:00"
+          ],
+          "set": [
+            "2026-07-28T18:09:23.916+01:00"
+          ],
+          "transit": [
+            "2026-07-28T09:54:56.492+01:00"
+          ],
+          "above_horizon_minutes": 988.6,
+          "window": {
+            "start": "2026-07-28T00:00:00.000+01:00",
+            "end": "2026-07-29T00:00:00.000+01:00",
+            "anchor": "civil",
+            "length_minutes": 1440
+          }
+        },
+        "href": "https://www.cyclecalcs.com/planets/mars.html"
+      },
+      {
+        "name": "Jupiter",
+        "code": "jupiter",
+        "kind": "planet",
+        "constellation": {
+          "name": "Cancer",
+          "abbreviation": "Cnc"
+        },
+        "tropical_sign": {
+          "name": "Leo",
+          "code": "leo",
+          "sign_index": 4,
+          "degree_in_sign": 6.273803,
+          "degree_in_sign_whole": 6
+        },
+        "position": {
+          "equatorial": {
+            "j2000": {
+              "ra_hours": 8.559682,
+              "ra_string": "08h 33m 34.9s",
+              "dec_deg": 19.251789,
+              "dec_string": "+19 15 06.4"
+            },
+            "of_date": {
+              "ra_hours": 8.585277,
+              "ra_string": "08h 35m 07.0s",
+              "dec_deg": 19.160558,
+              "dec_string": "+19 09 38.0"
+            }
+          },
+          "ecliptic": {
+            "true_of_date": {
+              "longitude_deg": 126.273803,
+              "latitude_deg": 0.472265
+            }
+          },
+          "horizontal": {
+            "azimuth_deg": 322.008936,
+            "compass": "NW",
+            "altitude_refracted_deg": -10.715779,
+            "altitude_unrefracted_deg": -11.287621,
+            "refraction_deg": 0.571842,
+            "hour_angle_hours": 9.352017,
+            "parallactic_angle_deg": 23.9445
+          },
+          "distance_au": 6.301024,
+          "distance_km": 942619701.995286,
+          "distance_light_minutes": 52.404015,
+          "origin": "topocentric",
+          "observer_height_m": 11,
+          "distance_origin": "geocentric",
+          "ecliptic_origin": "geocentric",
+          "origin_note": "Directions here are topocentric, measured from your coordinates. The ecliptic longitude and the distance are geocentric, measured from the centre of the Earth, because that is the frame tropical sign sectors are defined in and the frame planetary distances are published in. Do not combine the topocentric direction with the geocentric distance as one vector."
+        },
+        "physical": {
+          "apparent_magnitude": -1.79,
+          "angular_diameter_arcsec": 31.287875,
+          "phase_angle_deg": 0.125942,
+          "illuminated_fraction": 0.999999,
+          "illuminated_percent": 99.999879,
+          "ring_tilt_deg": null
+        },
+        "visibility": {
+          "elongation_deg": 0.653936,
+          "sun_side": "evening",
+          "ecliptic_separation_deg": 0.45238,
+          "code": "glare",
+          "phrase": "Lost in the Sun's glare",
+          "naked_eye": true,
+          "is_up": false,
+          "verdict": "Jupiter is only 0.7 deg from the Sun and cannot be seen.",
+          "sun_is_up": false,
+          "observable_now": false
+        },
+        "motion": {
+          "apparent_motion": "direct",
+          "longitude_rate_deg_per_day": 0.221485,
+          "is_retrograde": false,
+          "stationary_band_deg_per_day": 0.0005,
+          "search_horizon_days": 439,
+          "method": "central difference of apparent geocentric ecliptic longitude over plus and minus 0.02 days, refined to 1 second",
+          "next_station": {
+            "kind": "station_retrograde",
+            "label": "Jupiter stationary, beginning retrograde motion",
+            "instant": "2026-12-13T00:58:53.785+00:00",
+            "instant_precision_seconds": 2,
+            "days_from_query": 137.145067
+          }
+        },
+        "rise_set": {
+          "status": "normal",
+          "status_label": "Rises and sets",
+          "special": null,
+          "events": [
+            {
+              "kind": "lower_transit",
+              "instant": "2026-07-28T01:11:34.319+01:00",
+              "azimuth_deg": 359.99999,
+              "altitude_deg": -18.800446
+            },
+            {
+              "kind": "rise",
+              "instant": "2026-07-28T05:22:59.108+01:00",
+              "azimuth_deg": 57.286447,
+              "altitude_deg": -0.566124
+            },
+            {
+              "kind": "upper_transit",
+              "instant": "2026-07-28T13:10:03.517+01:00",
+              "azimuth_deg": 179.999855,
+              "altitude_deg": 57.714486
+            },
+            {
+              "kind": "set",
+              "instant": "2026-07-28T20:56:54.695+01:00",
+              "azimuth_deg": 302.65069,
+              "altitude_deg": -0.56607
+            }
+          ],
+          "rise": [
+            "2026-07-28T05:22:59.108+01:00"
+          ],
+          "set": [
+            "2026-07-28T20:56:54.695+01:00"
+          ],
+          "transit": [
+            "2026-07-28T13:10:03.517+01:00"
+          ],
+          "above_horizon_minutes": 933.9,
+          "window": {
+            "start": "2026-07-28T00:00:00.000+01:00",
+            "end": "2026-07-29T00:00:00.000+01:00",
+            "anchor": "civil",
+            "length_minutes": 1440
+          }
+        },
+        "href": "https://www.cyclecalcs.com/planets/jupiter.html"
+      },
+      {
+        "name": "Saturn",
+        "code": "saturn",
+        "kind": "planet",
+        "constellation": {
+          "name": "Pisces",
+          "abbreviation": "Psc"
+        },
+        "tropical_sign": {
+          "name": "Aries",
+          "code": "aries",
+          "sign_index": 0,
+          "degree_in_sign": 14.743709,
+          "degree_in_sign_whole": 14
+        },
+        "position": {
+          "equatorial": {
+            "j2000": {
+              "ra_hours": 0.946784,
+              "ra_string": "00h 56m 48.4s",
+              "dec_deg": 3.348275,
+              "dec_string": "+03 20 53.8"
+            },
+            "of_date": {
+              "ra_hours": 0.969782,
+              "ra_string": "00h 58m 11.2s",
+              "dec_deg": 3.493131,
+              "dec_string": "+03 29 35.3"
+            }
+          },
+          "ecliptic": {
+            "true_of_date": {
+              "longitude_deg": 14.743709,
+              "latitude_deg": -2.51107
+            }
+          },
+          "horizontal": {
+            "azimuth_deg": 75.628089,
+            "compass": "ENE",
+            "altitude_refracted_deg": -6.191276,
+            "altitude_unrefracted_deg": -6.79575,
+            "refraction_deg": 0.604475,
+            "hour_angle_hours": 16.967512,
+            "parallactic_angle_deg": -37.189254
+          },
+          "distance_au": 9.042594,
+          "distance_km": 1352752781.905598,
+          "distance_light_minutes": 75.20496,
+          "origin": "topocentric",
+          "observer_height_m": 11,
+          "distance_origin": "geocentric",
+          "ecliptic_origin": "geocentric",
+          "origin_note": "Directions here are topocentric, measured from your coordinates. The ecliptic longitude and the distance are geocentric, measured from the centre of the Earth, because that is the frame tropical sign sectors are defined in and the frame planetary distances are published in. Do not combine the topocentric direction with the geocentric distance as one vector."
+        },
+        "physical": {
+          "apparent_magnitude": 0.53,
+          "angular_diameter_arcsec": 18.379068,
+          "phase_angle_deg": 5.75173,
+          "illuminated_fraction": 0.997483,
+          "illuminated_percent": 99.748275,
+          "ring_tilt_deg": 9.144221
+        },
+        "visibility": {
+          "elongation_deg": 111.056513,
+          "sun_side": "morning",
+          "ecliptic_separation_deg": 111.085367,
+          "code": "morning_sky",
+          "phrase": "Morning sky, before dawn",
+          "naked_eye": true,
+          "is_up": false,
+          "verdict": "Saturn is 111.1 deg west of the Sun and rises about 367 minutes before it, in the morning sky.",
+          "sun_is_up": false,
+          "observable_now": false
+        },
+        "motion": {
+          "apparent_motion": "retrograde",
+          "longitude_rate_deg_per_day": -0.003528,
+          "is_retrograde": true,
+          "stationary_band_deg_per_day": 0.0005,
+          "search_horizon_days": 416,
+          "method": "central difference of apparent geocentric ecliptic longitude over plus and minus 0.02 days, refined to 1 second",
+          "next_station": {
+            "kind": "station_direct",
+            "label": "Saturn stationary, resuming direct motion",
+            "instant": "2026-12-10T23:23:22.098+00:00",
+            "instant_precision_seconds": 2,
+            "days_from_query": 135.078728
+          }
+        },
+        "rise_set": {
+          "status": "normal",
+          "status_label": "Rises and sets",
+          "special": null,
+          "events": [
+            {
+              "kind": "upper_transit",
+              "instant": "2026-07-28T05:34:43.912+01:00",
+              "azimuth_deg": 180.000288,
+              "altitude_deg": 42.037868
+            },
+            {
+              "kind": "set",
+              "instant": "2026-07-28T11:54:56.838+01:00",
+              "azimuth_deg": 276.333255,
+              "altitude_deg": -0.566067
+            },
+            {
+              "kind": "lower_transit",
+              "instant": "2026-07-28T17:32:45.813+01:00",
+              "azimuth_deg": 359.999999,
+              "altitude_deg": -34.628561
+            },
+            {
+              "kind": "rise",
+              "instant": "2026-07-28T23:10:35.547+01:00",
+              "azimuth_deg": 83.670891,
+              "altitude_deg": -0.56607
+            }
+          ],
+          "rise": [
+            "2026-07-28T23:10:35.547+01:00"
+          ],
+          "set": [
+            "2026-07-28T11:54:56.838+01:00"
+          ],
+          "transit": [
+            "2026-07-28T05:34:43.912+01:00"
+          ],
+          "above_horizon_minutes": 764.4,
+          "window": {
+            "start": "2026-07-28T00:00:00.000+01:00",
+            "end": "2026-07-29T00:00:00.000+01:00",
+            "anchor": "civil",
+            "length_minutes": 1440
+          }
+        },
+        "href": "https://www.cyclecalcs.com/planets/saturn.html"
+      },
+      {
+        "name": "Uranus",
+        "code": "uranus",
+        "kind": "planet",
+        "constellation": {
+          "name": "Taurus",
+          "abbreviation": "Tau"
+        },
+        "tropical_sign": {
+          "name": "Gemini",
+          "code": "gemini",
+          "sign_index": 2,
+          "degree_in_sign": 4.905062,
+          "degree_in_sign_whole": 4
+        },
+        "position": {
+          "equatorial": {
+            "j2000": {
+              "ra_hours": 4.172993,
+              "ra_string": "04h 10m 22.8s",
+              "dec_deg": 20.891962,
+              "dec_string": "+20 53 31.1"
+            },
+            "of_date": {
+              "ra_hours": 4.199205,
+              "ra_string": "04h 11m 57.1s",
+              "dec_deg": 20.962005,
+              "dec_string": "+20 57 43.2"
+            }
+          },
+          "ecliptic": {
+            "true_of_date": {
+              "longitude_deg": 64.905062,
+              "latitude_deg": -0.153538
+            }
+          },
+          "horizontal": {
+            "azimuth_deg": 25.02625,
+            "compass": "NNE",
+            "altitude_refracted_deg": -13.48395,
+            "altitude_unrefracted_deg": -14.035826,
+            "refraction_deg": 0.551876,
+            "hour_angle_hours": 13.738089,
+            "parallactic_angle_deg": -16.388313
+          },
+          "distance_au": 19.927632,
+          "distance_km": 2981131384.922511,
+          "distance_light_minutes": 165.733066,
+          "origin": "topocentric",
+          "observer_height_m": 11,
+          "distance_origin": "geocentric",
+          "ecliptic_origin": "geocentric",
+          "origin_note": "Directions here are topocentric, measured from your coordinates. The ecliptic longitude and the distance are geocentric, measured from the centre of the Earth, because that is the frame tropical sign sectors are defined in and the frame planetary distances are published in. Do not combine the topocentric direction with the geocentric distance as one vector."
+        },
+        "physical": {
+          "apparent_magnitude": 5.76,
+          "angular_diameter_arcsec": 3.53686,
+          "phase_angle_deg": 2.614405,
+          "illuminated_fraction": 0.99948,
+          "illuminated_percent": 99.947957,
+          "ring_tilt_deg": null
+        },
+        "visibility": {
+          "elongation_deg": 60.916476,
+          "sun_side": "morning",
+          "ecliptic_separation_deg": 60.919268,
+          "code": "morning_sky",
+          "phrase": "Morning sky, before dawn",
+          "naked_eye": true,
+          "is_up": false,
+          "verdict": "Uranus is 60.9 deg west of the Sun and rises about 268 minutes before it, in the morning sky.",
+          "sun_is_up": false,
+          "observable_now": false
+        },
+        "motion": {
+          "apparent_motion": "direct",
+          "longitude_rate_deg_per_day": 0.034689,
+          "is_retrograde": false,
+          "stationary_band_deg_per_day": 0.0005,
+          "search_horizon_days": 407,
+          "method": "central difference of apparent geocentric ecliptic longitude over plus and minus 0.02 days, refined to 1 second",
+          "next_station": {
+            "kind": "station_retrograde",
+            "label": "Uranus stationary, beginning retrograde motion",
+            "instant": "2026-09-10T19:40:38.273+01:00",
+            "instant_precision_seconds": 2,
+            "days_from_query": 43.882387
+          }
+        },
+        "rise_set": {
+          "status": "normal",
+          "status_label": "Rises and sets",
+          "special": null,
+          "events": [
+            {
+              "kind": "rise",
+              "instant": "2026-07-28T00:49:38.894+01:00",
+              "azimuth_deg": 54.077362,
+              "altitude_deg": -0.566067
+            },
+            {
+              "kind": "upper_transit",
+              "instant": "2026-07-28T08:47:52.894+01:00",
+              "azimuth_deg": 179.999996,
+              "altitude_deg": 59.490589
+            },
+            {
+              "kind": "set",
+              "instant": "2026-07-28T16:46:08.573+01:00",
+              "azimuth_deg": 305.9305,
+              "altitude_deg": -0.566071
+            },
+            {
+              "kind": "lower_transit",
+              "instant": "2026-07-28T20:45:59.323+01:00",
+              "azimuth_deg": 359.999996,
+              "altitude_deg": -17.034386
+            }
+          ],
+          "rise": [
+            "2026-07-28T00:49:38.894+01:00"
+          ],
+          "set": [
+            "2026-07-28T16:46:08.573+01:00"
+          ],
+          "transit": [
+            "2026-07-28T08:47:52.894+01:00"
+          ],
+          "above_horizon_minutes": 956.5,
+          "window": {
+            "start": "2026-07-28T00:00:00.000+01:00",
+            "end": "2026-07-29T00:00:00.000+01:00",
+            "anchor": "civil",
+            "length_minutes": 1440
+          }
+        },
+        "href": "https://www.cyclecalcs.com/planets/uranus.html"
+      },
+      {
+        "name": "Neptune",
+        "code": "neptune",
+        "kind": "planet",
+        "constellation": {
+          "name": "Pisces",
+          "abbreviation": "Psc"
+        },
+        "tropical_sign": {
+          "name": "Aries",
+          "code": "aries",
+          "sign_index": 0,
+          "degree_in_sign": 4.299526,
+          "degree_in_sign_whole": 4
+        },
+        "position": {
+          "equatorial": {
+            "j2000": {
+              "ra_hours": 0.276911,
+              "ra_string": "00h 16m 36.9s",
+              "dec_deg": 0.286243,
+              "dec_string": "+00 17 10.5"
+            },
+            "of_date": {
+              "ra_hours": 0.299774,
+              "ra_string": "00h 17m 59.2s",
+              "dec_deg": 0.434965,
+              "dec_string": "+00 26 05.9"
+            }
+          },
+          "ecliptic": {
+            "true_of_date": {
+              "longitude_deg": 4.299526,
+              "latitude_deg": -1.38765
+            }
+          },
+          "horizontal": {
+            "azimuth_deg": 85.470621,
+            "compass": "E",
+            "altitude_refracted_deg": -2.410597,
+            "altitude_unrefracted_deg": -3.04234,
+            "refraction_deg": 0.631743,
+            "hour_angle_hours": 17.63752,
+            "parallactic_angle_deg": -38.381203
+          },
+          "distance_au": 29.339279,
+          "distance_km": 4389093739.632648,
+          "distance_light_minutes": 244.007347,
+          "origin": "topocentric",
+          "observer_height_m": 11,
+          "distance_origin": "geocentric",
+          "ecliptic_origin": "geocentric",
+          "origin_note": "Directions here are topocentric, measured from your coordinates. The ecliptic longitude and the distance are geocentric, measured from the centre of the Earth, because that is the frame tropical sign sectors are defined in and the frame planetary distances are published in. Do not combine the topocentric direction with the geocentric distance as one vector."
+        },
+        "physical": {
+          "apparent_magnitude": 7.84,
+          "angular_diameter_arcsec": 2.327561,
+          "phase_angle_deg": 1.659897,
+          "illuminated_fraction": 0.99979,
+          "illuminated_percent": 99.979019,
+          "ring_tilt_deg": null
+        },
+        "visibility": {
+          "elongation_deg": 121.511594,
+          "sun_side": "morning",
+          "ecliptic_separation_deg": 121.530456,
+          "code": "morning_sky",
+          "phrase": "Morning sky, before dawn",
+          "naked_eye": false,
+          "is_up": false,
+          "verdict": "Neptune is 121.5 deg west of the Sun and rises about 392 minutes before it, in the morning sky, and at magnitude 7.8 it needs a telescope.",
+          "sun_is_up": false,
+          "observable_now": false
+        },
+        "motion": {
+          "apparent_motion": "retrograde",
+          "longitude_rate_deg_per_day": -0.011175,
+          "is_retrograde": true,
+          "stationary_band_deg_per_day": 0.0005,
+          "search_horizon_days": 405,
+          "method": "central difference of apparent geocentric ecliptic longitude over plus and minus 0.02 days, refined to 1 second",
+          "next_station": {
+            "kind": "station_direct",
+            "label": "Neptune stationary, resuming direct motion",
+            "instant": "2026-12-12T22:13:32.341+00:00",
+            "instant_precision_seconds": 2,
+            "days_from_query": 137.030235
+          }
+        },
+        "rise_set": {
+          "status": "normal",
+          "status_label": "Rises and sets",
+          "special": null,
+          "events": [
+            {
+              "kind": "upper_transit",
+              "instant": "2026-07-28T04:54:40.003+01:00",
+              "azimuth_deg": 179.999997,
+              "altitude_deg": 38.981746
+            },
+            {
+              "kind": "set",
+              "instant": "2026-07-28T10:59:29.520+01:00",
+              "azimuth_deg": 271.413598,
+              "altitude_deg": -0.56607
+            },
+            {
+              "kind": "lower_transit",
+              "instant": "2026-07-28T16:52:40.886+01:00",
+              "azimuth_deg": 359.999998,
+              "altitude_deg": -37.708879
+            },
+            {
+              "kind": "rise",
+              "instant": "2026-07-28T22:45:53.001+01:00",
+              "azimuth_deg": 88.590433,
+              "altitude_deg": -0.566071
+            }
+          ],
+          "rise": [
+            "2026-07-28T22:45:53.001+01:00"
+          ],
+          "set": [
+            "2026-07-28T10:59:29.520+01:00"
+          ],
+          "transit": [
+            "2026-07-28T04:54:40.003+01:00"
+          ],
+          "above_horizon_minutes": 733.6,
+          "window": {
+            "start": "2026-07-28T00:00:00.000+01:00",
+            "end": "2026-07-29T00:00:00.000+01:00",
+            "anchor": "civil",
+            "length_minutes": 1440
+          }
+        },
+        "href": "https://www.cyclecalcs.com/planets/neptune.html"
+      },
+      {
+        "name": "Pluto",
+        "code": "pluto",
+        "kind": "dwarf_planet",
+        "constellation": {
+          "name": "Capricornus",
+          "abbreviation": "Cap"
+        },
+        "tropical_sign": {
+          "name": "Aquarius",
+          "code": "aquarius",
+          "sign_index": 10,
+          "degree_in_sign": 4.247643,
+          "degree_in_sign_whole": 4
+        },
+        "position": {
+          "equatorial": {
+            "j2000": {
+              "ra_hours": 20.485662,
+              "ra_string": "20h 29m 08.4s",
+              "dec_deg": -23.433819,
+              "dec_string": "-23 26 01.7"
+            },
+            "of_date": {
+              "ra_hours": 20.511968,
+              "ra_string": "20h 30m 43.1s",
+              "dec_deg": -23.344876,
+              "dec_string": "-23 20 41.6"
+            }
+          },
+          "ecliptic": {
+            "true_of_date": {
+              "longitude_deg": 304.247643,
+              "latitude_deg": -4.274673
+            }
+          },
+          "horizontal": {
+            "azimuth_deg": 144.655389,
+            "compass": "SE",
+            "altitude_refracted_deg": 7.971431,
+            "altitude_unrefracted_deg": 7.859735,
+            "refraction_deg": 0.111697,
+            "hour_angle_hours": 21.425325,
+            "parallactic_angle_deg": -23.105207
+          },
+          "distance_au": 34.554218,
+          "distance_km": 5169237459.791412,
+          "distance_light_minutes": 287.378669,
+          "origin": "topocentric",
+          "observer_height_m": 11,
+          "distance_origin": "geocentric",
+          "ecliptic_origin": "geocentric",
+          "origin_note": "Directions here are topocentric, measured from your coordinates. The ecliptic longitude and the distance are geocentric, measured from the centre of the Earth, because that is the frame tropical sign sectors are defined in and the frame planetary distances are published in. Do not combine the topocentric direction with the geocentric distance as one vector."
+        },
+        "physical": {
+          "apparent_magnitude": 14.45,
+          "angular_diameter_arcsec": 0.094832,
+          "phase_angle_deg": 0.129993,
+          "illuminated_fraction": 0.999999,
+          "illuminated_percent": 99.999871,
+          "ring_tilt_deg": null
+        },
+        "visibility": {
+          "elongation_deg": 175.445374,
+          "sun_side": "evening",
+          "ecliptic_separation_deg": 178.415001,
+          "code": "most_of_night",
+          "phrase": "Up most of the night",
+          "naked_eye": false,
+          "is_up": true,
+          "verdict": "Pluto is 175.4 deg east of the Sun and is up for most of the night, rising about 487 minutes before sunrise, and at magnitude 14.5 it needs a telescope.",
+          "sun_is_up": false,
+          "observable_now": false
+        },
+        "motion": {
+          "apparent_motion": "retrograde",
+          "longitude_rate_deg_per_day": -0.0234,
+          "is_retrograde": true,
+          "stationary_band_deg_per_day": 0.0005,
+          "search_horizon_days": 404,
+          "method": "central difference of apparent geocentric ecliptic longitude over plus and minus 0.02 days, refined to 1 second",
+          "next_station": {
+            "kind": "station_direct",
+            "label": "Pluto stationary, resuming direct motion",
+            "instant": "2026-10-16T03:23:23.549+01:00",
+            "instant_precision_seconds": 2,
+            "days_from_query": 79.203745
+          }
+        },
+        "rise_set": {
+          "status": "normal",
+          "status_label": "Rises and sets",
+          "special": null,
+          "events": [
+            {
+              "kind": "upper_transit",
+              "instant": "2026-07-28T01:08:04.602+01:00",
+              "azimuth_deg": 179.999997,
+              "altitude_deg": 15.244075
+            },
+            {
+              "kind": "set",
+              "instant": "2026-07-28T05:00:49.061+01:00",
+              "azimuth_deg": 231.410707,
+              "altitude_deg": -0.566068
+            },
+            {
+              "kind": "lower_transit",
+              "instant": "2026-07-28T13:06:03.746+01:00",
+              "azimuth_deg": 359.999992,
+              "altitude_deg": -61.659899
+            },
+            {
+              "kind": "rise",
+              "instant": "2026-07-28T21:11:20.403+01:00",
+              "azimuth_deg": 128.598205,
+              "altitude_deg": -0.566065
+            }
+          ],
+          "rise": [
+            "2026-07-28T21:11:20.403+01:00"
+          ],
+          "set": [
+            "2026-07-28T05:00:49.061+01:00"
+          ],
+          "transit": [
+            "2026-07-28T01:08:04.602+01:00"
+          ],
+          "above_horizon_minutes": 469.5,
+          "window": {
+            "start": "2026-07-28T00:00:00.000+01:00",
+            "end": "2026-07-29T00:00:00.000+01:00",
+            "anchor": "civil",
+            "length_minutes": 1440
+          }
+        },
+        "href": "https://www.cyclecalcs.com/planets/pluto.html"
+      }
+    ]
+  },
+  "warnings": [],
+  "links": {
+    "self": "https://www.cyclecalcs.com/v2/planet-board?at=2026-07-28T21%3A30%3A00Z&elevation_m=11&lat=51.4778&lon=-0.0015&tz=Europe%2FLondon",
+    "docs": "https://www.cyclecalcs.com/api/reference.html#planet-board",
+    "spec": "https://www.cyclecalcs.com/v2/openapi.json",
+    "page": "https://www.cyclecalcs.com/planets/",
+    "related": [
+      {
+        "rel": "endpoint",
+        "title": "Where every body is, in every frame",
+        "href": "https://www.cyclecalcs.com/v2/positions"
+      },
+      {
+        "rel": "endpoint",
+        "title": "Every retrograde and direct station",
+        "href": "https://www.cyclecalcs.com/v2/retrogrades"
+      }
+    ]
+  },
+  "meta": {
+    "api_version": "2",
+    "contract_version": "2.0.0",
+    "engine": {
+      "name": "Astronomy Engine",
+      "license": "MIT",
+      "author": "Don Cross",
+      "version": "2.1.19",
+      "version_source": "upstream_sha256_match",
+      "sha256": "068f1445ed0c636c94818fe6d20d7d125120e605e0bab9fc4675c3d531be5ad7",
+      "vendored": true,
+      "credit": "astronomy-engine (MIT, Copyright (c) 2019-2023 Don Cross)"
+    },
+    "tzdb": "2026b",
+    "rights": "unrestricted",
+    "attribution": {
+      "required": false,
+      "text": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+      "sources": []
+    },
+    "notice_url": "https://www.cyclecalcs.com/methodology.html#data-sources",
+    "cache": {
+      "class": "fixed_instant",
+      "deterministic": true
+    },
+    "accuracy": {
+      "statement": "Positions are arcminute class for the Sun, Moon and planets across 1700 to 2200, degrading toward the ends of that window.",
+      "residuals_url": "https://www.cyclecalcs.com/api/accuracy.html"
+    },
+    "time": {
+      "scale_of_input": "UTC",
+      "ut1_source": "assumed equal to UTC; no IERS bulletin is loaded, so UT1 minus UTC may differ by up to 0.9 s",
+      "delta_t_seconds": 75.4,
+      "delta_t_model": "Espenak and Meeus"
+    },
+    "not_computed": [
+      {
+        "name": "constellation.genitive",
+        "reason": "Needs the reduced constellation index; the generator has not run yet."
+      }
+    ],
+    "conventions": {
+      "stationary_band_deg_per_day": 0.0005,
+      "rate_half_step_days": 0.02,
+      "station_precision_seconds": 1,
+      "apparent_motion_statement": "Apparent motion is the sign of the rate of change of apparent geocentric ecliptic longitude. A body inside the stationary band is reported as stationary; is_retrograde stays a strict test on the sign, so the two-state answer is always available beside the three-state one.",
+      "angular_diameter_basis": "Computed from the equatorial radius, which is what an observer measures across the visible disc. body_polar_radius_km is published beside it so the flattening of the giant planets is discoverable.",
+      "saturn_ring_extent_note": "angular_diameter_arcsec is the GLOBE of the planet. Saturn's ring system spans about 2.27 times that, so a field of view sized from this number alone will not contain the rings."
+    },
+    "budget": {
+      "engine_calls": 666
+    },
+    "horizon": {
+      "planet_rise_set_definition": "geometric centre of the planet at the horizon, with refraction and topocentric parallax applied by the engine's own rise and set search",
+      "horizon_dip_modelled": false,
+      "horizon_dip_arcmin_if_modelled": 5.81,
+      "horizon_dip_note": "Observer elevation raises the observer on a locally flat plateau. Dip of the sea horizon is not modelled. The value you are forgoing is 1.753 times the square root of the elevation in metres, in arcminutes."
+    }
+  },
+  "attribution": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+  "docs": "https://www.cyclecalcs.com/api/reference.html#planet-board"
+}

@@ -1,0 +1,976 @@
+generated: '2026-08-09'
+method: searched
+source: https://www.cyclecalcs.com/api/errors.json
+docs: https://www.cyclecalcs.com/api/errors.html
+format: rfc9457
+description: >-
+  CycleCalcs publishes its error registry as data, generated from the same
+  source (netlify/lib/v2/errors.mjs) as the human error reference, so the two
+  cannot disagree. Every non-2xx v2 response is application/problem+json with
+  a dereferenceable `type` URL pointing at the matching anchor on
+  /api/errors.html — never about:blank. 117 codes are registered;
+  87 are reachable from a live endpoint today and the remainder are
+  reserved for surfaces that are specified but not yet shipped.
+envelope:
+  media_type: application/problem+json
+  members: [type, title, status, detail, code, parameter, hint, example, supported, request_id, error_chain, docs]
+  switch_on: code            # stable SCREAMING_SNAKE_CASE identifier
+  request_id: >-
+    16 lowercase hex characters on non-cacheable classes (429, 500, 503);
+    null on every cacheable class, because a cached body cannot carry one
+    caller's identifier to every later caller.
+  retry_after: >-
+    429 and 503 are the only two statuses that always carry an integer
+    Retry-After.
+extension_shapes:
+  cap: >-
+    { requested, minimum, maximum, unit }. minimum is omitted where the floor is zero or not meaningful.
+  supported: >-
+    array: the full list of values the named parameter accepts.
+  unavailable: >-
+    array of { name, reason }, one entry per target the API recognises the name of but will not compute.
+  gap: >-
+    { gap_start_local, gap_end_local, gap_seconds, instant_before_gap, instant_after_gap }, describing the spring-forward gap that swallowed the requested local time.
+  candidates: >-
+    array of { utc, utc_offset_seconds, utc_offset_iso, selected }, one entry per instant a repeated local time could mean.
+statuses_used: [400, 401, 404, 405, 406, 409, 410, 413, 414, 422, 429, 500, 503]
+count: 117
+reachable_count: 87
+verbatim_registry: errors/cyclecalcs-errors.json
+problems:
+  - code: BAD_DATE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-date
+    title: "The date could not be parsed"
+    parameter: at
+    hint: "Use ISO 8601, for example 2026-08-12 or 2026-08-12T21:00:00Z"
+    extensions: []
+    reachable: true
+  - code: DATE_OUT_OF_RANGE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#date-out-of-range
+    title: "The date is outside the supported range"
+    parameter: at
+    hint: "Choose a date from 1700 to 2200; the vendored ephemeris is not reliable outside it"
+    extensions: []
+    reachable: true
+  - code: BAD_TIMEZONE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-timezone
+    title: "The time zone was not recognised"
+    parameter: tz
+    hint: "Use an IANA zone name such as Europe/London; see the list in the reference"
+    extensions: []
+    reachable: true
+  - code: BAD_TIME_FORMAT
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-time-format
+    title: "The time format was not recognised"
+    parameter: time_format
+    hint: "Use time_format=iso or time_format=unix"
+    extensions: ["supported"]
+    reachable: true
+  - code: TIMEZONE_AUTO_UNSUPPORTED
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#timezone-auto-unsupported
+    title: "The time zone cannot be inferred"
+    parameter: tz
+    hint: "Send an IANA zone name, or a place, whose stored zone becomes the default"
+    extensions: []
+    reachable: true
+  - code: NONEXISTENT_LOCAL_TIME
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#nonexistent-local-time
+    title: "That local time did not exist"
+    parameter: at
+    hint: "Choose a time outside the gap, or pass the instant in UTC with a Z suffix"
+    extensions: ["gap"]
+    reachable: true
+  - code: AMBIGUOUS_LOCAL_TIME
+    status: 409
+    type: https://www.cyclecalcs.com/api/errors.html#ambiguous-local-time
+    title: "That local time occurred twice"
+    parameter: at
+    hint: "Add ambiguous=first or ambiguous=last to choose an occurrence, or pass the instant in UTC"
+    extensions: ["candidates"]
+    reachable: true
+  - code: INCOMPLETE_RANGE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#incomplete-range
+    title: "The range is incomplete"
+    parameter: start
+    hint: "Add `start`, or drop the range parameters"
+    extensions: []
+    reachable: true
+  - code: BAD_RANGE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-range
+    title: "The range is invalid"
+    parameter: end
+    hint: "Give both `start` and `end` with `end` on or after `start`"
+    extensions: []
+    reachable: true
+  - code: RANGE_TOO_LARGE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#range-too-large
+    title: "The range exceeds the limit for this endpoint"
+    parameter: end
+    hint: "Shorten the range, increase `step`, or page with `limit` and `cursor`"
+    extensions: ["cap"]
+    reachable: true
+  - code: BAD_STEP
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-step
+    title: "The step could not be parsed"
+    parameter: step
+    hint: "Write a number followed by min, h, d, w, mo or y. Endpoints narrow that grammar (a per-day endpoint takes whole days only), so a refusal names durations the endpoint it came from will accept"
+    extensions: ["supported"]
+    reachable: true
+  - code: BAD_COUNT
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-count
+    title: "Count is out of range"
+    parameter: count
+    hint: "Use a whole number inside the cap named in `cap`"
+    extensions: ["cap"]
+    reachable: true
+  - code: BAD_SEARCH_HORIZON
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-search-horizon
+    title: "The search horizon is out of range"
+    parameter: search_horizon
+    hint: "Shorten the horizon; the per-endpoint caps are published at /v2/conventions"
+    extensions: ["cap"]
+    reachable: true
+  - code: BAD_LIMIT
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-limit
+    title: "Limit is out of range"
+    parameter: limit
+    hint: "Use a whole number from 1 to the documented maximum"
+    extensions: ["cap"]
+    reachable: true
+  - code: BAD_CURSOR
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-cursor
+    title: "The cursor is not valid"
+    parameter: cursor
+    hint: "Restart from the first page, or use `links.next` unchanged"
+    extensions: []
+    reachable: true
+  - code: INCOMPLETE_LOCATION
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#incomplete-location
+    title: "Latitude and longitude must be given together"
+    parameter: lat
+    hint: "Provide both `lat` and `lon`, or neither"
+    extensions: []
+    reachable: true
+  - code: BAD_LATITUDE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-latitude
+    title: "Latitude is not a number from -90 to 90"
+    parameter: lat
+    hint: "Use a signed decimal, for example lat=51.5 for north and lat=-51.5 for south. Do not append N or S"
+    extensions: []
+    reachable: true
+  - code: BAD_LONGITUDE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-longitude
+    title: "Longitude is not a number from -180 to 180"
+    parameter: lon
+    hint: "Give decimal degrees from -180 to 180, east positive"
+    extensions: []
+    reachable: true
+  - code: AMBIGUOUS_LONGITUDE_FORMAT
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#ambiguous-longitude-format
+    title: "The longitude form is ambiguous"
+    parameter: lon
+    hint: "Use a signed decimal, east positive. Do not append E or W"
+    extensions: []
+    reachable: true
+  - code: BAD_ELEVATION
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-elevation
+    title: "Elevation is not a number from -500 to 9000"
+    parameter: elevation_m
+    hint: "Give metres above mean sea level from -500 to 9000"
+    extensions: ["cap"]
+    reachable: true
+  - code: LOCATION_REQUIRED
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#location-required
+    title: "This endpoint needs a location"
+    parameter: lat
+    hint: "Add lat and lon query parameters, in decimal degrees, for example lat=51.5&lon=-0.12."
+    extensions: []
+    reachable: true
+  - code: LATITUDE_AT_POLE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#latitude-at-pole
+    title: "The latitude is exactly at a pole"
+    parameter: lat
+    hint: "Move at least 0.1 degrees off the pole"
+    extensions: []
+    reachable: true
+  - code: LATITUDE_TOO_EXTREME
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#latitude-too-extreme
+    title: "The latitude is too close to a pole"
+    parameter: lat
+    hint: "Use a latitude below 89.9 degrees in absolute value"
+    extensions: []
+    reachable: true
+  - code: BAD_PLACE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-place
+    title: "Place name not understood"
+    parameter: place
+    hint: "Use place=<name>, place=<name>,<country> or place=id:<place_id>. Search for a place at /v2/places?q=<name>."
+    extensions: []
+    reachable: true
+  - code: PLACE_NOT_FOUND
+    status: 404
+    type: https://www.cyclecalcs.com/api/errors.html#place-not-found
+    title: "No matching place"
+    parameter: place
+    hint: "Add a country, for example place=Cambridge,GB, search at /v2/places?q=<name> for the current index size and a stable place_id, or send lat and lon."
+    extensions: []
+    reachable: true
+  - code: AMBIGUOUS_PLACE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#ambiguous-place
+    title: "Place name is ambiguous"
+    parameter: place
+    hint: "Re-send with place=id:<place_id>, or add a country, for example place=Cambridge,GB."
+    extensions: ["supported"]
+    reachable: true
+  - code: PLACE_INDEX_UNAVAILABLE
+    status: 503
+    type: https://www.cyclecalcs.com/api/errors.html#place-index-unavailable
+    title: "Place index unavailable"
+    parameter: place
+    hint: "Send lat and lon instead. This is a server-side fault."
+    extensions: []
+    reachable: false
+  - code: CONFLICTING_PARAMETERS
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#conflicting-parameters
+    title: "Two parameters conflict"
+    parameter: the second parameter seen
+    hint: "Remove one of the two parameters named in `detail`"
+    extensions: []
+    reachable: true
+  - code: UNKNOWN_BODY
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#unknown-body
+    title: "That body is not recognised"
+    parameter: body
+    hint: "Use one of the listed bodies; see /v2/enums?set=bodies"
+    extensions: ["supported"]
+    reachable: true
+  - code: BODY_REQUIRED
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#body-required
+    title: "This endpoint needs a body"
+    parameter: body
+    hint: "Add body=sun, body=moon, a planet name, or a radec: target. The full list is at /v2/enums?set=bodies"
+    extensions: []
+    reachable: true
+  - code: BODY_UNAVAILABLE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#body-unavailable
+    title: "That body cannot be computed"
+    parameter: body
+    hint: "Pick a body from `supported`, or read `meta.not_computed`"
+    extensions: ["supported", "unavailable"]
+    reachable: true
+  - code: BODY_NOT_SUPPORTED_HERE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#body-not-supported-here
+    title: "Body not supported by this endpoint"
+    parameter: body
+    hint: "Use /v2/positions for the Sun, the Moon or Earth"
+    extensions: ["supported"]
+    reachable: true
+  - code: TOO_MANY_BODIES
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#too-many-bodies
+    title: "Too many bodies requested"
+    parameter: bodies
+    hint: "Request 20 or fewer bodies, or omit `bodies` for the default set"
+    extensions: ["cap"]
+    reachable: true
+  - code: BAD_RADEC
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-radec
+    title: "The radec target could not be parsed"
+    parameter: body
+    hint: "Write radec:<ra>,<dec> in decimal hours and degrees, J2000"
+    extensions: ["supported"]
+    reachable: true
+  - code: STAR_SLOT_FAILED
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#star-slot-failed
+    title: "The star slot could not be defined"
+    parameter: body
+    hint: "Check the coordinates are in range and retry"
+    extensions: []
+    reachable: true
+  - code: STAR_POOL_TIMEOUT
+    status: 503
+    type: https://www.cyclecalcs.com/api/errors.html#star-pool-timeout
+    title: "The catalogue-object computation queue is busy"
+    parameter: null
+    hint: "Retry in a moment, or query a Solar System body instead"
+    extensions: []
+    reachable: true
+  - code: OBJECT_NOT_FOUND
+    status: 404
+    type: https://www.cyclecalcs.com/api/errors.html#object-not-found
+    title: "No such catalogue object"
+    parameter: id
+    hint: "Check the identifier against /v2/objects/search"
+    extensions: []
+    reachable: false
+  - code: BAD_PARAMETER_VALUE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-parameter-value
+    title: "A parameter value was not accepted"
+    parameter: varies
+    hint: "Correct the named parameter; the accepted values are listed in `supported`"
+    extensions: ["cap", "supported"]
+    reachable: true
+  - code: BAD_RANGE_VALUE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-range-value
+    title: "A numeric parameter is out of range"
+    parameter: varies
+    hint: "Send a value inside the range named in `cap`"
+    extensions: []
+    reachable: true
+  - code: BAD_FORMAT
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-format
+    title: "That output format is not available here"
+    parameter: format
+    hint: "Use one of the values in `supported`. Every endpoint lists the formats it serves at /v2, and /v2/enums?set=formats says which formats exist at all"
+    extensions: ["supported"]
+    reachable: true
+  - code: NOT_ACCEPTABLE
+    status: 406
+    type: https://www.cyclecalcs.com/api/errors.html#not-acceptable
+    title: "No acceptable representation"
+    parameter: null
+    hint: "Send `Accept: application/json` or use the `format` query parameter"
+    extensions: []
+    reachable: true
+  - code: BAD_FIELDS
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-fields
+    title: "A requested field does not exist"
+    parameter: fields
+    hint: "Remove the unknown name; the available fields are listed in `supported`"
+    extensions: []
+    reachable: true
+  - code: BAD_INCLUDE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-include
+    title: "An include token was not recognised"
+    parameter: include
+    hint: "Use tokens from `supported`, or omit the parameter for the default set"
+    extensions: ["supported"]
+    reachable: true
+  - code: BAD_SIZE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-size
+    title: "The image size is out of range"
+    parameter: size
+    hint: "Choose a size inside the range named in `cap`"
+    extensions: []
+    reachable: false
+  - code: BAD_REFRACTION
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-refraction
+    title: "The refraction mode was not recognised"
+    parameter: refraction
+    hint: "Use refraction=normal or refraction=none"
+    extensions: []
+    reachable: true
+  - code: BAD_BOOLEAN
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-boolean
+    title: "A boolean parameter was not recognised"
+    parameter: varies
+    hint: "Send true or false"
+    extensions: ["supported"]
+    reachable: true
+  - code: BAD_CLIENT
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-client
+    title: "The client identifier is invalid"
+    parameter: client
+    hint: "Use up to 64 characters of letters, digits, dot, underscore or hyphen"
+    extensions: []
+    reachable: true
+  - code: BAD_DEPRESSION
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-depression
+    title: "A depression angle is out of range"
+    parameter: depressions
+    hint: "Give degrees below the horizon from 0 to 30"
+    extensions: ["cap"]
+    reachable: true
+  - code: TOO_MANY_DEPRESSIONS
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#too-many-depressions
+    title: "Too many depression angles"
+    parameter: depressions
+    hint: "Send 8 or fewer depression angles"
+    extensions: ["cap"]
+    reachable: true
+  - code: BUDGET_EXCEEDED
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#budget-exceeded
+    title: "The request exceeds the computation budget"
+    parameter: null
+    hint: "Split it into smaller ranges. The per-request budget is documented at /v2/conventions"
+    extensions: ["cap"]
+    reachable: true
+  - code: TIME_REQUIRED
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#time-required
+    title: "This endpoint needs a time"
+    parameter: at
+    hint: "Send `at`, or the natal `local` or `lmt` forms"
+    extensions: []
+    reachable: true
+  - code: CONFLICTING_TIME_INPUTS
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#conflicting-time-inputs
+    title: "Two time expressions conflict"
+    parameter: the second time parameter seen
+    hint: "Send exactly one time expression"
+    extensions: []
+    reachable: true
+  - code: TIMEZONE_REQUIRED
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#timezone-required
+    title: "This request needs a time zone"
+    parameter: tz
+    hint: "Add `tz`, or a `place` whose stored zone supplies the default"
+    extensions: []
+    reachable: true
+  - code: LONGITUDE_REQUIRED
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#longitude-required
+    title: "This request needs a longitude"
+    parameter: lon
+    hint: "Add `lon`, or a `place`"
+    extensions: []
+    reachable: true
+  - code: BODY_NOT_GEOCENTRIC
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#body-not-geocentric
+    title: "That body has no geocentric position here"
+    parameter: body
+    hint: "Pick a body from `supported`"
+    extensions: []
+    reachable: true
+  - code: UNKNOWN_POINT
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#unknown-point
+    title: "That point is not recognised"
+    parameter: points
+    hint: "Use one of the values in `supported`"
+    extensions: []
+    reachable: false
+  - code: UNKNOWN_DERIVED
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#unknown-derived
+    title: "That derived quantity is not recognised"
+    parameter: derived
+    hint: "Use one of the values in `supported`"
+    extensions: []
+    reachable: false
+  - code: UNKNOWN_AYANAMSA
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#unknown-ayanamsa
+    title: "That ayanamsa is not recognised"
+    parameter: ayanamsa
+    hint: "Use one of the values in `supported`"
+    extensions: []
+    reachable: false
+  - code: CONFLICTING_AYANAMSA_INPUTS
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#conflicting-ayanamsa-inputs
+    title: "Ayanamsa inputs conflict"
+    parameter: the second parameter seen
+    hint: "Send `zodiac=sidereal` with one `ayanamsa`"
+    extensions: []
+    reachable: false
+  - code: INVALID_ORB_TABLE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#invalid-orb-table
+    title: "An orb value is invalid"
+    parameter: the specific orb parameter
+    hint: "Use a number from 0 to 30, or orb_table=default"
+    extensions: []
+    reachable: false
+  - code: INVALID_LOT_EXPRESSION
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#invalid-lot-expression
+    title: "A lot expression could not be parsed"
+    parameter: lots
+    hint: "Check the lot grammar in the reference"
+    extensions: []
+    reachable: false
+  - code: UNKNOWN_LOT_TERM
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#unknown-lot-term
+    title: "A lot term is not recognised"
+    parameter: lots
+    hint: "Use terms from `supported`"
+    extensions: []
+    reachable: false
+  - code: PERFECTION_BUDGET_EXCEEDED
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#perfection-budget-exceeded
+    title: "The perfection search exceeds its budget"
+    parameter: null
+    hint: "Narrow the window or reduce the aspect set"
+    extensions: []
+    reachable: false
+  - code: PERFECTION_WINDOW_TOO_LARGE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#perfection-window-too-large
+    title: "The perfection window is too large"
+    parameter: perfection_window_days
+    hint: "Use a window inside the cap named in `cap`"
+    extensions: []
+    reachable: false
+  - code: PERFECTION_WINDOW_UNSUPPORTED_COMBINATION
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#perfection-window-unsupported-combination
+    title: "That perfection combination is unsupported"
+    parameter: perfection_window_days
+    hint: "Drop one of the options named in `detail`"
+    extensions: []
+    reachable: false
+  - code: FIELD_NOT_COMPUTED
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#field-not-computed
+    title: "That field is refused by policy"
+    parameter: fields
+    hint: "Remove the field; see `meta.not_computed`"
+    extensions: []
+    reachable: true
+  - code: CLUSTER_PARAMETERS_REQUIRED
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#cluster-parameters-required
+    title: "Cluster parameters are incomplete"
+    parameter: cluster_max_gap_deg
+    hint: "Send the cluster parameters together, per the reference"
+    extensions: []
+    reachable: false
+  - code: TIME_REQUIRED_FOR_HOUSES
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#time-required-for-houses
+    title: "Houses need a time"
+    parameter: time_known
+    hint: "Send a birth time, or call /v2/chart which returns the time-independent parts"
+    extensions: []
+    reachable: false
+  - code: HOUSE_SYSTEM_UNDEFINED
+    status: 422
+    type: https://www.cyclecalcs.com/api/errors.html#house-system-undefined
+    title: "That house system is undefined at this latitude"
+    parameter: houses
+    hint: "Use whole_sign, equal or porphyry, which are defined at every latitude, or drop on_undefined"
+    extensions: []
+    reachable: false
+  - code: UNKNOWN_HOUSE_SYSTEM
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#unknown-house-system
+    title: "That house system is not implemented"
+    parameter: houses
+    hint: "Use one of the values in `supported`"
+    extensions: []
+    reachable: false
+  - code: UNKNOWN_ASPECT
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#unknown-aspect
+    title: "That aspect is not recognised"
+    parameter: aspects
+    hint: "Use one of the values in `supported`"
+    extensions: []
+    reachable: false
+  - code: TIMEZONE_DATABASE_UNAVAILABLE
+    status: 503
+    type: https://www.cyclecalcs.com/api/errors.html#timezone-database-unavailable
+    title: "The time zone database is unavailable"
+    parameter: null
+    hint: "Retry after the number of seconds in Retry-After"
+    extensions: []
+    reachable: true
+  - code: PARAMETER_TOO_LONG
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#parameter-too-long
+    title: "A parameter value is too long"
+    parameter: varies
+    hint: "Shorten the value"
+    extensions: []
+    reachable: true
+  - code: TOO_MANY_PARAMETERS
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#too-many-parameters
+    title: "Too many distinct parameters"
+    parameter: null
+    hint: "Send fewer parameters"
+    extensions: ["cap"]
+    reachable: true
+  - code: URI_TOO_LONG
+    status: 414
+    type: https://www.cyclecalcs.com/api/errors.html#uri-too-long
+    title: "The request URI is too long"
+    parameter: null
+    hint: "Shorten the query string"
+    extensions: []
+    reachable: true
+  - code: INVALID_CHARACTER
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#invalid-character
+    title: "A value contains a control character"
+    parameter: varies
+    hint: "Remove the control character"
+    extensions: []
+    reachable: true
+  - code: COMPUTE_BUDGET_EXCEEDED
+    status: 503
+    type: https://www.cyclecalcs.com/api/errors.html#compute-budget-exceeded
+    title: "The computation budget was exhausted"
+    parameter: null
+    hint: "Retry with a smaller request"
+    extensions: []
+    reachable: true
+  - code: RESPONSE_TOO_LARGE
+    status: 413
+    type: https://www.cyclecalcs.com/api/errors.html#response-too-large
+    title: "The response exceeds the hard size cap"
+    parameter: null
+    hint: "Narrow the request with `fields`, `verbosity=compact` or a smaller range"
+    extensions: []
+    reachable: true
+  - code: BAD_ECLIPSE_TYPE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-eclipse-type
+    title: "Unknown eclipse type"
+    parameter: type
+    hint: "Omit the parameter to receive both"
+    extensions: []
+    reachable: true
+  - code: BAD_ECLIPSE_DIRECTION
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-eclipse-direction
+    title: "Unknown eclipse direction"
+    parameter: direction
+    hint: "Use direction=range with start and end to list a period"
+    extensions: []
+    reachable: true
+  - code: BAD_CYCLE_KEY
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-cycle-key
+    title: "Unknown cycle key"
+    parameter: keys
+    hint: "The full key list is at /v2/enums?set=cycle_keys"
+    extensions: ["supported"]
+    reachable: true
+  - code: BAD_PHASE_SELECTOR
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-phase-selector
+    title: "Unknown phase selector"
+    parameter: phases
+    hint: "Accepted values: new_moon, first_quarter, full_moon, last_quarter"
+    extensions: ["supported"]
+    reachable: true
+  - code: UNKNOWN_SHOWER
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#unknown-shower
+    title: "Unknown meteor shower"
+    parameter: shower
+    hint: "Use an IAU three-letter code such as PER, or omit the parameter for every active shower"
+    extensions: []
+    reachable: false
+  - code: TOO_MANY_SHOWERS
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#too-many-showers
+    title: "Too many showers"
+    parameter: shower
+    hint: "Omit the parameter to receive every qualifying shower"
+    extensions: []
+    reachable: false
+  - code: BAD_PAIR
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-pair
+    title: "The pair names one target twice"
+    parameter: b
+    hint: "Name two different targets"
+    extensions: []
+    reachable: true
+  - code: BAD_PAIRS
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-pairs
+    title: "Malformed pair list"
+    parameter: pairs
+    hint: "Write each pair as two body names joined by a hyphen, for example jupiter-saturn, and separate pairs with commas"
+    extensions: []
+    reachable: true
+  - code: TOO_MANY_PAIRS
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#too-many-pairs
+    title: "Too many pairs"
+    parameter: pairs
+    hint: "Send fewer bodies, or list the pairs you want with pairs="
+    extensions: ["cap"]
+    reachable: true
+  - code: BAD_MOTION
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-motion
+    title: "Unknown motion filter"
+    parameter: motion
+    hint: "Use one of the values in `supported`"
+    extensions: []
+    reachable: true
+  - code: BAD_HEMISPHERE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-hemisphere
+    title: "Unknown hemisphere"
+    parameter: hemisphere
+    hint: "Use north or south"
+    extensions: ["supported"]
+    reachable: true
+  - code: BAD_NODE_MODEL
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-node-model
+    title: "Unknown node model"
+    parameter: node_model
+    hint: "Use one of the values in `supported`"
+    extensions: []
+    reachable: true
+  - code: BAD_LIMITING_MAGNITUDE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-limiting-magnitude
+    title: "Limiting magnitude out of range"
+    parameter: limiting_magnitude
+    hint: "6.0 is a dark rural sky. 4.5 is a bright suburb"
+    extensions: []
+    reachable: false
+  - code: BAD_CALENDAR_SOURCE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-calendar-source
+    title: "Unknown calendar source"
+    parameter: sources
+    hint: "Sources are listed at /v2/enums?set=calendar_sources"
+    extensions: []
+    reachable: false
+  - code: TOO_MANY_CALENDAR_SOURCES
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#too-many-calendar-sources
+    title: "Too many calendar sources"
+    parameter: sources
+    hint: "Send fewer sources"
+    extensions: []
+    reachable: false
+  - code: BAD_ALARM
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-alarm
+    title: "Malformed alarm"
+    parameter: alarm
+    hint: "Use a number and a unit, for example 30m, 2h or 1d, up to 7d. Send up to three, separated by commas"
+    extensions: []
+    reachable: false
+  - code: QUERY_TOO_SHORT
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#query-too-short
+    title: "Search text too short"
+    parameter: q
+    hint: "Type more of the place name"
+    extensions: []
+    reachable: true
+  - code: SKY_CLASS_REQUIRED
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#sky-class-required
+    title: "Sky darkness not stated"
+    parameter: bortle
+    hint: "Send bortle=1 to 9, or nelm=<naked-eye limiting magnitude>. CycleCalcs will not assume a sky class for you"
+    extensions: ["supported"]
+    reachable: true
+  - code: BAD_BORTLE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-bortle
+    title: "Bad Bortle class"
+    parameter: bortle
+    hint: "Use a whole Bortle class from 1 to 9"
+    extensions: ["cap", "supported"]
+    reachable: true
+  - code: BAD_NELM
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-nelm
+    title: "Bad limiting magnitude"
+    parameter: nelm
+    hint: "Use a naked-eye limiting magnitude from 2.0 to 8.5"
+    extensions: ["cap"]
+    reachable: true
+  - code: BAD_APERTURE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-aperture
+    title: "Bad aperture"
+    parameter: aperture_mm
+    hint: "Give the aperture in millimetres, from 5 to 5000"
+    extensions: ["cap"]
+    reachable: true
+  - code: BAD_SEXTANT_ALTITUDE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-sextant-altitude
+    title: "Bad sextant altitude"
+    parameter: hs
+    hint: "Send the sextant reading as decimal degrees, or as DD:MM.M, for example 27:48.0"
+    extensions: []
+    reachable: false
+  - code: BAD_INDEX_ERROR
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-index-error
+    title: "Bad index error"
+    parameter: index_error_arcmin
+    hint: "Positive is on the arc and is subtracted from the reading"
+    extensions: []
+    reachable: false
+  - code: BAD_HEIGHT_OF_EYE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-height-of-eye
+    title: "Bad height of eye"
+    parameter: height_of_eye_m
+    hint: "Give the height of eye in metres, from 0 to 5000"
+    extensions: []
+    reachable: false
+  - code: BAD_MOON_ALTITUDE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#bad-moon-altitude
+    title: "Bad Moon altitude threshold"
+    parameter: moon_altitude_max_deg
+    hint: "Give an altitude in degrees from -90 to 90"
+    extensions: []
+    reachable: true
+  - code: OUTSIDE_MODEL_RANGE
+    status: 400
+    type: https://www.cyclecalcs.com/api/errors.html#outside-model-range
+    title: "Outside the model's range"
+    parameter: varies
+    hint: "Varies by endpoint"
+    extensions: []
+    reachable: true
+  - code: DATASET_UNAVAILABLE
+    status: 503
+    type: https://www.cyclecalcs.com/api/errors.html#dataset-unavailable
+    title: "A required dataset is unavailable"
+    parameter: null
+    hint: "See https://www.cyclecalcs.com/api/status.html"
+    extensions: []
+    reachable: true
+  - code: INVALID_KEY
+    status: 401
+    type: https://www.cyclecalcs.com/api/errors.html#invalid-key
+    title: "The API key is not valid"
+    parameter: null
+    hint: "Remove the key to call anonymously; see /api/keys.html"
+    extensions: []
+    reachable: false
+  - code: REVOKED_KEY
+    status: 401
+    type: https://www.cyclecalcs.com/api/errors.html#revoked-key
+    title: "This API key has been revoked"
+    parameter: null
+    hint: "See /api/keys.html"
+    extensions: []
+    reachable: false
+  - code: EXPIRED_KEY
+    status: 401
+    type: https://www.cyclecalcs.com/api/errors.html#expired-key
+    title: "This API key has expired"
+    parameter: null
+    hint: "See /api/keys.html"
+    extensions: []
+    reachable: false
+  - code: UNKNOWN_ENDPOINT
+    status: 404
+    type: https://www.cyclecalcs.com/api/errors.html#unknown-endpoint
+    title: "No such endpoint"
+    parameter: null
+    hint: "Check the path against the endpoint list at /v2"
+    extensions: ["supported"]
+    reachable: true
+  - code: METHOD_NOT_ALLOWED
+    status: 405
+    type: https://www.cyclecalcs.com/api/errors.html#method-not-allowed
+    title: "This endpoint accepts GET, HEAD and OPTIONS only"
+    parameter: null
+    hint: "Use GET, HEAD or OPTIONS"
+    extensions: []
+    reachable: true
+  - code: ENDPOINT_RETIRED
+    status: 410
+    type: https://www.cyclecalcs.com/api/errors.html#endpoint-retired
+    title: "This endpoint has been retired"
+    parameter: null
+    hint: "Use the replacement named in `hint`; see /api/versioning.html"
+    extensions: []
+    reachable: true
+  - code: ENDPOINT_BLOCKED
+    status: 503
+    type: https://www.cyclecalcs.com/api/errors.html#endpoint-blocked
+    title: "This endpoint is not available yet"
+    parameter: null
+    hint: "See /api/status.html"
+    extensions: []
+    reachable: true
+  - code: ENDPOINT_WITHDRAWN
+    status: 410
+    type: https://www.cyclecalcs.com/api/errors.html#endpoint-withdrawn
+    title: "Endpoint withdrawn"
+    parameter: null
+    hint: "See /methodology.html#data-sources for the current data provenance and the changelog for the withdrawal record"
+    extensions: []
+    reachable: true
+  - code: RATE_LIMITED
+    status: 429
+    type: https://www.cyclecalcs.com/api/errors.html#rate-limited
+    title: "Too many requests"
+    parameter: null
+    hint: "Wait the number of seconds in Retry-After, cache the response, or use the range form to fetch many instants in one call"
+    extensions: []
+    reachable: true
+  - code: INTERNAL_ERROR
+    status: 500
+    type: https://www.cyclecalcs.com/api/errors.html#internal-error
+    title: "Something went wrong computing this answer"
+    parameter: null
+    hint: "Retry once; if it persists, report it with the request_id"
+    extensions: []
+    reachable: true
+  - code: COMPUTATION_FAILED
+    status: 500
+    type: https://www.cyclecalcs.com/api/errors.html#computation-failed
+    title: "The computation did not converge"
+    parameter: null
+    hint: "Report it with the request_id; include the exact URL"
+    extensions: []
+    reachable: true
+  - code: SERVICE_UNAVAILABLE
+    status: 503
+    type: https://www.cyclecalcs.com/api/errors.html#service-unavailable
+    title: "The service is temporarily unavailable"
+    parameter: null
+    hint: "Retry after the number of seconds in Retry-After"
+    extensions: []
+    reachable: true

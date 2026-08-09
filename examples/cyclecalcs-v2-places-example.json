@@ -1,0 +1,196 @@
+{
+  "endpoint": "/v2/places",
+  "computed_at": "2026-08-01T00:00:00.000Z",
+  "query": {
+    "q": "cambridge",
+    "id": null,
+    "latitude": null,
+    "longitude": null,
+    "mode": "instant",
+    "country": null,
+    "region": null,
+    "limit": 5,
+    "min_population": 0,
+    "radius_km": null,
+    "shape": "nested",
+    "precision": 6,
+    "pretty": 1,
+    "verbosity": "full",
+    "format": "json",
+    "resolved_from": "q",
+    "ignored": []
+  },
+  "data": {
+    "mode": "search",
+    "matched": 12,
+    "found": 5,
+    "results": [
+      {
+        "place_id": "gb-n52200-e000117",
+        "name": "Cambridge",
+        "region": "England",
+        "country": "United Kingdom",
+        "country_code": "GB",
+        "latitude_deg": 52.2,
+        "longitude_deg": 0.117,
+        "timezone": "Europe/London",
+        "population": 146000,
+        "match": "exact",
+        "rank": 1,
+        "label": "Cambridge, England, United Kingdom",
+        "coordinate_precision_m": 110
+      },
+      {
+        "place_id": "ca-n43360-w080313",
+        "name": "Cambridge",
+        "region": "Ontario",
+        "country": "Canada",
+        "country_code": "CA",
+        "latitude_deg": 43.36,
+        "longitude_deg": -80.313,
+        "timezone": "America/Toronto",
+        "population": 130000,
+        "match": "exact",
+        "rank": 2,
+        "label": "Cambridge, Ontario, Canada",
+        "coordinate_precision_m": 110
+      },
+      {
+        "place_id": "us-n42375-w071106",
+        "name": "Cambridge",
+        "region": "Massachusetts",
+        "country": "United States",
+        "country_code": "US",
+        "latitude_deg": 42.375,
+        "longitude_deg": -71.106,
+        "timezone": "America/New_York",
+        "population": 110000,
+        "match": "exact",
+        "rank": 3,
+        "label": "Cambridge, Massachusetts, United States",
+        "coordinate_precision_m": 110
+      },
+      {
+        "place_id": "nz-s37878-e175440",
+        "name": "Cambridge",
+        "region": "Waikato Region",
+        "country": "New Zealand",
+        "country_code": "NZ",
+        "latitude_deg": -37.878,
+        "longitude_deg": 175.44,
+        "timezone": "Pacific/Auckland",
+        "population": 15000,
+        "match": "exact",
+        "rank": 4,
+        "label": "Cambridge, Waikato Region, New Zealand",
+        "coordinate_precision_m": 110
+      },
+      {
+        "place_id": "us-n38563-w076079",
+        "name": "Cambridge",
+        "region": "Maryland",
+        "country": "United States",
+        "country_code": "US",
+        "latitude_deg": 38.563,
+        "longitude_deg": -76.079,
+        "timezone": "America/New_York",
+        "population": 13000,
+        "match": "exact",
+        "rank": 5,
+        "label": "Cambridge, Maryland, United States",
+        "coordinate_precision_m": 110
+      }
+    ],
+    "index": {
+      "source": "GeoNames cities5000",
+      "places_total": 69502,
+      "population_floor": 5000,
+      "coordinate_precision_m": 110,
+      "population_rounding": 1000,
+      "merged_colocated_rows": 35,
+      "licence": "CC BY 4.0",
+      "credit": "Place names and coordinates from GeoNames (geonames.org), CC BY 4.0.",
+      "note": "Coordinates are the GeoNames place centroid, stored to a thousandth of a degree, so they are good to about 110 m. A city is kilometres across; for anything where your exact spot matters, send lat and lon.",
+      "tiers_consulted": [
+        "top",
+        "rest"
+      ]
+    }
+  },
+  "warnings": [
+    {
+      "code": "place_ambiguous",
+      "message": "\"cambridge\" matched 12 places. They are ranked exact before prefix before substring, then by population, then by place_id. Send country, or id=<place_id>, to be certain.",
+      "field": "results",
+      "value": 12
+    },
+    {
+      "code": "place_index_tier_2",
+      "message": "The long-tail index was consulted because the top tier of 12,000 places did not answer this query on its own.",
+      "field": "results",
+      "value": null
+    },
+    {
+      "code": "truncated_results",
+      "message": "limit=5 cut this list from 12 matches to 5.",
+      "field": "matched",
+      "value": "12"
+    }
+  ],
+  "links": {
+    "self": "https://www.cyclecalcs.com/v2/places?limit=5&q=cambridge",
+    "docs": "https://www.cyclecalcs.com/api/reference.html#places",
+    "spec": "https://www.cyclecalcs.com/v2/openapi.json",
+    "page": "https://www.cyclecalcs.com/api.html"
+  },
+  "meta": {
+    "api_version": "2",
+    "contract_version": "2.0.0",
+    "engine": {
+      "name": "Astronomy Engine",
+      "license": "MIT",
+      "author": "Don Cross",
+      "version": "2.1.19",
+      "version_source": "upstream_sha256_match",
+      "sha256": "068f1445ed0c636c94818fe6d20d7d125120e605e0bab9fc4675c3d531be5ad7",
+      "vendored": true,
+      "credit": "astronomy-engine (MIT, Copyright (c) 2019-2023 Don Cross)"
+    },
+    "tzdb": "2026b",
+    "rights": "attribution_required",
+    "attribution": {
+      "required": true,
+      "text": "Place names and coordinates from GeoNames (geonames.org), CC BY 4.0.",
+      "sources": [
+        {
+          "dataset": "GeoNames place index",
+          "holder": "GeoNames",
+          "licence": "CC BY 4.0",
+          "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+          "credit": "Place names and coordinates from GeoNames (geonames.org), CC BY 4.0.",
+          "url": "https://www.geonames.org/"
+        }
+      ]
+    },
+    "notice_url": "https://www.cyclecalcs.com/methodology.html#data-sources",
+    "cache": {
+      "class": "reference",
+      "deterministic": true
+    },
+    "accuracy": {
+      "statement": "Positions are arcminute class for the Sun, Moon and planets across 1700 to 2200, degrading toward the ends of that window.",
+      "residuals_url": "https://www.cyclecalcs.com/api/accuracy.html"
+    },
+    "method": {
+      "fold": "Names are matched case- and accent-insensitively: lowercased, NFD-normalised, combining marks U+0300 to U+036F stripped. \"zurich\" finds the accented Swiss city.",
+      "ranking": "exact before prefix before substring, then larger population first, then lower place_id ascending. The last is a total order, so the same query returns the same rows in the same order on every node, forever.",
+      "determinism": "A client that wants determinism resolves once through /v2/places, stores the place_id, and sends id: forever after.",
+      "aliases": "Where two GeoNames rows share a centroid to within about 55 m they are the same physical place under two names. The more populous keeps the row and the other becomes a searchable alias, so no name was lost to make the identifier unique."
+    },
+    "budget": {
+      "engine_calls": 0
+    }
+  },
+  "attribution": "Place names and coordinates from GeoNames (geonames.org), CC BY 4.0.",
+  "docs": "https://www.cyclecalcs.com/api/reference.html#places"
+}

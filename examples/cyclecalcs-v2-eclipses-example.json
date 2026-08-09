@@ -1,0 +1,417 @@
+{
+  "endpoint": "/v2/eclipses",
+  "computed_at": "2026-08-01T00:00:00.000Z",
+  "query": {
+    "count": 2,
+    "mode": "range",
+    "resolved_from": "at",
+    "latitude": 51.4778,
+    "longitude": -0.0015,
+    "elevation_m": 11,
+    "tz": "UTC",
+    "utc_offset_seconds": 0,
+    "utc_offset_iso": "+00:00",
+    "is_dst": false,
+    "timezone_source": "default",
+    "time_format": "iso",
+    "format": "json",
+    "shape": "nested",
+    "precision": 6,
+    "pretty": 1,
+    "verbosity": "full",
+    "direction": "next",
+    "type": "both",
+    "visible_only": false,
+    "include": [
+      "global",
+      "saros",
+      "local",
+      "contacts"
+    ],
+    "ignored": [],
+    "rows": 4
+  },
+  "data": {
+    "window": {
+      "at": "2026-07-28T21:30:00.000Z",
+      "measured_from": "at",
+      "direction": "next"
+    },
+    "type": "both",
+    "eclipse_count": 4,
+    "eclipses": [
+      {
+        "type": "solar",
+        "kind": "total",
+        "label": "Solar eclipse (total)",
+        "peak": "2026-08-12T17:45:46.794Z",
+        "peak_precision_seconds": 1,
+        "days_from_reference": 14.844292,
+        "href": "https://www.cyclecalcs.com/eclipses/",
+        "gamma": 0.897578,
+        "gamma_definition": "The perpendicular distance from the Earth's centre to the shadow axis, in Earth radii, positive when the axis passes north of the centre. The magnitude comes from the engine's own geoid-aware distance and the sign from the shadow geometry.",
+        "obscuration_fraction": 1,
+        "obscuration_source": "engine",
+        "shadow_axis_distance_km": 5724.875907,
+        "greatest_eclipse_latitude_deg": 65.215531,
+        "greatest_eclipse_longitude_deg": -25.249464,
+        "eclipse_magnitude": 1.039988,
+        "eclipse_magnitude_phase": "central",
+        "saros": {
+          "series": 126,
+          "member_number": null,
+          "member_number_source": "unverified",
+          "member_number_blocked_on": "The member number needs the epoch of member 1 of each of the 223 series, which is catalogue data. The NASA GSFC five-millennium catalogue is the obvious source and is very likely a public-domain United States Government work, but that has not been verified to the standard this project applies to a licence question. It is never guessed.",
+          "series_definition": "The van den Bergh series number, computed in closed form. Eclipses one saros apart, about 6585.3211 days, share a series and are geometrically similar."
+        },
+        "local": {
+          "visible": true,
+          "visibility_extent": "fully_visible",
+          "kind": "partial",
+          "eclipse_magnitude": 0.924998,
+          "obscuration_fraction": 0.912749,
+          "obscuration_source": "engine",
+          "maximum_above_horizon": true,
+          "best_observable": null,
+          "magnitude_definition": "The fraction of the Sun's diameter covered at local maximum, which happens with the Sun above your horizon.",
+          "contacts": [
+            {
+              "kind": "first_contact",
+              "instant": "2026-08-12T17:17:16.185Z",
+              "altitude_deg": 18.982289,
+              "azimuth_deg": 270.163433,
+              "above_horizon": true
+            },
+            {
+              "kind": "maximum",
+              "instant": "2026-08-12T18:13:13.640Z",
+              "altitude_deg": 10.352524,
+              "azimuth_deg": 280.903917,
+              "above_horizon": true
+            },
+            {
+              "kind": "fourth_contact",
+              "instant": "2026-08-12T19:06:11.193Z",
+              "altitude_deg": 2.598045,
+              "azimuth_deg": 291.023885,
+              "above_horizon": true
+            }
+          ],
+          "duration_central_seconds": null,
+          "duration_central_phase": null,
+          "sun_sets_during_eclipse": false,
+          "sun_rises_during_eclipse": false,
+          "verdict": "This is a partial eclipse from here, covering 92.5 per cent of the Sun's diameter at maximum, with the Sun 10.4 deg above the horizon.",
+          "detectable": true
+        }
+      },
+      {
+        "type": "lunar",
+        "kind": "partial",
+        "label": "Lunar eclipse (partial)",
+        "peak": "2026-08-28T04:12:49.076Z",
+        "peak_precision_seconds": 1,
+        "days_from_reference": 30.279735,
+        "href": "https://www.cyclecalcs.com/eclipses/",
+        "durations": {
+          "penumbral_minutes": 338.4358,
+          "partial_minutes": 198.842993,
+          "total_minutes": 0
+        },
+        "gamma": 0.497203,
+        "gamma_definition": "The perpendicular distance from the Earth's shadow axis to the Moon, in Earth radii, positive when the Moon passes north of the axis.",
+        "umbral_magnitude": 0.936719,
+        "penumbral_magnitude": 1.991408,
+        "umbral_obscuration_fraction": 0.966056,
+        "obscuration_definition": "The fraction of the lunar disc inside the UMBRA, the Earth's inner shadow. It is 0 for a penumbral eclipse by definition, which does not mean nothing happens: see penumbral_magnitude.",
+        "obscuration_source": "engine",
+        "contacts_utc": [
+          {
+            "kind": "penumbral_begin",
+            "instant": "2026-08-28T01:23:36.002Z"
+          },
+          {
+            "kind": "partial_begin",
+            "instant": "2026-08-28T02:33:23.786Z"
+          },
+          {
+            "kind": "maximum",
+            "instant": "2026-08-28T04:12:49.076Z"
+          },
+          {
+            "kind": "partial_end",
+            "instant": "2026-08-28T05:52:14.366Z"
+          },
+          {
+            "kind": "penumbral_end",
+            "instant": "2026-08-28T07:02:02.150Z"
+          }
+        ],
+        "semiduration_penumbral_minutes": 169.2179,
+        "semiduration_partial_minutes": 99.421496,
+        "semiduration_total_minutes": 0,
+        "saros": {
+          "series": 138,
+          "member_number": null,
+          "member_number_source": "unverified",
+          "member_number_blocked_on": "The member number needs the epoch of member 1 of each of the 223 series, which is catalogue data. The NASA GSFC five-millennium catalogue is the obvious source and is very likely a public-domain United States Government work, but that has not been verified to the standard this project applies to a licence question. It is never guessed.",
+          "series_definition": "The van den Bergh series number, computed in closed form. Eclipses one saros apart, about 6585.3211 days, share a series and are geometrically similar."
+        },
+        "local": {
+          "visible": true,
+          "visibility_extent": "partly_visible",
+          "moon_altitude_at_maximum_deg": 7.918228,
+          "moon_azimuth_at_maximum_deg": 242.908212,
+          "visible_contacts": [
+            "penumbral_begin",
+            "partial_begin",
+            "maximum"
+          ],
+          "contacts": [
+            {
+              "kind": "penumbral_begin",
+              "instant": "2026-08-28T01:23:36.002Z",
+              "altitude_deg": 24.856546,
+              "azimuth_deg": 204.195731,
+              "above_horizon": true
+            },
+            {
+              "kind": "partial_begin",
+              "instant": "2026-08-28T02:33:23.786Z",
+              "altitude_deg": 19.384738,
+              "azimuth_deg": 221.340958,
+              "above_horizon": true
+            },
+            {
+              "kind": "maximum",
+              "instant": "2026-08-28T04:12:49.076Z",
+              "altitude_deg": 7.918228,
+              "azimuth_deg": 242.908212,
+              "above_horizon": true
+            },
+            {
+              "kind": "partial_end",
+              "instant": "2026-08-28T05:52:14.366Z",
+              "altitude_deg": -5.545434,
+              "azimuth_deg": 262.265512,
+              "above_horizon": false
+            },
+            {
+              "kind": "penumbral_end",
+              "instant": "2026-08-28T07:02:02.150Z",
+              "altitude_deg": -15.89045,
+              "azimuth_deg": 275.697285,
+              "above_horizon": false
+            }
+          ],
+          "moonset_during_eclipse": "2026-08-28T05:15:24.774Z",
+          "moonrise_during_eclipse": null,
+          "verdict": "Part of this eclipse happens with the Moon below your horizon. visible_contacts lists the phases you can actually see.",
+          "note": "A lunar eclipse is one event for the whole night side, so the only local question is whether the Moon is above your horizon at each contact. above_horizon says exactly which parts you lose.",
+          "detectable": true
+        }
+      },
+      {
+        "type": "solar",
+        "kind": "annular",
+        "label": "Solar eclipse (annular)",
+        "peak": "2027-02-06T15:59:32.957Z",
+        "peak_precision_seconds": 1,
+        "days_from_reference": 192.77052,
+        "href": "https://www.cyclecalcs.com/eclipses/",
+        "gamma": -0.294995,
+        "gamma_definition": "The perpendicular distance from the Earth's centre to the shadow axis, in Earth radii, positive when the axis passes north of the centre. The magnitude comes from the engine's own geoid-aware distance and the sign from the shadow geometry.",
+        "obscuration_fraction": 0.861451,
+        "obscuration_source": "engine",
+        "shadow_axis_distance_km": 1881.520156,
+        "greatest_eclipse_latitude_deg": -31.294889,
+        "greatest_eclipse_longitude_deg": -48.465096,
+        "eclipse_magnitude": 0.929266,
+        "eclipse_magnitude_phase": "central",
+        "saros": {
+          "series": 131,
+          "member_number": null,
+          "member_number_source": "unverified",
+          "member_number_blocked_on": "The member number needs the epoch of member 1 of each of the 223 series, which is catalogue data. The NASA GSFC five-millennium catalogue is the obvious source and is very likely a public-domain United States Government work, but that has not been verified to the standard this project applies to a licence question. It is never guessed.",
+          "series_definition": "The van den Bergh series number, computed in closed form. Eclipses one saros apart, about 6585.3211 days, share a series and are geometrically similar."
+        },
+        "local": {
+          "visible": false,
+          "visibility_extent": "not_visible",
+          "note": "No part of this eclipse is above the horizon from this location."
+        }
+      },
+      {
+        "type": "lunar",
+        "kind": "penumbral",
+        "label": "Lunar eclipse (penumbral)",
+        "peak": "2027-02-20T23:12:44.142Z",
+        "peak_precision_seconds": 1,
+        "days_from_reference": 207.071344,
+        "href": "https://www.cyclecalcs.com/eclipses/",
+        "durations": {
+          "penumbral_minutes": 241.734403,
+          "partial_minutes": 0,
+          "total_minutes": 0
+        },
+        "gamma": -1.048703,
+        "gamma_definition": "The perpendicular distance from the Earth's shadow axis to the Moon, in Earth radii, positive when the Moon passes north of the axis.",
+        "umbral_magnitude": -0.049316,
+        "penumbral_magnitude": 0.953177,
+        "umbral_obscuration_fraction": 0,
+        "obscuration_definition": "The fraction of the lunar disc inside the UMBRA, the Earth's inner shadow. It is 0 for a penumbral eclipse by definition, which does not mean nothing happens: see penumbral_magnitude.",
+        "obscuration_source": "engine",
+        "contacts_utc": [
+          {
+            "kind": "penumbral_begin",
+            "instant": "2027-02-20T21:11:52.110Z"
+          },
+          {
+            "kind": "maximum",
+            "instant": "2027-02-20T23:12:44.142Z"
+          },
+          {
+            "kind": "penumbral_end",
+            "instant": "2027-02-21T01:13:36.174Z"
+          }
+        ],
+        "semiduration_penumbral_minutes": 120.867202,
+        "semiduration_partial_minutes": 0,
+        "semiduration_total_minutes": 0,
+        "saros": {
+          "series": 143,
+          "member_number": null,
+          "member_number_source": "unverified",
+          "member_number_blocked_on": "The member number needs the epoch of member 1 of each of the 223 series, which is catalogue data. The NASA GSFC five-millennium catalogue is the obvious source and is very likely a public-domain United States Government work, but that has not been verified to the standard this project applies to a licence question. It is never guessed.",
+          "series_definition": "The van den Bergh series number, computed in closed form. Eclipses one saros apart, about 6585.3211 days, share a series and are geometrically similar."
+        },
+        "local": {
+          "visible": true,
+          "visibility_extent": "fully_visible",
+          "moon_altitude_at_maximum_deg": 45.915202,
+          "moon_azimuth_at_maximum_deg": 158.575906,
+          "visible_contacts": [
+            "penumbral_begin",
+            "maximum",
+            "penumbral_end"
+          ],
+          "contacts": [
+            {
+              "kind": "penumbral_begin",
+              "instant": "2027-02-20T21:11:52.110Z",
+              "altitude_deg": 34.766651,
+              "azimuth_deg": 122.969536,
+              "above_horizon": true
+            },
+            {
+              "kind": "maximum",
+              "instant": "2027-02-20T23:12:44.142Z",
+              "altitude_deg": 45.915202,
+              "azimuth_deg": 158.575906,
+              "above_horizon": true
+            },
+            {
+              "kind": "penumbral_end",
+              "instant": "2027-02-21T01:13:36.174Z",
+              "altitude_deg": 45.453944,
+              "azimuth_deg": 200.773319,
+              "above_horizon": true
+            }
+          ],
+          "moonset_during_eclipse": null,
+          "moonrise_during_eclipse": null,
+          "verdict": "The whole eclipse happens with the Moon above your horizon, 45.9 deg up at maximum.",
+          "note": "A lunar eclipse is one event for the whole night side, so the only local question is whether the Moon is above your horizon at each contact. above_horizon says exactly which parts you lose.",
+          "detectable": true
+        }
+      }
+    ],
+    "next_visible": {
+      "solar": {
+        "same_as_next_global": true,
+        "peak": "2026-08-12T18:13:13.640Z",
+        "kind": "partial",
+        "altitude_deg": 10.352524,
+        "maximum_above_horizon": true,
+        "obscuration_fraction": 0.912749,
+        "eclipse": null
+      },
+      "lunar": {
+        "same_as_next_global": true,
+        "peak": "2026-08-28T04:12:49.076Z",
+        "kind": "partial",
+        "altitude_deg": 7.918226
+      }
+    },
+    "next_visible_note": "A solar eclipse reaches only part of the Earth, so the next eclipse ANYWHERE is usually not the next one you can see. The eclipses array answers the first question and this answers the second.",
+    "summary": "The next solar eclipse is on 2026-08-12 and is total where the shadow axis falls. From your location it is partial, covering 92 per cent of the Sun's diameter."
+  },
+  "warnings": [],
+  "links": {
+    "self": "https://www.cyclecalcs.com/v2/eclipses?at=2026-07-28T21%3A30%3A00Z&count=2&elevation_m=11&lat=51.4778&lon=-0.0015",
+    "docs": "https://www.cyclecalcs.com/api/reference.html#eclipses",
+    "spec": "https://www.cyclecalcs.com/v2/openapi.json",
+    "page": "https://www.cyclecalcs.com/eclipses/",
+    "explain": "https://www.cyclecalcs.com/learn/eclipses.html"
+  },
+  "meta": {
+    "api_version": "2",
+    "contract_version": "2.0.0",
+    "engine": {
+      "name": "Astronomy Engine",
+      "license": "MIT",
+      "author": "Don Cross",
+      "version": "2.1.19",
+      "version_source": "upstream_sha256_match",
+      "sha256": "068f1445ed0c636c94818fe6d20d7d125120e605e0bab9fc4675c3d531be5ad7",
+      "vendored": true,
+      "credit": "astronomy-engine (MIT, Copyright (c) 2019-2023 Don Cross)"
+    },
+    "tzdb": "2026b",
+    "rights": "unrestricted",
+    "attribution": {
+      "required": false,
+      "text": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+      "sources": []
+    },
+    "notice_url": "https://www.cyclecalcs.com/methodology.html#data-sources",
+    "cache": {
+      "class": "fixed_instant",
+      "deterministic": true
+    },
+    "accuracy": {
+      "statement": "Positions are arcminute class for the Sun, Moon and planets across 1700 to 2200, degrading toward the ends of that window.",
+      "residuals_url": "https://www.cyclecalcs.com/api/accuracy.html"
+    },
+    "time": {
+      "scale_of_input": "UTC",
+      "ut1_source": "assumed equal to UTC; no IERS bulletin is loaded, so UT1 minus UTC may differ by up to 0.9 s",
+      "delta_t_seconds": 75.4,
+      "delta_t_model": "Espenak and Meeus"
+    },
+    "conventions": {
+      "umbra_enlargement_factor": 1.02,
+      "umbra_enlargement_note": "The Earth's umbra is measured about two percent larger than pure geometry predicts, because the atmosphere refracts and absorbs light at the limb. This is the classic Danjon convention and is what published magnitudes use. It is a CONVENTION, not a measurement, and it is the reason a computed umbral magnitude can differ from a published one by about 0.01.",
+      "sun_radius_km": 695700,
+      "earth_equatorial_radius_km": 6378.1366,
+      "moon_equatorial_radius_km": 1738.1,
+      "radius_note": "These are the vendored engine's own constants, used so the derived magnitudes are consistent with the engine's own output. They differ slightly from the general-purpose body_radius_km at /v2/conventions, which is an angular-size table."
+    },
+    "method": {
+      "paths_of_totality": "Never computed per request. include=path links a precomputed artefact when one exists.",
+      "saros_member": "Not computed. See saros.member_number_blocked_on.",
+      "hybrid_eclipses": "A HYBRID eclipse, annular near the ends of its track and total in the middle, is reported here as \"total\". The engine classifies an eclipse from the umbra at greatest eclipse only and has no hybrid value, and distinguishing one needs the shadow radius along the whole centre line, which is not computed per request. Known hybrids in this century include 2023-04-20, 2031-11-14 and 2049-11-25.",
+      "eclipse_kinds": [
+        "penumbral",
+        "partial",
+        "annular",
+        "total"
+      ]
+    },
+    "budget": {
+      "engine_calls": 202
+    }
+  },
+  "attribution": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+  "docs": "https://www.cyclecalcs.com/api/reference.html#eclipses"
+}

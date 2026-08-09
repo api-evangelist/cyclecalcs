@@ -1,0 +1,161 @@
+generated: '2026-08-09'
+method: searched
+source: https://www.cyclecalcs.com/v2/enums
+description: >-
+  CycleCalcs publishes its controlled vocabulary as a live API endpoint —
+  GET /v2/enums returns every enumerated value the API can emit or accept,
+  each set scoped to the endpoints that use it. 40 sets in all,
+  covering the body list, moon-phase names (northern and southern emoji
+  variants), rise/set statuses, event kinds, zodiac signs, compass points,
+  visibility phrases, the 74 warning codes, the 117 error codes, formats,
+  frames, cache classes, rights states, the 21 tracked astronomical cycles
+  and the explicit non-goals. Captured verbatim to
+  vocabulary/cyclecalcs-enums.json.
+docs: https://www.cyclecalcs.com/api/reference.html
+set_count: 40
+verbatim: vocabulary/cyclecalcs-enums.json
+sets:
+  - set: bodies
+    values: 11
+    used_by: [/v2/positions, /v2/rise-set]
+  - set: body_aliases_refused
+    values: 11
+    used_by: [/v2/positions, /v2/rise-set]
+  - set: moon_phase_names
+    values: 8
+    used_by: [/v2/moon, /v2/today]
+  - set: moon_phase_names_south
+    values: 8
+    used_by: [/v2/moon, /v2/today]
+  - set: rise_set_statuses
+    values: 6
+    used_by: [/v2/rise-set, /v2/sun, /v2/moon, /v2/today]
+  - set: day_anchors
+    values: 3
+    used_by: [/v2/rise-set, /v2/sun, /v2/moon, /v2/today]
+  - set: rise_set_event_kinds
+    values: 4
+    used_by: [/v2/rise-set, /v2/sun, /v2/moon, /v2/today]
+  - set: event_kinds
+    values: 48
+    used_by: [a, l, l]
+  - set: zodiac_signs
+    values: 12
+    used_by: [/v2/positions, /v2/sun, /v2/moon]
+  - set: compass_points
+    values: 16
+    used_by: [/v2/positions, /v2/sun, /v2/rise-set]
+  - set: visibility_phrases
+    values: 4
+    used_by: [/v2/today]
+  - set: warning_codes
+    values: 74
+    used_by: [a, l, l]
+  - set: error_codes
+    values: 117
+    used_by: [a, l, l]
+  - set: formats
+    values: 5
+    used_by: [a, l, l]
+  - set: frames_parameter
+    values: 3
+    used_by: [/v2/positions]
+  - set: shape
+    values: 2
+    used_by: [a, l, l]
+  - set: verbosity
+    values: 2
+    used_by: [a, l, l]
+  - set: ambiguous
+    values: 3
+    used_by: [/v2/positions, /v2/rise-set, /v2/sun, /v2/moon, /v2/time, /v2/today]
+  - set: nonexistent
+    values: 3
+    used_by: [/v2/positions, /v2/rise-set, /v2/sun, /v2/moon, /v2/time, /v2/today]
+  - set: time_format
+    values: 2
+    used_by: [a, l, l]
+  - set: frame_origin
+    values: 2
+    used_by: [/v2/positions]
+  - set: refraction
+    values: 2
+    used_by: [/v2/positions]
+  - set: hemisphere
+    values: 2
+    used_by: [/v2/moon]
+  - set: style
+    values: 3
+    used_by: [/v2/moon]
+  - set: rise_set_special
+    values: 2
+    used_by: [/v2/rise-set, /v2/sun, /v2/today]
+  - set: sun_position_bases
+    values: 3
+    used_by: [/v2/sun]
+  - set: cache_classes
+    values: 7
+    used_by: [a, l, l]
+  - set: rights
+    values: 2
+    used_by: [a, l, l]
+  - set: query_modes
+    values: 2
+    used_by: [/v2/positions, /v2/rise-set, /v2/sun, /v2/moon, /v2/time]
+  - set: timezone_sources
+    values: 3
+    used_by: [/v2/positions, /v2/rise-set, /v2/sun, /v2/moon, /v2/time, /v2/today]
+  - set: position_origins
+    values: 3
+    used_by: [/v2/positions, /v2/moon, /v2/sun]
+  - set: libration_favoured_limbs
+    values: 3
+    used_by: [/v2/moon]
+  - set: include_tokens
+    values: 5
+    used_by: [/v2/today]
+  - set: eclipse_kinds
+    values: 4
+    used_by: [/v2/today]
+  - set: cycle_keys
+    values: 21
+    used_by: [/v2/cycles]
+  - set: cycle_kinds
+    values: 4
+    used_by: [/v2/cycles]
+  - set: cycle_families
+    values: 9
+    used_by: [/v2/cycles]
+  - set: interval_kinds
+    values: 6
+    used_by: [/v2/twilight]
+  - set: interval_reasons
+    values: 8
+    used_by: [/v2/twilight]
+  - set: non_goals
+    values: 4
+    used_by: [a, l, l]
+notes:
+  frame_identifiers: >-
+    The frame IDENTIFIERS eqj, eqd, ect, ecl, hor and gal are defined at /v2/conventions under frames. They are not accepted values of the frames parameter, which takes the frames_parameter set.
+  rise_set_special: >-
+    rise_set.special is nullable: the two codes in the rise_set_special set are the only non-null values, and null means neither polar condition applies.
+  known_unreachable: >-
+    On warning_codes and error_codes, known_unreachable true means this version cannot produce the code and names the surface it belongs to. False means it is not known to be unreachable, which is weaker than a promise that you can reach it.
+  hemisphere: >-
+    The hemisphere parameter selects the phase EMOJI only. It does not affect limb orientation: that comes from bright_limb.orientation_angle_deg, which is derived from the observer position and is already correct in either hemisphere.
+attribution_register:
+  source: https://www.cyclecalcs.com/v2/attribution
+  verbatim: vocabulary/cyclecalcs-attribution.json
+  description: >-
+    A companion controlled register: every dataset behind every endpoint with
+    its holder, version, role, licence, credit line and the obligation it puts
+    on a caller. Records both `licence` and `license` spellings deliberately,
+    because spec-00 fixes meta.engine.license while the GeoNames register
+    entry is specified with `licence`.
+withheld:
+  - set: meteor_showers
+    reason: Withheld pending a licence review (stated on /api.html).
+  - field: saros_member_number
+    endpoint: /v2/eclipses
+    reason: Withheld pending a licence review; the series number is published.

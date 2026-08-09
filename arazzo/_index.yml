@@ -1,0 +1,21 @@
+generated: '2026-08-09'
+method: derived
+source: the arazzo/*.yml files in this repo
+description: >-
+  Native Arazzo 1.0.1 workflows stitching CycleCalcs's own operations into
+  real multi-step use cases. Every operationId is verified verbatim against
+  openapi/cyclecalcs-astronomy-openapi-original.json. Every step is a keyless
+  GET on the free Basic tier, so a fork runs as-is with no credentials.
+workflows:
+  - file: cyclecalcs-tonights-sky.yml
+    workflowId: tonightsSkyForAPlace
+    title: Tonight's sky for a place
+    summary: getPlaces to getToday to getDarkWindow — place name to an observing plan.
+  - file: cyclecalcs-eclipse-visibility.yml
+    workflowId: eclipseVisibleFromHere
+    title: Is the next eclipse visible from here
+    summary: getPlaces to getEclipses — a per-observer verdict with local contact times.
+  - file: cyclecalcs-sun-moon-calendar.yml
+    workflowId: sunAndMoonCalendar
+    title: Build a sun and moon calendar for a location
+    summary: getSun, getMoon and getPhases as ranged requests — a month in three calls.

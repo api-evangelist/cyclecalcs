@@ -1,0 +1,95 @@
+generated: '2026-08-09'
+method: derived
+source: >-
+  openapi/cyclecalcs-astronomy-openapi-original.json (components.schemas and
+  the shared parameter set) plus the published vocabulary at
+  https://www.cyclecalcs.com/v2/enums
+description: >-
+  CycleCalcs has no persistent resources and therefore no conventional entity
+  graph — it is a compute API, not a CRUD API. There are no ids to reference,
+  nothing to create or relate, and only three declared schemas: the response
+  Envelope, the Warning it carries, and the RFC 9457 Problem. What DOES have
+  structure is the query domain: every endpoint is a projection of one
+  observation (a body, an instant, an observer location, a frame), so the
+  model below records that observation grammar and the one entity the API
+  genuinely identifies — a Place, which carries a stable place_id.
+entities:
+  - name: Envelope
+    kind: response wrapper
+    schema: '#/components/schemas/Envelope'
+    description: >-
+      The nine-key v2 response envelope (spec-00 1.1). Every /v2 endpoint
+      returns exactly these keys, in this order, on every 200.
+    fields: [endpoint, computed_at, query, data, warnings, links, meta, attribution, docs]
+    relationships:
+      - has_many: Warning
+        via: warnings
+  - name: Warning
+    kind: value object
+    schema: '#/components/schemas/Warning'
+    description: >-
+      A machine-readable notice about a response. Never changes the HTTP
+      status. 74 codes registered in the published vocabulary.
+    relationships:
+      - belongs_to: Envelope
+        via: warnings
+  - name: Problem
+    kind: error document
+    schema: '#/components/schemas/Problem'
+    media_type: application/problem+json
+    description: RFC 9457 problem detail; 117 registered codes.
+    detail: errors/cyclecalcs-problem-types.yml
+  - name: Place
+    kind: identified entity (the only one)
+    served_by: /v2/places
+    identifier: place_id
+    id_stability: stable
+    source_dataset: GeoNames (CC BY 4.0 — attribution required)
+    fields: [place_id, name, region, country, latitude, longitude, timezone]
+    relationships:
+      - referenced_by: every endpoint that accepts a `place` parameter
+        via: place
+        note: >-
+          Resolving a place substitutes lat/lon/tz AND flips the response's
+          rights state to attribution_required.
+observation_grammar:
+  description: >-
+    The real "model" of this API. Every one of the 29 endpoints is a question
+    asked against the same four axes; the shared OpenAPI parameter components
+    are the evidence.
+  axes:
+    - axis: target
+      parameters: [body, bodies, pair, pairs, object]
+      vocabulary: bodies (11 values); minor planets explicitly refused
+    - axis: instant
+      parameters: [at, start, end, step, count, time_format, tz, ambiguous, nonexistent, day_anchor]
+      range: 1700 to 2200
+    - axis: observer
+      parameters: [lat, lon, elevation_m, place, place_strategy]
+      note: required on /v2/sun, /v2/rise-set, /v2/twilight, /v2/dark-window
+    - axis: presentation
+      parameters: [format, precision, pretty, verbosity, shape, fields, limit, cursor, frame, refraction, hemisphere, style]
+  shared_parameter_components: 21
+endpoint_families:
+  - family: discovery
+    endpoints: [/v2, /v2/conventions, /v2/enums, /v2/attribution]
+    note: the API describes itself as data, not only as prose
+  - family: sun
+    endpoints: [/v2/sun, /v2/twilight, /v2/equation-of-time, /v2/seasons]
+  - family: moon
+    endpoints: [/v2/moon, /v2/phases, /v2/libration, /v2/moon-nodes, /v2/apsides]
+  - family: planets
+    endpoints: [/v2/planet-board, /v2/planet-events, /v2/retrogrades, /v2/jupiter-moons]
+  - family: geometry
+    endpoints: [/v2/positions, /v2/rise-set, /v2/separation, /v2/conjunctions]
+  - family: time
+    endpoints: [/v2/time, /v2/sidereal-time]
+  - family: observing
+    endpoints: [/v2/dark-window, /v2/sky-quality, /v2/eclipses, /v2/today, /v2/cycles]
+  - family: places
+    endpoints: [/v2/places]
+relationships_note: >-
+  No has_one/has_many links exist between endpoints because no endpoint
+  returns an identifier another endpoint consumes — except `place`, modelled
+  above. Chaining is by value (resolve a place, then pass lat/lon), which is
+  exactly what the arazzo/ workflows encode.

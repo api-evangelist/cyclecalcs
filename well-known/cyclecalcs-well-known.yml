@@ -1,0 +1,35 @@
+generated: '2026-08-09'
+method: probed
+source: live GET of the /.well-known/ discovery surface on every apis.yml host
+host: https://www.cyclecalcs.com
+description: >-
+  CycleCalcs serves exactly one /.well-known/ document: an RFC 9727
+  api-catalog linkset that names the REST API, the MCP server, the OpenAPI
+  description, the llms-full.txt contract, the docs, the status page, the
+  terms, the privacy policy and the licence. There is no security.txt, no
+  OIDC/OAuth discovery (the direct API is keyless and the paid tiers
+  authenticate at the RapidAPI gateway, not here) and no agent card.
+documents:
+  - path: /.well-known/api-catalog          # RFC 9727 API catalog linkset
+    status: 200
+    content_type: application/linkset+json
+    file: cyclecalcs-api-catalog.json
+  - path: /.well-known/security.txt          # RFC 9116
+    status: 404
+  - path: /.well-known/openid-configuration  # OIDC discovery
+    status: 404
+  - path: /.well-known/oauth-authorization-server  # RFC 8414
+    status: 404
+  - path: /.well-known/oauth-protected-resource    # RFC 9728
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json       # A2A 1.0.0
+    status: 404
+  - path: /.well-known/agent.json            # A2A pre-0.3 legacy
+    status: 404
+x-evidence:
+  fetched: '2026-08-09'
+  note: >-
+    All eight paths were fetched directly. The 404 bodies are the site's HTML
+    404 page, not an SPA catch-all returning 200; no false positives.

@@ -1,0 +1,33 @@
+generated: '2026-08-09'
+method: generated
+source: >-
+  Grounded in openapi/cyclecalcs-astronomy-openapi-original.json — every
+  operationId below is verbatim from the harvested spec — plus the published
+  conventions (/v2/conventions), vocabulary (/v2/enums), error registry
+  (/api/errors.json) and the MCP tool table (/api/mcp.html).
+description: >-
+  Packaged Agent Skills for the CycleCalcs Astronomy API: short operating
+  instructions an agent follows to use the API correctly for one flow. The
+  provider publishes no skills of its own; these are API Evangelist
+  generations, not provider claims. Each mirrors an arazzo/ workflow.
+skills:
+  - file: cyclecalcs-tonights-sky.md
+    name: Answer "what is in the sky tonight" for a place
+    api: openapi/cyclecalcs-astronomy-openapi-original.json
+    operations: [getPlaces, getToday, getDarkWindow]
+  - file: cyclecalcs-sun-and-moon-calendar.md
+    name: Build a sun and moon calendar for a location
+    api: openapi/cyclecalcs-astronomy-openapi-original.json
+    operations: [getSun, getMoon, getPhases]
+  - file: cyclecalcs-eclipse-visibility.md
+    name: Check whether an eclipse is visible from a place
+    api: openapi/cyclecalcs-astronomy-openapi-original.json
+    operations: [getEclipses, getPlaces]
+  - file: cyclecalcs-planet-visibility.md
+    name: Track planet visibility, retrogrades and apparitions
+    api: openapi/cyclecalcs-astronomy-openapi-original.json
+    operations: [getPlanetBoard, getPlanetEvents, getRetrogrades, getConjunctions]
+  - file: cyclecalcs-discover-the-contract.md
+    name: Discover the CycleCalcs contract before calling it
+    api: openapi/cyclecalcs-astronomy-openapi-original.json
+    operations: [getDiscovery, getConventions, getEnums, getAttribution]

@@ -1,0 +1,109 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://www.cyclecalcs.com/.well-known/api-catalog",
+      "item": [
+        {
+          "href": "https://www.cyclecalcs.com/v2",
+          "type": "application/json",
+          "title": "CycleCalcs Astronomy API v2"
+        },
+        {
+          "href": "https://www.cyclecalcs.com/mcp",
+          "title": "CycleCalcs Astronomy MCP server"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://www.cyclecalcs.com/apis.json",
+          "type": "application/json",
+          "title": "APIs.json descriptor for everything CycleCalcs publishes"
+        }
+      ]
+    },
+    {
+      "anchor": "https://www.cyclecalcs.com/v2",
+      "service-desc": [
+        {
+          "href": "https://www.cyclecalcs.com/v2/openapi.json",
+          "type": "application/json",
+          "title": "OpenAPI 3.1 description, generated from the shipped route table"
+        },
+        {
+          "href": "https://www.cyclecalcs.com/v2/llms-full.txt",
+          "type": "text/plain",
+          "title": "The full contract as plain text, for language models and coding agents"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.cyclecalcs.com/api/reference.html",
+          "type": "text/html",
+          "title": "Endpoint reference"
+        },
+        {
+          "href": "https://www.cyclecalcs.com/api.html",
+          "type": "text/html",
+          "title": "Start here"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://www.cyclecalcs.com/apis.json",
+          "type": "application/json",
+          "title": "APIs.json descriptor"
+        },
+        {
+          "href": "https://www.cyclecalcs.com/v2/conventions",
+          "type": "application/json",
+          "title": "The frames, epochs, time scales and range limits every response is stated in"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://www.cyclecalcs.com/api/status.html",
+          "type": "text/html",
+          "title": "Rate limits, the RateLimit headers, 429 behaviour and range caps"
+        }
+      ],
+      "terms-of-service": [
+        {
+          "href": "https://www.cyclecalcs.com/api/terms.html",
+          "type": "text/html",
+          "title": "API terms"
+        }
+      ],
+      "privacy-policy": [
+        {
+          "href": "https://www.cyclecalcs.com/privacy.html",
+          "type": "text/html",
+          "title": "Privacy policy"
+        }
+      ],
+      "license": [
+        {
+          "href": "https://www.cyclecalcs.com/api/terms.html",
+          "type": "text/html",
+          "title": "Computed output unrestricted; third-party place data credited per response"
+        }
+      ]
+    },
+    {
+      "anchor": "https://www.cyclecalcs.com/mcp",
+      "service-doc": [
+        {
+          "href": "https://www.cyclecalcs.com/api/mcp.html",
+          "type": "text/html",
+          "title": "MCP server guide: the tool list and client configuration"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://www.cyclecalcs.com/apis.json",
+          "type": "application/json",
+          "title": "APIs.json descriptor"
+        }
+      ]
+    }
+  ]
+}

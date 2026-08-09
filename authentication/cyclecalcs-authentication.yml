@@ -1,0 +1,99 @@
+generated: '2026-08-09'
+method: searched
+source: openapi/cyclecalcs-astronomy-openapi-original.json
+docs:
+  - https://www.cyclecalcs.com/api/keys.html
+  - https://www.cyclecalcs.com/api/mcp.html
+description: >-
+  CycleCalcs issues no API keys of its own and no request to
+  www.cyclecalcs.com needs one. The direct /v2 API is keyless: every request,
+  from anyone, is served at the free Basic tier. The paid tiers are sold
+  through the RapidAPI marketplace and authenticate at RapidAPI's gateway
+  host, never at the origin. The MCP server is the one surface that does
+  require a credential — and only to invoke a tool, not to browse one.
+summary:
+  types:
+  - none          # the direct REST API accepts no credential
+  - apiKey        # at the RapidAPI gateway, and on the MCP server
+  api_key_in:
+  - header
+  oauth2_flows: []
+  keyless_tier: true
+  signup_required: false
+schemes:
+- name: none
+  type: none
+  surface: https://www.cyclecalcs.com/v2
+  description: >-
+    No account, no signup, no header, no key to rotate. Every direct request
+    is served at the free Basic tier whoever sends it. Open CORS, so the API
+    is callable straight from a browser.
+  sources:
+  - https://www.cyclecalcs.com/api/keys.html
+- name: RapidAPIKey
+  type: apiKey
+  in: header
+  parameter: X-RapidAPI-Key
+  surface: https://cyclecalcs-astronomy-api3.p.rapidapi.com
+  description: >-
+    Read only by the RapidAPI gateway host, never by the origin declared in
+    the OpenAPI `servers` block. A key raises the caller's limits to the
+    subscribed tier and is what monthly volume is metered against. Sold at
+    https://rapidapi.com/info-8KZIhinZ9/api/cyclecalcs-astronomy-api3.
+  sources:
+  - openapi/cyclecalcs-astronomy-openapi-original.json
+- name: MCPBearer
+  type: http
+  scheme: bearer
+  surface: https://www.cyclecalcs.com/mcp
+  parameter: Authorization
+  description: >-
+    `Authorization: Bearer <RapidAPI key>` on every MCP tool call. The tool
+    call is forwarded through the RapidAPI gateway with that key, so it meters
+    exactly as a direct REST call would.
+  sources:
+  - https://www.cyclecalcs.com/api/mcp.html
+- name: MCPApiKeyHeader
+  type: apiKey
+  in: header
+  parameter: X-Api-Key
+  surface: https://www.cyclecalcs.com/mcp
+  description: >-
+    Equally supported alternative to the Bearer header, sent as a raw value
+    with no prefix. It exists because some directories and gateways reserve
+    Authorization for their own sign-in and can only forward a differently
+    named header.
+  sources:
+  - https://www.cyclecalcs.com/api/mcp.html
+anonymous_surfaces:
+  - surface: https://www.cyclecalcs.com/v2 (all 29 operations)
+    note: fully anonymous, free Basic tier
+  - surface: https://www.cyclecalcs.com/mcp — initialize + tools/list
+    note: >-
+      Browsing the MCP server needs no key. A client, inspector or directory
+      can read all eleven tool schemas before anyone has signed up.
+  - surface: https://www.cyclecalcs.com/mcp — tools/call
+    note: >-
+      Requires a key. A call without one is refused as a normal tool result
+      carrying instructions, not an HTTP 401 that would drop the connection.
+credential_hygiene:
+  key_in_url: never accepted
+  ignored_parameter: >-
+    A `key=` query parameter is recognised and deliberately IGNORED — the
+    request is served at the tier of its entrance and earns a
+    `parameter_ignored` warning naming exactly that. "A credential never
+    belongs in a URL: URLs are logged, cached and shared in ways headers are
+    not."
+  reserved_error_codes: [INVALID_KEY, REVOKED_KEY, EXPIRED_KEY]
+  reserved_note: >-
+    Reserved in the error registry for a direct key channel if one ever ships,
+    so shipping it would change nothing else about how errors are structured.
+    None is reachable today.
+what_a_subscription_buys:
+  - a higher rate limit in the same windows
+  - a higher per-request range ceiling
+  - "nothing else: no extra endpoint, no different data, no different answer"
+tier_reporting:
+  field: caller_tier
+  where: /v2/conventions
+  note: The tier a request was actually served at is always checkable.

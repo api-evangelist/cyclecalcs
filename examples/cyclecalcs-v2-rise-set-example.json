@@ -1,0 +1,143 @@
+{
+  "endpoint": "/v2/rise-set",
+  "computed_at": "2026-08-01T00:00:00.000Z",
+  "query": {
+    "at": "2026-12-20T23:00:00.000Z",
+    "mode": "instant",
+    "resolved_from": "at",
+    "is_now": false,
+    "latitude": 69.6492,
+    "longitude": 18.9553,
+    "elevation_m": 0,
+    "tz": "Europe/Oslo",
+    "utc_offset_seconds": 3600,
+    "utc_offset_iso": "+01:00",
+    "is_dst": false,
+    "timezone_source": "parameter",
+    "day_anchor": "civil",
+    "time_format": "iso",
+    "format": "json",
+    "shape": "nested",
+    "precision": 6,
+    "pretty": 1,
+    "verbosity": "full",
+    "search_horizon_days": 400,
+    "horizon": null,
+    "body": "Moon",
+    "ignored": []
+  },
+  "data": {
+    "window": {
+      "start": "2026-12-21T00:00:00.000+01:00",
+      "end": "2026-12-22T00:00:00.000+01:00",
+      "anchor": "civil",
+      "length_minutes": 1440,
+      "local_date": "2026-12-21"
+    },
+    "body": {
+      "name": "Moon",
+      "code": "moon",
+      "rise_set": {
+        "status": "always_up",
+        "status_label": "Above the horizon throughout",
+        "events": [
+          {
+            "kind": "lower_transit",
+            "instant": "2026-12-21T08:53:11.620+01:00",
+            "azimuth_deg": 359.999971,
+            "altitude_deg": 1.903805
+          },
+          {
+            "kind": "upper_transit",
+            "instant": "2026-12-21T21:23:34.703+01:00",
+            "azimuth_deg": 179.999966,
+            "altitude_deg": 44.47174
+          }
+        ],
+        "rise": [],
+        "set": [],
+        "transit": [
+          "2026-12-21T21:23:34.703+01:00"
+        ],
+        "above_horizon_minutes": 1440,
+        "next_rise": "2026-12-26T16:11:27.110+01:00",
+        "next_set": "2026-12-26T12:40:46.330+01:00"
+      },
+      "event_altitude_deg": null,
+      "event_definition": "upper limb at the horizon, with topocentric parallax and refraction applied by the engine's own rise and set search"
+    }
+  },
+  "warnings": [
+    {
+      "code": "no_search_result",
+      "message": "No rise or set occurs inside this window. The next rise and set outside it are reported as next_rise and next_set.",
+      "field": "body.rise_set.events",
+      "value": null
+    }
+  ],
+  "links": {
+    "self": "https://www.cyclecalcs.com/v2/rise-set?at=2026-12-21&body=moon&lat=69.6492&lon=18.9553&tz=Europe%2FOslo",
+    "docs": "https://www.cyclecalcs.com/api/reference.html#rise-set",
+    "spec": "https://www.cyclecalcs.com/v2/openapi.json",
+    "page": "https://www.cyclecalcs.com/moon-phase-calendar.html"
+  },
+  "meta": {
+    "api_version": "2",
+    "contract_version": "2.0.0",
+    "engine": {
+      "name": "Astronomy Engine",
+      "license": "MIT",
+      "author": "Don Cross",
+      "version": "2.1.19",
+      "version_source": "upstream_sha256_match",
+      "sha256": "068f1445ed0c636c94818fe6d20d7d125120e605e0bab9fc4675c3d531be5ad7",
+      "vendored": true,
+      "credit": "astronomy-engine (MIT, Copyright (c) 2019-2023 Don Cross)"
+    },
+    "tzdb": "2026b",
+    "rights": "unrestricted",
+    "attribution": {
+      "required": false,
+      "text": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+      "sources": []
+    },
+    "notice_url": "https://www.cyclecalcs.com/methodology.html#data-sources",
+    "cache": {
+      "class": "fixed_instant",
+      "deterministic": true
+    },
+    "accuracy": {
+      "statement": "Positions are arcminute class for the Sun, Moon and planets across 1700 to 2200, degrading toward the ends of that window.",
+      "residuals_url": "https://www.cyclecalcs.com/api/accuracy.html"
+    },
+    "time": {
+      "scale_of_input": "UTC",
+      "ut1_source": "assumed equal to UTC; no IERS bulletin is loaded, so UT1 minus UTC may differ by up to 0.9 s",
+      "delta_t_seconds": 75.7,
+      "delta_t_model": "Espenak and Meeus"
+    },
+    "horizon": {
+      "sunrise_sunset_altitude_deg": -0.8333,
+      "sunrise_sunset_definition": "centre of the Sun 50 arcminutes below the true horizon, being about 16 arcminutes of solar semidiameter plus about 34 arcminutes of horizon refraction",
+      "moon_rise_set_definition": "upper limb at the horizon, with topocentric parallax and refraction applied by the engine's own rise and set search",
+      "horizon_dip_modelled": false,
+      "horizon_dip_arcmin_if_modelled": 0,
+      "horizon_dip_note": "Observer elevation raises the observer on a locally flat plateau. Dip of the sea horizon is not modelled. The value you are forgoing is 1.753 times the square root of the elevation in metres, in arcminutes."
+    },
+    "refraction": {
+      "model": "Saemundsson (Astronomy Engine normal mode)",
+      "applied_by_rise_set_search": false,
+      "rise_set_search_allowance": "The search targets a fixed allowance of 34 arcminutes scaled by relative air density, not this model, and solves the crossing geometrically. Each event publishes the altitude its own event_definition names.",
+      "applies_to": "The refracted altitudes reported for transits in this response.",
+      "verified": true,
+      "assumed_temperature_c": null,
+      "assumed_pressure_mbar": null,
+      "applied_below_horizon_down_to_deg": -1
+    },
+    "budget": {
+      "engine_calls": 14
+    }
+  },
+  "attribution": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+  "docs": "https://www.cyclecalcs.com/api/reference.html#rise-set"
+}

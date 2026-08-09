@@ -1,0 +1,75 @@
+arazzo: 1.0.1
+info:
+  title: Is the next eclipse visible from here
+  version: 1.0.0
+  summary: >-
+    Resolve an observer, then ask the eclipse endpoint for an explicit
+    visible-from-here answer with local contact times.
+sourceDescriptions:
+  - name: cyclecalcs
+    url: ../openapi/cyclecalcs-astronomy-openapi-original.json
+    type: openapi
+workflows:
+  - workflowId: eclipseVisibleFromHere
+    summary: Place name to a per-observer eclipse verdict.
+    inputs:
+      type: object
+      required: [place]
+      properties:
+        place:
+          type: string
+          description: 'City or "City,CC", e.g. "Reykjavik,IS".'
+        type:
+          type: string
+          description: solar | lunar
+        count:
+          type: integer
+          description: How many eclipses to return.
+    steps:
+      - stepId: resolvePlace
+        operationId: getPlaces
+        parameters:
+          - name: q
+            in: query
+            value: $inputs.place
+          - name: limit
+            in: query
+            value: 1
+        successCriteria:
+          - condition: $statusCode == 200
+        outputs:
+          lat: $response.body#/data/results/0/latitude
+          lon: $response.body#/data/results/0/longitude
+          tz: $response.body#/data/results/0/timezone
+      - stepId: nextEclipses
+        description: >-
+          With lat/lon present the response carries local circumstances and an
+          explicit visibility answer, not just global geometry.
+        operationId: getEclipses
+        parameters:
+          - name: lat
+            in: query
+            value: $steps.resolvePlace.outputs.lat
+          - name: lon
+            in: query
+            value: $steps.resolvePlace.outputs.lon
+          - name: tz
+            in: query
+            value: $steps.resolvePlace.outputs.tz
+          - name: type
+            in: query
+            value: $inputs.type
+          - name: count
+            in: query
+            value: $inputs.count
+          - name: direction
+            in: query
+            value: next
+        successCriteria:
+          - condition: $statusCode == 200
+        outputs:
+          eclipses: $response.body#/data
+    outputs:
+      eclipses: $steps.nextEclipses.outputs.eclipses
+x-generated: '2026-08-09'
+x-method: generated

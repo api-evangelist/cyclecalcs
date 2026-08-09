@@ -1,0 +1,100 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+provider: CycleCalcs
+providerId: cyclecalcs
+generated: '2026-08-09'
+method: searched
+created: '2026-08-09'
+modified: '2026-08-09'
+tags:
+  - Astronomy
+  - Ephemeris
+description: >-
+  Four tiers. Basic is free, keyless and permanent — "most integrations live
+  on the free tier indefinitely; that is the design, not a trial." The three
+  paid rungs sell monthly volume through the RapidAPI marketplace, which
+  issues and bills the key. Every tier serves all 29 endpoints at full
+  precision and returns the same answer to the last digit; money buys request
+  volume and how much sky a single request may ask for, and nothing else.
+sources:
+  - https://www.cyclecalcs.com/api.html
+  - https://www.cyclecalcs.com/api/keys.html
+  - https://rapidapi.com/info-8KZIhinZ9/api/cyclecalcs-astronomy-api3
+marketplace: RapidAPI
+signup: >-
+  None for Basic — no account, no key, no card. A RapidAPI subscription is the
+  only signup that exists.
+plans:
+  - id: cyclecalcs-basic
+    name: Basic
+    type: free
+    price: 0
+    currency: USD
+    timeFrame: month
+    keyless: true
+    suited_to: One small app — a script, a page, or a product that fits the free day.
+    entries:
+      - {label: Requests a minute, name: rpm, type: quota, metric: request, limit: 300, timeFrame: minute}
+      - {label: Requests an hour, name: rph, type: quota, metric: request, limit: 2000, timeFrame: hour}
+      - {label: Requests a day, name: rpd, type: quota, metric: request, limit: 5000, timeFrame: day}
+      - {label: Monthly meter, name: rpmo, type: quota, metric: request, limit: -1, timeFrame: month}
+  - id: cyclecalcs-pro
+    name: Pro
+    type: subscription
+    price: 5
+    currency: USD
+    timeFrame: month
+    url: https://rapidapi.com/info-8KZIhinZ9/api/cyclecalcs-astronomy-api3
+    suited_to: One busy app — traffic that outgrew the free day.
+    entries:
+      - {label: Requests a minute, name: rpm, type: quota, metric: request, limit: 600, timeFrame: minute}
+      - {label: Requests an hour, name: rph, type: quota, metric: request, limit: 10000, timeFrame: hour}
+      - {label: Requests a day, name: rpd, type: quota, metric: request, limit: 50000, timeFrame: day}
+      - {label: Requests a month, name: rpmo, type: quota, metric: request, limit: 500000, timeFrame: month}
+  - id: cyclecalcs-ultra
+    name: Ultra
+    type: subscription
+    price: 9
+    currency: USD
+    timeFrame: month
+    url: https://rapidapi.com/info-8KZIhinZ9/api/cyclecalcs-astronomy-api3
+    recommended: true
+    suited_to: A live product — backfills, and traffic you do not control.
+    entries:
+      - {label: Requests a minute, name: rpm, type: quota, metric: request, limit: 1200, timeFrame: minute}
+      - {label: Requests an hour, name: rph, type: quota, metric: request, limit: 25000, timeFrame: hour}
+      - {label: Requests a day, name: rpd, type: quota, metric: request, limit: 100000, timeFrame: day}
+      - {label: Requests a month, name: rpmo, type: quota, metric: request, limit: 800000, timeFrame: month}
+  - id: cyclecalcs-mega
+    name: Mega
+    type: subscription
+    price: 15
+    currency: USD
+    timeFrame: month
+    url: https://rapidapi.com/info-8KZIhinZ9/api/cyclecalcs-astronomy-api3
+    suited_to: Several products — bulk jobs, or several apps on one key.
+    entries:
+      - {label: Requests a minute, name: rpm, type: quota, metric: request, limit: 2000, timeFrame: minute}
+      - {label: Requests an hour, name: rph, type: quota, metric: request, limit: 50000, timeFrame: hour}
+      - {label: Requests a day, name: rpd, type: quota, metric: request, limit: 200000, timeFrame: day}
+      - {label: Requests a month, name: rpmo, type: quota, metric: request, limit: 1000000, timeFrame: month}
+identical_on_every_tier:
+  - All 29 endpoints
+  - Every field, full precision
+  - The same answer, to the last digit
+  - JSON, CSV and TXT
+  - RFC 9457 error documents
+  - RateLimit headers on every response
+  - CDN cache hits, which cost nothing
+  - The MCP server
+range_caps_note: >-
+  Ultra and Mega carry the same per-request range caps, so above Ultra the
+  purchase is volume, not reach. Full cap table in
+  rate-limits/cyclecalcs-rate-limits.yml and live at /v2/conventions as
+  range_caps_by_shape.
+other_products:
+  - name: Moon Calendar 2027 (print)
+    description: >-
+      A per-location typeset PDF moon calendar plus a subscribable calendar
+      feed — the site's one paid consumer product, unrelated to API tiers.
+    url: https://www.cyclecalcs.com/moon-calendar-2027.html

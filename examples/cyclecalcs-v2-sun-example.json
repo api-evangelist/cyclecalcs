@@ -1,0 +1,258 @@
+{
+  "endpoint": "/v2/sun",
+  "computed_at": "2026-08-01T00:00:00.000Z",
+  "query": {
+    "at": "2026-07-26T23:00:00.000Z",
+    "mode": "instant",
+    "resolved_from": "at",
+    "is_now": false,
+    "latitude": 51.4778,
+    "longitude": -0.0015,
+    "elevation_m": 0,
+    "tz": "Europe/London",
+    "utc_offset_seconds": 3600,
+    "utc_offset_iso": "+01:00",
+    "is_dst": true,
+    "timezone_source": "parameter",
+    "day_anchor": "civil",
+    "time_format": "iso",
+    "format": "json",
+    "shape": "nested",
+    "precision": 6,
+    "pretty": 1,
+    "verbosity": "full",
+    "depressions": [
+      17,
+      18
+    ],
+    "ignored": []
+  },
+  "data": {
+    "window": {
+      "start": "2026-07-27T00:00:00.000+01:00",
+      "end": "2026-07-28T00:00:00.000+01:00",
+      "anchor": "civil",
+      "length_minutes": 1440,
+      "local_date": "2026-07-27"
+    },
+    "rise_set": {
+      "status": "normal",
+      "status_label": "Rises and sets",
+      "special": null,
+      "events": [
+        {
+          "kind": "lower_transit",
+          "instant": "2026-07-27T01:06:33.985+01:00",
+          "azimuth_deg": 359.999871,
+          "altitude_deg": -18.760119
+        },
+        {
+          "kind": "rise",
+          "instant": "2026-07-27T05:16:24.076+01:00",
+          "azimuth_deg": 56.865535,
+          "altitude_deg": -0.83332
+        },
+        {
+          "kind": "upper_transit",
+          "instant": "2026-07-27T13:06:33.658+01:00",
+          "azimuth_deg": 179.999987,
+          "altitude_deg": 57.668914
+        },
+        {
+          "kind": "set",
+          "instant": "2026-07-27T20:55:46.285+01:00",
+          "azimuth_deg": 302.865673,
+          "altitude_deg": -0.833301
+        }
+      ],
+      "rise": [
+        "2026-07-27T05:16:24.076+01:00"
+      ],
+      "set": [
+        "2026-07-27T20:55:46.285+01:00"
+      ],
+      "transit": [
+        "2026-07-27T13:06:33.658+01:00"
+      ],
+      "above_horizon_minutes": 939.4
+    },
+    "solar_noon": "2026-07-27T13:06:33.658+01:00",
+    "solar_noon_altitude_deg": 57.668914,
+    "solar_noon_altitude_refracted_deg": 57.668914,
+    "solar_noon_altitude_unrefracted_deg": 57.658218,
+    "solar_noon_azimuth_deg": 179.999987,
+    "solar_midnight": "2026-07-27T01:06:33.985+01:00",
+    "solar_midnight_altitude_deg": -18.760119,
+    "solar_midnight_altitude_refracted_deg": -18.760119,
+    "solar_midnight_altitude_unrefracted_deg": -19.273941,
+    "day_length": "15h 39m",
+    "day_length_minutes": 939.4,
+    "day_length_seconds": 56362,
+    "day_length_change_from_yesterday_seconds": -173,
+    "twilight": {
+      "civil": {
+        "dawn": "2026-07-27T04:34:35.829+01:00",
+        "dusk": "2026-07-27T21:37:19.111+01:00",
+        "altitude_deg": -6,
+        "definition": "The band runs from -6 to -0.8333 degrees of unrefracted solar altitude. dawn and dusk are the instants the Sun crosses -6 deg, and the two duration fields are the time the Sun spends inside this band, not the time until sunrise or since sunset.",
+        "duration_morning_minutes": 41.8,
+        "duration_evening_minutes": 41.5
+      },
+      "nautical": {
+        "dawn": "2026-07-27T03:37:13.834+01:00",
+        "dusk": "2026-07-27T22:34:05.867+01:00",
+        "altitude_deg": -12,
+        "definition": "The band runs from -12 to -6 degrees of unrefracted solar altitude. dawn and dusk are the instants the Sun crosses -12 deg, and the two duration fields are the time the Sun spends inside this band, not the time until sunrise or since sunset.",
+        "duration_morning_minutes": 57.4,
+        "duration_evening_minutes": 56.8
+      },
+      "astronomical": {
+        "dawn": "2026-07-27T02:08:20.099+01:00",
+        "dusk": "2026-07-28T00:00:00.615+01:00",
+        "altitude_deg": -18,
+        "definition": "The band runs from -18 to -12 degrees of unrefracted solar altitude. dawn and dusk are the instants the Sun crosses -18 deg, and the two duration fields are the time the Sun spends inside this band, not the time until sunrise or since sunset.",
+        "duration_morning_minutes": 88.9,
+        "duration_evening_minutes": 85.9
+      }
+    },
+    "custom": [
+      {
+        "depression_deg": 17,
+        "dawn": "2026-07-27T02:29:19.747+01:00",
+        "dusk": "2026-07-27T23:40:16.028+01:00"
+      },
+      {
+        "depression_deg": 18,
+        "dawn": "2026-07-27T02:08:20.099+01:00",
+        "dusk": "2026-07-28T00:00:00.615+01:00"
+      }
+    ],
+    "golden_hour": {
+      "morning": {
+        "begin": "2026-07-27T04:51:20.851+01:00",
+        "end": "2026-07-27T06:06:20.750+01:00"
+      },
+      "evening": {
+        "begin": "2026-07-27T20:06:02.115+01:00",
+        "end": "2026-07-27T21:20:41.036+01:00"
+      },
+      "definition": "Sun centre from -4 degrees to +6 degrees."
+    },
+    "blue_hour": {
+      "morning": {
+        "begin": "2026-07-27T04:34:35.829+01:00",
+        "end": "2026-07-27T04:51:20.851+01:00"
+      },
+      "evening": {
+        "begin": "2026-07-27T21:20:41.036+01:00",
+        "end": "2026-07-27T21:37:19.111+01:00"
+      },
+      "definition": "Sun centre from -6 degrees to -4 degrees."
+    },
+    "night_begins": "2026-07-28T00:00:00.615+01:00",
+    "night_ends": "2026-07-28T02:13:34.005+01:00",
+    "dark_minutes": 133.6,
+    "position_now": {
+      "instant": "2026-07-27T00:00:00.000+01:00",
+      "basis": "requested_instant",
+      "basis_definition": "Evaluated at the instant you asked for.",
+      "azimuth_deg": 343.506415,
+      "compass": "NNW",
+      "altitude_refracted_deg": -17.250728,
+      "altitude_unrefracted_deg": -17.775436,
+      "refraction_deg": 0.524708,
+      "declination_of_date_deg": 19.258682,
+      "hour_angle_hours": 10.890574,
+      "shadow_length_multiplier": null,
+      "is_up": false
+    },
+    "tropical_sign": {
+      "name": "Leo",
+      "code": "leo",
+      "sign_index": 4,
+      "degree_in_sign": 3.970404,
+      "degree_in_sign_whole": 3
+    },
+    "constellation": {
+      "name": "Cancer",
+      "abbreviation": "Cnc"
+    },
+    "summary": "The Sun rises at 05:16 and sets at 20:55 local time, giving 15 hours 39 minutes of daylight."
+  },
+  "warnings": [],
+  "links": {
+    "self": "https://www.cyclecalcs.com/v2/sun?at=2026-07-27&depressions=17%2C18&lat=51.4778&lon=-0.0015&tz=Europe%2FLondon",
+    "docs": "https://www.cyclecalcs.com/api/reference.html#sun",
+    "spec": "https://www.cyclecalcs.com/v2/openapi.json",
+    "page": "https://www.cyclecalcs.com/sunrise-sunset-calculator.html",
+    "explain": "https://www.cyclecalcs.com/learn/seasons.html"
+  },
+  "meta": {
+    "api_version": "2",
+    "contract_version": "2.0.0",
+    "engine": {
+      "name": "Astronomy Engine",
+      "license": "MIT",
+      "author": "Don Cross",
+      "version": "2.1.19",
+      "version_source": "upstream_sha256_match",
+      "sha256": "068f1445ed0c636c94818fe6d20d7d125120e605e0bab9fc4675c3d531be5ad7",
+      "vendored": true,
+      "credit": "astronomy-engine (MIT, Copyright (c) 2019-2023 Don Cross)"
+    },
+    "tzdb": "2026b",
+    "rights": "unrestricted",
+    "attribution": {
+      "required": false,
+      "text": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+      "sources": []
+    },
+    "notice_url": "https://www.cyclecalcs.com/methodology.html#data-sources",
+    "cache": {
+      "class": "fixed_instant",
+      "deterministic": true
+    },
+    "accuracy": {
+      "statement": "Positions are arcminute class for the Sun, Moon and planets across 1700 to 2200, degrading toward the ends of that window.",
+      "residuals_url": "https://www.cyclecalcs.com/api/accuracy.html"
+    },
+    "time": {
+      "scale_of_input": "UTC",
+      "ut1_source": "assumed equal to UTC; no IERS bulletin is loaded, so UT1 minus UTC may differ by up to 0.9 s",
+      "delta_t_seconds": 75.4,
+      "delta_t_model": "Espenak and Meeus"
+    },
+    "not_computed": [
+      {
+        "name": "constellation.genitive",
+        "reason": "Needs the reduced constellation index; the generator has not run yet."
+      }
+    ],
+    "horizon": {
+      "sunrise_sunset_altitude_deg": -0.8333,
+      "sunrise_sunset_definition": "centre of the Sun 50 arcminutes below the true horizon, being about 16 arcminutes of solar semidiameter plus about 34 arcminutes of horizon refraction",
+      "civil_twilight_altitude_deg": -6,
+      "nautical_twilight_altitude_deg": -12,
+      "astronomical_twilight_altitude_deg": -18,
+      "horizon_dip_modelled": false,
+      "horizon_dip_arcmin_if_modelled": 0,
+      "horizon_dip_note": "Observer elevation raises the observer on a locally flat plateau. Dip of the sea horizon is not modelled. The value you are forgoing is 1.753 times the square root of the elevation in metres, in arcminutes."
+    },
+    "refraction": {
+      "model": "Saemundsson (Astronomy Engine normal mode)",
+      "verified": true,
+      "assumed_temperature_c": null,
+      "assumed_pressure_mbar": null,
+      "applied_below_horizon_down_to_deg": -1
+    },
+    "method": {
+      "solar_noon": "A true upper transit from the engine hour-angle search, not the midpoint of sunrise and sunset that /v1 returns. The two can differ by tens of seconds, most where the equation of time is changing fastest.",
+      "ecliptic_source": "Ecliptic(GeoVector(Sun)), used consistently across v2."
+    },
+    "budget": {
+      "engine_calls": 58
+    }
+  },
+  "attribution": "Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.",
+  "docs": "https://www.cyclecalcs.com/api/reference.html#sun"
+}
