@@ -30,83 +30,735 @@ tags:
   - MCP
   - Agent-native
 apis:
-  - name: CycleCalcs Astronomy API v2
-    description: >-
-      JSON-over-HTTPS REST astronomy API (GET only, 29 endpoints) covering sun/moon, phases, positions, rise-set,
-      eclipses, seasons, retrogrades, conjunctions, and more. Free keyless basic tier; paid tiers authenticate via
-      RapidAPI gateway.
-    humanURL: https://www.cyclecalcs.com/api.html
-    baseURL: https://www.cyclecalcs.com/v2
-    tags:
-      - Astronomy
-      - Space
-      - Science
-      - Ephemeris
-      - Sun
-      - Moon
-      - Planets
-      - Eclipses
-      - Time
-      - Calendar
-      - Geolocation
-      - MCP
-      - Agent-native
-    properties:
-      - type: OpenAPI
-        url: https://www.cyclecalcs.com/v2/openapi.json
-      - type: OpenAPI
-        name: Harvested OpenAPI 3.1.0 (verbatim, 29 operations)
-        url: openapi/cyclecalcs-astronomy-openapi-original.json
-      - type: Overlay
-        name: API Evangelist enhancements overlay
-        url: overlays/cyclecalcs-astronomy-overlay.yaml
-      - type: Documentation
-        url: https://www.cyclecalcs.com/api/reference.html
-      - type: Documentation
-        url: https://www.cyclecalcs.com/api/keys.html
-      - type: Documentation
-        url: https://www.cyclecalcs.com/api/errors.html
-      - type: Documentation
-        url: https://www.cyclecalcs.com/api/status.html
-      - type: Documentation
-        name: Accuracy statement and residuals
-        url: https://www.cyclecalcs.com/api/accuracy.html
-      - type: LLMsTxt
-        url: https://www.cyclecalcs.com/llms.txt
-      - type: LLMsTxt
-        url: https://www.cyclecalcs.com/v2/llms-full.txt
-  - name: CycleCalcs MCP Server
-    description: >-
-      Hosted stateless Streamable HTTP MCP server exposing 11 astronomy tools backed by the v2 REST endpoints. Requires
-      Bearer RapidAPI key on every call; basic plan free. Works with Claude Code, custom connectors, and OpenAI
-      Responses API mcp tool.
-    humanURL: https://www.cyclecalcs.com/api/mcp.html
-    baseURL: https://www.cyclecalcs.com/mcp
-    tags:
-      - Astronomy
-      - Space
-      - Science
-      - Ephemeris
-      - Sun
-      - Moon
-      - Planets
-      - Eclipses
-      - Time
-      - Calendar
-      - Geolocation
-      - MCP
-      - Agent-native
-    properties:
-      - type: MCPServer
-        url: https://www.cyclecalcs.com/mcp
-      - type: MCPServer
-        name: MCP server manifest (11 tools, captured from tools/list)
-        url: mcp/cyclecalcs-mcp.yml
-      - type: ToolCrosswalk
-        name: MCP tool to OpenAPI operation crosswalk
-        url: mcp/cyclecalcs-tool-crosswalk.yml
-      - type: Documentation
-        url: https://www.cyclecalcs.com/api/mcp.html
+- name: CycleCalcs MCP Server
+  description: >-
+    Hosted stateless Streamable HTTP MCP server exposing 11 astronomy tools backed by the v2 REST endpoints.
+    Requires Bearer RapidAPI key on every call; basic plan free. Works with Claude Code, custom connectors,
+    and OpenAI Responses API mcp tool.
+  humanURL: https://www.cyclecalcs.com/api/mcp.html
+  baseURL: https://www.cyclecalcs.com/mcp
+  tags:
+  - Astronomy
+  - Space
+  - Science
+  - Ephemeris
+  - Sun
+  - Moon
+  - Planets
+  - Eclipses
+  - Time
+  - Calendar
+  - Geolocation
+  - MCP
+  - Agent-native
+  properties:
+  - type: MCPServer
+    url: https://www.cyclecalcs.com/mcp
+  - type: MCPServer
+    name: MCP server manifest (11 tools, captured from tools/list)
+    url: mcp/cyclecalcs-mcp.yml
+  - type: ToolCrosswalk
+    name: MCP tool to OpenAPI operation crosswalk
+    url: mcp/cyclecalcs-tool-crosswalk.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/mcp.html
+- aid: cyclecalcs:cyclecalcs-apsides-api
+  name: CycleCalcs Apsides API
+  description: The Apsides API from CycleCalcs — 1 operation(s) for apsides.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Apsides
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-apsides-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-attribution-api
+  name: CycleCalcs Attribution API
+  description: The Attribution API from CycleCalcs — 1 operation(s) for attribution.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Attribution
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-attribution-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-conjunctions-api
+  name: CycleCalcs Conjunctions API
+  description: The Conjunctions API from CycleCalcs — 1 operation(s) for conjunctions.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Conjunctions
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-conjunctions-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-conventions-api
+  name: CycleCalcs Conventions API
+  description: The Conventions API from CycleCalcs — 1 operation(s) for conventions.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Conventions
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-conventions-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-cyclecalcs-astronomy-api-api
+  name: CycleCalcs CycleCalcs Astronomy API API
+  description: >-
+    The CycleCalcs Astronomy API API from CycleCalcs — 1 operation(s) for cyclecalcs astronomy api.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - CycleCalcs Astronomy API
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-cyclecalcs-astronomy-api-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-cycles-api
+  name: CycleCalcs Cycles API
+  description: The Cycles API from CycleCalcs — 1 operation(s) for cycles.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Cycles
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-cycles-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-dark-window-api
+  name: CycleCalcs Dark Window API
+  description: The Dark Window API from CycleCalcs — 1 operation(s) for dark window.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Dark Window
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-dark-window-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-eclipses-api
+  name: CycleCalcs Eclipses API
+  description: The Eclipses API from CycleCalcs — 1 operation(s) for eclipses.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Eclipses
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-eclipses-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-enums-api
+  name: CycleCalcs Enums API
+  description: The Enums API from CycleCalcs — 1 operation(s) for enums.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Enums
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-enums-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-equation-of-time-api
+  name: CycleCalcs Equation Of Time API
+  description: The Equation Of Time API from CycleCalcs — 1 operation(s) for equation of time.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Equation Of Time
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-equation-of-time-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-jupiter-moons-api
+  name: CycleCalcs Jupiter Moons API
+  description: The Jupiter Moons API from CycleCalcs — 1 operation(s) for jupiter moons.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Jupiter Moons
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-jupiter-moons-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-libration-api
+  name: CycleCalcs Libration API
+  description: The Libration API from CycleCalcs — 1 operation(s) for libration.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Libration
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-libration-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-moon-api
+  name: CycleCalcs Moon API
+  description: The Moon API from CycleCalcs — 1 operation(s) for moon.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Moon
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-moon-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-moon-nodes-api
+  name: CycleCalcs Moon Nodes API
+  description: The Moon Nodes API from CycleCalcs — 1 operation(s) for moon nodes.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Moon Nodes
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-moon-nodes-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-phases-api
+  name: CycleCalcs Phases API
+  description: The Phases API from CycleCalcs — 1 operation(s) for phases.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Phases
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-phases-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-places-api
+  name: CycleCalcs Places API
+  description: The Places API from CycleCalcs — 1 operation(s) for places.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Places
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-places-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-planet-board-api
+  name: CycleCalcs Planet Board API
+  description: The Planet Board API from CycleCalcs — 1 operation(s) for planet board.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Planet Board
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-planet-board-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-planet-events-api
+  name: CycleCalcs Planet Events API
+  description: The Planet Events API from CycleCalcs — 1 operation(s) for planet events.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Planet Events
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-planet-events-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-positions-api
+  name: CycleCalcs Positions API
+  description: The Positions API from CycleCalcs — 1 operation(s) for positions.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Positions
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-positions-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-retrogrades-api
+  name: CycleCalcs Retrogrades API
+  description: The Retrogrades API from CycleCalcs — 1 operation(s) for retrogrades.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Retrogrades
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-retrogrades-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-rise-set-api
+  name: CycleCalcs Rise Set API
+  description: The Rise Set API from CycleCalcs — 1 operation(s) for rise set.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Rise Set
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-rise-set-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-seasons-api
+  name: CycleCalcs Seasons API
+  description: The Seasons API from CycleCalcs — 1 operation(s) for seasons.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Seasons
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-seasons-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-separation-api
+  name: CycleCalcs Separation API
+  description: The Separation API from CycleCalcs — 1 operation(s) for separation.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Separation
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-separation-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-sidereal-time-api
+  name: CycleCalcs Sidereal Time API
+  description: The Sidereal Time API from CycleCalcs — 1 operation(s) for sidereal time.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Sidereal Time
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-sidereal-time-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-sky-quality-api
+  name: CycleCalcs Sky Quality API
+  description: The Sky Quality API from CycleCalcs — 1 operation(s) for sky quality.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Sky Quality
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-sky-quality-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-sun-api
+  name: CycleCalcs Sun API
+  description: The Sun API from CycleCalcs — 1 operation(s) for sun.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Sun
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-sun-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-time-api
+  name: CycleCalcs Time API
+  description: The Time API from CycleCalcs — 1 operation(s) for time.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Time
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-time-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-today-api
+  name: CycleCalcs Today API
+  description: The Today API from CycleCalcs — 1 operation(s) for today.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Today
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-today-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
+- aid: cyclecalcs:cyclecalcs-twilight-api
+  name: CycleCalcs Twilight API
+  description: The Twilight API from CycleCalcs — 1 operation(s) for twilight.
+  humanURL: https://www.cyclecalcs.com/api.html
+  baseURL: https://www.cyclecalcs.com/v2
+  tags:
+  - Twilight
+  properties:
+  - type: OpenAPI
+    url: openapi/cyclecalcs-twilight-api-openapi.yml
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/reference.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/keys.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/errors.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/status.html
+  - type: Documentation
+    url: https://www.cyclecalcs.com/api/accuracy.html
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/llms.txt
+  - type: LLMsTxt
+    url: https://www.cyclecalcs.com/v2/llms-full.txt
 maintainers:
   - FN: CycleCalcs
     email: info@cyclecalcs.com
@@ -117,6 +769,8 @@ generated:
   confidence: 98
   at: '2026-08-09T12:19:06.191Z'
 common:
+- type: Overlay
+  url: overlays/cyclecalcs-astronomy-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/cyclecalcs-agentic-access.yml
 - type: DomainSecurity
