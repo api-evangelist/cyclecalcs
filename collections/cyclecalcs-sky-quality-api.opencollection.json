@@ -1,0 +1,163 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CycleCalcs Astronomy Sky Quality API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sky Quality",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Naked-eye limiting magnitude and aperture reach for a sky class you supply, with an explicit machine-readable statement that the number is a tuned estimate rather than a measurement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.cyclecalcs.com/v2/sky-quality",
+            "params": [
+              {
+                "name": "bortle",
+                "value": "3",
+                "type": "query",
+                "description": "The Bortle dark-sky class, 1 (excellent) to 9 (inner-city). Mutually exclusive with `nelm`; one of the two is required."
+              },
+              {
+                "name": "nelm",
+                "value": "6",
+                "type": "query",
+                "description": "Naked-eye limiting magnitude, 2.0 to 8.5. Mutually exclusive with `bortle`; one of the two is required."
+              },
+              {
+                "name": "equipment",
+                "value": "telescope",
+                "type": "query",
+                "description": "What the observation is made with."
+              },
+              {
+                "name": "aperture_mm",
+                "value": "200",
+                "type": "query",
+                "description": "Telescope aperture in millimetres. Only used when equipment=telescope."
+              },
+              {
+                "name": "lat",
+                "value": "51.4778",
+                "type": "query",
+                "description": "Latitude in decimal degrees, north positive. No compass suffix (do not append N or S). Required together with lon, or neither."
+              },
+              {
+                "name": "lon",
+                "value": "-0.0015",
+                "type": "query",
+                "description": "Longitude in decimal degrees, east positive. No compass suffix (do not append E or W). Required together with lat, or neither."
+              },
+              {
+                "name": "elevation_m",
+                "value": "11",
+                "type": "query",
+                "description": "Observer elevation above mean sea level, in metres. Raises the observer on a locally flat plateau; sea-horizon dip is not modelled."
+              },
+              {
+                "name": "place",
+                "value": "London",
+                "type": "query",
+                "description": "A place name (place=London), a name with a country (place=Cambridge,GB), or a stable identifier from GET /v2/places (place=id:us-n35198-w111651). Supplies lat, lon and, unless tz is also sent, the time zone. Mutually exclusive with sending lat and lon directly. Withheld unless GET /v2 reports capabilities.place_lookup true."
+              },
+              {
+                "name": "place_strategy",
+                "value": "best",
+                "type": "query",
+                "description": "best guesses the intended place when a name is ambiguous and reports the guess as a warning. error refuses an ambiguous name with 400 AMBIGUOUS_PLACE and the candidates in `supported`. Only meaningful with `place`."
+              },
+              {
+                "name": "at",
+                "value": "2026-06-21T21:00:00Z",
+                "type": "query",
+                "description": "The instant to evaluate. ISO 8601: a date (2026-06-21), or a date and time with an optional seconds, fraction and either Z or a numeric UTC offset. No offset and no `tz` reads as UTC. Reliable from 1700 to 2200."
+              },
+              {
+                "name": "tz",
+                "value": "Europe/London",
+                "type": "query",
+                "description": "An IANA time zone name, for example Europe/London or America/Chicago. Numeric offsets and abbreviations are not accepted. Governs how a date-only or offset-free `at`/`start`/`end` is read, and how local instants are rendered when time_format=iso."
+              },
+              {
+                "name": "ambiguous",
+                "value": "first",
+                "type": "query",
+                "description": "How to resolve a local time that a clock repeated, such as the return from daylight saving. error refuses with 409 AMBIGUOUS_LOCAL_TIME."
+              },
+              {
+                "name": "nonexistent",
+                "value": "error",
+                "type": "query",
+                "description": "How to resolve a local time that never happened, such as inside a spring-forward gap. error refuses with 400 NONEXISTENT_LOCAL_TIME."
+              },
+              {
+                "name": "include",
+                "value": "ladder",
+                "type": "query",
+                "description": "Comma-separated optional blocks to include. Omit for the endpoint default set."
+              },
+              {
+                "name": "refraction",
+                "value": "normal",
+                "type": "query",
+                "description": "normal applies Saemundsson refraction to apparent altitude; none reports the unrefracted geometric altitude."
+              },
+              {
+                "name": "time_format",
+                "value": "iso",
+                "type": "query",
+                "description": "How instants are rendered: iso for ISO 8601 strings carrying the effective offset, or unix for integer seconds since the epoch."
+              },
+              {
+                "name": "format",
+                "value": "json",
+                "type": "query",
+                "description": "Response representation. Each endpoint serves a subset of json, csv and txt; see that operation's description for the exact list, or GET /v2 for every endpoint's formats array. An unsupported value is 400 BAD_FORMAT with the accepted list in `supported`."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated dot paths into `data` (for example moon.phase_name,moon.illumination) so only those fields are returned. Up to 64 paths; an array element is addressed by its object key, never by index."
+              },
+              {
+                "name": "shape",
+                "value": "nested",
+                "type": "query",
+                "description": "nested returns the documented object tree. flat returns one object with dotted keys, format=json only."
+              },
+              {
+                "name": "precision",
+                "value": "6",
+                "type": "query",
+                "description": "Decimal places for numeric fields."
+              },
+              {
+                "name": "pretty",
+                "value": "1",
+                "type": "query",
+                "description": "Whether the JSON body is indented (1) or compact (0). Has no effect on csv or txt."
+              },
+              {
+                "name": "verbosity",
+                "value": "full",
+                "type": "query",
+                "description": "full includes prose notes, frame definitions and withheld-field reasons in meta. compact keeps every value and every machine-readable name and drops the prose."
+              }
+            ]
+          },
+          "docs": "Naked-eye limiting magnitude and aperture reach for a sky class you supply, with an explicit machine-readable statement that the number is a tuned estimate rather than a measurement. Formats: json, csv, txt. Example: GET /v2/sky-quality?bortle=3&equipment=telescope&aperture_mm=200"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

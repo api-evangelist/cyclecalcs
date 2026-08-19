@@ -1,0 +1,471 @@
+{
+  "item": [
+    {
+      "id": "ee60bb43-c3cd-407c-9488-9f2a36a38eee",
+      "name": "CycleCalcs Astronomy API",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b5267d4a-ca0b-4c96-8687-eddab4b5a1c1",
+          "name": "The discovery document: every endpoint, parameter, convention and limit",
+          "request": {
+            "name": "The discovery document: every endpoint, parameter, convention and limit",
+            "description": {
+              "content": "The discovery document: every endpoint, parameter, convention and limit. Formats: json. Example: GET /v2",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response representation. Each endpoint serves a subset of json, csv and txt; see that operation's description for the exact list, or GET /v2 for every endpoint's formats array. An unsupported value is 400 BAD_FORMAT with the accepted list in `supported`."
+                },
+                {
+                  "disabled": false,
+                  "key": "precision",
+                  "value": "6",
+                  "description": "Decimal places for numeric fields."
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "1",
+                  "description": "Whether the JSON body is indented (1) or compact (0). Has no effect on csv or txt."
+                },
+                {
+                  "disabled": false,
+                  "key": "verbosity",
+                  "value": "full",
+                  "description": "full includes prose notes, frame definitions and withheld-field reasons in meta. compact keeps every value and every machine-readable name and drops the prose."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ad64c03b-94ab-4ac1-b830-5800261139f2",
+              "name": "The answer.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "precision",
+                      "value": "6"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "1"
+                    },
+                    {
+                      "key": "verbosity",
+                      "value": "full"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Present when the cache class is deterministic or time-quantised. Send back as If-None-Match to get 304.",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "Browser caching directive for this response's cache class.",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "draft-ietf-httpapi-ratelimit-headers usage for the current window.",
+                  "key": "RateLimit",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": \"GET /v2\",\n  \"description\": \"A real request to the running API, not a hand-written mock. It needs no key and can be opened directly, so the example is whatever the endpoint actually returns today.\",\n  \"externalValue\": \"https://www.cyclecalcs.com/v2\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da37ba8a-3636-4077-82ef-6ae7f9e6299c",
+              "name": "Not Modified. Returned when If-None-Match matches the current ETag. No body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "precision",
+                      "value": "6"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "1"
+                    },
+                    {
+                      "key": "verbosity",
+                      "value": "full"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8b83cddf-7100-4ef6-8297-5fddc38eeb24",
+              "name": "The request could not be understood: a malformed or out-of-range parameter, an incomplete range, a conflicting pair of parameters, or a request too large for the compute budget.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "precision",
+                      "value": "6"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "1"
+                    },
+                    {
+                      "key": "verbosity",
+                      "value": "full"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": [\n    \"string\",\n    \"null\"\n  ],\n  \"description\": \"A worked example URL or value, when one is more useful than the hint alone.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "27bad14c-b021-4683-8fbf-192b149b5e4f",
+              "name": "Not found: a `place`/`id`/target that does not resolve to anything, or a path this API does not serve.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "precision",
+                      "value": "6"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "1"
+                    },
+                    {
+                      "key": "verbosity",
+                      "value": "full"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": [\n    \"string\",\n    \"null\"\n  ],\n  \"description\": \"A worked example URL or value, when one is more useful than the hint alone.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a66638a2-d840-4030-91ce-c2e5062b8f5f",
+              "name": "Method not allowed. This API serves GET, HEAD and OPTIONS only.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "precision",
+                      "value": "6"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "1"
+                    },
+                    {
+                      "key": "verbosity",
+                      "value": "full"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": [\n    \"string\",\n    \"null\"\n  ],\n  \"description\": \"A worked example URL or value, when one is more useful than the hint alone.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a2ec5f3-053d-40a9-a3f4-421c7ee59d14",
+              "name": "The serialised response exceeded the hard size cap. Narrow the request with `fields`, verbosity=compact or a smaller range.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "precision",
+                      "value": "6"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "1"
+                    },
+                    {
+                      "key": "verbosity",
+                      "value": "full"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": [\n    \"string\",\n    \"null\"\n  ],\n  \"description\": \"A worked example URL or value, when one is more useful than the hint alone.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3598990a-cbb4-4cf1-8940-fa78231d2692",
+              "name": "Rate limited. Wait the number of seconds in Retry-After, or cache the response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "precision",
+                      "value": "6"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "1"
+                    },
+                    {
+                      "key": "verbosity",
+                      "value": "full"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": [\n    \"string\",\n    \"null\"\n  ],\n  \"description\": \"A worked example URL or value, when one is more useful than the hint alone.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.cyclecalcs.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "76d85a86-d017-4c12-b60a-8973459eab6c",
+    "name": "CycleCalcs Astronomy CycleCalcs Astronomy API API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A read-only astronomy API that returns the named answer and the numbers behind it, with the frame, epoch, time scale and refraction model stated on every response. It reports angles, times and names, and attaches no meaning to any of them. Computed in real time with the MIT-licensed Astronomy Engine. This document is generated from the shipped route table (netlify/lib/v2/registry.mjs) by tools/generate-openapi.mjs, so it cannot list a route, a parameter or a requirement the API does not actually enforce. Computed astronomical output is unrestricted: use, store, redistribute and sell it without attribution. The one exception is GeoNames place data served by GET /v2/places and by any response that resolved a `place` parameter, which requires the credit line in meta.attribution; see GET /v2/attribution for the full source register.\n\nContact Support:\n Name: CycleCalcs\n Email: info@cyclecalcs.com",
+      "type": "text/plain"
+    }
+  }
+}

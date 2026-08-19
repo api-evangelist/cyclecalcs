@@ -1,0 +1,1091 @@
+{
+  "item": [
+    {
+      "id": "73d9ecdf-d709-4a1d-b005-00d345901a43",
+      "name": "Sky Quality",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "98939eae-92b2-44a9-ba04-a42e44649a93",
+          "name": "Naked-eye limiting magnitude and aperture reach for a sky class you supply, with an explicit machine-readable statement that the number is a tuned estimate rather than a measurement",
+          "request": {
+            "name": "Naked-eye limiting magnitude and aperture reach for a sky class you supply, with an explicit machine-readable statement that the number is a tuned estimate rather than a measurement",
+            "description": {
+              "content": "Naked-eye limiting magnitude and aperture reach for a sky class you supply, with an explicit machine-readable statement that the number is a tuned estimate rather than a measurement. Formats: json, csv, txt. Example: GET /v2/sky-quality?bortle=3&equipment=telescope&aperture_mm=200",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "sky-quality"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "bortle",
+                  "value": "<integer>",
+                  "description": "The Bortle dark-sky class, 1 (excellent) to 9 (inner-city). Mutually exclusive with `nelm`; one of the two is required."
+                },
+                {
+                  "disabled": false,
+                  "key": "nelm",
+                  "value": "<number>",
+                  "description": "Naked-eye limiting magnitude, 2.0 to 8.5. Mutually exclusive with `bortle`; one of the two is required."
+                },
+                {
+                  "disabled": false,
+                  "key": "equipment",
+                  "value": "naked_eye",
+                  "description": "What the observation is made with."
+                },
+                {
+                  "disabled": false,
+                  "key": "aperture_mm",
+                  "value": "<number>",
+                  "description": "Telescope aperture in millimetres. Only used when equipment=telescope."
+                },
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<number>",
+                  "description": "Latitude in decimal degrees, north positive. No compass suffix (do not append N or S). Required together with lon, or neither."
+                },
+                {
+                  "disabled": false,
+                  "key": "lon",
+                  "value": "<number>",
+                  "description": "Longitude in decimal degrees, east positive. No compass suffix (do not append E or W). Required together with lat, or neither."
+                },
+                {
+                  "disabled": false,
+                  "key": "elevation_m",
+                  "value": "0",
+                  "description": "Observer elevation above mean sea level, in metres. Raises the observer on a locally flat plateau; sea-horizon dip is not modelled."
+                },
+                {
+                  "disabled": false,
+                  "key": "place",
+                  "value": "<string>",
+                  "description": "A place name (place=London), a name with a country (place=Cambridge,GB), or a stable identifier from GET /v2/places (place=id:us-n35198-w111651). Supplies lat, lon and, unless tz is also sent, the time zone. Mutually exclusive with sending lat and lon directly. Withheld unless GET /v2 reports capabilities.place_lookup true."
+                },
+                {
+                  "disabled": false,
+                  "key": "place_strategy",
+                  "value": "best",
+                  "description": "best guesses the intended place when a name is ambiguous and reports the guess as a warning. error refuses an ambiguous name with 400 AMBIGUOUS_PLACE and the candidates in `supported`. Only meaningful with `place`."
+                },
+                {
+                  "disabled": false,
+                  "key": "at",
+                  "value": "<string>",
+                  "description": "The instant to evaluate. ISO 8601: a date (2026-06-21), or a date and time with an optional seconds, fraction and either Z or a numeric UTC offset. No offset and no `tz` reads as UTC. Reliable from 1700 to 2200."
+                },
+                {
+                  "disabled": false,
+                  "key": "tz",
+                  "value": "<string>",
+                  "description": "An IANA time zone name, for example Europe/London or America/Chicago. Numeric offsets and abbreviations are not accepted. Governs how a date-only or offset-free `at`/`start`/`end` is read, and how local instants are rendered when time_format=iso."
+                },
+                {
+                  "disabled": false,
+                  "key": "ambiguous",
+                  "value": "first",
+                  "description": "How to resolve a local time that a clock repeated, such as the return from daylight saving. error refuses with 409 AMBIGUOUS_LOCAL_TIME."
+                },
+                {
+                  "disabled": false,
+                  "key": "nonexistent",
+                  "value": "error",
+                  "description": "How to resolve a local time that never happened, such as inside a spring-forward gap. error refuses with 400 NONEXISTENT_LOCAL_TIME."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated optional blocks to include. Omit for the endpoint default set."
+                },
+                {
+                  "disabled": false,
+                  "key": "refraction",
+                  "value": "normal",
+                  "description": "normal applies Saemundsson refraction to apparent altitude; none reports the unrefracted geometric altitude."
+                },
+                {
+                  "disabled": false,
+                  "key": "time_format",
+                  "value": "iso",
+                  "description": "How instants are rendered: iso for ISO 8601 strings carrying the effective offset, or unix for integer seconds since the epoch."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response representation. Each endpoint serves a subset of json, csv and txt; see that operation's description for the exact list, or GET /v2 for every endpoint's formats array. An unsupported value is 400 BAD_FORMAT with the accepted list in `supported`."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated dot paths into `data` (for example moon.phase_name,moon.illumination) so only those fields are returned. Up to 64 paths; an array element is addressed by its object key, never by index."
+                },
+                {
+                  "disabled": false,
+                  "key": "shape",
+                  "value": "nested",
+                  "description": "nested returns the documented object tree. flat returns one object with dotted keys, format=json only."
+                },
+                {
+                  "disabled": false,
+                  "key": "precision",
+                  "value": "6",
+                  "description": "Decimal places for numeric fields."
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "1",
+                  "description": "Whether the JSON body is indented (1) or compact (0). Has no effect on csv or txt."
+                },
+                {
+                  "disabled": false,
+                  "key": "verbosity",
+                  "value": "full",
+                  "description": "full includes prose notes, frame definitions and withheld-field reasons in meta. compact keeps every value and every machine-readable name and drops the prose."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de9b270d-2639-48d7-9021-5cfb77a4f94d",
+              "name": "The answer.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sky-quality"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bortle",
+                      "value": "3"
+                    },
+                    {
+                      "key": "nelm",
+                      "value": "6"
+                    },
+                    {
+                      "key": "equipment",
+                      "value": "telescope"
+                    },
+                    {
+                      "key": "aperture_mm",
+                      "value": "200"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "51.4778"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.0015"
+                    },
+                    {
+                      "key": "elevation_m",
+                      "value": "11"
+                    },
+                    {
+                      "key": "place",
+                      "value": "London"
+                    },
+                    {
+                      "key": "place_strategy",
+                      "value": "best"
+                    },
+                    {
+                      "key": "at",
+                      "value": "2026-06-21T21:00:00Z"
+                    },
+                    {
+                      "key": "tz",
+                      "value": "Europe/London"
+                    },
+                    {
+                      "key": "ambiguous",
+                      "value": "first"
+                    },
+                    {
+                      "key": "nonexistent",
+                      "value": "error"
+                    },
+                    {
+                      "key": "include",
+                      "value": "ladder"
+                    },
+                    {
+                      "key": "refraction",
+                      "value": "normal"
+                    },
+                    {
+                      "key": "time_format",
+                      "value": "iso"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "shape",
+                      "value": "nested"
+                    },
+                    {
+                      "key": "precision",
+                      "value": "6"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "1"
+                    },
+                    {
+                      "key": "verbosity",
+                      "value": "full"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Present when the cache class is deterministic or time-quantised. Send back as If-None-Match to get 304.",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "Browser caching directive for this response's cache class.",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "disabled": false,
+                  "description": "draft-ietf-httpapi-ratelimit-headers usage for the current window.",
+                  "key": "RateLimit",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": \"GET /v2/sky-quality?bortle=3&equipment=telescope&aperture_mm=200\",\n  \"description\": \"A real request to the running API, not a hand-written mock. It needs no key and can be opened directly, so the example is whatever the endpoint actually returns today.\",\n  \"externalValue\": \"https://www.cyclecalcs.com/v2/sky-quality?bortle=3&equipment=telescope&aperture_mm=200\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71fa51ef-a81e-413c-86f8-01f3d045b946",
+              "name": "Not Modified. Returned when If-None-Match matches the current ETag. No body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sky-quality"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bortle",
+                      "value": "3"
+                    },
+                    {
+                      "key": "nelm",
+                      "value": "6"
+                    },
+                    {
+                      "key": "equipment",
+                      "value": "telescope"
+                    },
+                    {
+                      "key": "aperture_mm",
+                      "value": "200"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "51.4778"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.0015"
+                    },
+                    {
+                      "key": "elevation_m",
+                      "value": "11"
+                    },
+                    {
+                      "key": "place",
+                      "value": "London"
+                    },
+                    {
+                      "key": "place_strategy",
+                      "value": "best"
+                    },
+                    {
+                      "key": "at",
+                      "value": "2026-06-21T21:00:00Z"
+                    },
+                    {
+                      "key": "tz",
+                      "value": "Europe/London"
+                    },
+                    {
+                      "key": "ambiguous",
+                      "value": "first"
+                    },
+                    {
+                      "key": "nonexistent",
+                      "value": "error"
+                    },
+                    {
+                      "key": "include",
+                      "value": "ladder"
+                    },
+                    {
+                      "key": "refraction",
+                      "value": "normal"
+                    },
+                    {
+                      "key": "time_format",
+                      "value": "iso"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "shape",
+                      "value": "nested"
+                    },
+                    {
+                      "key": "precision",
+                      "value": "6"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "1"
+                    },
+                    {
+                      "key": "verbosity",
+                      "value": "full"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "53c01099-27f8-4457-9c54-d04563fa8f55",
+              "name": "The request could not be understood: a malformed or out-of-range parameter, an incomplete range, a conflicting pair of parameters, or a request too large for the compute budget.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sky-quality"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bortle",
+                      "value": "3"
+                    },
+                    {
+                      "key": "nelm",
+                      "value": "6"
+                    },
+                    {
+                      "key": "equipment",
+                      "value": "telescope"
+                    },
+                    {
+                      "key": "aperture_mm",
+                      "value": "200"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "51.4778"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.0015"
+                    },
+                    {
+                      "key": "elevation_m",
+                      "value": "11"
+                    },
+                    {
+                      "key": "place",
+                      "value": "London"
+                    },
+                    {
+                      "key": "place_strategy",
+                      "value": "best"
+                    },
+                    {
+                      "key": "at",
+                      "value": "2026-06-21T21:00:00Z"
+                    },
+                    {
+                      "key": "tz",
+                      "value": "Europe/London"
+                    },
+                    {
+                      "key": "ambiguous",
+                      "value": "first"
+                    },
+                    {
+                      "key": "nonexistent",
+                      "value": "error"
+                    },
+                    {
+                      "key": "include",
+                      "value": "ladder"
+                    },
+                    {
+                      "key": "refraction",
+                      "value": "normal"
+                    },
+                    {
+                      "key": "time_format",
+                      "value": "iso"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "shape",
+                      "value": "nested"
+                    },
+                    {
+                      "key": "precision",
+                      "value": "6"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "1"
+                    },
+                    {
+                      "key": "verbosity",
+                      "value": "full"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": [\n    \"string\",\n    \"null\"\n  ],\n  \"description\": \"A worked example URL or value, when one is more useful than the hint alone.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "61d4afa8-7df5-4a41-bdf2-b49e1fdbe63f",
+              "name": "Not found: a `place`/`id`/target that does not resolve to anything, or a path this API does not serve.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sky-quality"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bortle",
+                      "value": "3"
+                    },
+                    {
+                      "key": "nelm",
+                      "value": "6"
+                    },
+                    {
+                      "key": "equipment",
+                      "value": "telescope"
+                    },
+                    {
+                      "key": "aperture_mm",
+                      "value": "200"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "51.4778"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.0015"
+                    },
+                    {
+                      "key": "elevation_m",
+                      "value": "11"
+                    },
+                    {
+                      "key": "place",
+                      "value": "London"
+                    },
+                    {
+                      "key": "place_strategy",
+                      "value": "best"
+                    },
+                    {
+                      "key": "at",
+                      "value": "2026-06-21T21:00:00Z"
+                    },
+                    {
+                      "key": "tz",
+                      "value": "Europe/London"
+                    },
+                    {
+                      "key": "ambiguous",
+                      "value": "first"
+                    },
+                    {
+                      "key": "nonexistent",
+                      "value": "error"
+                    },
+                    {
+                      "key": "include",
+                      "value": "ladder"
+                    },
+                    {
+                      "key": "refraction",
+                      "value": "normal"
+                    },
+                    {
+                      "key": "time_format",
+                      "value": "iso"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "shape",
+                      "value": "nested"
+                    },
+                    {
+                      "key": "precision",
+                      "value": "6"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "1"
+                    },
+                    {
+                      "key": "verbosity",
+                      "value": "full"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": [\n    \"string\",\n    \"null\"\n  ],\n  \"description\": \"A worked example URL or value, when one is more useful than the hint alone.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fb86840f-6b4d-45bf-87b9-1ba6fe2345e2",
+              "name": "Method not allowed. This API serves GET, HEAD and OPTIONS only.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sky-quality"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bortle",
+                      "value": "3"
+                    },
+                    {
+                      "key": "nelm",
+                      "value": "6"
+                    },
+                    {
+                      "key": "equipment",
+                      "value": "telescope"
+                    },
+                    {
+                      "key": "aperture_mm",
+                      "value": "200"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "51.4778"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.0015"
+                    },
+                    {
+                      "key": "elevation_m",
+                      "value": "11"
+                    },
+                    {
+                      "key": "place",
+                      "value": "London"
+                    },
+                    {
+                      "key": "place_strategy",
+                      "value": "best"
+                    },
+                    {
+                      "key": "at",
+                      "value": "2026-06-21T21:00:00Z"
+                    },
+                    {
+                      "key": "tz",
+                      "value": "Europe/London"
+                    },
+                    {
+                      "key": "ambiguous",
+                      "value": "first"
+                    },
+                    {
+                      "key": "nonexistent",
+                      "value": "error"
+                    },
+                    {
+                      "key": "include",
+                      "value": "ladder"
+                    },
+                    {
+                      "key": "refraction",
+                      "value": "normal"
+                    },
+                    {
+                      "key": "time_format",
+                      "value": "iso"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "shape",
+                      "value": "nested"
+                    },
+                    {
+                      "key": "precision",
+                      "value": "6"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "1"
+                    },
+                    {
+                      "key": "verbosity",
+                      "value": "full"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": [\n    \"string\",\n    \"null\"\n  ],\n  \"description\": \"A worked example URL or value, when one is more useful than the hint alone.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "46513be6-3f56-4be4-8660-3c4a8c455dfa",
+              "name": "The serialised response exceeded the hard size cap. Narrow the request with `fields`, verbosity=compact or a smaller range.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sky-quality"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bortle",
+                      "value": "3"
+                    },
+                    {
+                      "key": "nelm",
+                      "value": "6"
+                    },
+                    {
+                      "key": "equipment",
+                      "value": "telescope"
+                    },
+                    {
+                      "key": "aperture_mm",
+                      "value": "200"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "51.4778"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.0015"
+                    },
+                    {
+                      "key": "elevation_m",
+                      "value": "11"
+                    },
+                    {
+                      "key": "place",
+                      "value": "London"
+                    },
+                    {
+                      "key": "place_strategy",
+                      "value": "best"
+                    },
+                    {
+                      "key": "at",
+                      "value": "2026-06-21T21:00:00Z"
+                    },
+                    {
+                      "key": "tz",
+                      "value": "Europe/London"
+                    },
+                    {
+                      "key": "ambiguous",
+                      "value": "first"
+                    },
+                    {
+                      "key": "nonexistent",
+                      "value": "error"
+                    },
+                    {
+                      "key": "include",
+                      "value": "ladder"
+                    },
+                    {
+                      "key": "refraction",
+                      "value": "normal"
+                    },
+                    {
+                      "key": "time_format",
+                      "value": "iso"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "shape",
+                      "value": "nested"
+                    },
+                    {
+                      "key": "precision",
+                      "value": "6"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "1"
+                    },
+                    {
+                      "key": "verbosity",
+                      "value": "full"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": [\n    \"string\",\n    \"null\"\n  ],\n  \"description\": \"A worked example URL or value, when one is more useful than the hint alone.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2bb8d33-4988-430e-ab38-14c945d39347",
+              "name": "Rate limited. Wait the number of seconds in Retry-After, or cache the response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "sky-quality"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bortle",
+                      "value": "3"
+                    },
+                    {
+                      "key": "nelm",
+                      "value": "6"
+                    },
+                    {
+                      "key": "equipment",
+                      "value": "telescope"
+                    },
+                    {
+                      "key": "aperture_mm",
+                      "value": "200"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "51.4778"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "-0.0015"
+                    },
+                    {
+                      "key": "elevation_m",
+                      "value": "11"
+                    },
+                    {
+                      "key": "place",
+                      "value": "London"
+                    },
+                    {
+                      "key": "place_strategy",
+                      "value": "best"
+                    },
+                    {
+                      "key": "at",
+                      "value": "2026-06-21T21:00:00Z"
+                    },
+                    {
+                      "key": "tz",
+                      "value": "Europe/London"
+                    },
+                    {
+                      "key": "ambiguous",
+                      "value": "first"
+                    },
+                    {
+                      "key": "nonexistent",
+                      "value": "error"
+                    },
+                    {
+                      "key": "include",
+                      "value": "ladder"
+                    },
+                    {
+                      "key": "refraction",
+                      "value": "normal"
+                    },
+                    {
+                      "key": "time_format",
+                      "value": "iso"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "shape",
+                      "value": "nested"
+                    },
+                    {
+                      "key": "precision",
+                      "value": "6"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "1"
+                    },
+                    {
+                      "key": "verbosity",
+                      "value": "full"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": [\n    \"string\",\n    \"null\"\n  ],\n  \"description\": \"A worked example URL or value, when one is more useful than the hint alone.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.cyclecalcs.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "60841052-2fd7-433d-bf70-dae21c3c5ed1",
+    "name": "CycleCalcs Astronomy Sky Quality API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A read-only astronomy API that returns the named answer and the numbers behind it, with the frame, epoch, time scale and refraction model stated on every response. It reports angles, times and names, and attaches no meaning to any of them. Computed in real time with the MIT-licensed Astronomy Engine. This document is generated from the shipped route table (netlify/lib/v2/registry.mjs) by tools/generate-openapi.mjs, so it cannot list a route, a parameter or a requirement the API does not actually enforce. Computed astronomical output is unrestricted: use, store, redistribute and sell it without attribution. The one exception is GeoNames place data served by GET /v2/places and by any response that resolved a `place` parameter, which requires the credit line in meta.attribution; see GET /v2/attribution for the full source register.\n\nContact Support:\n Name: CycleCalcs\n Email: info@cyclecalcs.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CycleCalcs Astronomy Conjunctions API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Conjunctions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Close approaches between body pairs in a window, ranked, with the separation and whether the pair is observable or lost in twilight",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.cyclecalcs.com/v2/conjunctions",
+            "params": [
+              {
+                "name": "at",
+                "value": "2026-06-21T21:00:00Z",
+                "type": "query",
+                "description": "The instant to evaluate. ISO 8601: a date (2026-06-21), or a date and time with an optional seconds, fraction and either Z or a numeric UTC offset. No offset and no `tz` reads as UTC. Reliable from 1700 to 2200."
+              },
+              {
+                "name": "start",
+                "value": "2026-01-01",
+                "type": "query",
+                "description": "The start of a range query, inclusive. ISO 8601: a date (2026-06-21), or a date and time with an optional seconds, fraction and either Z or a numeric UTC offset. No offset and no `tz` reads as UTC. Reliable from 1700 to 2200."
+              },
+              {
+                "name": "end",
+                "value": "2027-01-01",
+                "type": "query",
+                "description": "The end of a range query. A row landing exactly on `end` IS returned: the window is [start, end]. Every endpoint's rule is published as data under limits.range_boundaries in /v2/conventions. ISO 8601: a date (2026-06-21), or a date and time with an optional seconds, fraction and either Z or a numeric UTC offset. No offset and no `tz` reads as UTC. Reliable from 1700 to 2200."
+              },
+              {
+                "name": "bodies",
+                "value": "venus,jupiter,mars",
+                "type": "query",
+                "description": "A comma-separated list of targets, up to 20: any of sun, moon, mercury, venus, earth, mars, jupiter, saturn, uranus, neptune, pluto, or radec:<ra>,<dec>[,j2000] entries. Mutually exclusive with `body`."
+              },
+              {
+                "name": "pairs",
+                "value": "jupiter-saturn",
+                "type": "query",
+                "description": "An explicit list of body pairs to check, each written as two body names joined by a hyphen, separated by commas, for example jupiter-saturn,venus-mars. Overrides the all-pairs sweep of `bodies`."
+              },
+              {
+                "name": "max_separation_deg",
+                "value": "20",
+                "type": "query",
+                "description": "Only report a minimum whose separation falls at or below this many degrees. Filters the result; never changes the search."
+              },
+              {
+                "name": "min_elongation_deg",
+                "value": "0",
+                "type": "query",
+                "description": "Only report a pair whose solar elongation is at or above this many degrees, so a conjunction lost in the Sun's glare can be excluded."
+              },
+              {
+                "name": "kind",
+                "value": "all",
+                "type": "query",
+                "description": "Filter by how the approach is classified."
+              },
+              {
+                "name": "frame",
+                "value": "apparent",
+                "type": "query",
+                "description": "The frame the separation is measured in. ecliptic compares ecliptic longitude only, the almanac conjunction definition, and is unsupported for a radec: target."
+              },
+              {
+                "name": "step",
+                "value": "1h",
+                "type": "query",
+                "description": "Sampling stride, narrower on this endpoint than the generic step range. Use a duration this endpoint accepts, such as 1h, 6h, 1d, 2d or 7d. Needs `start`."
+              },
+              {
+                "name": "sort",
+                "value": "time",
+                "type": "query",
+                "description": "Sort order of the returned approaches."
+              },
+              {
+                "name": "lat",
+                "value": "51.4778",
+                "type": "query",
+                "description": "Latitude in decimal degrees, north positive. No compass suffix (do not append N or S). Required together with lon, or neither."
+              },
+              {
+                "name": "lon",
+                "value": "-0.0015",
+                "type": "query",
+                "description": "Longitude in decimal degrees, east positive. No compass suffix (do not append E or W). Required together with lat, or neither."
+              },
+              {
+                "name": "elevation_m",
+                "value": "11",
+                "type": "query",
+                "description": "Observer elevation above mean sea level, in metres. Raises the observer on a locally flat plateau; sea-horizon dip is not modelled."
+              },
+              {
+                "name": "place",
+                "value": "London",
+                "type": "query",
+                "description": "A place name (place=London), a name with a country (place=Cambridge,GB), or a stable identifier from GET /v2/places (place=id:us-n35198-w111651). Supplies lat, lon and, unless tz is also sent, the time zone. Mutually exclusive with sending lat and lon directly. Withheld unless GET /v2 reports capabilities.place_lookup true."
+              },
+              {
+                "name": "place_strategy",
+                "value": "best",
+                "type": "query",
+                "description": "best guesses the intended place when a name is ambiguous and reports the guess as a warning. error refuses an ambiguous name with 400 AMBIGUOUS_PLACE and the candidates in `supported`. Only meaningful with `place`."
+              },
+              {
+                "name": "tz",
+                "value": "Europe/London",
+                "type": "query",
+                "description": "An IANA time zone name, for example Europe/London or America/Chicago. Numeric offsets and abbreviations are not accepted. Governs how a date-only or offset-free `at`/`start`/`end` is read, and how local instants are rendered when time_format=iso."
+              },
+              {
+                "name": "ambiguous",
+                "value": "first",
+                "type": "query",
+                "description": "How to resolve a local time that a clock repeated, such as the return from daylight saving. error refuses with 409 AMBIGUOUS_LOCAL_TIME."
+              },
+              {
+                "name": "nonexistent",
+                "value": "error",
+                "type": "query",
+                "description": "How to resolve a local time that never happened, such as inside a spring-forward gap. error refuses with 400 NONEXISTENT_LOCAL_TIME."
+              },
+              {
+                "name": "time_format",
+                "value": "iso",
+                "type": "query",
+                "description": "How instants are rendered: iso for ISO 8601 strings carrying the effective offset, or unix for integer seconds since the epoch."
+              },
+              {
+                "name": "format",
+                "value": "json",
+                "type": "query",
+                "description": "Response representation. Each endpoint serves a subset of json, csv and txt; see that operation's description for the exact list, or GET /v2 for every endpoint's formats array. An unsupported value is 400 BAD_FORMAT with the accepted list in `supported`."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated dot paths into `data` (for example moon.phase_name,moon.illumination) so only those fields are returned. Up to 64 paths; an array element is addressed by its object key, never by index."
+              },
+              {
+                "name": "shape",
+                "value": "nested",
+                "type": "query",
+                "description": "nested returns the documented object tree. flat returns one object with dotted keys, format=json only."
+              },
+              {
+                "name": "precision",
+                "value": "6",
+                "type": "query",
+                "description": "Decimal places for numeric fields."
+              },
+              {
+                "name": "pretty",
+                "value": "1",
+                "type": "query",
+                "description": "Whether the JSON body is indented (1) or compact (0). Has no effect on csv or txt."
+              },
+              {
+                "name": "verbosity",
+                "value": "full",
+                "type": "query",
+                "description": "full includes prose notes, frame definitions and withheld-field reasons in meta. compact keeps every value and every machine-readable name and drops the prose."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "See the endpoint description at /api/reference.html."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "An opaque, unsigned pagination token copied verbatim from a previous response's links.next. Never construct one by hand; a malformed or foreign cursor is 400 BAD_CURSOR."
+              }
+            ]
+          },
+          "docs": "Close approaches between body pairs in a window, ranked, with the separation and whether the pair is observable or lost in twilight. Formats: json, csv. Example: GET /v2/conjunctions?bodies=venus,jupiter,mars&start=2026-01-01&end=2027-01-01&max_separation_deg=20"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
