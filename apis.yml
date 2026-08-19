@@ -14,7 +14,7 @@ image: https://www.cyclecalcs.com/assets/og-card.png?v=2
 url: https://raw.githubusercontent.com/api-evangelist/cyclecalcs/refs/heads/main/apis.yml
 created: '2026-08-09'
 modified: '2026-08-09'
-specificationVersion: '0.21'
+specificationVersion: '0.23'
 tags:
   - Astronomy
   - Space
