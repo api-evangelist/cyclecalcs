@@ -28,6 +28,20 @@ tags:
   - Calendar
   - Geolocation
   - MCP
+  - agent-native
+tags_raw:
+  - Astronomy
+  - Space
+  - Science
+  - Ephemeris
+  - Sun
+  - Moon
+  - Planets
+  - Eclipses
+  - Time
+  - Calendar
+  - Geolocation
+  - MCP
   - Agent-native
 apis:
 - name: CycleCalcs MCP Server
@@ -38,6 +52,20 @@ apis:
   humanURL: https://www.cyclecalcs.com/api/mcp.html
   baseURL: https://www.cyclecalcs.com/mcp
   tags:
+  - Astronomy
+  - Space
+  - Science
+  - Ephemeris
+  - Sun
+  - Moon
+  - Planets
+  - Eclipses
+  - Time
+  - Calendar
+  - Geolocation
+  - MCP
+  - agent-native
+  tags_raw:
   - Astronomy
   - Space
   - Science
