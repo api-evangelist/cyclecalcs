@@ -10,6 +10,18 @@ description: >-
   endpoints, JSON/CSV/TXT, RFC 9457 problem documents, open CORS, and a free tier that needs no key, no signup and no
   card; paid volume tiers sell through RapidAPI. Pure astronomy — no astrology and no claims that sky events affect
   people or Earth.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.cyclecalcs.com/assets/og-card.png?v=2
 url: https://raw.githubusercontent.com/api-evangelist/cyclecalcs/refs/heads/main/apis.yml
 created: '2026-08-09'
