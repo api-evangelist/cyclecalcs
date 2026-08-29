@@ -6,99 +6,105 @@ info:
     One ranged request for the solar day, one for daily moon state, one for the
     quarter instants — a month of calendar in three calls, not ninety.
 sourceDescriptions:
-  - name: cyclecalcs
-    url: ../openapi/cyclecalcs-astronomy-openapi-original.json
-    type: openapi
+- name: moonApi
+  url: ../openapi/cyclecalcs-moon-api-openapi.yml
+  type: openapi
+- name: phasesApi
+  url: ../openapi/cyclecalcs-phases-api-openapi.yml
+  type: openapi
+- name: sunApi
+  url: ../openapi/cyclecalcs-sun-api-openapi.yml
+  type: openapi
 workflows:
-  - workflowId: sunAndMoonCalendar
-    summary: A per-day sun/moon table plus the lunar quarter instants.
-    inputs:
-      type: object
-      required: [lat, lon, start, end]
-      properties:
-        lat: {type: number}
-        lon: {type: number}
-        tz: {type: string}
-        start: {type: string, description: ISO date, inclusive.}
-        end: {type: string, description: ISO date, inclusive.}
-    steps:
-      - stepId: solarDays
-        description: >-
-          Sunrise, sunset, solar noon, day length and the three twilights, one
-          row a day. lat and lon are required on this operation.
-        operationId: getSun
-        parameters:
-          - name: lat
-            in: query
-            value: $inputs.lat
-          - name: lon
-            in: query
-            value: $inputs.lon
-          - name: tz
-            in: query
-            value: $inputs.tz
-          - name: start
-            in: query
-            value: $inputs.start
-          - name: end
-            in: query
-            value: $inputs.end
-          - name: step
-            in: query
-            value: 1d
-        successCriteria:
-          - condition: $statusCode == 200
-        outputs:
-          days: $response.body#/data
-      - stepId: moonDays
-        description: Daily phase, illumination, distance and rise/set.
-        operationId: getMoon
-        parameters:
-          - name: lat
-            in: query
-            value: $inputs.lat
-          - name: lon
-            in: query
-            value: $inputs.lon
-          - name: tz
-            in: query
-            value: $inputs.tz
-          - name: start
-            in: query
-            value: $inputs.start
-          - name: end
-            in: query
-            value: $inputs.end
-          - name: step
-            in: query
-            value: 1d
-        successCriteria:
-          - condition: $statusCode == 200
-        outputs:
-          days: $response.body#/data
-      - stepId: quarters
-        description: >-
-          The exact quarter instants in the window, with supermoon status under
-          both competing rules and any attached eclipse.
-        operationId: getPhases
-        parameters:
-          - name: start
-            in: query
-            value: $inputs.start
-          - name: end
-            in: query
-            value: $inputs.end
-          - name: tz
-            in: query
-            value: $inputs.tz
-        successCriteria:
-          - condition: $statusCode == 200
-        outputs:
-          phases: $response.body#/data
+- workflowId: sunAndMoonCalendar
+  summary: A per-day sun/moon table plus the lunar quarter instants.
+  inputs:
+    type: object
+    required: [lat, lon, start, end]
+    properties:
+      lat: {type: number}
+      lon: {type: number}
+      tz: {type: string}
+      start: {type: string, description: ISO date, inclusive.: null}
+      end: {type: string, description: ISO date, inclusive.: null}
+  steps:
+  - stepId: solarDays
+    description: >-
+      Sunrise, sunset, solar noon, day length and the three twilights, one
+      row a day. lat and lon are required on this operation.
+    operationId: getSun
+    parameters:
+    - name: lat
+      in: query
+      value: $inputs.lat
+    - name: lon
+      in: query
+      value: $inputs.lon
+    - name: tz
+      in: query
+      value: $inputs.tz
+    - name: start
+      in: query
+      value: $inputs.start
+    - name: end
+      in: query
+      value: $inputs.end
+    - name: step
+      in: query
+      value: 1d
+    successCriteria:
+    - condition: $statusCode == 200
     outputs:
-      solarDays: $steps.solarDays.outputs.days
-      moonDays: $steps.moonDays.outputs.days
-      quarters: $steps.quarters.outputs.phases
+      days: $response.body#/data
+  - stepId: moonDays
+    description: Daily phase, illumination, distance and rise/set.
+    operationId: getMoon
+    parameters:
+    - name: lat
+      in: query
+      value: $inputs.lat
+    - name: lon
+      in: query
+      value: $inputs.lon
+    - name: tz
+      in: query
+      value: $inputs.tz
+    - name: start
+      in: query
+      value: $inputs.start
+    - name: end
+      in: query
+      value: $inputs.end
+    - name: step
+      in: query
+      value: 1d
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      days: $response.body#/data
+  - stepId: quarters
+    description: >-
+      The exact quarter instants in the window, with supermoon status under
+      both competing rules and any attached eclipse.
+    operationId: getPhases
+    parameters:
+    - name: start
+      in: query
+      value: $inputs.start
+    - name: end
+      in: query
+      value: $inputs.end
+    - name: tz
+      in: query
+      value: $inputs.tz
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      phases: $response.body#/data
+  outputs:
+    solarDays: $steps.solarDays.outputs.days
+    moonDays: $steps.moonDays.outputs.days
+    quarters: $steps.quarters.outputs.phases
 x-generated: '2026-08-09'
 x-method: generated
 x-note: >-
