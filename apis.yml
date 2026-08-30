@@ -40,7 +40,7 @@ tags:
   - Calendar
   - Geolocation
   - MCP
-  - agent-native
+  - Agent-native
 tags_raw:
   - Astronomy
   - Space
@@ -76,7 +76,7 @@ apis:
   - Calendar
   - Geolocation
   - MCP
-  - agent-native
+  - Agent-native
   tags_raw:
   - Astronomy
   - Space
