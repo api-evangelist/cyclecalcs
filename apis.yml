@@ -825,6 +825,8 @@ generated:
   confidence: 98
   at: '2026-08-09T12:19:06.191Z'
 common:
+- type: Website
+  url: https://www.cyclecalcs.com/
 - type: Overlay
   url: overlays/cyclecalcs-astronomy-overlay.yaml
 - type: AgenticAccess
