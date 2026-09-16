@@ -1,15 +1,15 @@
 name: CycleCalcs
-description: >-
-  CycleCalcs publishes a read-only positional-astronomy engine as both a REST API and a hosted MCP server over the
-  same core: sun and moon rise/set and twilight, moon phases and libration, planet positions and a visibility board,
-  eclipses with per-observer local circumstances, seasons, apsides, lunar nodes, retrograde stations, conjunctions and
-  angular separation, sidereal time, the equation of time, Jupiter's Galilean moons, sky quality and dark-sky windows,
-  place lookup, and a one-call whole-sky snapshot. It returns the named answer and the numbers behind it rather than
-  raw ephemeris, and every response states its frame, epoch, time scale and refraction model. Computed live with the
-  MIT-licensed Astronomy Engine, arcminute class for the Sun, Moon and planets from 1700 to 2200. Twenty-nine GET
-  endpoints, JSON/CSV/TXT, RFC 9457 problem documents, open CORS, and a free tier that needs no key, no signup and no
-  card; paid volume tiers sell through RapidAPI. Pure astronomy — no astrology and no claims that sky events affect
-  people or Earth.
+description: 'CycleCalcs publishes a read-only positional-astronomy engine as both a REST API and a hosted
+  MCP server over the same core: sun and moon rise/set and twilight, moon phases and libration, planet
+  positions and a visibility board, eclipses with per-observer local circumstances, seasons, apsides,
+  lunar nodes, retrograde stations, conjunctions and angular separation, sidereal time, the equation of
+  time, Jupiter''s Galilean moons, sky quality and dark-sky windows, place lookup, and a one-call whole-sky
+  snapshot. It returns the named answer and the numbers behind it rather than raw ephemeris, and every
+  response states its frame, epoch, time scale and refraction model. Computed live with the MIT-licensed
+  Astronomy Engine, arcminute class for the Sun, Moon and planets from 1700 to 2200. Twenty-nine GET endpoints,
+  JSON/CSV/TXT, RFC 9457 problem documents, open CORS, and a free tier that needs no key, no signup and
+  no card; paid volume tiers sell through RapidAPI. Pure astronomy — no astrology and no claims that sky
+  events affect people or Earth.'
 deliveryModel:
   model: saas
   open_source: false
@@ -41,42 +41,41 @@ accessModel:
 image: https://www.cyclecalcs.com/assets/og-card.png?v=2
 url: https://raw.githubusercontent.com/api-evangelist/cyclecalcs/refs/heads/main/apis.yml
 created: '2026-08-09'
-modified: '2026-08-09'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 tags:
-  - Astronomy
-  - Space
-  - Science
-  - Ephemeris
-  - Sun
-  - Moon
-  - Planets
-  - Eclipses
-  - Time
-  - Calendar
-  - Geolocation
-  - MCP
-  - agent-native
+- Astronomy
+- Space
+- Science
+- Ephemeris
+- Sun
+- Moon
+- Planets
+- Eclipses
+- Time
+- Calendar
+- Geolocation
+- MCP
+- agent-native
 tags_raw:
-  - Astronomy
-  - Space
-  - Science
-  - Ephemeris
-  - Sun
-  - Moon
-  - Planets
-  - Eclipses
-  - Time
-  - Calendar
-  - Geolocation
-  - MCP
-  - Agent-native
+- Astronomy
+- Space
+- Science
+- Ephemeris
+- Sun
+- Moon
+- Planets
+- Eclipses
+- Time
+- Calendar
+- Geolocation
+- MCP
+- Agent-native
 apis:
 - name: CycleCalcs MCP Server
-  description: >-
-    Hosted stateless Streamable HTTP MCP server exposing 11 astronomy tools backed by the v2 REST endpoints.
-    Requires Bearer RapidAPI key on every call; basic plan free. Works with Claude Code, custom connectors,
-    and OpenAI Responses API mcp tool.
+  description: Hosted stateless Streamable HTTP MCP server exposing 11 astronomy tools backed by the v2
+    REST endpoints. Requires Bearer RapidAPI key on every call; basic plan free. Works with Claude Code,
+    custom connectors, and OpenAI Responses API mcp tool.
   humanURL: https://www.cyclecalcs.com/api/mcp.html
   baseURL: https://www.cyclecalcs.com/mcp
   tags:
@@ -215,9 +214,9 @@ apis:
   - type: LLMsTxt
     url: https://www.cyclecalcs.com/v2/llms-full.txt
 - aid: cyclecalcs:cyclecalcs-cyclecalcs-astronomy-api-api
-  name: CycleCalcs CycleCalcs Astronomy API API
-  description: >-
-    The CycleCalcs Astronomy API API from CycleCalcs — 1 operation(s) for cyclecalcs astronomy api.
+  name: CycleCalcs Astronomy API
+  description: The CycleCalcs Astronomy API API from CycleCalcs — 1 operation(s) for cyclecalcs astronomy
+    api.
   humanURL: https://www.cyclecalcs.com/api.html
   baseURL: https://www.cyclecalcs.com/v2
   tags:
@@ -816,9 +815,9 @@ apis:
   - type: LLMsTxt
     url: https://www.cyclecalcs.com/v2/llms-full.txt
 maintainers:
-  - FN: CycleCalcs
-    email: info@cyclecalcs.com
-    url: https://www.cyclecalcs.com
+- FN: CycleCalcs
+  email: info@cyclecalcs.com
+  url: https://www.cyclecalcs.com
 generated:
   by: apis.io/add
   model: claude-opus-4-8
