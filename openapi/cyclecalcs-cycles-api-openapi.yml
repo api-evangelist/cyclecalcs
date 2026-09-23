@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: CycleCalcs Astronomy Cycles API
   version: 2.0.0
-  description: 'A read-only astronomy API that returns the named answer and the numbers behind it, with the frame, epoch, time scale and refraction model stated on every response. It reports angles, times and names, and attaches no meaning to any of them. Computed in real time with the MIT-licensed Astronomy Engine. This document is generated from the shipped route table (netlify/lib/v2/registry.mjs) by tools/generate-openapi.mjs, so it cannot list a route, a parameter or a requirement the API does not actually enforce. Computed astronomical output is unrestricted: use, store, redistribute and sell it without attribution. The one exception is GeoNames place data served by GET /v2/places and by any response that resolved a `place` parameter, which requires the credit line in meta.attribution; see GET /v2/attribution for the full source register.'
+  description: A read-only astronomy API that returns the named answer and the numbers behind it, with the frame, epoch, time scale and refraction model stated on every response.
   license:
     name: Computed output unrestricted; third-party data credited per response
     url: https://www.cyclecalcs.com/api/terms.html
@@ -22,7 +22,7 @@ paths:
   /v2/cycles:
     get:
       operationId: getCycles
-      summary: Where we are in every astronomical cycle the site tracks, with an explicit statement of whether each number was computed, observed, or is an interval with no live phase
+      summary: Where we are in every astronomical cycle the site tracks, with an explicit…
       description: 'Where we are in every astronomical cycle the site tracks, with an explicit statement of whether each number was computed, observed, or is an interval with no live phase. Formats: json, csv, txt. Example: GET /v2/cycles?at=2026-07-28T21:30:00Z'
       parameters:
       - name: at
@@ -227,14 +227,6 @@ paths:
       - Cycles
 components:
   parameters:
-    TzParam:
-      name: tz
-      in: query
-      required: false
-      description: An IANA time zone name, for example Europe/London or America/Chicago. Numeric offsets and abbreviations are not accepted. Governs how a date-only or offset-free `at`/`start`/`end` is read, and how local instants are rendered when time_format=iso.
-      schema:
-        type: string
-      example: Europe/London
     AmbiguousParam:
       name: ambiguous
       in: query
@@ -248,42 +240,6 @@ components:
         - error
         default: first
       example: first
-    PrecisionParam:
-      name: precision
-      in: query
-      required: false
-      description: Decimal places for numeric fields.
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 9
-        default: 6
-      example: 6
-    ShapeParam:
-      name: shape
-      in: query
-      required: false
-      description: nested returns the documented object tree. flat returns one object with dotted keys, format=json only.
-      schema:
-        type: string
-        enum:
-        - nested
-        - flat
-        default: nested
-      example: nested
-    NonexistentParam:
-      name: nonexistent
-      in: query
-      required: false
-      description: How to resolve a local time that never happened, such as inside a spring-forward gap. error refuses with 400 NONEXISTENT_LOCAL_TIME.
-      schema:
-        type: string
-        enum:
-        - error
-        - shift_forward
-        - shift_back
-        default: error
-      example: error
     FormatParam:
       name: format
       in: query
@@ -299,6 +255,26 @@ components:
       description: Comma-separated dot paths into `data` (for example moon.phase_name,moon.illumination) so only those fields are returned. Up to 64 paths; an array element is addressed by its object key, never by index.
       schema:
         type: string
+    TzParam:
+      name: tz
+      in: query
+      required: false
+      description: An IANA time zone name, for example Europe/London or America/Chicago. Numeric offsets and abbreviations are not accepted. Governs how a date-only or offset-free `at`/`start`/`end` is read, and how local instants are rendered when time_format=iso.
+      schema:
+        type: string
+      example: Europe/London
+    ShapeParam:
+      name: shape
+      in: query
+      required: false
+      description: nested returns the documented object tree. flat returns one object with dotted keys, format=json only.
+      schema:
+        type: string
+        enum:
+        - nested
+        - flat
+        default: nested
+      example: nested
     VerbosityParam:
       name: verbosity
       in: query
@@ -311,6 +287,17 @@ components:
         - compact
         default: full
       example: full
+    PrecisionParam:
+      name: precision
+      in: query
+      required: false
+      description: Decimal places for numeric fields.
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 9
+        default: 6
+      example: 6
     TimeFormatParam:
       name: time_format
       in: query
@@ -335,6 +322,19 @@ components:
         - 1
         default: 1
       example: 1
+    NonexistentParam:
+      name: nonexistent
+      in: query
+      required: false
+      description: How to resolve a local time that never happened, such as inside a spring-forward gap. error refuses with 400 NONEXISTENT_LOCAL_TIME.
+      schema:
+        type: string
+        enum:
+        - error
+        - shift_forward
+        - shift_back
+        default: error
+      example: error
   schemas:
     Envelope:
       type: object

@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: CycleCalcs Astronomy Dark Window API
   version: 2.0.0
-  description: 'A read-only astronomy API that returns the named answer and the numbers behind it, with the frame, epoch, time scale and refraction model stated on every response. It reports angles, times and names, and attaches no meaning to any of them. Computed in real time with the MIT-licensed Astronomy Engine. This document is generated from the shipped route table (netlify/lib/v2/registry.mjs) by tools/generate-openapi.mjs, so it cannot list a route, a parameter or a requirement the API does not actually enforce. Computed astronomical output is unrestricted: use, store, redistribute and sell it without attribution. The one exception is GeoNames place data served by GET /v2/places and by any response that resolved a `place` parameter, which requires the credit line in meta.attribution; see GET /v2/attribution for the full source register.'
+  description: A read-only astronomy API that returns the named answer and the numbers behind it, with the frame, epoch, time scale and refraction model stated on every response.
   license:
     name: Computed output unrestricted; third-party data credited per response
     url: https://www.cyclecalcs.com/api/terms.html
@@ -22,7 +22,7 @@ paths:
   /v2/dark-window:
     get:
       operationId: getDarkWindow
-      summary: 'The genuinely dark moonless observing window of a night: astronomical night intersected with the Moon being down, ranked across up to 62 nights with a trend'
+      summary: 'The genuinely dark moonless observing window of a night: astronomical night…'
       description: 'The genuinely dark moonless observing window of a night: astronomical night intersected with the Moon being down, ranked across up to 62 nights with a trend. Formats: json, csv. Example: GET /v2/dark-window?lat=51.509&lon=-0.126&at=2026-11-14&tz=Europe/London&nights=3'
       parameters:
       - name: at
@@ -153,22 +153,6 @@ paths:
       - Dark Window
 components:
   parameters:
-    TzParam:
-      name: tz
-      in: query
-      required: false
-      description: An IANA time zone name, for example Europe/London or America/Chicago. Numeric offsets and abbreviations are not accepted. Governs how a date-only or offset-free `at`/`start`/`end` is read, and how local instants are rendered when time_format=iso.
-      schema:
-        type: string
-      example: Europe/London
-    PlaceParam:
-      name: place
-      in: query
-      required: false
-      description: A place name (place=London), a name with a country (place=Cambridge,GB), or a stable identifier from GET /v2/places (place=id:us-n35198-w111651). Supplies lat, lon and, unless tz is also sent, the time zone. Mutually exclusive with sending lat and lon directly. Withheld unless GET /v2 reports capabilities.place_lookup true.
-      schema:
-        type: string
-      example: London
     AmbiguousParam:
       name: ambiguous
       in: query
@@ -182,64 +166,6 @@ components:
         - error
         default: first
       example: first
-    PrecisionParam:
-      name: precision
-      in: query
-      required: false
-      description: Decimal places for numeric fields.
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 9
-        default: 6
-      example: 6
-    PlaceStrategyParam:
-      name: place_strategy
-      in: query
-      required: false
-      description: best guesses the intended place when a name is ambiguous and reports the guess as a warning. error refuses an ambiguous name with 400 AMBIGUOUS_PLACE and the candidates in `supported`. Only meaningful with `place`.
-      schema:
-        type: string
-        enum:
-        - best
-        - error
-        default: best
-      example: best
-    LongitudeRequiredParam:
-      name: lon
-      in: query
-      required: true
-      description: Longitude in decimal degrees, east positive. No compass suffix (do not append E or W). Required together with lat, or neither.
-      schema:
-        type: number
-        minimum: -180
-        maximum: 180
-      example: -0.0015
-    ShapeParam:
-      name: shape
-      in: query
-      required: false
-      description: nested returns the documented object tree. flat returns one object with dotted keys, format=json only.
-      schema:
-        type: string
-        enum:
-        - nested
-        - flat
-        default: nested
-      example: nested
-    NonexistentParam:
-      name: nonexistent
-      in: query
-      required: false
-      description: How to resolve a local time that never happened, such as inside a spring-forward gap. error refuses with 400 NONEXISTENT_LOCAL_TIME.
-      schema:
-        type: string
-        enum:
-        - error
-        - shift_forward
-        - shift_back
-        default: error
-      example: error
     FormatParam:
       name: format
       in: query
@@ -255,16 +181,36 @@ components:
       description: Comma-separated dot paths into `data` (for example moon.phase_name,moon.illumination) so only those fields are returned. Up to 64 paths; an array element is addressed by its object key, never by index.
       schema:
         type: string
-    LatitudeRequiredParam:
-      name: lat
+    LongitudeRequiredParam:
+      name: lon
       in: query
       required: true
-      description: Latitude in decimal degrees, north positive. No compass suffix (do not append N or S). Required together with lon, or neither.
+      description: Longitude in decimal degrees, east positive. No compass suffix (do not append E or W). Required together with lat, or neither.
       schema:
         type: number
-        minimum: -90
-        maximum: 90
-      example: 51.4778
+        minimum: -180
+        maximum: 180
+      example: -0.0015
+    TzParam:
+      name: tz
+      in: query
+      required: false
+      description: An IANA time zone name, for example Europe/London or America/Chicago. Numeric offsets and abbreviations are not accepted. Governs how a date-only or offset-free `at`/`start`/`end` is read, and how local instants are rendered when time_format=iso.
+      schema:
+        type: string
+      example: Europe/London
+    ShapeParam:
+      name: shape
+      in: query
+      required: false
+      description: nested returns the documented object tree. flat returns one object with dotted keys, format=json only.
+      schema:
+        type: string
+        enum:
+        - nested
+        - flat
+        default: nested
+      example: nested
     VerbosityParam:
       name: verbosity
       in: query
@@ -277,6 +223,58 @@ components:
         - compact
         default: full
       example: full
+    PrecisionParam:
+      name: precision
+      in: query
+      required: false
+      description: Decimal places for numeric fields.
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 9
+        default: 6
+      example: 6
+    LatitudeRequiredParam:
+      name: lat
+      in: query
+      required: true
+      description: Latitude in decimal degrees, north positive. No compass suffix (do not append N or S). Required together with lon, or neither.
+      schema:
+        type: number
+        minimum: -90
+        maximum: 90
+      example: 51.4778
+    ElevationMParam:
+      name: elevation_m
+      in: query
+      required: false
+      description: Observer elevation above mean sea level, in metres. Raises the observer on a locally flat plateau; sea-horizon dip is not modelled.
+      schema:
+        type: number
+        minimum: -500
+        maximum: 9000
+        default: 0
+      example: 11
+    PlaceParam:
+      name: place
+      in: query
+      required: false
+      description: A place name (place=London), a name with a country (place=Cambridge,GB), or a stable identifier from GET /v2/places (place=id:us-n35198-w111651). Supplies lat, lon and, unless tz is also sent, the time zone. Mutually exclusive with sending lat and lon directly. Withheld unless GET /v2 reports capabilities.place_lookup true.
+      schema:
+        type: string
+      example: London
+    PlaceStrategyParam:
+      name: place_strategy
+      in: query
+      required: false
+      description: best guesses the intended place when a name is ambiguous and reports the guess as a warning. error refuses an ambiguous name with 400 AMBIGUOUS_PLACE and the candidates in `supported`. Only meaningful with `place`.
+      schema:
+        type: string
+        enum:
+        - best
+        - error
+        default: best
+      example: best
     TimeFormatParam:
       name: time_format
       in: query
@@ -301,17 +299,19 @@ components:
         - 1
         default: 1
       example: 1
-    ElevationMParam:
-      name: elevation_m
+    NonexistentParam:
+      name: nonexistent
       in: query
       required: false
-      description: Observer elevation above mean sea level, in metres. Raises the observer on a locally flat plateau; sea-horizon dip is not modelled.
+      description: How to resolve a local time that never happened, such as inside a spring-forward gap. error refuses with 400 NONEXISTENT_LOCAL_TIME.
       schema:
-        type: number
-        minimum: -500
-        maximum: 9000
-        default: 0
-      example: 11
+        type: string
+        enum:
+        - error
+        - shift_forward
+        - shift_back
+        default: error
+      example: error
   schemas:
     Envelope:
       type: object
