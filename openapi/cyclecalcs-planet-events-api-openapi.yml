@@ -157,174 +157,163 @@ paths:
       tags:
       - Planet Events
 components:
-  parameters:
-    PlaceStrategyParam:
-      name: place_strategy
-      in: query
-      required: false
-      description: best guesses the intended place when a name is ambiguous and reports the guess as a warning. error refuses an ambiguous name with 400 AMBIGUOUS_PLACE and the candidates in `supported`. Only meaningful with `place`.
-      schema:
-        type: string
-        enum:
-        - best
-        - error
-        default: best
-      example: best
-    LongitudeParam:
-      name: lon
-      in: query
-      required: false
-      description: Longitude in decimal degrees, east positive. No compass suffix (do not append E or W). Required together with lat, or neither.
-      schema:
-        type: number
-        minimum: -180
-        maximum: 180
-      example: -0.0015
-    PrettyParam:
-      name: pretty
-      in: query
-      required: false
-      description: Whether the JSON body is indented (1) or compact (0). Has no effect on csv or txt.
-      schema:
-        type: integer
-        enum:
-        - 0
-        - 1
-        default: 1
-      example: 1
-    LatitudeParam:
-      name: lat
-      in: query
-      required: false
-      description: Latitude in decimal degrees, north positive. No compass suffix (do not append N or S). Required together with lon, or neither.
-      schema:
-        type: number
-        minimum: -90
-        maximum: 90
-      example: 51.4778
-    CursorParam:
-      name: cursor
-      in: query
-      required: false
-      description: An opaque, unsigned pagination token copied verbatim from a previous response's links.next. Never construct one by hand; a malformed or foreign cursor is 400 BAD_CURSOR.
-      schema:
-        type: string
-    ShapeParam:
-      name: shape
-      in: query
-      required: false
-      description: nested returns the documented object tree. flat returns one object with dotted keys, format=json only.
-      schema:
-        type: string
-        enum:
-        - nested
-        - flat
-        default: nested
-      example: nested
-    VerbosityParam:
-      name: verbosity
-      in: query
-      required: false
-      description: full includes prose notes, frame definitions and withheld-field reasons in meta. compact keeps every value and every machine-readable name and drops the prose.
-      schema:
-        type: string
-        enum:
-        - full
-        - compact
-        default: full
-      example: full
-    ElevationMParam:
-      name: elevation_m
-      in: query
-      required: false
-      description: Observer elevation above mean sea level, in metres. Raises the observer on a locally flat plateau; sea-horizon dip is not modelled.
-      schema:
-        type: number
-        minimum: -500
-        maximum: 9000
-        default: 0
-      example: 11
-    TimeFormatParam:
-      name: time_format
-      in: query
-      required: false
-      description: 'How instants are rendered: iso for ISO 8601 strings carrying the effective offset, or unix for integer seconds since the epoch.'
-      schema:
-        type: string
-        enum:
-        - iso
-        - unix
-        default: iso
-      example: iso
-    NonexistentParam:
-      name: nonexistent
-      in: query
-      required: false
-      description: How to resolve a local time that never happened, such as inside a spring-forward gap. error refuses with 400 NONEXISTENT_LOCAL_TIME.
-      schema:
-        type: string
-        enum:
-        - error
-        - shift_forward
-        - shift_back
-        default: error
-      example: error
-    FieldsParam:
-      name: fields
-      in: query
-      required: false
-      description: Comma-separated dot paths into `data` (for example moon.phase_name,moon.illumination) so only those fields are returned. Up to 64 paths; an array element is addressed by its object key, never by index.
-      schema:
-        type: string
-    PlaceParam:
-      name: place
-      in: query
-      required: false
-      description: A place name (place=London), a name with a country (place=Cambridge,GB), or a stable identifier from GET /v2/places (place=id:us-n35198-w111651). Supplies lat, lon and, unless tz is also sent, the time zone. Mutually exclusive with sending lat and lon directly. Withheld unless GET /v2 reports capabilities.place_lookup true.
-      schema:
-        type: string
-      example: London
-    AmbiguousParam:
-      name: ambiguous
-      in: query
-      required: false
-      description: How to resolve a local time that a clock repeated, such as the return from daylight saving. error refuses with 409 AMBIGUOUS_LOCAL_TIME.
-      schema:
-        type: string
-        enum:
-        - first
-        - last
-        - error
-        default: first
-      example: first
-    TzParam:
-      name: tz
-      in: query
-      required: false
-      description: An IANA time zone name, for example Europe/London or America/Chicago. Numeric offsets and abbreviations are not accepted. Governs how a date-only or offset-free `at`/`start`/`end` is read, and how local instants are rendered when time_format=iso.
-      schema:
-        type: string
-      example: Europe/London
-    PrecisionParam:
-      name: precision
-      in: query
-      required: false
-      description: Decimal places for numeric fields.
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 9
-        default: 6
-      example: 6
-    FormatParam:
-      name: format
-      in: query
-      required: false
-      description: Response representation. Each endpoint serves a subset of json, csv and txt; see that operation's description for the exact list, or GET /v2 for every endpoint's formats array. An unsupported value is 400 BAD_FORMAT with the accepted list in `supported`.
-      schema:
-        type: string
-      example: json
   schemas:
+    Warning:
+      type: object
+      description: One machine-readable notice. Exactly four keys, in this order (spec-00 11.4). Never changes the HTTP status.
+      required:
+      - code
+      - message
+      - field
+      - value
+      properties:
+        code:
+          type: string
+          enum:
+          - ambiguous_local_time
+          - antipodal_pair_not_aspected
+          - approximates_undefined_placidus
+          - assumed_utc
+          - birth_time_unknown
+          - blocked_layer_omitted
+          - cusps_not_monotonic
+          - dataset_stale
+          - decorative_starfield
+          - dms_rounds_to_next_sign
+          - dst_discontinuity
+          - duplicate_alarm
+          - duplicate_aspect
+          - duplicate_body
+          - duplicate_depression
+          - duplicate_derived
+          - duplicate_house_system
+          - duplicate_include
+          - duplicate_pair
+          - duplicate_parameter
+          - duplicate_point
+          - duplicate_shower
+          - duplicate_source
+          - elevation_ignored
+          - estimate_only
+          - extrapolated_epoch
+          - field_blocked
+          - fields_ignored
+          - harmonic_orb_mode_has_no_effect
+          - high_latitude_caution
+          - horizon_overridden
+          - house_system_substituted
+          - large_intercept
+          - lot_term_null
+          - low_altitude_precision
+          - mean_node_model
+          - model_disagreement
+          - model_epoch_only
+          - moon_dominates
+          - no_astronomical_darkness
+          - no_location_orientation
+          - no_search_result
+          - nonexistent_local_time_shifted
+          - not_visible_from_location
+          - oblateness_simplified
+          - orbit_arc_truncated
+          - parameter_ignored
+          - perfection_search_truncated
+          - place_ambiguous
+          - place_index_tier_2
+          - place_matched_by_substring
+          - placement_within_error_of_boundary
+          - polar_angles_flipped
+          - polar_day
+          - polar_night
+          - polar_region
+          - prose_window_differs
+          - refraction_below_cutoff
+          - render_degenerate
+          - rounded_parameter
+          - sect_tests_disagree
+          - shape_ignored
+          - source_window_clipped
+          - station_near_window_edge
+          - station_search_truncated
+          - time_format_not_applicable
+          - time_scale_undefined
+          - timezone_from_place
+          - truncated_results
+          - tz_source_boundary_1970
+          - tzdb_lmt_interval
+          - unknown_parameter
+          - unusual_navigational_body
+          - vertex_undefined_at_equator
+          description: A stable, lower_snake_case token. The full registry is at GET /v2/enums?set=warning_codes.
+        message:
+          type: string
+          description: A human-readable explanation. Not parsed by machines; use `code`.
+        field:
+          type:
+          - string
+          - 'null'
+          description: The data or query pointer the warning is about, dot-addressed the same way `fields` is. Null when the warning is not about one field.
+        value:
+          description: The value involved, when there is a single obvious one to show. Null otherwise.
+    Envelope:
+      type: object
+      description: The nine-key v2 response envelope. Every /v2 endpoint returns exactly these keys, in this order, on every 200 (spec-00 1.1).
+      required:
+      - endpoint
+      - computed_at
+      - query
+      - data
+      - warnings
+      - links
+      - meta
+      - attribution
+      - docs
+      properties:
+        endpoint:
+          type: string
+          description: The endpoint path that produced this response.
+          example: /v2/sun
+        computed_at:
+          type: string
+          format: date-time
+          description: 'A revision stamp, never a wall clock: identical requests return identical bytes, so a fixed_instant or reference response can be cached for a year and 304 stays reachable.'
+          example: '2026-08-01T00:00:00.000Z'
+        query:
+          type: object
+          description: 'The request as understood: every resolved input (instant, location, presentation options) plus `ignored`, in the order spec-00 13.2 defines. Shape is endpoint-specific.'
+          additionalProperties: true
+        data:
+          description: The answer. Shape is endpoint-specific; see each operation's summary and /api/reference.html.
+        warnings:
+          type: array
+          description: Machine-readable notices about this response. Empty when none apply; never changes the HTTP status.
+          items:
+            $ref: '#/components/schemas/Warning'
+        links:
+          type: object
+          description: Related URLs. self reproduces this exact response; docs is always present; others (page, spec, next, first, explain) appear where relevant.
+          additionalProperties:
+            type: string
+            format: uri
+          example:
+            self: https://www.cyclecalcs.com/v2/sun?at=2026-06-21&lat=51.4778&lon=-0.0015
+            docs: https://www.cyclecalcs.com/api/reference.html#sun
+            spec: https://www.cyclecalcs.com/v2/openapi.json
+            page: https://www.cyclecalcs.com/sunrise-sunset-calculator.html
+            explain: https://www.cyclecalcs.com/learn/seasons.html
+        meta:
+          type: object
+          description: 'Provenance: engine version, rights and attribution, cache class, accuracy statement, tzdb version, and endpoint-specific conventions (refraction model, horizon definitions, time scales, and so on). Never subject to `fields` projection.'
+          additionalProperties: true
+        attribution:
+          type: string
+          description: The credit line, byte-identical to meta.attribution.text.
+          example: Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.
+        docs:
+          type: string
+          format: uri
+          description: The human-readable reference section for this endpoint.
+          example: https://www.cyclecalcs.com/api/reference.html#sun
     Problem:
       type: object
       description: An RFC 9457 problem detail document. Served on every non-2xx v2 response with Content-Type application/problem+json.
@@ -541,162 +530,173 @@ components:
           description: The API reference index.
           example: https://www.cyclecalcs.com/api/reference.html
       additionalProperties: true
-    Envelope:
-      type: object
-      description: The nine-key v2 response envelope. Every /v2 endpoint returns exactly these keys, in this order, on every 200 (spec-00 1.1).
-      required:
-      - endpoint
-      - computed_at
-      - query
-      - data
-      - warnings
-      - links
-      - meta
-      - attribution
-      - docs
-      properties:
-        endpoint:
-          type: string
-          description: The endpoint path that produced this response.
-          example: /v2/sun
-        computed_at:
-          type: string
-          format: date-time
-          description: 'A revision stamp, never a wall clock: identical requests return identical bytes, so a fixed_instant or reference response can be cached for a year and 304 stays reachable.'
-          example: '2026-08-01T00:00:00.000Z'
-        query:
-          type: object
-          description: 'The request as understood: every resolved input (instant, location, presentation options) plus `ignored`, in the order spec-00 13.2 defines. Shape is endpoint-specific.'
-          additionalProperties: true
-        data:
-          description: The answer. Shape is endpoint-specific; see each operation's summary and /api/reference.html.
-        warnings:
-          type: array
-          description: Machine-readable notices about this response. Empty when none apply; never changes the HTTP status.
-          items:
-            $ref: '#/components/schemas/Warning'
-        links:
-          type: object
-          description: Related URLs. self reproduces this exact response; docs is always present; others (page, spec, next, first, explain) appear where relevant.
-          additionalProperties:
-            type: string
-            format: uri
-          example:
-            self: https://www.cyclecalcs.com/v2/sun?at=2026-06-21&lat=51.4778&lon=-0.0015
-            docs: https://www.cyclecalcs.com/api/reference.html#sun
-            spec: https://www.cyclecalcs.com/v2/openapi.json
-            page: https://www.cyclecalcs.com/sunrise-sunset-calculator.html
-            explain: https://www.cyclecalcs.com/learn/seasons.html
-        meta:
-          type: object
-          description: 'Provenance: engine version, rights and attribution, cache class, accuracy statement, tzdb version, and endpoint-specific conventions (refraction model, horizon definitions, time scales, and so on). Never subject to `fields` projection.'
-          additionalProperties: true
-        attribution:
-          type: string
-          description: The credit line, byte-identical to meta.attribution.text.
-          example: Computed by CycleCalcs (cyclecalcs.com) with the MIT-licensed Astronomy Engine. Positional astronomy only.
-        docs:
-          type: string
-          format: uri
-          description: The human-readable reference section for this endpoint.
-          example: https://www.cyclecalcs.com/api/reference.html#sun
-    Warning:
-      type: object
-      description: One machine-readable notice. Exactly four keys, in this order (spec-00 11.4). Never changes the HTTP status.
-      required:
-      - code
-      - message
-      - field
-      - value
-      properties:
-        code:
-          type: string
-          enum:
-          - ambiguous_local_time
-          - antipodal_pair_not_aspected
-          - approximates_undefined_placidus
-          - assumed_utc
-          - birth_time_unknown
-          - blocked_layer_omitted
-          - cusps_not_monotonic
-          - dataset_stale
-          - decorative_starfield
-          - dms_rounds_to_next_sign
-          - dst_discontinuity
-          - duplicate_alarm
-          - duplicate_aspect
-          - duplicate_body
-          - duplicate_depression
-          - duplicate_derived
-          - duplicate_house_system
-          - duplicate_include
-          - duplicate_pair
-          - duplicate_parameter
-          - duplicate_point
-          - duplicate_shower
-          - duplicate_source
-          - elevation_ignored
-          - estimate_only
-          - extrapolated_epoch
-          - field_blocked
-          - fields_ignored
-          - harmonic_orb_mode_has_no_effect
-          - high_latitude_caution
-          - horizon_overridden
-          - house_system_substituted
-          - large_intercept
-          - lot_term_null
-          - low_altitude_precision
-          - mean_node_model
-          - model_disagreement
-          - model_epoch_only
-          - moon_dominates
-          - no_astronomical_darkness
-          - no_location_orientation
-          - no_search_result
-          - nonexistent_local_time_shifted
-          - not_visible_from_location
-          - oblateness_simplified
-          - orbit_arc_truncated
-          - parameter_ignored
-          - perfection_search_truncated
-          - place_ambiguous
-          - place_index_tier_2
-          - place_matched_by_substring
-          - placement_within_error_of_boundary
-          - polar_angles_flipped
-          - polar_day
-          - polar_night
-          - polar_region
-          - prose_window_differs
-          - refraction_below_cutoff
-          - render_degenerate
-          - rounded_parameter
-          - sect_tests_disagree
-          - shape_ignored
-          - source_window_clipped
-          - station_near_window_edge
-          - station_search_truncated
-          - time_format_not_applicable
-          - time_scale_undefined
-          - timezone_from_place
-          - truncated_results
-          - tz_source_boundary_1970
-          - tzdb_lmt_interval
-          - unknown_parameter
-          - unusual_navigational_body
-          - vertex_undefined_at_equator
-          description: A stable, lower_snake_case token. The full registry is at GET /v2/enums?set=warning_codes.
-        message:
-          type: string
-          description: A human-readable explanation. Not parsed by machines; use `code`.
-        field:
-          type:
-          - string
-          - 'null'
-          description: The data or query pointer the warning is about, dot-addressed the same way `fields` is. Null when the warning is not about one field.
-        value:
-          description: The value involved, when there is a single obvious one to show. Null otherwise.
+  parameters:
+    ShapeParam:
+      name: shape
+      in: query
+      required: false
+      description: nested returns the documented object tree. flat returns one object with dotted keys, format=json only.
+      schema:
+        type: string
+        enum:
+        - nested
+        - flat
+        default: nested
+      example: nested
+    LatitudeParam:
+      name: lat
+      in: query
+      required: false
+      description: Latitude in decimal degrees, north positive. No compass suffix (do not append N or S). Required together with lon, or neither.
+      schema:
+        type: number
+        minimum: -90
+        maximum: 90
+      example: 51.4778
+    PrecisionParam:
+      name: precision
+      in: query
+      required: false
+      description: Decimal places for numeric fields.
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 9
+        default: 6
+      example: 6
+    LongitudeParam:
+      name: lon
+      in: query
+      required: false
+      description: Longitude in decimal degrees, east positive. No compass suffix (do not append E or W). Required together with lat, or neither.
+      schema:
+        type: number
+        minimum: -180
+        maximum: 180
+      example: -0.0015
+    PlaceParam:
+      name: place
+      in: query
+      required: false
+      description: A place name (place=London), a name with a country (place=Cambridge,GB), or a stable identifier from GET /v2/places (place=id:us-n35198-w111651). Supplies lat, lon and, unless tz is also sent, the time zone. Mutually exclusive with sending lat and lon directly. Withheld unless GET /v2 reports capabilities.place_lookup true.
+      schema:
+        type: string
+      example: London
+    VerbosityParam:
+      name: verbosity
+      in: query
+      required: false
+      description: full includes prose notes, frame definitions and withheld-field reasons in meta. compact keeps every value and every machine-readable name and drops the prose.
+      schema:
+        type: string
+        enum:
+        - full
+        - compact
+        default: full
+      example: full
+    TzParam:
+      name: tz
+      in: query
+      required: false
+      description: An IANA time zone name, for example Europe/London or America/Chicago. Numeric offsets and abbreviations are not accepted. Governs how a date-only or offset-free `at`/`start`/`end` is read, and how local instants are rendered when time_format=iso.
+      schema:
+        type: string
+      example: Europe/London
+    ElevationMParam:
+      name: elevation_m
+      in: query
+      required: false
+      description: Observer elevation above mean sea level, in metres. Raises the observer on a locally flat plateau; sea-horizon dip is not modelled.
+      schema:
+        type: number
+        minimum: -500
+        maximum: 9000
+        default: 0
+      example: 11
+    NonexistentParam:
+      name: nonexistent
+      in: query
+      required: false
+      description: How to resolve a local time that never happened, such as inside a spring-forward gap. error refuses with 400 NONEXISTENT_LOCAL_TIME.
+      schema:
+        type: string
+        enum:
+        - error
+        - shift_forward
+        - shift_back
+        default: error
+      example: error
+    PlaceStrategyParam:
+      name: place_strategy
+      in: query
+      required: false
+      description: best guesses the intended place when a name is ambiguous and reports the guess as a warning. error refuses an ambiguous name with 400 AMBIGUOUS_PLACE and the candidates in `supported`. Only meaningful with `place`.
+      schema:
+        type: string
+        enum:
+        - best
+        - error
+        default: best
+      example: best
+    AmbiguousParam:
+      name: ambiguous
+      in: query
+      required: false
+      description: How to resolve a local time that a clock repeated, such as the return from daylight saving. error refuses with 409 AMBIGUOUS_LOCAL_TIME.
+      schema:
+        type: string
+        enum:
+        - first
+        - last
+        - error
+        default: first
+      example: first
+    PrettyParam:
+      name: pretty
+      in: query
+      required: false
+      description: Whether the JSON body is indented (1) or compact (0). Has no effect on csv or txt.
+      schema:
+        type: integer
+        enum:
+        - 0
+        - 1
+        default: 1
+      example: 1
+    FormatParam:
+      name: format
+      in: query
+      required: false
+      description: Response representation. Each endpoint serves a subset of json, csv and txt; see that operation's description for the exact list, or GET /v2 for every endpoint's formats array. An unsupported value is 400 BAD_FORMAT with the accepted list in `supported`.
+      schema:
+        type: string
+      example: json
+    FieldsParam:
+      name: fields
+      in: query
+      required: false
+      description: Comma-separated dot paths into `data` (for example moon.phase_name,moon.illumination) so only those fields are returned. Up to 64 paths; an array element is addressed by its object key, never by index.
+      schema:
+        type: string
+    TimeFormatParam:
+      name: time_format
+      in: query
+      required: false
+      description: 'How instants are rendered: iso for ISO 8601 strings carrying the effective offset, or unix for integer seconds since the epoch.'
+      schema:
+        type: string
+        enum:
+        - iso
+        - unix
+        default: iso
+      example: iso
+    CursorParam:
+      name: cursor
+      in: query
+      required: false
+      description: An opaque, unsigned pagination token copied verbatim from a previous response's links.next. Never construct one by hand; a malformed or foreign cursor is 400 BAD_CURSOR.
+      schema:
+        type: string
   securitySchemes:
     RapidAPIKey:
       type: apiKey
