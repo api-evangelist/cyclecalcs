@@ -1,5 +1,5 @@
 ---
-name: Build a sun and moon calendar for a location
+name: sun-and-moon-calendar
 description: >-
   Produce a per-day sunrise/sunset/twilight table and the matching lunar phase calendar
   for a location and date range, in a small number of ranged requests rather than one

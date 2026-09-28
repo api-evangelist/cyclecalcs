@@ -1,0 +1,19 @@
+generated: '2026-09-28'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://www.cyclecalcs.com/api/versioning.html
+sources:
+- https://www.cyclecalcs.com/api/versioning.html
+- https://www.cyclecalcs.com/api/v1.html
+entries:
+- breaking: false
+  highlights:
+  - 2.1.0, 2026-09-25
+  - No range 2.0.0 served is refused for its size on 2.1.0.
+  - A response is now refused only past 2,105,344 bytes, 8 KiB above the 2 MiB that every row bound is still computed against.
+  - 'Added Julian Days. jd: followed by a Julian Day on the UT scale is accepted in at, start and end on every route and read as UTC.'
+  version: 2.1.0
+  date: '2026-09-25'
+current_version: 2.1.0
+note: 'CycleCalcs publishes two API versions: /v1 is frozen and /v2 is current. The changelog lists contract versions for /v2.'
+docs: https://www.cyclecalcs.com/api/versioning.html

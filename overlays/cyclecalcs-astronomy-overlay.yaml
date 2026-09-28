@@ -19,7 +19,7 @@ x-note: >-
   provider's own docs already group by, binds each MCP tool to its backing
   operation, and cross-links the artifacts in this repo. It never mutates the
   original.
-extends: openapi/cyclecalcs-astronomy-openapi-original.json
+extends: ../openapi/_original/cyclecalcs-astronomy-openapi-original.json
 actions:
   - target: $.info
     description: API Evangelist provenance and catalog cross-links.

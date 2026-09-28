@@ -1,5 +1,5 @@
 ---
-name: Answer "what is in the sky tonight" for a place
+name: tonights-sky
 description: >-
   Resolve a plain-language place name to coordinates, pull the one-call whole-sky
   snapshot for that place and moment, then find tonight's genuinely dark moonless

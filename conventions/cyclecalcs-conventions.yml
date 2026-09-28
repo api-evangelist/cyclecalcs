@@ -23,6 +23,7 @@ authentication:
     never belongs in a URL. Paid tiers authenticate at the RapidAPI gateway,
     never at the origin.
 idempotency:
+  coverage: full
   supported: true
   model: safe-methods
   mechanism: >-

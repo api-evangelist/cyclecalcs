@@ -1,0 +1,16 @@
+generated: '2026-09-28'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://www.cyclecalcs.com/api/keys.html
+sources:
+- https://www.cyclecalcs.com/api/keys.html
+- https://www.cyclecalcs.com/developers/plan-an-imaging-session.html
+name: CycleCalcs pricing
+audience: developer-api
+pricing_basis: per-call
+plans:
+- name: Basic
+  price_text: Free
+  description: Free tier with basic rate limits
+docs: https://www.cyclecalcs.com/api/keys.html
+note: 3 extracted row(s) were dropped because their quote was not on the page.

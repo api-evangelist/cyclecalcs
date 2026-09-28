@@ -1,5 +1,5 @@
 ---
-name: Check whether an eclipse is visible from a place
+name: eclipse-visibility
 description: >-
   Find the next solar or lunar eclipses and get an explicit, per-location answer to
   "can I see it from here", with local contact times — instead of a global map the

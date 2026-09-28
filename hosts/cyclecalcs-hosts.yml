@@ -1,0 +1,93 @@
+generated: '2026-09-28'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 6
+  own: 2
+  other_domain: 2
+  platform: 2
+  roles:
+  - api
+  - identity
+  - other
+  - status
+  - website
+hosts:
+- host: api.cyclecalcs.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: cyclecalcs.com
+  role: api
+  relation: own
+- host: api.uptimerobot.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: uptimerobot.com
+  role: api
+  relation: other-domain
+- host: pypi.org
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: pypi.org
+  role: other
+  relation: platform
+- host: rapidapi.com
+  found_by:
+  - pointer
+  types:
+  - Pricing
+  - SignUp
+  serves: []
+  registrable_domain: rapidapi.com
+  role: identity
+  relation: platform
+- host: stats.uptimerobot.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  types:
+  - StatusPage
+  serves: []
+  registrable_domain: uptimerobot.com
+  role: status
+  relation: other-domain
+- host: www.cyclecalcs.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - docs-index
+  - spec-found
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Website
+  - DeveloperPortal
+  - Documentation
+  - APIReference
+  - GettingStarted
+  - Support
+  - TermsOfService
+  - PrivacyPolicy
+  - Deprecation
+  - APICatalog
+  serves:
+  - api
+  - docs
+  - spec
+  - hosting
+  vendor: netlify
+  registrable_domain: cyclecalcs.com
+  role: website
+  relation: own

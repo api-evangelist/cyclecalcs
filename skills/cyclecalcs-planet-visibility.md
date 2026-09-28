@@ -1,5 +1,5 @@
 ---
-name: Track planet visibility, retrogrades and apparitions
+name: planet-visibility
 description: >-
   Answer "which planets can I see tonight", "when is Mercury retrograde", and
   "when do these two planets meet" from the planet board, the station catalogue

@@ -1,5 +1,5 @@
 ---
-name: Discover the CycleCalcs contract before calling it
+name: discover-the-cyclecalcs-contract
 description: >-
   CycleCalcs publishes its routes, its conventions, its full controlled vocabulary
   and its source register as four live JSON endpoints. Read them instead of guessing

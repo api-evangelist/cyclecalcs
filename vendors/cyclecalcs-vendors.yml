@@ -1,0 +1,46 @@
+generated: '2026-09-28'
+method: probed
+source: pre-flight dossier (docs platform, portal detections) + CNAME chains and response headers of the hosts apis.yml names
+registry: all/0-working/vendors.yml
+areas_vocabulary:
+- documentation
+- developer-portal
+- api-gateway
+- cdn
+- hosting
+- sdk-generation
+- api-collections
+- status-page
+- support
+- community
+- identity
+- mcp-hosting
+vendors:
+- vendor: netlify
+  name: Netlify
+  area: hosting
+  host: www.cyclecalcs.com
+  evidence: cname:shiny-praline-66f8ff.netlify.app
+  signal: docs-platform
+  confidence: medium
+  kin_score: []
+reliance:
+  areas_vendor_served:
+  - hosting
+  vendor_count: 1
+  areas_observed: 12
+  share_of_observable_areas: 0.083
+  note: areas where a third party was DETECTED serving this provider; an area absent here was either self-run or not observed, and this script
+    cannot tell those apart
+checked:
+- 'docs-platform: custom'
+- www.cyclecalcs.com (Website)
+- www.cyclecalcs.com (DeveloperPortal)
+- www.cyclecalcs.com (Documentation)
+- www.cyclecalcs.com (APIReference)
+- www.cyclecalcs.com (GettingStarted)
+- www.cyclecalcs.com (Support)
+- rapidapi.com (SignUp)
+- stats.uptimerobot.com (StatusPage)
+- www.cyclecalcs.com (baseURL)
+- www.cyclecalcs.com (mcp)

@@ -1,0 +1,6 @@
+generated: '2026-09-28'
+method: probed
+generator: harvest-llms.py
+source: https://www.cyclecalcs.com/llms.txt
+bytes: 39486
+note: saved verbatim; the provider's own document

@@ -1,0 +1,11 @@
+generated: '2026-09-28'
+method: probed
+source: https://www.cyclecalcs.com/privacy.html
+signals:
+  data_retention:
+    evidence:
+      - source: https://www.cyclecalcs.com/privacy.html
+        http_status: 200
+        fetched: /tmp/privacy.html
+        quote: "The raw address itself is never stored and never logged; only the salted hash is used, only to count requests against the limits, and it changes on every deploy."
+        note: "Shows that raw IP addresses are not retained; only transient salted hashes are kept in memory."
