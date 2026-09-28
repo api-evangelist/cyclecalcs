@@ -925,3 +925,15 @@ x-enrichment:
   status: enriched
   artifacts_added: 50
   pass: local-v1
+x-correction-request:
+  requested: '2026-09-28'
+  source:
+  - https://github.com/api-evangelist/cyclecalcs/pull/1
+  request: 'Verified 2026-09-28 by a fresh initialize + tools/list against https://www.cyclecalcs.com/mcp
+    (serverInfo cyclecalcs-astronomy 1.0.0, first-party on the provider''s own domain): all 11 tools carry
+    descriptions, but mcp/cyclecalcs-mcp.yml has no description field on any tool even though mcp/cyclecalcs-mcp-tools-list.json
+    captured them. Re-probe tools/list and carry each live description into the manifest verbatim. Do
+    NOT take the PR''s text: it was copied from the saved capture, and 3 of 11 (astro_positions, astro_eclipses,
+    astro_planet_events) no longer match the live server, which has since extended them (topocentric label
+    note; hybrid flag / central path; outer-planet events). 8 of 11 match live exactly. The PR is a LintLang
+    (Hermes Labs) automated contribution with no affiliation to CycleCalcs.'
