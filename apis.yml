@@ -195,8 +195,9 @@ common:
 
 apis:
 - name: CycleCalcs MCP Server
-  description: Hosted stateless Streamable HTTP MCP server exposing 11 astronomy tools backed by the v2 REST endpoints. Requires Bearer RapidAPI
-    key on every call; basic plan free. Works with Claude Code, custom connectors, and OpenAI Responses API mcp tool.
+  description: Hosted stateless Streamable HTTP MCP server exposing 11 astronomy tools backed by the v2 REST endpoints. Tool calls work without
+    a key up to 50 a day per network address; a RapidAPI key (Basic plan free) or OAuth sign-in meters calls on the caller's own plan. Works with
+    Claude Code, custom connectors, and OpenAI Responses API mcp tool.
   humanURL: https://www.cyclecalcs.com/api/mcp.html
   baseURL: https://www.cyclecalcs.com/mcp
   tags:
@@ -230,9 +231,8 @@ apis:
   - agent-native
   properties:
   - type: MCPServer
-    url: https://www.cyclecalcs.com/mcp
-  - type: MCPServer
-    name: MCP server manifest (11 tools, captured from tools/list)
+    name: CycleCalcs Astronomy
+    slug: mcp
     url: mcp/cyclecalcs-mcp.yml
   - type: ToolCrosswalk
     name: MCP tool to OpenAPI operation crosswalk
@@ -1011,6 +1011,12 @@ x-correction-request:
     Do NOT take the PR''s text: it was copied from the saved capture, and 3 of 11 (astro_positions, astro_eclipses, astro_planet_events) no longer
     match the live server, which has since extended them (topocentric label note; hybrid flag / central path; outer-planet events). 8 of 11 match
     live exactly. The PR is a LintLang (Hermes Labs) automated contribution with no affiliation to CycleCalcs.'
+  applied: '2026-10-03'
+  applied_note: 'Applied by hand 2026-10-03 from a fresh initialize + tools/list against https://www.cyclecalcs.com/mcp (serverInfo cyclecalcs-astronomy
+    1.0.0): all 11 tool descriptions in mcp/cyclecalcs-mcp.yml replaced with the live text verbatim (the previous fill was cut at 240 characters),
+    astro_planet_events title updated to the live title, the empty mcp/cyclecalcs-mcp-tools-list.json refilled with the live tools/list, and
+    the keyless allowance (50 calls a day per address) and OAuth discovery recorded from live. The bare duplicate MCPServer pointer to the endpoint
+    was removed so the server page is built from the manifest that carries the tools; the remaining pointer keeps the page slug mcp.'
 x-enrichment:
   date: '2026-09-28'
   status: enriched
