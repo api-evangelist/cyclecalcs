@@ -1,0 +1,12 @@
+{
+ "url": "https://www.cyclecalcs.com/v2/openapi.json",
+ "requested_url": "https://www.cyclecalcs.com/v2/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 333446,
+ "sha256": "890a5b3470f2223c3b412c569faf8e4270c77b41eb786624c4645564af510455",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.967), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
