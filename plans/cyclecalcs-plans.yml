@@ -99,3 +99,62 @@ other_products:
       A per-location typeset PDF moon calendar plus a subscribable calendar
       feed — the site's one paid consumer product, unrelated to API tiers.
     url: https://www.cyclecalcs.com/moon-calendar-2027.html
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - subscription
+  units:
+  - request
+  plans:
+  - name: Basic
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Basic
+    access: free
+    model: free
+    model_how: derived
+    units:
+    - request
+    periods:
+    - day
+    - hour
+    - minute
+    - month
+  - name: Pro
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - request
+    periods:
+    - day
+    - hour
+    - minute
+    - month
+  - name: Ultra
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - request
+    periods:
+    - day
+    - hour
+    - minute
+    - month
+  - name: Mega
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - request
+    periods:
+    - day
+    - hour
+    - minute
+    - month
