@@ -1,6 +1,13 @@
 {
-  "jsonrpc": "2.0",
-  "id": 2,
+  "endpoint": "https://www.cyclecalcs.com/mcp",
+  "captured": "2026-10-20",
+  "method": "initialize + tools/list (anonymous, no tool called; roadmap#992)",
+  "protocol_version": "2025-06-18",
+  "server_info": {
+    "name": "cyclecalcs-astronomy",
+    "title": "CycleCalcs Astronomy",
+    "version": "1.1.0"
+  },
   "result": {
     "tools": [
       {
@@ -113,6 +120,17 @@
           "idempotentHint": true,
           "openWorldHint": false
         },
+        "securitySchemes": [
+          {
+            "type": "noauth"
+          },
+          {
+            "type": "oauth2",
+            "scopes": [
+              "astronomy.read"
+            ]
+          }
+        ],
         "_meta": {
           "securitySchemes": [
             {
@@ -348,6 +366,17 @@
           "idempotentHint": true,
           "openWorldHint": false
         },
+        "securitySchemes": [
+          {
+            "type": "noauth"
+          },
+          {
+            "type": "oauth2",
+            "scopes": [
+              "astronomy.read"
+            ]
+          }
+        ],
         "_meta": {
           "securitySchemes": [
             {
@@ -541,6 +570,17 @@
           "idempotentHint": true,
           "openWorldHint": false
         },
+        "securitySchemes": [
+          {
+            "type": "noauth"
+          },
+          {
+            "type": "oauth2",
+            "scopes": [
+              "astronomy.read"
+            ]
+          }
+        ],
         "_meta": {
           "securitySchemes": [
             {
@@ -680,6 +720,17 @@
           "idempotentHint": true,
           "openWorldHint": false
         },
+        "securitySchemes": [
+          {
+            "type": "noauth"
+          },
+          {
+            "type": "oauth2",
+            "scopes": [
+              "astronomy.read"
+            ]
+          }
+        ],
         "_meta": {
           "securitySchemes": [
             {
@@ -816,6 +867,17 @@
           "idempotentHint": true,
           "openWorldHint": false
         },
+        "securitySchemes": [
+          {
+            "type": "noauth"
+          },
+          {
+            "type": "oauth2",
+            "scopes": [
+              "astronomy.read"
+            ]
+          }
+        ],
         "_meta": {
           "securitySchemes": [
             {
@@ -957,6 +1019,17 @@
           "idempotentHint": true,
           "openWorldHint": false
         },
+        "securitySchemes": [
+          {
+            "type": "noauth"
+          },
+          {
+            "type": "oauth2",
+            "scopes": [
+              "astronomy.read"
+            ]
+          }
+        ],
         "_meta": {
           "securitySchemes": [
             {
@@ -1131,6 +1204,17 @@
           "idempotentHint": true,
           "openWorldHint": false
         },
+        "securitySchemes": [
+          {
+            "type": "noauth"
+          },
+          {
+            "type": "oauth2",
+            "scopes": [
+              "astronomy.read"
+            ]
+          }
+        ],
         "_meta": {
           "securitySchemes": [
             {
@@ -1279,6 +1363,17 @@
           "idempotentHint": true,
           "openWorldHint": false
         },
+        "securitySchemes": [
+          {
+            "type": "noauth"
+          },
+          {
+            "type": "oauth2",
+            "scopes": [
+              "astronomy.read"
+            ]
+          }
+        ],
         "_meta": {
           "securitySchemes": [
             {
@@ -1418,6 +1513,17 @@
           "idempotentHint": true,
           "openWorldHint": false
         },
+        "securitySchemes": [
+          {
+            "type": "noauth"
+          },
+          {
+            "type": "oauth2",
+            "scopes": [
+              "astronomy.read"
+            ]
+          }
+        ],
         "_meta": {
           "securitySchemes": [
             {
@@ -1586,6 +1692,17 @@
           "idempotentHint": true,
           "openWorldHint": false
         },
+        "securitySchemes": [
+          {
+            "type": "noauth"
+          },
+          {
+            "type": "oauth2",
+            "scopes": [
+              "astronomy.read"
+            ]
+          }
+        ],
         "_meta": {
           "securitySchemes": [
             {
@@ -1704,6 +1821,17 @@
           "idempotentHint": true,
           "openWorldHint": false
         },
+        "securitySchemes": [
+          {
+            "type": "noauth"
+          },
+          {
+            "type": "oauth2",
+            "scopes": [
+              "astronomy.read"
+            ]
+          }
+        ],
         "_meta": {
           "securitySchemes": [
             {

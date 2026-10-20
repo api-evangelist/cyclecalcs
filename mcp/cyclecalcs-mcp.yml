@@ -2,10 +2,11 @@ generated: '2026-08-09'
 method: searched
 status: published
 source: https://www.cyclecalcs.com/api/mcp.html
-description: CycleCalcs publishes a hosted, stateless Streamable HTTP MCP server that exposes eleven read-only astronomy tools, each backed
-  by exactly one live /v2 REST endpoint. The server speaks MCP revision 2026-07-28 and the earlier 2025 handshake revisions. `initialize`
-  and `tools/list` are answered anonymously, and tool calls work without a key up to 50 a day per network address; a RapidAPI key or OAuth
-  sign-in meters calls on the caller's own plan.
+description: CycleCalcs publishes a hosted, stateless Streamable HTTP MCP server that exposes eleven read-only
+  astronomy tools, each backed by exactly one live /v2 REST endpoint. The server speaks MCP revision 2026-07-28
+  and the earlier 2025 handshake revisions. `initialize` and `tools/list` are answered anonymously, and
+  tool calls work without a key up to 50 a day per network address; a RapidAPI key or OAuth sign-in meters
+  calls on the caller's own plan.
 server:
   name: cyclecalcs-astronomy
   title: CycleCalcs Astronomy
@@ -27,16 +28,20 @@ authentication:
     form: raw key, no Bearer prefix
   key_source: https://rapidapi.com/info-8KZIhinZ9/api/cyclecalcs-astronomy-api3
   free_tier: Basic plan is free
-  refusal_behavior: Past the keyless allowance, a call without a key gets a tool result saying how to continue with one, not an HTTP 401.
-  notes: "A key (Authorization: Bearer or X-Api-Key) meters tool calls on the caller's own RapidAPI plan. Claude and ChatGPT custom connectors
-    call from the app's servers, so without a key they share the keyless allowance of those addresses."
-  keyless_allowance: Tool calls without a key are served from the keyless API, up to 50 calls a day per network address over a rolling 24
-    hours (live serverInfo instructions and docs, 2026-10-03).
-  oauth: OAuth 2.1 with PKCE S256, dynamic client registration and client ID metadata documents, public clients only; discovery at
-    https://www.cyclecalcs.com/.well-known/oauth-protected-resource (scopes_supported astronomy.read).
+  refusal_behavior: Past the keyless allowance, a call without a key gets a tool result saying how to
+    continue with one, not an HTTP 401.
+  notes: 'A key (Authorization: Bearer or X-Api-Key) meters tool calls on the caller''s own RapidAPI plan.
+    Claude and ChatGPT custom connectors call from the app''s servers, so without a key they share the
+    keyless allowance of those addresses.'
+  keyless_allowance: Tool calls without a key are served from the keyless API, up to 50 calls a day per
+    network address over a rolling 24 hours (live serverInfo instructions and docs, 2026-10-03).
+  oauth: OAuth 2.1 with PKCE S256, dynamic client registration and client ID metadata documents, public
+    clients only; discovery at https://www.cyclecalcs.com/.well-known/oauth-protected-resource (scopes_supported
+    astronomy.read).
 clients:
 - name: Claude Code
-  install: 'claude mcp add --transport http cyclecalcs https://www.cyclecalcs.com/mcp --header "Authorization: Bearer YOUR_KEY"'
+  install: 'claude mcp add --transport http cyclecalcs https://www.cyclecalcs.com/mcp --header "Authorization:
+    Bearer YOUR_KEY"'
 - name: Claude web/desktop
   install: Custom connector with the server URL and an Authorization header
 tool_count: 11
@@ -47,110 +52,126 @@ tools:
   source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getToday
   input_schema: present
   output_schema: present
-  description: 'One-call snapshot of the whole sky for a place and moment: moon phase and illumination, which planets are up and worth looking
-    at, the next eclipse, and (with a location) sun times. Reach for this first when the question is broad, like "what is in the sky tonight".
-    For solar-day detail use astro_sun; for choosing an observing night use astro_dark_window; for one planet''s exact position use astro_positions.'
+  description: 'One-call snapshot of the whole sky for a place and moment: moon phase and illumination,
+    which planets are up and worth looking at, the next eclipse, and (with a location) sun times. Reach
+    for this first when the question is broad, like "what is in the sky tonight". For solar-day detail
+    use astro_sun; for choosing an observing night use astro_dark_window; for one planet''s exact position
+    use astro_positions.'
 - name: astro_sun
   title: Sunrise, sunset and twilight
   backing_endpoint: /v2/sun
   source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getSun
   input_schema: present
   output_schema: present
-  description: 'The complete solar day for one location: sunrise, sunset, solar noon, day length, civil, nautical and astronomical twilight boundaries,
-    and explicit polar day/night status at high latitudes. Location required. For a series, send start and end (step is whole days, e.g. "1d"
-    or "7d"). For "is it dark enough to observe" prefer astro_dark_window; for a broad snapshot prefer astro_sky_today.'
+  description: 'The complete solar day for one location: sunrise, sunset, solar noon, day length, civil,
+    nautical and astronomical twilight boundaries, and explicit polar day/night status at high latitudes.
+    Location required. For a series, send start and end (step is whole days, e.g. "1d" or "7d"). For "is
+    it dark enough to observe" prefer astro_dark_window; for a broad snapshot prefer astro_sky_today.'
 - name: astro_moon
   title: Moon state and appearance
   backing_endpoint: /v2/moon
   source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getMoon
   input_schema: present
   output_schema: present
-  description: 'The Moon at an instant or as a daily series: phase name and angle, illuminated fraction, distance, apparent size, libration, bright
-    limb, and the next quarter phases. A location adds rise/set and altitude. For a calendar of new and full moons use astro_moon_phases; for
-    the Moon''s exact coordinates use astro_positions.'
+  description: 'The Moon at an instant or as a daily series: phase name and angle, illuminated fraction,
+    distance, apparent size, libration, bright limb, and the next quarter phases. A location adds rise/set
+    and altitude. For a calendar of new and full moons use astro_moon_phases; for the Moon''s exact coordinates
+    use astro_positions.'
 - name: astro_moon_phases
   title: Lunar phase calendar
   backing_endpoint: /v2/phases
   source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getPhases
   input_schema: present
   output_schema: present
-  description: 'Every new moon, quarter and full moon in a window (or the next few from a date): each with its exact instant, distance, apparent
-    size, supermoon classification under both competing definitions, traditional full-moon name, and any eclipse falling on it. Use for "when
-    is the next full moon" and phase calendars. For the Moon''s state right now use astro_moon.'
+  description: 'Every new moon, quarter and full moon in a window (or the next few from a date): each
+    with its exact instant, distance, apparent size, supermoon classification under both competing definitions,
+    traditional full-moon name, and any eclipse falling on it. Use for "when is the next full moon" and
+    phase calendars. For the Moon''s state right now use astro_moon.'
 - name: astro_positions
   title: Precise positions of bodies
   backing_endpoint: /v2/positions
   source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getPositions
   input_schema: present
   output_schema: present
-  description: 'Exact positions for up to 20 bodies at an instant or over a time grid: right ascension and declination in both J2000 and of-date
-    frames, ecliptic longitude and latitude, distance, and, with a location, altitude and azimuth with refraction stated per field. With a location
-    the position is topocentric, but tropical_sign and constellation stay geocentric, and meta.conventions.label_origin says so. Use for "where
-    exactly is X". Do not pass earth. For rise and set TIMES use astro_rise_set; for a visibility overview of all planets use astro_planet_board.'
+  description: 'Exact positions for up to 20 bodies at an instant or over a time grid: right ascension
+    and declination in both J2000 and of-date frames, ecliptic longitude and latitude, distance, and,
+    with a location, altitude and azimuth with refraction stated per field. With a location the position
+    is topocentric, but tropical_sign and constellation stay geocentric, and meta.conventions.label_origin
+    says so. Use for "where exactly is X". Do not pass earth. For rise and set TIMES use astro_rise_set;
+    for a visibility overview of all planets use astro_planet_board.'
 - name: astro_rise_set
   title: Rise, transit and set times
   backing_endpoint: /v2/rise-set
   source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getRiseSet
   input_schema: present
   output_schema: present
-  description: Rise, upper transit, set and lower transit for one body at one location, with an explicit status at extreme latitudes
-    (circumpolar, never rises) instead of missing values. Accepts fixed radec targets. For the Sun specifically, astro_sun returns richer
-    twilight structure; for positions between events use astro_positions.
+  description: Rise, upper transit, set and lower transit for one body at one location, with an explicit
+    status at extreme latitudes (circumpolar, never rises) instead of missing values. Accepts fixed radec
+    targets. For the Sun specifically, astro_sun returns richer twilight structure; for positions between
+    events use astro_positions.
 - name: astro_eclipses
   title: Solar and lunar eclipses
   backing_endpoint: /v2/eclipses
   source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getEclipses
   input_schema: present
   output_schema: present
-  description: 'Solar and lunar eclipses: the next or previous from a date, or all in a range, with type, magnitude, obscuration, Saros series
-    and global geometry. A solar eclipse also carries a computed hybrid flag and, when central, the duration, path width and Sun altitude at greatest
-    eclipse. With a location it adds local circumstances, contact times, and an explicit visible-from-here answer; set visible_only to true to
-    keep only eclipses visible there. include adds the precomputed central path or the circumstances at greatest local eclipse. NOTE: count applies
-    per type, so count=3 with type "both" can return six events.'
+  description: 'Solar and lunar eclipses: the next or previous from a date, or all in a range, with type,
+    magnitude, obscuration, Saros series and global geometry. A solar eclipse also carries a computed
+    hybrid flag and, when central, the duration, path width and Sun altitude at greatest eclipse. With
+    a location it adds local circumstances, contact times, and an explicit visible-from-here answer; set
+    visible_only to true to keep only eclipses visible there. include adds the precomputed central path
+    or the circumstances at greatest local eclipse. NOTE: count applies per type, so count=3 with type
+    "both" can return six events.'
 - name: astro_dark_window
   title: Dark moonless observing window
   backing_endpoint: /v2/dark-window
   source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getDarkWindow
   input_schema: present
   output_schema: present
-  description: 'The genuinely dark, moonless observing window for a night: astronomical night intersected with the Moon being down, ranked across
-    up to 62 nights with a trend. The right tool for "when should I stargaze / photograph the Milky Way / observe deep-sky objects". Location
-    required. For plain twilight times use astro_sun.'
+  description: 'The genuinely dark, moonless observing window for a night: astronomical night intersected
+    with the Moon being down, ranked across up to 62 nights with a trend. The right tool for "when should
+    I stargaze / photograph the Milky Way / observe deep-sky objects". Location required. For plain twilight
+    times use astro_sun.'
 - name: astro_planet_board
   title: All planets at a glance
   backing_endpoint: /v2/planet-board
   source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getPlanetBoard
   input_schema: present
   output_schema: present
-  description: 'All eight planets in one call for a date and optional location: constellation, magnitude, apparent size, elongation from the Sun,
-    morning or evening sky, retrograde state with the next station, rise/set, and a worth-looking-tonight assessment. The right tool for "which
-    planets are visible tonight". For exact coordinates of specific bodies use astro_positions.'
+  description: 'All eight planets in one call for a date and optional location: constellation, magnitude,
+    apparent size, elongation from the Sun, morning or evening sky, retrograde state with the next station,
+    rise/set, and a worth-looking-tonight assessment. The right tool for "which planets are visible tonight".
+    For exact coordinates of specific bodies use astro_positions.'
 - name: astro_planet_events
   title: 'Planet events: apparitions, oppositions, constellation entries'
   backing_endpoint: /v2/planet-events
   source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getPlanetEvents
   input_schema: present
   output_schema: present
-  description: 'Dated planet events. For Mercury and Venus, the apparition cycle: inferior and superior conjunctions, greatest eastern and western
-    elongations, peak brightness (a Venus-only event: Mercury''s brightness peaks behind the Sun where it cannot be seen), and the rare transits
-    across the Sun; with no dates it also reports where each is in its cycle right now: morning star or evening star, the conjunctions bounding
-    the current apparition, and the live elongation, phase, magnitude and apparent size. For Mars, Jupiter, Saturn, Uranus and Neptune: conjunction
-    with the Sun, western quadrature, opposition and eastern quadrature, the instants the planet''s apparent geocentric ecliptic longitude minus
-    the Sun''s reaches 0, 270, 180 and 90 deg, each with the planet''s constellation, distance, magnitude and elongation. For any of the seven,
-    constellation_entry, returned only when listed in kinds: each crossing of an IAU constellation boundary, with the two constellations and the
-    direction of motion. The right tool for "when does Venus become the morning star", "when is Mars at opposition", or "when does Uranus cross
-    from Taurus into Gemini". For tonight''s visibility of all eight planets use astro_planet_board. Mercury and Venus conjunction instants use
-    the classical heliocentric convention, named on each event.'
+  description: 'Dated planet events. For Mercury and Venus, the apparition cycle: inferior and superior
+    conjunctions, greatest eastern and western elongations, peak brightness (a Venus-only event: Mercury''s
+    brightness peaks behind the Sun where it cannot be seen), and the rare transits across the Sun; with
+    no dates it also reports where each is in its cycle right now: morning star or evening star, the conjunctions
+    bounding the current apparition, and the live elongation, phase, magnitude and apparent size. For
+    Mars, Jupiter, Saturn, Uranus and Neptune: conjunction with the Sun, western quadrature, opposition
+    and eastern quadrature, the instants the planet''s apparent geocentric ecliptic longitude minus the
+    Sun''s reaches 0, 270, 180 and 90 deg, each with the planet''s constellation, distance, magnitude
+    and elongation. For any of the seven, constellation_entry, returned only when listed in kinds: each
+    crossing of an IAU constellation boundary, with the two constellations and the direction of motion.
+    The right tool for "when does Venus become the morning star", "when is Mars at opposition", or "when
+    does Uranus cross from Taurus into Gemini". For tonight''s visibility of all eight planets use astro_planet_board.
+    Mercury and Venus conjunction instants use the classical heliocentric convention, named on each event.'
 - name: astro_find_place
   title: Place name to coordinates and timezone
   backing_endpoint: /v2/places
   source_operation: openapi/cyclecalcs-astronomy-openapi-original.json#getPlaces
   input_schema: present
   output_schema: present
-  description: Resolve a place name to coordinates, region, country, IANA timezone and a stable place_id, or reverse-look-up the nearest
-    places to a lat/lon. Results are GeoNames data (CC BY 4.0); the response carries the required credit in its attribution field, which
-    must be preserved when results are shown. Note the other tools accept a place argument directly, so this is only needed to disambiguate
-    a name, filter by country, or reverse-geocode.
+  description: Resolve a place name to coordinates, region, country, IANA timezone and a stable place_id,
+    or reverse-look-up the nearest places to a lat/lon. Results are GeoNames data (CC BY 4.0); the response
+    carries the required credit in its attribution field, which must be preserved when results are shown.
+    Note the other tools accept a place argument directly, so this is only needed to disambiguate a name,
+    filter by country, or reverse-geocode.
 manifest:
   file: cyclecalcs-mcp-tools-list.json
   captured_from: POST https://www.cyclecalcs.com/mcp {"jsonrpc":"2.0","id":1,"method":"tools/list"}
@@ -158,9 +179,9 @@ x-evidence:
   fetched: '2026-10-03'
   url: https://www.cyclecalcs.com/mcp
   http_status: 200
-  note: 'Re-probed 2026-10-03: initialize returned serverInfo cyclecalcs-astronomy 1.0.0 (title CycleCalcs Astronomy); tools/list answered anonymously
-    with all 11 tools including inputSchema and outputSchema. Saved verbatim to mcp/cyclecalcs-mcp-tools-list.json; tool descriptions above are
-    the live text verbatim.'
+  note: 'Re-probed 2026-10-03: initialize returned serverInfo cyclecalcs-astronomy 1.0.0 (title CycleCalcs
+    Astronomy); tools/list answered anonymously with all 11 tools including inputSchema and outputSchema.
+    Saved verbatim to mcp/cyclecalcs-mcp-tools-list.json; tool descriptions above are the live text verbatim.'
 deployment:
   mode: remote
   endpoint: https://www.cyclecalcs.com/mcp
@@ -169,5 +190,40 @@ deployment:
   tools: 11
   checked: '2026-10-03'
   source: hand re-probe 2026-10-03 (correction request)
-descriptions_source: live tools/list, re-probed by hand 2026-10-03 (initialize + tools/list against https://www.cyclecalcs.com/mcp); all 11
-  carried verbatim
+descriptions_source: live tools/list, re-probed by hand 2026-10-03 (initialize + tools/list against https://www.cyclecalcs.com/mcp);
+  all 11 carried verbatim
+tool_quality:
+  tool_count: 11
+  tokens_total: 16347
+  tokens_per_tool_median: 1411
+  heavy_tools:
+  - name: astro_sun
+    tokens: 2019
+  - name: astro_planet_events
+    tokens: 2002
+  - name: astro_eclipses
+    tokens: 1993
+  - name: astro_moon
+    tokens: 1758
+  - name: astro_positions
+    tokens: 1476
+  heavy_tool_count: 7
+  params_total: 96
+  params_undescribed: 0
+  params_described_pct: 100.0
+  tools_with_undescribed_params: 0
+  tools_annotated: 11
+  annotated_pct: 100.0
+  state_changing_unhinted: []
+  tools_missing_schema: 0
+  short_descriptions: 0
+  duplicate_descriptions: 0
+  duplicate_names: 0
+  nonportable_names: []
+  output_schema_count: 11
+  token_estimate: chars/3.6 of each compact tool definition
+  source: mcp/cyclecalcs-mcp-tools-list.json
+  measured: '2026-10-20'
+  scored: false
+  note: Facts from the saved tools/list capture (mcp_tool_quality.py); recorded, not scored. Checks learned
+    from Glimind's agent-readiness audit.
