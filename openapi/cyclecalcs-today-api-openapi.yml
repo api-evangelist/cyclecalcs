@@ -677,3 +677,9 @@ components:
 externalDocs:
   description: Human-readable endpoint reference
   url: https://www.cyclecalcs.com/api/reference.html
+x-provenance:
+  method: harvested
+  publisher: CycleCalcs
+  source: https://www.cyclecalcs.com/v2/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
